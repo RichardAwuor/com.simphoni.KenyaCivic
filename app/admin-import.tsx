@@ -16,7 +16,7 @@ import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
 import { apiPost } from "@/utils/api";
 
-// Polling station data from Port Reitz, Kipevu, Airport, Changamwe, and Chaani Wards, Changamwe Constituency, Mombasa County
+// Polling station data from Port Reitz, Kipevu, Airport, Changamwe, Chaani Wards (Changamwe Constituency) and Jomvu Kuu Ward (Jomvu Constituency), Mombasa County
 const POLLING_STATION_DATA = [
   // PORT REITZ WARD (0001)
   {
@@ -1155,7 +1155,7 @@ const POLLING_STATION_DATA = [
     pollingStationName: "AIC CHURCH HALL",
     registeredVoters: 56,
   },
-  // CHAANI WARD (0005) - NEW DATA
+  // CHAANI WARD (0005)
   {
     countyCode: "001",
     countyName: "MOMBASA",
@@ -1508,6 +1508,337 @@ const POLLING_STATION_DATA = [
     pollingStationName: "CHAANI PRIMARY SCHOOL",
     registeredVoters: 639,
   },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0005",
+    wardName: "CHAANI",
+    pollingStationCode: "001001000502408",
+    pollingStationName: "CHAANI PRIMARY SCHOOL",
+    registeredVoters: 639,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0005",
+    wardName: "CHAANI",
+    pollingStationCode: "001001000502409",
+    pollingStationName: "CHAANI PRIMARY SCHOOL",
+    registeredVoters: 639,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0005",
+    wardName: "CHAANI",
+    pollingStationCode: "001001000503101",
+    pollingStationName: "CHAANI SECONDARY SCHOOL",
+    registeredVoters: 113,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0005",
+    wardName: "CHAANI",
+    pollingStationCode: "001001000503301",
+    pollingStationName: "CHAANI CHIEF'S OFFICE",
+    registeredVoters: 558,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0005",
+    wardName: "CHAANI",
+    pollingStationCode: "001001000503501",
+    pollingStationName: "KASARANI GROUNDS",
+    registeredVoters: 131,
+  },
+  // JOMVU KUU WARD (0006) - NEW DATA FROM USER REQUEST
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600101",
+    pollingStationName: "MIRITINI WORLD BANK PRIMARY SCHO",
+    registeredVoters: 634,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600102",
+    pollingStationName: "MIRITINI WORLD BANK PRIMARY SCHO",
+    registeredVoters: 634,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600103",
+    pollingStationName: "MIRITINI WORLD BANK PRIMARY SCHO",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600104",
+    pollingStationName: "MIRITINI WORLD BANK PRIMARY SCHO",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600105",
+    pollingStationName: "MIRITINI WORLD BANK PRIMARY SCHO",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600106",
+    pollingStationName: "MIRITINI WORLD BANK PRIMARY SCHO",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600107",
+    pollingStationName: "MIRITINI WORLD BANK PRIMARY SCHO",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600108",
+    pollingStationName: "MIRITINI WORLD BANK PRIMARY SCHO",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600201",
+    pollingStationName: "JOMVU KUU PRIMARY SCHOOL",
+    registeredVoters: 634,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600202",
+    pollingStationName: "JOMVU KUU PRIMARY SCHOOL",
+    registeredVoters: 634,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600203",
+    pollingStationName: "JOMVU KUU PRIMARY SCHOOL",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600204",
+    pollingStationName: "JOMVU KUU PRIMARY SCHOOL",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600205",
+    pollingStationName: "JOMVU KUU PRIMARY SCHOOL",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600206",
+    pollingStationName: "JOMVU KUU PRIMARY SCHOOL",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600207",
+    pollingStationName: "JOMVU KUU PRIMARY SCHOOL",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600208",
+    pollingStationName: "JOMVU KUU PRIMARY SCHOOL",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600209",
+    pollingStationName: "JOMVU KUU PRIMARY SCHOOL",
+    registeredVoters: 633,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600301",
+    pollingStationName: "TARATIBU SOCIAL HALL",
+    registeredVoters: 471,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600302",
+    pollingStationName: "TARATIBU SOCIAL HALL",
+    registeredVoters: 470,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600401",
+    pollingStationName: "MIRIRONI PRIMARY SCHOOL",
+    registeredVoters: 468,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600601",
+    pollingStationName: "JOMVU NARCOL NURSERY SCHOOL",
+    registeredVoters: 538,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600602",
+    pollingStationName: "JOMVU NARCOL NURSERY SCHOOL",
+    registeredVoters: 538,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600603",
+    pollingStationName: "JOMVU NARCOL NURSERY SCHOOL",
+    registeredVoters: 538,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600701",
+    pollingStationName: "SWALEH KHALID SOCIAL HALL",
+    registeredVoters: 682,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "002",
+    constituencyName: "JOMVU",
+    wardCode: "0006",
+    wardName: "JOMVU KUU",
+    pollingStationCode: "001002000600702",
+    pollingStationName: "SWALEH KHALID SOCIAL HALL",
+    registeredVoters: 682,
+  },
 ];
 
 export default function AdminImportScreen() {
@@ -1558,7 +1889,9 @@ export default function AdminImportScreen() {
   const totalStations = POLLING_STATION_DATA.length;
   const uniqueLocations = new Set(POLLING_STATION_DATA.map(s => s.pollingStationName)).size;
   const wards = new Set(POLLING_STATION_DATA.map(s => s.wardName));
+  const constituencies = new Set(POLLING_STATION_DATA.map(s => s.constituencyName));
   const wardsList = Array.from(wards).join(", ");
+  const constituenciesList = Array.from(constituencies).join(", ");
 
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
@@ -1593,7 +1926,7 @@ export default function AdminImportScreen() {
 
         <Text style={styles.title}>Polling Station Data Import</Text>
         <Text style={styles.subtitle}>
-          Import polling station data for Changamwe Constituency, Mombasa County
+          Import polling station data for Mombasa County
         </Text>
 
         <View style={styles.infoCard}>
@@ -1602,8 +1935,8 @@ export default function AdminImportScreen() {
             <Text style={styles.infoValue}>MOMBASA (001)</Text>
           </View>
           <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>Constituency:</Text>
-            <Text style={styles.infoValue}>CHANGAMWE (001)</Text>
+            <Text style={styles.infoLabel}>Constituencies:</Text>
+            <Text style={styles.infoValue}>{constituenciesList}</Text>
           </View>
           <View style={styles.infoRow}>
             <Text style={styles.infoLabel}>Wards:</Text>
@@ -1627,15 +1960,17 @@ export default function AdminImportScreen() {
             const stationName = station.pollingStationName;
             const voters = station.registeredVoters;
             const wardName = station.wardName;
+            const constituencyName = station.constituencyName;
             
             return (
               <View key={index} style={styles.stationItem}>
                 <View style={styles.stationInfo}>
                   <Text style={styles.stationName}>{stationName}</Text>
                   <View style={styles.stationMetaRow}>
+                    <Text style={styles.stationConstituency}>{constituencyName}</Text>
                     <Text style={styles.stationWard}>{wardName}</Text>
-                    <Text style={styles.stationCode}>{stationCode}</Text>
                   </View>
+                  <Text style={styles.stationCode}>{stationCode}</Text>
                 </View>
                 <Text style={styles.stationVoters}>{voters}</Text>
               </View>
@@ -1814,6 +2149,16 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
+    marginBottom: 4,
+  },
+  stationConstituency: {
+    fontSize: 11,
+    color: colors.success || colors.primary,
+    fontWeight: "600",
+    backgroundColor: colors.successLight || colors.lightGray,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 4,
   },
   stationWard: {
     fontSize: 11,

@@ -8,12 +8,14 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   RefreshControl,
+  Image,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
 import { useAuth } from "@/contexts/AuthContext";
+import { apiGet } from "@/utils/api";
 
 interface CandidateTally {
   firstName: string;
@@ -28,7 +30,6 @@ export default function DashboardScreen() {
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [candidateTallies, setCandidateTallies] = useState<CandidateTally[]>([]);
-  const [selectedCounty, setSelectedCounty] = useState<string>("");
 
   useEffect(() => {
     console.log("Dashboard screen loaded");
@@ -36,20 +37,15 @@ export default function DashboardScreen() {
   }, []);
 
   const loadDashboardData = async () => {
-    console.log("Loading dashboard data");
+    console.log("[Dashboard] Loading dashboard data");
     setLoading(true);
     try {
-      // TODO: Backend Integration - GET /api/reports/candidate-tallies
-      // Returns: [{ firstName, lastName, partyName, totalVotes }]
-      
-      // Simulate data for now
-      setCandidateTallies([
-        { firstName: "John", lastName: "Doe", partyName: "Party A", totalVotes: 15000 },
-        { firstName: "Jane", lastName: "Smith", partyName: "Party B", totalVotes: 12000 },
-        { firstName: "Bob", lastName: "Johnson", partyName: "Party C", totalVotes: 8000 },
-      ]);
+      const tallies = await apiGet<CandidateTally[]>("/api/reports/candidate-tallies");
+      console.log("[Dashboard] Candidate tallies loaded:", tallies);
+      setCandidateTallies(tallies);
     } catch (error) {
-      console.error("Error loading dashboard data:", error);
+      console.error("[Dashboard] Error loading dashboard data:", error);
+      setCandidateTallies([]);
     } finally {
       setLoading(false);
     }
@@ -121,9 +117,16 @@ export default function DashboardScreen() {
         }
       >
         <View style={styles.header}>
-          <View>
-            <Text style={styles.logo}>CIVIC</Text>
-            <Text style={styles.slogan}>WANJIKU@63</Text>
+          <View style={styles.headerLeft}>
+            <Image
+              source={require("@/assets/images/16c30a17-865f-4ec0-8d78-4cb83856d9a1.png")}
+              style={styles.logoSmall}
+              resizeMode="contain"
+            />
+            <View>
+              <Text style={styles.logo}>CIVIC</Text>
+              <Text style={styles.slogan}>WANJIKU@63</Text>
+            </View>
           </View>
           <TouchableOpacity
             style={styles.notificationButton}
@@ -216,13 +219,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
   },
+  headerLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  logoSmall: {
+    width: 40,
+    height: 40,
+    marginRight: 12,
+  },
   logo: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: "bold",
     color: colors.primary,
   },
   slogan: {
-    fontSize: 12,
+    fontSize: 10,
     color: colors.secondary,
     fontWeight: "600",
   },

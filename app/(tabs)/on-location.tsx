@@ -8,6 +8,7 @@ import {
   ScrollView,
   Platform,
   Modal,
+  Image,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
@@ -65,18 +66,15 @@ export default function OnLocationScreen() {
     }
     
     try {
-      // Get agent videos
       const videos = await authenticatedGet<any[]>(`/api/incidents/agent-videos/${user.id}`);
       console.log("[OnLocation] Agent videos:", videos);
       setVideoCount(videos.length);
       
-      // Get agent form
       try {
         const form = await authenticatedGet<any>(`/api/forms/agent-form/${user.id}`);
         console.log("[OnLocation] Agent form:", form);
         setHasForm34A(!!form);
       } catch (formError: any) {
-        // 404 means no form submitted yet
         if (formError.message?.includes("404")) {
           setHasForm34A(false);
         } else {
@@ -85,7 +83,6 @@ export default function OnLocationScreen() {
       }
     } catch (error: any) {
       console.error("[OnLocation] Error checking agent status:", error);
-      // Don't show error to user, just use defaults
       setVideoCount(0);
       setHasForm34A(false);
     }
@@ -104,7 +101,6 @@ export default function OnLocationScreen() {
       return;
     }
     
-    // Navigate to camera screen (NOT in tabs folder)
     router.push("/camera");
   };
 
@@ -116,7 +112,6 @@ export default function OnLocationScreen() {
       return;
     }
     
-    // Navigate to scan form screen (NOT in tabs folder)
     router.push("/scan-form");
   };
 
@@ -131,8 +126,15 @@ export default function OnLocationScreen() {
     <SafeAreaView style={styles.container} edges={["top"]}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
-          <Text style={styles.title}>On-Location</Text>
-          <Text style={styles.subtitle}>Report incidents and submit Form 34A</Text>
+          <Image
+            source={require("@/assets/images/16c30a17-865f-4ec0-8d78-4cb83856d9a1.png")}
+            style={styles.logoSmall}
+            resizeMode="contain"
+          />
+          <View style={styles.headerText}>
+            <Text style={styles.title}>On-Location</Text>
+            <Text style={styles.subtitle}>Report incidents and submit Form 34A</Text>
+          </View>
         </View>
 
         <View style={styles.locationCard}>
@@ -289,13 +291,22 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   header: {
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 20,
   },
+  logoSmall: {
+    width: 50,
+    height: 50,
+    marginRight: 12,
+  },
+  headerText: {
+    flex: 1,
+  },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: "bold",
     color: colors.text,
-    marginBottom: 4,
   },
   subtitle: {
     fontSize: 14,

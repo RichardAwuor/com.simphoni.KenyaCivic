@@ -10,6 +10,7 @@ import {
   ActivityIndicator,
   Platform,
   Modal,
+  Image,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
@@ -130,7 +131,14 @@ export default function ProfileScreen() {
     <SafeAreaView style={styles.container} edges={["top"]}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
-          <Text style={styles.title}>Profile</Text>
+          <View style={styles.headerLeft}>
+            <Image
+              source={require("@/assets/images/16c30a17-865f-4ec0-8d78-4cb83856d9a1.png")}
+              style={styles.logoSmall}
+              resizeMode="contain"
+            />
+            <Text style={styles.title}>Profile</Text>
+          </View>
           <TouchableOpacity
             style={styles.editButton}
             onPress={() => setEditing(!editing)}
@@ -225,25 +233,6 @@ export default function ProfileScreen() {
         )}
 
         <View style={styles.actionsSection}>
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => console.log("Change password tapped")}
-          >
-            <IconSymbol
-              ios_icon_name="lock.fill"
-              android_material_icon_name="lock"
-              size={24}
-              color={colors.text}
-            />
-            <Text style={styles.actionButtonText}>Change Password</Text>
-            <IconSymbol
-              ios_icon_name="chevron.right"
-              android_material_icon_name="chevron-right"
-              size={24}
-              color={colors.textSecondary}
-            />
-          </TouchableOpacity>
-
           <TouchableOpacity
             style={styles.actionButton}
             onPress={() => console.log("Biometric settings tapped")}
@@ -352,8 +341,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
   },
+  headerLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  logoSmall: {
+    width: 40,
+    height: 40,
+    marginRight: 12,
+  },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: "bold",
     color: colors.text,
   },

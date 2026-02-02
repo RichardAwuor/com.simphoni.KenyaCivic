@@ -10,12 +10,14 @@ import {
   ActivityIndicator,
   Alert,
   Modal,
+  Image,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
 import { useAuth } from "@/contexts/AuthContext";
+import { authenticatedGet, authenticatedPut } from "@/utils/api";
 
 interface AgentProfile {
   agentCode: string;
@@ -35,7 +37,6 @@ export default function ProfileScreen() {
   const [profile, setProfile] = useState<AgentProfile | null>(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [showSignOutModal, setShowSignOutModal] = useState(false);
 
   useEffect(() => {
     console.log("Profile screen loaded");
@@ -43,36 +44,25 @@ export default function ProfileScreen() {
   }, []);
 
   const loadProfile = async () => {
-    console.log("Loading agent profile");
+    console.log("[Profile] Loading agent profile");
     setLoading(true);
     try {
-      // TODO: Backend Integration - GET /api/auth/agent-profile
-      // Returns: agent profile with agentCode and name
+      const profileData = await authenticatedGet<AgentProfile>("/api/agents/profile");
+      console.log("[Profile] Profile loaded:", profileData);
       
-      // Simulate data for now
-      const mockProfile: AgentProfile = {
-        agentCode: "MOMBASA-001-0001-01",
-        firstName: "John",
-        lastName: "Doe",
-        email: "john.doe@example.com",
-        countyName: "MOMBASA",
-        constituencyName: "CHANGAMWE",
-        wardName: "PORT REITZ",
-      };
-      
-      setProfile(mockProfile);
-      setFirstName(mockProfile.firstName);
-      setLastName(mockProfile.lastName);
-    } catch (error) {
-      console.error("Error loading profile:", error);
-      Alert.alert("Error", "Failed to load profile");
+      setProfile(profileData);
+      setFirstName(profileData.firstName);
+      setLastName(profileData.lastName);
+    } catch (error: any) {
+      console.error("[Profile] Error loading profile:", error);
+      Alert.alert("Error", error.message || "Failed to load profile");
     } finally {
       setLoading(false);
     }
   };
 
   const handleSaveProfile = async () => {
-    console.log("User tapped Save Profile");
+    console.log("[Profile] User tapped Save Profile");
     
     if (!firstName || !lastName) {
       Alert.alert("Error", "Please enter first and last name");
@@ -81,37 +71,49 @@ export default function ProfileScreen() {
 
     setLoading(true);
     try {
-      // TODO: Backend Integration - PUT /api/auth/update-agent-profile
-      // Body: { firstName, lastName }
-      // Returns: updated agent profile
+      const updatedProfile = await authenticatedPut<AgentProfile>("/api/agents/profile", {
+        firstName,
+        lastName,
+      });
       
-      console.log("Saving profile:", { firstName, lastName });
+      console.log("[Profile] Profile updated:", updatedProfile);
       
-      if (profile) {
-        setProfile({ ...profile, firstName, lastName });
-      }
-      
+      setProfile(updatedProfile);
       setEditing(false);
       Alert.alert("Success", "Profile updated successfully");
-    } catch (error) {
-      console.error("Error saving profile:", error);
-      Alert.alert("Error", "Failed to update profile");
+    } catch (error: any) {
+      console.error("[Profile] Error saving profile:", error);
+      Alert.alert("Error", error.message || "Failed to update profile");
     } finally {
       setLoading(false);
     }
   };
 
-  const handleSignOut = async () => {
-    console.log("User confirmed sign out");
-    setShowSignOutModal(false);
-    
-    try {
-      await signOut();
-      router.replace("/auth");
-    } catch (error) {
-      console.error("Error signing out:", error);
-      Alert.alert("Error", "Failed to sign out");
-    }
+  const handleSignOut = () => {
+    console.log("[Profile] User tapped Sign Out");
+    Alert.alert(
+      "Sign Out",
+      "Are you sure you want to sign out?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Sign Out",
+          style: "destructive",
+          onPress: async () => {
+            try {
+              await signOut();
+              router.replace("/auth");
+            } catch (error: any) {
+              console.error("[Profile] Error signing out:", error);
+              Alert.alert("Error", error.message || "Failed to sign out");
+            }
+          },
+        },
+      ]
+    );
   };
 
   if (loading && !profile) {
@@ -133,7 +135,14 @@ export default function ProfileScreen() {
     <SafeAreaView style={styles.container} edges={["top"]}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.header}>
-          <Text style={styles.title}>Profile</Text>
+          <View style={styles.headerLeft}>
+            <Image
+              source={require("@/assets/images/16c30a17-865f-4ec0-8d78-4cb83856d9a1.png")}
+              style={styles.logoSmall}
+              resizeMode="contain"
+            />
+            <Text style={styles.title}>Profile</Text>
+          </View>
           <TouchableOpacity
             style={styles.editButton}
             onPress={() => setEditing(!editing)}
@@ -230,25 +239,6 @@ export default function ProfileScreen() {
         <View style={styles.actionsSection}>
           <TouchableOpacity
             style={styles.actionButton}
-            onPress={() => console.log("Change password tapped")}
-          >
-            <IconSymbol
-              ios_icon_name="lock.fill"
-              android_material_icon_name="lock"
-              size={24}
-              color={colors.text}
-            />
-            <Text style={styles.actionButtonText}>Change Password</Text>
-            <IconSymbol
-              ios_icon_name="chevron.right"
-              android_material_icon_name="chevron-right"
-              size={24}
-              color={colors.textSecondary}
-            />
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.actionButton}
             onPress={() => console.log("Biometric settings tapped")}
           >
             <IconSymbol
@@ -268,7 +258,7 @@ export default function ProfileScreen() {
 
           <TouchableOpacity
             style={[styles.actionButton, styles.signOutButton]}
-            onPress={() => setShowSignOutModal(true)}
+            onPress={handleSignOut}
           >
             <IconSymbol
               ios_icon_name="arrow.right.square.fill"
@@ -280,36 +270,6 @@ export default function ProfileScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
-
-      <Modal
-        visible={showSignOutModal}
-        transparent
-        animationType="fade"
-        onRequestClose={() => setShowSignOutModal(false)}
-      >
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Sign Out</Text>
-            <Text style={styles.modalMessage}>
-              Are you sure you want to sign out?
-            </Text>
-            <View style={styles.modalButtons}>
-              <TouchableOpacity
-                style={[styles.modalButton, styles.modalButtonCancel]}
-                onPress={() => setShowSignOutModal(false)}
-              >
-                <Text style={styles.modalButtonTextCancel}>Cancel</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.modalButton, styles.modalButtonConfirm]}
-                onPress={handleSignOut}
-              >
-                <Text style={styles.modalButtonTextConfirm}>Sign Out</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
     </SafeAreaView>
   );
 }
@@ -334,8 +294,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
   },
+  headerLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  logoSmall: {
+    width: 40,
+    height: 40,
+    marginRight: 12,
+  },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: "bold",
     color: colors.text,
   },
@@ -427,56 +396,5 @@ const styles = StyleSheet.create({
   },
   signOutText: {
     color: colors.error,
-  },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  modalContent: {
-    backgroundColor: colors.card,
-    borderRadius: 12,
-    padding: 24,
-    width: "80%",
-    maxWidth: 400,
-  },
-  modalTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: colors.text,
-    marginBottom: 12,
-  },
-  modalMessage: {
-    fontSize: 16,
-    color: colors.textSecondary,
-    marginBottom: 24,
-  },
-  modalButtons: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  modalButton: {
-    flex: 1,
-    padding: 12,
-    borderRadius: 8,
-    alignItems: "center",
-    marginHorizontal: 6,
-  },
-  modalButtonCancel: {
-    backgroundColor: colors.border,
-  },
-  modalButtonConfirm: {
-    backgroundColor: colors.error,
-  },
-  modalButtonTextCancel: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: colors.text,
-  },
-  modalButtonTextConfirm: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: colors.textLight,
   },
 });

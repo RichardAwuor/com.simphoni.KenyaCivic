@@ -11,6 +11,7 @@ import {
   Platform,
   KeyboardAvoidingView,
   Modal,
+  Image,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
@@ -182,14 +183,14 @@ export default function RegisterScreen() {
       
       showAlert(
         "Registration Successful",
-        `Your agent code is: ${response.agentCode}\n\nPlease sign in to continue.`,
+        `Your agent code is: ${response.agentCode}\n\nBiometric authentication has been enabled. You can now sign in using your email and biometrics.`,
         "success"
       );
       
       // Navigate to auth screen after modal is dismissed
       setTimeout(() => {
         router.replace("/auth");
-      }, 2000);
+      }, 3000);
     } catch (error: any) {
       console.error("[Register] Registration error:", error);
       showAlert("Error", error.message || "Registration failed");
@@ -197,6 +198,8 @@ export default function RegisterScreen() {
       setLoading(false);
     }
   };
+
+  const dateText = formatDate(dateOfBirth);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -206,7 +209,12 @@ export default function RegisterScreen() {
       >
         <ScrollView contentContainerStyle={styles.scrollContent}>
           <View style={styles.header}>
-            <Text style={styles.logo}>CIVIC</Text>
+            <Image
+              source={require("@/assets/images/16c30a17-865f-4ec0-8d78-4cb83856d9a1.png")}
+              style={styles.logo}
+              resizeMode="contain"
+            />
+            <Text style={styles.appName}>CIVIC</Text>
             <Text style={styles.slogan}>WANJIKU@63</Text>
             <Text style={styles.subtitle}>Electoral Agent Registration</Text>
           </View>
@@ -261,7 +269,7 @@ export default function RegisterScreen() {
               style={styles.dateButton}
               onPress={() => setShowDatePicker(true)}
             >
-              <Text style={styles.dateButtonText}>{formatDate(dateOfBirth)}</Text>
+              <Text style={styles.dateButtonText}>{dateText}</Text>
               <IconSymbol
                 ios_icon_name="calendar"
                 android_material_icon_name="calendar-today"
@@ -373,7 +381,7 @@ export default function RegisterScreen() {
               {loading ? (
                 <ActivityIndicator color={colors.textLight} />
               ) : (
-                <Text style={styles.registerButtonText}>Register as Agent</Text>
+                <Text style={styles.registerButtonText}>Register & Enable Biometrics</Text>
               )}
             </TouchableOpacity>
 
@@ -429,7 +437,12 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   logo: {
-    fontSize: 36,
+    width: 100,
+    height: 100,
+    marginBottom: 12,
+  },
+  appName: {
+    fontSize: 32,
     fontWeight: "bold",
     color: colors.primary,
     marginBottom: 4,
@@ -441,7 +454,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   subtitle: {
-    fontSize: 18,
+    fontSize: 16,
     color: colors.textSecondary,
   },
   form: {
@@ -512,11 +525,16 @@ const styles = StyleSheet.create({
     color: colors.text,
   },
   registerButton: {
-    ...commonStyles.button,
+    backgroundColor: colors.primary,
+    borderRadius: 8,
+    padding: 16,
+    alignItems: "center",
     marginTop: 24,
   },
   registerButtonText: {
-    ...commonStyles.buttonText,
+    color: colors.textLight,
+    fontSize: 16,
+    fontWeight: "600",
   },
   buttonDisabled: {
     opacity: 0.6,

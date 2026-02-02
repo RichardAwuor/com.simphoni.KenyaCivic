@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
   RefreshControl,
   Platform,
+  Image,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
@@ -30,7 +31,6 @@ export default function DashboardScreen() {
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
   const [candidateTallies, setCandidateTallies] = useState<CandidateTally[]>([]);
-  const [selectedCounty, setSelectedCounty] = useState<string>("");
 
   useEffect(() => {
     console.log("Dashboard screen loaded");
@@ -46,7 +46,6 @@ export default function DashboardScreen() {
       setCandidateTallies(tallies);
     } catch (error) {
       console.error("[Dashboard] Error loading dashboard data:", error);
-      // Set empty array on error
       setCandidateTallies([]);
     } finally {
       setLoading(false);
@@ -119,9 +118,16 @@ export default function DashboardScreen() {
         }
       >
         <View style={styles.header}>
-          <View>
-            <Text style={styles.logo}>CIVIC</Text>
-            <Text style={styles.slogan}>WANJIKU@63</Text>
+          <View style={styles.headerLeft}>
+            <Image
+              source={require("@/assets/images/16c30a17-865f-4ec0-8d78-4cb83856d9a1.png")}
+              style={styles.logoSmall}
+              resizeMode="contain"
+            />
+            <View>
+              <Text style={styles.logo}>CIVIC</Text>
+              <Text style={styles.slogan}>WANJIKU@63</Text>
+            </View>
           </View>
           <TouchableOpacity
             style={styles.notificationButton}
@@ -215,13 +221,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
   },
+  headerLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  logoSmall: {
+    width: 40,
+    height: 40,
+    marginRight: 12,
+  },
   logo: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: "bold",
     color: colors.primary,
   },
   slogan: {
-    fontSize: 12,
+    fontSize: 10,
     color: colors.secondary,
     fontWeight: "600",
   },

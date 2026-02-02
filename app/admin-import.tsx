@@ -16,8 +16,9 @@ import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
 import { apiPost } from "@/utils/api";
 
-// Polling station data from Port Reitz Ward, Changamwe Constituency, Mombasa County
+// Polling station data from Port Reitz and Kipevu Wards, Changamwe Constituency, Mombasa County
 const POLLING_STATION_DATA = [
+  // PORT REITZ WARD (0001)
   {
     countyCode: "001",
     countyName: "MOMBASA",
@@ -205,6 +206,293 @@ const POLLING_STATION_DATA = [
     pollingStationName: "FULL GOSPEL CHURCH GROUND",
     registeredVoters: 73,
   },
+  // KIPEVU WARD (0002)
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200401",
+    pollingStationName: "UMOJA PRIMARY SCHOOL",
+    registeredVoters: 672,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200402",
+    pollingStationName: "UMOJA PRIMARY SCHOOL",
+    registeredVoters: 672,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200403",
+    pollingStationName: "UMOJA PRIMARY SCHOOL",
+    registeredVoters: 672,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200404",
+    pollingStationName: "UMOJA PRIMARY SCHOOL",
+    registeredVoters: 672,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200405",
+    pollingStationName: "UMOJA PRIMARY SCHOOL",
+    registeredVoters: 672,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200501",
+    pollingStationName: "KISUMU NDOGO GROUND",
+    registeredVoters: 684,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200502",
+    pollingStationName: "KISUMU NDOGO GROUND",
+    registeredVoters: 684,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200503",
+    pollingStationName: "KISUMU NDOGO GROUND",
+    registeredVoters: 684,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200504",
+    pollingStationName: "KISUMU NDOGO GROUND",
+    registeredVoters: 684,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200505",
+    pollingStationName: "KISUMU NDOGO GROUND",
+    registeredVoters: 683,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200601",
+    pollingStationName: "KWA HOLA PRIMARY SCHOOL",
+    registeredVoters: 618,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200602",
+    pollingStationName: "KWA HOLA PRIMARY SCHOOL",
+    registeredVoters: 618,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200603",
+    pollingStationName: "KWA HOLA PRIMARY SCHOOL",
+    registeredVoters: 618,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200604",
+    pollingStationName: "KWA HOLA PRIMARY SCHOOL",
+    registeredVoters: 618,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200605",
+    pollingStationName: "KWA HOLA PRIMARY SCHOOL",
+    registeredVoters: 618,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200701",
+    pollingStationName: "CAPE TOWN GROUND",
+    registeredVoters: 642,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200702",
+    pollingStationName: "CAPE TOWN GROUND",
+    registeredVoters: 642,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200703",
+    pollingStationName: "CAPE TOWN GROUND",
+    registeredVoters: 641,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200704",
+    pollingStationName: "CAPE TOWN GROUND",
+    registeredVoters: 641,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200705",
+    pollingStationName: "CAPE TOWN GROUND",
+    registeredVoters: 641,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200706",
+    pollingStationName: "CAPE TOWN GROUND",
+    registeredVoters: 641,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200707",
+    pollingStationName: "CAPE TOWN GROUND",
+    registeredVoters: 641,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200801",
+    pollingStationName: "KALOLENI GROUND",
+    registeredVoters: 478,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200802",
+    pollingStationName: "KALOLENI GROUND",
+    registeredVoters: 478,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000200803",
+    pollingStationName: "KALOLENI GROUND",
+    registeredVoters: 478,
+  },
+  {
+    countyCode: "001",
+    countyName: "MOMBASA",
+    constituencyCode: "001",
+    constituencyName: "CHANGAMWE",
+    wardCode: "0002",
+    wardName: "KIPEVU",
+    pollingStationCode: "001001000202801",
+    pollingStationName: "AKAMBA HANDCRAFT COOP. SOCIETY",
+    registeredVoters: 340,
+  },
 ];
 
 export default function AdminImportScreen() {
@@ -254,6 +542,8 @@ export default function AdminImportScreen() {
 
   const totalStations = POLLING_STATION_DATA.length;
   const uniqueLocations = new Set(POLLING_STATION_DATA.map(s => s.pollingStationName)).size;
+  const wards = new Set(POLLING_STATION_DATA.map(s => s.wardName));
+  const wardsList = Array.from(wards).join(", ");
 
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
@@ -288,7 +578,7 @@ export default function AdminImportScreen() {
 
         <Text style={styles.title}>Polling Station Data Import</Text>
         <Text style={styles.subtitle}>
-          Import polling station data for Port Reitz Ward, Changamwe Constituency, Mombasa County
+          Import polling station data for Changamwe Constituency, Mombasa County
         </Text>
 
         <View style={styles.infoCard}>
@@ -301,8 +591,8 @@ export default function AdminImportScreen() {
             <Text style={styles.infoValue}>CHANGAMWE (001)</Text>
           </View>
           <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>Ward:</Text>
-            <Text style={styles.infoValue}>PORT REITZ (0001)</Text>
+            <Text style={styles.infoLabel}>Wards:</Text>
+            <Text style={styles.infoValue}>{wardsList}</Text>
           </View>
           <View style={styles.divider} />
           <View style={styles.infoRow}>
@@ -321,12 +611,16 @@ export default function AdminImportScreen() {
             const stationCode = station.pollingStationCode;
             const stationName = station.pollingStationName;
             const voters = station.registeredVoters;
+            const wardName = station.wardName;
             
             return (
               <View key={index} style={styles.stationItem}>
                 <View style={styles.stationInfo}>
                   <Text style={styles.stationName}>{stationName}</Text>
-                  <Text style={styles.stationCode}>{stationCode}</Text>
+                  <View style={styles.stationMetaRow}>
+                    <Text style={styles.stationWard}>{wardName}</Text>
+                    <Text style={styles.stationCode}>{stationCode}</Text>
+                  </View>
                 </View>
                 <Text style={styles.stationVoters}>{voters}</Text>
               </View>
@@ -461,6 +755,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.text,
     fontWeight: "500",
+    flex: 1,
+    textAlign: "right",
   },
   infoValueBold: {
     fontSize: 16,
@@ -499,8 +795,22 @@ const styles = StyleSheet.create({
     color: colors.text,
     marginBottom: 4,
   },
+  stationMetaRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  stationWard: {
+    fontSize: 11,
+    color: colors.primary,
+    fontWeight: "600",
+    backgroundColor: colors.primaryLight || colors.lightGray,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 4,
+  },
   stationCode: {
-    fontSize: 12,
+    fontSize: 11,
     color: colors.textSecondary,
   },
   stationVoters: {

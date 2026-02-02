@@ -74,7 +74,7 @@ export default function AuthScreen() {
         <View style={styles.content}>
           <View style={styles.header}>
             <Image
-              source={require("@/assets/images/16c30a17-865f-4ec0-8d78-4cb83856d9a1.png")}
+              source={require("@/assets/images/3b525fcc-fe8a-4cc2-bf6f-cc763a5c680d.png")}
               style={styles.logo}
               resizeMode="contain"
             />

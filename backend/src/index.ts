@@ -8,6 +8,7 @@ import { registerIncidentRoutes } from './routes/incidents.js';
 import { registerFormRoutes } from './routes/forms.js';
 import { registerReportRoutes } from './routes/reports.js';
 import { registerPollingStationRoutes } from './routes/polling-stations.js';
+import { registerOnedriveImportRoutes } from './routes/onedrive-import.js';
 
 // Combine schemas for full database type support
 const schema = { ...appSchema, ...authSchema };
@@ -28,6 +29,7 @@ registerIncidentRoutes(app);
 registerFormRoutes(app);
 registerReportRoutes(app);
 registerPollingStationRoutes(app);
+registerOnedriveImportRoutes(app);
 
 await app.run();
 app.logger.info('Electoral reporting system running');

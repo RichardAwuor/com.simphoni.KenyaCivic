@@ -235,6 +235,28 @@ export default function ProfileScreen() {
         <View style={styles.actionsSection}>
           <TouchableOpacity
             style={styles.actionButton}
+            onPress={() => {
+              console.log("[Profile] Navigating to admin import");
+              router.push("/admin-import");
+            }}
+          >
+            <IconSymbol
+              ios_icon_name="cloud.fill"
+              android_material_icon_name="cloud-download"
+              size={24}
+              color={colors.text}
+            />
+            <Text style={styles.actionButtonText}>OneDrive Import</Text>
+            <IconSymbol
+              ios_icon_name="chevron.right"
+              android_material_icon_name="chevron-right"
+              size={24}
+              color={colors.textSecondary}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.actionButton}
             onPress={() => console.log("Biometric settings tapped")}
           >
             <IconSymbol

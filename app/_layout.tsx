@@ -70,6 +70,9 @@ function RootLayoutNav() {
       {/* Camera and video recording - NO TABS */}
       <Stack.Screen name="camera" options={{ headerShown: true, title: "Record Incident" }} />
       <Stack.Screen name="scan-form" options={{ headerShown: true, title: "Scan Form 34A" }} />
+      
+      {/* Admin screens */}
+      <Stack.Screen name="admin-import" options={{ headerShown: false }} />
     </Stack>
   );
 }

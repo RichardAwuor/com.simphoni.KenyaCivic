@@ -42,18 +42,13 @@ export default function ProfileScreen() {
   const [alertTitle, setAlertTitle] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
 
-  useEffect(() => {
-    console.log("Profile screen loaded");
-    loadProfile();
-  }, []);
-
   const showAlert = (title: string, message: string) => {
     setAlertTitle(title);
     setAlertMessage(message);
     setShowAlertModal(true);
   };
 
-  const loadProfile = async () => {
+  const loadProfile = React.useCallback(async () => {
     console.log("[Profile] Loading agent profile");
     setLoading(true);
     try {
@@ -69,7 +64,12 @@ export default function ProfileScreen() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    console.log("Profile screen loaded");
+    loadProfile();
+  }, [loadProfile]);
 
   const handleSaveProfile = async () => {
     console.log("[Profile] User tapped Save Profile");

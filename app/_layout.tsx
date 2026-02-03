@@ -46,7 +46,7 @@ function RootLayoutNav() {
       console.log("[RootLayout] Redirecting to /(tabs)");
       router.replace("/(tabs)");
     }
-  }, [user, loading, segments]);
+  }, [user, loading, segments, router]);
 
   if (loading) {
     return (

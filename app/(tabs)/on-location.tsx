@@ -28,19 +28,13 @@ export default function OnLocationScreen() {
   const [alertTitle, setAlertTitle] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
 
-  useEffect(() => {
-    console.log("On-Location screen loaded");
-    requestLocationPermission();
-    checkAgentStatus();
-  }, []);
-
   const showAlert = (title: string, message: string) => {
     setAlertTitle(title);
     setAlertMessage(message);
     setShowAlertModal(true);
   };
 
-  const requestLocationPermission = async () => {
+  const requestLocationPermission = React.useCallback(async () => {
     console.log("[OnLocation] Requesting location permission");
     try {
       const { status } = await Location.requestForegroundPermissionsAsync();
@@ -55,9 +49,9 @@ export default function OnLocationScreen() {
     } catch (error) {
       console.error("[OnLocation] Error getting location:", error);
     }
-  };
+  }, []);
 
-  const checkAgentStatus = async () => {
+  const checkAgentStatus = React.useCallback(async () => {
     console.log("[OnLocation] Checking agent status");
     
     if (!user?.id) {
@@ -86,7 +80,13 @@ export default function OnLocationScreen() {
       setVideoCount(0);
       setHasForm34A(false);
     }
-  };
+  }, [user?.id]);
+
+  useEffect(() => {
+    console.log("On-Location screen loaded");
+    requestLocationPermission();
+    checkAgentStatus();
+  }, [requestLocationPermission, checkAgentStatus]);
 
   const handleRecordVideo = () => {
     console.log("[OnLocation] User tapped Record Incident Video");

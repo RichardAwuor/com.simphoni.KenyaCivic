@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   Platform,
+  ScrollView,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
@@ -16,7 +17,7 @@ import { IconSymbol } from "@/components/IconSymbol";
 export default function WelcomeScreen() {
   const router = useRouter();
 
-  const handleGetStarted = () => {
+  const handleSignIn = () => {
     console.log("[Welcome] User tapped Sign In - navigating to auth screen");
     router.push("/auth");
   };
@@ -28,9 +29,9 @@ export default function WelcomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        {/* Header with Logo */}
-        <View style={styles.header}>
+      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
+        {/* Logo and Branding */}
+        <View style={styles.logoSection}>
           <Image
             source={require("@/assets/images/5187b23f-bdf8-470b-b1d3-0bffbe4cce78.jpeg")}
             style={styles.logo}
@@ -40,26 +41,26 @@ export default function WelcomeScreen() {
           <Text style={styles.slogan}>WANJIKU@63</Text>
         </View>
 
-        {/* Hero Section */}
-        <View style={styles.heroSection}>
-          <Text style={styles.heroTitle}>Electoral Agent Portal</Text>
-          <Text style={styles.heroSubtitle}>
+        {/* Title Section */}
+        <View style={styles.titleSection}>
+          <Text style={styles.title}>Electoral Agent Portal</Text>
+          <Text style={styles.subtitle}>
             Report election results with transparency and accuracy
           </Text>
         </View>
 
-        {/* Features Section */}
-        <View style={styles.featuresSection}>
+        {/* Feature Cards */}
+        <View style={styles.featuresContainer}>
           <View style={styles.featureCard}>
-            <View style={styles.featureIconContainer}>
+            <View style={styles.featureIconBox}>
               <IconSymbol
                 ios_icon_name="video.fill"
                 android_material_icon_name="videocam"
-                size={32}
-                color={colors.primary}
+                size={28}
+                color={colors.textLight}
               />
             </View>
-            <View style={styles.featureContent}>
+            <View style={styles.featureTextContainer}>
               <Text style={styles.featureTitle}>Record Incidents</Text>
               <Text style={styles.featureDescription}>
                 Capture up to 3 videos with automatic geo-tagging
@@ -68,15 +69,15 @@ export default function WelcomeScreen() {
           </View>
 
           <View style={styles.featureCard}>
-            <View style={styles.featureIconContainer}>
+            <View style={styles.featureIconBox}>
               <IconSymbol
                 ios_icon_name="doc.text.fill"
                 android_material_icon_name="description"
-                size={32}
-                color={colors.primary}
+                size={28}
+                color={colors.textLight}
               />
             </View>
-            <View style={styles.featureContent}>
+            <View style={styles.featureTextContainer}>
               <Text style={styles.featureTitle}>Submit Form 34A</Text>
               <Text style={styles.featureDescription}>
                 Scan and validate election results forms
@@ -85,15 +86,15 @@ export default function WelcomeScreen() {
           </View>
 
           <View style={styles.featureCard}>
-            <View style={styles.featureIconContainer}>
+            <View style={styles.featureIconBox}>
               <IconSymbol
                 ios_icon_name="chart.bar.fill"
                 android_material_icon_name="dashboard"
-                size={32}
-                color={colors.primary}
+                size={28}
+                color={colors.textLight}
               />
             </View>
-            <View style={styles.featureContent}>
+            <View style={styles.featureTextContainer}>
               <Text style={styles.featureTitle}>View Reports</Text>
               <Text style={styles.featureDescription}>
                 Access real-time election data and analytics
@@ -103,10 +104,11 @@ export default function WelcomeScreen() {
         </View>
 
         {/* Action Buttons */}
-        <View style={styles.footer}>
+        <View style={styles.buttonsContainer}>
           <TouchableOpacity
             style={styles.signInButton}
-            onPress={handleGetStarted}
+            onPress={handleSignIn}
+            activeOpacity={0.8}
           >
             <Text style={styles.signInButtonText}>Sign In</Text>
             <IconSymbol
@@ -120,6 +122,7 @@ export default function WelcomeScreen() {
           <TouchableOpacity
             style={styles.registerButton}
             onPress={handleRegister}
+            activeOpacity={0.8}
           >
             <IconSymbol
               ios_icon_name="person.badge.plus"
@@ -129,13 +132,16 @@ export default function WelcomeScreen() {
             />
             <Text style={styles.registerButtonText}>Register as New Agent</Text>
           </TouchableOpacity>
+        </View>
 
+        {/* Footer */}
+        <View style={styles.footer}>
           <Text style={styles.footerText}>Powered by Kenya Civic</Text>
           <Text style={styles.footerSubtext}>
             Transparent Elections • Real Results
           </Text>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -145,141 +151,150 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  content: {
-    flex: 1,
-    padding: 24,
-    justifyContent: "space-between",
+  scrollContent: {
+    flexGrow: 1,
+    paddingHorizontal: 24,
+    paddingTop: Platform.OS === "android" ? 20 : 10,
+    paddingBottom: 40,
   },
-  header: {
+  logoSection: {
     alignItems: "center",
-    marginTop: Platform.OS === "android" ? 32 : 16,
-    marginBottom: 24,
+    marginTop: 20,
+    marginBottom: 30,
   },
   logo: {
-    width: 200,
-    height: 200,
-    marginBottom: 16,
+    width: 180,
+    height: 180,
+    marginBottom: 20,
   },
   appName: {
-    fontSize: 48,
+    fontSize: 52,
     fontWeight: "bold",
     color: colors.primary,
-    marginBottom: 4,
+    letterSpacing: 2,
+    marginBottom: 8,
   },
   slogan: {
-    fontSize: 20,
+    fontSize: 22,
     color: colors.secondary,
-    fontWeight: "600",
+    fontWeight: "700",
+    letterSpacing: 1,
   },
-  heroSection: {
+  titleSection: {
     alignItems: "center",
-    marginBottom: 24,
+    marginBottom: 32,
+    paddingHorizontal: 16,
   },
-  heroTitle: {
-    fontSize: 28,
+  title: {
+    fontSize: 26,
     fontWeight: "bold",
     color: colors.text,
     marginBottom: 12,
     textAlign: "center",
   },
-  heroSubtitle: {
+  subtitle: {
     fontSize: 16,
     color: colors.textSecondary,
     textAlign: "center",
     lineHeight: 24,
   },
-  featuresSection: {
-    marginBottom: 24,
+  featuresContainer: {
+    marginBottom: 32,
   },
   featureCard: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 16,
     backgroundColor: colors.card,
-    padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
+    padding: 18,
+    marginBottom: 14,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.12,
+    shadowRadius: 6,
+    elevation: 4,
   },
-  featureIconContainer: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
-    backgroundColor: colors.highlight,
+  featureIconBox: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: colors.primary,
     justifyContent: "center",
     alignItems: "center",
     marginRight: 16,
   },
-  featureContent: {
+  featureTextContainer: {
     flex: 1,
   },
   featureTitle: {
-    fontSize: 16,
-    fontWeight: "600",
+    fontSize: 17,
+    fontWeight: "700",
     color: colors.text,
-    marginBottom: 4,
+    marginBottom: 6,
   },
   featureDescription: {
     fontSize: 14,
     color: colors.textSecondary,
     lineHeight: 20,
   },
-  footer: {
-    alignItems: "center",
-    paddingBottom: 16,
+  buttonsContainer: {
+    marginBottom: 32,
   },
   signInButton: {
     flexDirection: "row",
     backgroundColor: colors.primary,
-    paddingVertical: 16,
+    paddingVertical: 18,
     paddingHorizontal: 32,
-    borderRadius: 12,
+    borderRadius: 14,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 16,
-    width: "100%",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.25,
     shadowRadius: 8,
-    elevation: 4,
+    elevation: 6,
   },
   signInButtonText: {
-    fontSize: 18,
+    fontSize: 19,
     fontWeight: "bold",
     color: colors.textLight,
-    marginRight: 8,
+    marginRight: 10,
   },
   registerButton: {
     flexDirection: "row",
     backgroundColor: colors.card,
-    paddingVertical: 16,
+    paddingVertical: 18,
     paddingHorizontal: 32,
-    borderRadius: 12,
+    borderRadius: 14,
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 24,
-    width: "100%",
     borderWidth: 2,
     borderColor: colors.primary,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   registerButtonText: {
-    fontSize: 16,
-    fontWeight: "600",
+    fontSize: 17,
+    fontWeight: "700",
     color: colors.primary,
-    marginLeft: 8,
+    marginLeft: 10,
+  },
+  footer: {
+    alignItems: "center",
+    marginTop: 20,
   },
   footerText: {
-    fontSize: 14,
+    fontSize: 15,
     color: colors.textSecondary,
     fontWeight: "600",
-    marginBottom: 4,
+    marginBottom: 6,
   },
   footerSubtext: {
-    fontSize: 12,
+    fontSize: 13,
     color: colors.textSecondary,
   },
 });

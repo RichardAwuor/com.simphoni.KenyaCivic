@@ -17,7 +17,7 @@ export default function WelcomeScreen() {
   const router = useRouter();
 
   const handleGetStarted = () => {
-    console.log("[Welcome] User tapped Get Started - navigating to auth screen");
+    console.log("[Welcome] User tapped Sign In - navigating to auth screen");
     router.push("/auth");
   };
 
@@ -29,9 +29,10 @@ export default function WelcomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
+        {/* Header with Logo */}
         <View style={styles.header}>
           <Image
-            source={require("@/assets/images/3b525fcc-fe8a-4cc2-bf6f-cc763a5c680d.png")}
+            source={require("@/assets/images/5187b23f-bdf8-470b-b1d3-0bffbe4cce78.jpeg")}
             style={styles.logo}
             resizeMode="contain"
           />
@@ -39,6 +40,7 @@ export default function WelcomeScreen() {
           <Text style={styles.slogan}>WANJIKU@63</Text>
         </View>
 
+        {/* Hero Section */}
         <View style={styles.heroSection}>
           <Text style={styles.heroTitle}>Electoral Agent Portal</Text>
           <Text style={styles.heroSubtitle}>
@@ -46,8 +48,9 @@ export default function WelcomeScreen() {
           </Text>
         </View>
 
+        {/* Features Section */}
         <View style={styles.featuresSection}>
-          <View style={styles.featureItem}>
+          <View style={styles.featureCard}>
             <View style={styles.featureIconContainer}>
               <IconSymbol
                 ios_icon_name="video.fill"
@@ -64,7 +67,7 @@ export default function WelcomeScreen() {
             </View>
           </View>
 
-          <View style={styles.featureItem}>
+          <View style={styles.featureCard}>
             <View style={styles.featureIconContainer}>
               <IconSymbol
                 ios_icon_name="doc.text.fill"
@@ -81,7 +84,7 @@ export default function WelcomeScreen() {
             </View>
           </View>
 
-          <View style={styles.featureItem}>
+          <View style={styles.featureCard}>
             <View style={styles.featureIconContainer}>
               <IconSymbol
                 ios_icon_name="chart.bar.fill"
@@ -97,25 +100,9 @@ export default function WelcomeScreen() {
               </Text>
             </View>
           </View>
-
-          <View style={styles.featureItem}>
-            <View style={styles.featureIconContainer}>
-              <IconSymbol
-                ios_icon_name="lock.fill"
-                android_material_icon_name="lock"
-                size={32}
-                color={colors.primary}
-              />
-            </View>
-            <View style={styles.featureContent}>
-              <Text style={styles.featureTitle}>Secure Authentication</Text>
-              <Text style={styles.featureDescription}>
-                Biometric login for enhanced security
-              </Text>
-            </View>
-          </View>
         </View>
 
+        {/* Action Buttons */}
         <View style={styles.footer}>
           <TouchableOpacity
             style={styles.signInButton}
@@ -125,7 +112,7 @@ export default function WelcomeScreen() {
             <IconSymbol
               ios_icon_name="arrow.right"
               android_material_icon_name="arrow-forward"
-              size={24}
+              size={20}
               color={colors.textLight}
             />
           </TouchableOpacity>
@@ -137,7 +124,7 @@ export default function WelcomeScreen() {
             <IconSymbol
               ios_icon_name="person.badge.plus"
               android_material_icon_name="person-add"
-              size={24}
+              size={20}
               color={colors.primary}
             />
             <Text style={styles.registerButtonText}>Register as New Agent</Text>
@@ -165,12 +152,12 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: "center",
-    marginTop: Platform.OS === "android" ? 24 : 0,
-    marginBottom: 32,
+    marginTop: Platform.OS === "android" ? 32 : 16,
+    marginBottom: 24,
   },
   logo: {
-    width: 180,
-    height: 180,
+    width: 200,
+    height: 200,
     marginBottom: 16,
   },
   appName: {
@@ -186,7 +173,7 @@ const styles = StyleSheet.create({
   },
   heroSection: {
     alignItems: "center",
-    marginBottom: 32,
+    marginBottom: 24,
   },
   heroTitle: {
     fontSize: 28,
@@ -202,12 +189,12 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   featuresSection: {
-    marginBottom: 32,
+    marginBottom: 24,
   },
-  featureItem: {
+  featureCard: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 16,
     backgroundColor: colors.card,
     padding: 16,
     borderRadius: 12,

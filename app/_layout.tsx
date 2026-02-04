@@ -29,40 +29,70 @@ function RootLayoutNav() {
   const { user, loading } = useAuth();
   const segments = useSegments();
   const router = useRouter();
+  const [isNavigating, setIsNavigating] = useState(false);
 
   useEffect(() => {
-    if (loading) return;
+    if (loading || isNavigating) {
+      console.log("[RootLayout] Waiting - loading:", loading, "isNavigating:", isNavigating);
+      return;
+    }
 
-    const inAuthGroup = segments[0] === "auth" || segments[0] === "register";
-    const inWelcome = segments[0] === "index" || segments.length === 0;
+    const inAuthGroup = segments[0] === "auth" || segments[0] === "register" || segments[0] === "auth-popup" || segments[0] === "auth-callback";
+    const inWelcome = segments.length === 0 || segments[0] === "index";
     const inTabs = segments[0] === "(tabs)";
+    const inAdminImport = segments[0] === "admin-import";
 
-    console.log("[RootLayout] Auth state:", { user: !!user, inAuthGroup, inWelcome, inTabs, segments });
+    console.log("[RootLayout] Navigation check:", {
+      user: !!user,
+      userEmail: user?.email,
+      segments: segments.join("/"),
+      inAuthGroup,
+      inWelcome,
+      inTabs,
+    });
 
-    // If user is authenticated and trying to access welcome/auth screens, redirect to app
-    if (user && (inAuthGroup || inWelcome)) {
-      console.log("[RootLayout] User authenticated, redirecting to /(tabs)/on-location");
-      router.replace("/(tabs)/on-location");
+    // If user is authenticated
+    if (user) {
+      // If user is on welcome or auth screens, redirect to app
+      if (inWelcome || inAuthGroup) {
+        console.log("[RootLayout] User authenticated, redirecting from welcome/auth to /(tabs)/on-location");
+        setIsNavigating(true);
+        router.replace("/(tabs)/on-location");
+        setTimeout(() => setIsNavigating(false), 500);
+      }
+      // Otherwise, let them stay where they are (in tabs or other authenticated routes)
     }
-    // If user is not authenticated and trying to access protected routes, redirect to welcome
-    else if (!user && inTabs) {
-      console.log("[RootLayout] User not authenticated, redirecting to /index (Welcome)");
-      router.replace("/");
+    // If user is NOT authenticated
+    else {
+      // If user is trying to access protected routes (tabs), redirect to welcome
+      if (inTabs) {
+        console.log("[RootLayout] User not authenticated, redirecting from tabs to welcome");
+        setIsNavigating(true);
+        router.replace("/");
+        setTimeout(() => setIsNavigating(false), 500);
+      }
+      // If user is on admin-import without auth, redirect to welcome
+      else if (inAdminImport) {
+        console.log("[RootLayout] User not authenticated, redirecting from admin-import to welcome");
+        setIsNavigating(true);
+        router.replace("/");
+        setTimeout(() => setIsNavigating(false), 500);
+      }
+      // Otherwise, let them stay on welcome, auth, or register screens
     }
-    // Otherwise, let the user stay where they are (welcome, auth, register screens are accessible)
-  }, [user, loading, segments, router]);
+  }, [user, loading, segments, router, isNavigating]);
 
   if (loading) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#F2F2F7" }}>
         <ActivityIndicator size="large" color="#007AFF" />
       </View>
     );
   }
 
   return (
-    <Stack>
-      {/* Welcome screen - First screen shown to all users */}
+    <Stack screenOptions={{ headerShown: false }}>
+      {/* Welcome screen - First screen shown to all unauthenticated users */}
       <Stack.Screen name="index" options={{ headerShown: false }} />
       
       {/* Auth screens - Accessible from Welcome */}
@@ -80,6 +110,9 @@ function RootLayoutNav() {
       
       {/* Admin screens */}
       <Stack.Screen name="admin-import" options={{ headerShown: false }} />
+      
+      {/* 404 Not Found */}
+      <Stack.Screen name="+not-found" options={{ headerShown: false }} />
     </Stack>
   );
 }

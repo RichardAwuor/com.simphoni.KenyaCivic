@@ -19,6 +19,8 @@ import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { apiPost, apiGet } from "@/utils/api";
+import * as LocalAuthentication from "expo-local-authentication";
+import { useAuth } from "@/contexts/AuthContext";
 
 // Kenya counties data
 const COUNTIES = [
@@ -83,6 +85,7 @@ interface Ward {
 
 export default function RegisterScreen() {
   const router = useRouter();
+  const { fetchUser } = useAuth();
   const [loading, setLoading] = useState(false);
   
   // Form state
@@ -113,6 +116,11 @@ export default function RegisterScreen() {
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
   const [modalType, setModalType] = useState<"success" | "error">("success");
+  
+  // Biometric state
+  const [biometricStep, setBiometricStep] = useState(false);
+  const [agentId, setAgentId] = useState("");
+  const [agentCode, setAgentCode] = useState("");
 
   const selectedCountyData = COUNTIES.find(c => c.code === selectedCounty);
   const selectedConstituencyData = constituencies.find(c => c.code === selectedConstituency);
@@ -242,6 +250,65 @@ export default function RegisterScreen() {
     return true;
   };
 
+  const setupBiometrics = async () => {
+    console.log("[Register] Starting biometric setup");
+    
+    try {
+      // Check if biometrics are available
+      const hasHardware = await LocalAuthentication.hasHardwareAsync();
+      const isEnrolled = await LocalAuthentication.isEnrolledAsync();
+      
+      if (!hasHardware) {
+        showAlert("Error", "Your device does not support biometric authentication");
+        return;
+      }
+      
+      if (!isEnrolled) {
+        showAlert("Error", "No biometrics enrolled on this device. Please set up fingerprint or face recognition in your device settings.");
+        return;
+      }
+      
+      // Prompt for biometric authentication
+      const result = await LocalAuthentication.authenticateAsync({
+        promptMessage: "Set up biometric authentication for CIVIC",
+        cancelLabel: "Cancel",
+        disableDeviceFallback: false,
+      });
+      
+      if (!result.success) {
+        showAlert("Error", "Biometric authentication failed. Please try again.");
+        return;
+      }
+      
+      console.log("[Register] Biometric authentication successful, enabling on server");
+      
+      // Enable biometrics on the server
+      setLoading(true);
+      const response = await apiPost("/api/agents/enable-biometric", { agentId });
+      
+      if (response.success) {
+        console.log("[Register] Biometric setup complete");
+        showAlert(
+          "Registration Complete!",
+          `Your agent code is: ${agentCode}\n\nBiometric authentication has been enabled. You can now sign in using your email and biometrics.`,
+          "success"
+        );
+        
+        // Navigate to On-Location after a delay
+        setTimeout(() => {
+          router.replace("/(tabs)/on-location");
+        }, 3000);
+      } else {
+        showAlert("Error", "Failed to enable biometric authentication");
+      }
+    } catch (error: any) {
+      console.error("[Register] Biometric setup error:", error);
+      showAlert("Error", error.message || "Failed to set up biometric authentication");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleRegister = async () => {
     console.log("[Register] User tapped Register button");
     
@@ -251,6 +318,9 @@ export default function RegisterScreen() {
 
     setLoading(true);
     try {
+      // Generate a secure password (user won't need to remember it - they'll use biometrics)
+      const generatedPassword = `${nationalId}-${Date.now()}-${Math.random().toString(36)}`;
+      
       const registrationData = {
         email,
         confirmEmail,
@@ -264,29 +334,42 @@ export default function RegisterScreen() {
         wardName: selectedWardData?.name || "",
         dateOfBirth: dateOfBirth.toISOString(),
         nationalId,
+        password: generatedPassword,
       };
       
-      console.log("[Register] Sending registration data:", registrationData);
+      console.log("[Register] Sending registration data");
       
       const response = await apiPost("/api/agents/register", registrationData);
       
       console.log("[Register] Registration successful:", response);
       
-      showAlert(
-        "Registration Successful",
-        `Your agent code is: ${response.agentCode}\n\nYou can now proceed to the On-Location screen to start reporting.`,
-        "success"
-      );
+      // Store agent info for biometric setup
+      setAgentId(response.userId);
+      setAgentCode(response.agentCode);
       
-      // Navigate to On-Location screen after modal is dismissed
-      setTimeout(() => {
-        router.replace("/(tabs)/on-location");
-      }, 3000);
+      // The backend automatically creates a session after registration
+      // Refresh auth context to get the new user session
+      await fetchUser();
+      
+      // Show biometric setup step
+      setBiometricStep(true);
+      setModalTitle("Registration Successful!");
+      setModalMessage(`Your agent code is: ${response.agentCode}\n\nNext step: Set up biometric authentication to complete your registration.`);
+      setModalType("success");
+      setShowModal(true);
     } catch (error: any) {
       console.error("[Register] Registration error:", error);
       showAlert("Error", error.message || "Registration failed");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+    if (biometricStep) {
+      // Proceed to biometric setup
+      setupBiometrics();
     }
   };
 
@@ -572,7 +655,7 @@ export default function RegisterScreen() {
               {loading ? (
                 <ActivityIndicator color={colors.textLight} />
               ) : (
-                <Text style={styles.registerButtonText}>Register & Continue</Text>
+                <Text style={styles.registerButtonText}>Register & Enable Biometrics</Text>
               )}
             </TouchableOpacity>
 
@@ -590,7 +673,7 @@ export default function RegisterScreen() {
         visible={showModal}
         transparent
         animationType="fade"
-        onRequestClose={() => setShowModal(false)}
+        onRequestClose={handleModalClose}
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
@@ -604,9 +687,11 @@ export default function RegisterScreen() {
             <Text style={styles.modalMessage}>{modalMessage}</Text>
             <TouchableOpacity
               style={[styles.modalButton, modalType === "success" ? styles.modalButtonSuccess : styles.modalButtonError]}
-              onPress={() => setShowModal(false)}
+              onPress={handleModalClose}
             >
-              <Text style={styles.modalButtonText}>OK</Text>
+              <Text style={styles.modalButtonText}>
+                {biometricStep ? "Set Up Biometrics" : "OK"}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>

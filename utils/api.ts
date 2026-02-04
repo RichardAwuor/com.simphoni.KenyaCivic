@@ -37,6 +37,27 @@ export const getBearerToken = async (): Promise<string | null> => {
 };
 
 /**
+ * Set bearer token in platform-specific storage
+ * Web: localStorage
+ * Native: SecureStore
+ *
+ * @param token - Bearer token to store
+ */
+export const setBearerToken = async (token: string): Promise<void> => {
+  try {
+    if (Platform.OS === "web") {
+      localStorage.setItem(BEARER_TOKEN_KEY, token);
+    } else {
+      await SecureStore.setItemAsync(BEARER_TOKEN_KEY, token);
+    }
+    console.log("[API] Bearer token stored successfully");
+  } catch (error) {
+    console.error("[API] Error storing bearer token:", error);
+    throw error;
+  }
+};
+
+/**
  * Generic API call helper with error handling
  *
  * @param endpoint - API endpoint path (e.g., '/users', '/auth/login')

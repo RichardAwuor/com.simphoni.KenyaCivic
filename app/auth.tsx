@@ -17,10 +17,12 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "expo-router";
 import { IconSymbol } from "@/components/IconSymbol";
 import { colors } from "@/styles/commonStyles";
+import * as LocalAuthentication from "expo-local-authentication";
+import { apiPost, setBearerToken } from "@/utils/api";
 
 export default function AuthScreen() {
   const router = useRouter();
-  const { signInWithEmail, loading: authLoading } = useAuth();
+  const { fetchUser, loading: authLoading } = useAuth();
 
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -42,8 +44,8 @@ export default function AuthScreen() {
     );
   }
 
-  const handleEmailAuth = async () => {
-    console.log("[Auth] User tapped Sign In with Email");
+  const handleBiometricLogin = async () => {
+    console.log("[Auth] User tapped Sign In with Biometrics");
     
     if (!email) {
       showAlert("Error", "Please enter your email");
@@ -52,14 +54,51 @@ export default function AuthScreen() {
 
     setLoading(true);
     try {
-      // For now, we'll use a placeholder password since Better Auth requires it
-      // In production, you'd implement passwordless auth or magic links
-      await signInWithEmail(email, "biometric-auth");
+      // Check if biometrics are available
+      const hasHardware = await LocalAuthentication.hasHardwareAsync();
+      const isEnrolled = await LocalAuthentication.isEnrolledAsync();
+      
+      if (!hasHardware) {
+        showAlert("Error", "Your device does not support biometric authentication");
+        setLoading(false);
+        return;
+      }
+      
+      if (!isEnrolled) {
+        showAlert("Error", "No biometrics enrolled on this device. Please set up fingerprint or face recognition in your device settings.");
+        setLoading(false);
+        return;
+      }
+      
+      // Prompt for biometric authentication
+      const result = await LocalAuthentication.authenticateAsync({
+        promptMessage: "Sign in to CIVIC",
+        cancelLabel: "Cancel",
+        disableDeviceFallback: false,
+      });
+      
+      if (!result.success) {
+        showAlert("Error", "Biometric authentication failed. Please try again.");
+        setLoading(false);
+        return;
+      }
+      
+      console.log("[Auth] Biometric authentication successful, logging in");
+      
+      // Call biometric login endpoint - this creates a Better Auth session
+      const response = await apiPost("/api/agents/biometric-login", { email });
+      
+      console.log("[Auth] Biometric login response:", response);
+      
+      // The backend creates a session automatically
+      // Refresh user session to get the authenticated user
+      await fetchUser();
+      
       console.log("[Auth] Sign in successful, navigating to dashboard");
-      router.replace("/(tabs)");
+      router.replace("/(tabs)/on-location");
     } catch (error: any) {
       console.error("[Auth] Authentication error:", error);
-      showAlert("Error", error.message || "Authentication failed. Please register first.");
+      showAlert("Error", error.message || "Authentication failed. Please make sure you have registered and enabled biometrics.");
     } finally {
       setLoading(false);
     }
@@ -85,7 +124,7 @@ export default function AuthScreen() {
 
           <View style={styles.formSection}>
             <Text style={styles.title}>Sign In</Text>
-            <Text style={styles.subtitle}>Enter your registered email to continue</Text>
+            <Text style={styles.subtitle}>Enter your registered email and use biometrics to sign in</Text>
 
             <TextInput
               style={styles.input}
@@ -99,7 +138,7 @@ export default function AuthScreen() {
 
             <TouchableOpacity
               style={[styles.primaryButton, loading && styles.buttonDisabled]}
-              onPress={handleEmailAuth}
+              onPress={handleBiometricLogin}
               disabled={loading}
             >
               {loading ? (

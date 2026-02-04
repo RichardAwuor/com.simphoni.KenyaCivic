@@ -9,6 +9,8 @@ import {
   Platform,
   Modal,
   Image,
+  ActivityIndicator,
+  RefreshControl,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
@@ -27,6 +29,8 @@ export default function OnLocationScreen() {
   const [showAlertModal, setShowAlertModal] = useState(false);
   const [alertTitle, setAlertTitle] = useState("");
   const [alertMessage, setAlertMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   const showAlert = (title: string, message: string) => {
     setAlertTitle(title);
@@ -39,15 +43,18 @@ export default function OnLocationScreen() {
     try {
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
+        console.log("[OnLocation] Location permission denied");
         showAlert("Permission Denied", "Location permission is required to record incidents");
         return;
       }
       
+      console.log("[OnLocation] Location permission granted, getting current position...");
       const currentLocation = await Location.getCurrentPositionAsync({});
       setLocation(currentLocation);
       console.log("[OnLocation] Location obtained:", currentLocation.coords);
     } catch (error) {
       console.error("[OnLocation] Error getting location:", error);
+      showAlert("Location Error", "Unable to get your current location. Please check your device settings.");
     }
   }, []);
 
@@ -56,20 +63,25 @@ export default function OnLocationScreen() {
     
     if (!user?.id) {
       console.log("[OnLocation] No user ID available");
+      setIsLoading(false);
       return;
     }
     
+    setIsLoading(true);
     try {
+      console.log("[OnLocation] Fetching agent videos from API...");
       const videos = await authenticatedGet<any[]>(`/api/incidents/agent-videos/${user.id}`);
-      console.log("[OnLocation] Agent videos:", videos);
+      console.log("[OnLocation] Agent videos fetched:", videos.length, "videos");
       setVideoCount(videos.length);
       
       try {
+        console.log("[OnLocation] Fetching agent form from API...");
         const form = await authenticatedGet<any>(`/api/forms/agent-form/${user.id}`);
-        console.log("[OnLocation] Agent form:", form);
+        console.log("[OnLocation] Agent form fetched:", form);
         setHasForm34A(!!form);
       } catch (formError: any) {
         if (formError.message?.includes("404")) {
+          console.log("[OnLocation] No form 34A found (404)");
           setHasForm34A(false);
         } else {
           throw formError;
@@ -77,16 +89,27 @@ export default function OnLocationScreen() {
       }
     } catch (error: any) {
       console.error("[OnLocation] Error checking agent status:", error);
+      showAlert("Error", "Unable to load your agent status. Please try again.");
       setVideoCount(0);
       setHasForm34A(false);
+    } finally {
+      setIsLoading(false);
+      console.log("[OnLocation] Agent status check complete");
     }
   }, [user?.id]);
 
   useEffect(() => {
-    console.log("On-Location screen loaded");
+    console.log("[OnLocation] Screen mounted");
+    console.log("[OnLocation] User state:", user ? `User ID: ${user.id}, Agent Code: ${user.agentCode}` : "No user logged in");
+    
+    if (!user) {
+      console.log("[OnLocation] Cannot load data - user not authenticated");
+      return;
+    }
+    
     requestLocationPermission();
     checkAgentStatus();
-  }, [requestLocationPermission, checkAgentStatus]);
+  }, [requestLocationPermission, checkAgentStatus, user]);
 
   const handleRecordVideo = () => {
     console.log("[OnLocation] User tapped Record Incident Video");
@@ -120,6 +143,17 @@ export default function OnLocationScreen() {
     router.push("/(tabs)/my-reports");
   };
 
+  const handleRefresh = async () => {
+    console.log("[OnLocation] User initiated refresh");
+    setIsRefreshing(true);
+    await Promise.all([
+      requestLocationPermission(),
+      checkAgentStatus()
+    ]);
+    setIsRefreshing(false);
+    console.log("[OnLocation] Refresh complete");
+  };
+
   const locationText = location
     ? `Lat: ${location.coords.latitude.toFixed(6)}, Lon: ${location.coords.longitude.toFixed(6)}`
     : "Location not available";
@@ -127,9 +161,45 @@ export default function OnLocationScreen() {
   const videoCountText = `${videoCount}/3`;
   const formStatusText = hasForm34A ? "Submitted" : "Not Submitted";
 
+  // Show message if user is not authenticated
+  if (!user) {
+    return (
+      <SafeAreaView style={styles.container} edges={["top"]}>
+        <View style={styles.centeredContainer}>
+          <IconSymbol
+            ios_icon_name="person.fill.xmark"
+            android_material_icon_name="person-off"
+            size={64}
+            color={colors.textSecondary}
+          />
+          <Text style={styles.notAuthenticatedTitle}>Authentication Required</Text>
+          <Text style={styles.notAuthenticatedMessage}>
+            Please sign in to access On-Location features
+          </Text>
+          <TouchableOpacity
+            style={styles.signInButton}
+            onPress={() => router.push("/auth")}
+          >
+            <Text style={styles.signInButtonText}>Go to Sign In</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+      <ScrollView 
+        contentContainerStyle={styles.scrollContent}
+        refreshControl={
+          <RefreshControl
+            refreshing={isRefreshing}
+            onRefresh={handleRefresh}
+            tintColor={colors.primary}
+            colors={[colors.primary]}
+          />
+        }
+      >
         <View style={styles.header}>
           <Image
             source={require("@/assets/images/16c30a17-865f-4ec0-8d78-4cb83856d9a1.png")}
@@ -140,6 +210,9 @@ export default function OnLocationScreen() {
             <Text style={styles.title}>On-Location</Text>
             <Text style={styles.subtitle}>Report incidents and submit Form 34A</Text>
           </View>
+          {isLoading && (
+            <ActivityIndicator size="small" color={colors.primary} style={styles.headerLoader} />
+          )}
         </View>
 
         <View style={styles.locationCard}>
@@ -320,6 +393,43 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     paddingTop: Platform.OS === "android" ? 48 : 0,
   },
+  centeredContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 32,
+  },
+  notAuthenticatedTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: colors.text,
+    marginTop: 24,
+    marginBottom: 12,
+    textAlign: "center",
+  },
+  notAuthenticatedMessage: {
+    fontSize: 16,
+    color: colors.textSecondary,
+    textAlign: "center",
+    marginBottom: 32,
+    lineHeight: 24,
+  },
+  signInButton: {
+    backgroundColor: colors.primary,
+    paddingHorizontal: 32,
+    paddingVertical: 16,
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  signInButtonText: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: colors.textLight,
+  },
   scrollContent: {
     padding: 16,
   },
@@ -335,6 +445,9 @@ const styles = StyleSheet.create({
   },
   headerText: {
     flex: 1,
+  },
+  headerLoader: {
+    marginLeft: 12,
   },
   title: {
     fontSize: 24,

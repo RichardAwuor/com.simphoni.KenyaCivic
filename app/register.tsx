@@ -149,12 +149,33 @@ export default function RegisterScreen() {
       setSelectedWard("");
 
       try {
+        console.log("[Register] Making API call to /api/locations/constituencies?countyCode=" + selectedCounty);
         const response = await apiGet(`/api/locations/constituencies?countyCode=${selectedCounty}`);
-        console.log("[Register] Constituencies fetched:", response);
-        setConstituencies(response.constituencies || []);
+        console.log("[Register] API response received:", JSON.stringify(response, null, 2));
+        
+        if (response && response.constituencies) {
+          console.log("[Register] Setting constituencies:", response.constituencies.length, "items");
+          setConstituencies(response.constituencies);
+          
+          if (response.constituencies.length === 0) {
+            console.warn("[Register] No constituencies found for county:", selectedCounty);
+            showAlert("No Data", `No constituencies found for the selected county. Please ensure polling station data has been imported.`);
+          }
+        } else {
+          console.error("[Register] Invalid response structure:", response);
+          showAlert("Error", "Invalid response from server");
+          setConstituencies([]);
+        }
       } catch (error: any) {
         console.error("[Register] Error fetching constituencies:", error);
-        showAlert("Error", "Failed to load constituencies");
+        console.error("[Register] Error details:", {
+          message: error.message,
+          stack: error.stack,
+          response: error.response,
+        });
+        
+        const errorMessage = error.message || "Failed to load constituencies";
+        showAlert("Error", `Failed to load constituencies: ${errorMessage}`);
         setConstituencies([]);
       } finally {
         setLoadingConstituencies(false);
@@ -178,12 +199,33 @@ export default function RegisterScreen() {
       setSelectedWard("");
 
       try {
+        console.log("[Register] Making API call to /api/locations/wards?countyCode=" + selectedCounty + "&constituencyCode=" + selectedConstituency);
         const response = await apiGet(`/api/locations/wards?countyCode=${selectedCounty}&constituencyCode=${selectedConstituency}`);
-        console.log("[Register] Wards fetched:", response);
-        setWards(response.wards || []);
+        console.log("[Register] API response received:", JSON.stringify(response, null, 2));
+        
+        if (response && response.wards) {
+          console.log("[Register] Setting wards:", response.wards.length, "items");
+          setWards(response.wards);
+          
+          if (response.wards.length === 0) {
+            console.warn("[Register] No wards found for constituency:", selectedConstituency);
+            showAlert("No Data", `No wards found for the selected constituency. Please ensure polling station data has been imported.`);
+          }
+        } else {
+          console.error("[Register] Invalid response structure:", response);
+          showAlert("Error", "Invalid response from server");
+          setWards([]);
+        }
       } catch (error: any) {
         console.error("[Register] Error fetching wards:", error);
-        showAlert("Error", "Failed to load wards");
+        console.error("[Register] Error details:", {
+          message: error.message,
+          stack: error.stack,
+          response: error.response,
+        });
+        
+        const errorMessage = error.message || "Failed to load wards";
+        showAlert("Error", `Failed to load wards: ${errorMessage}`);
         setWards([]);
       } finally {
         setLoadingWards(false);
@@ -572,7 +614,9 @@ export default function RegisterScreen() {
                     {selectedConstituencyData 
                       ? `${selectedConstituencyData.code} - ${selectedConstituencyData.name}` 
                       : selectedCounty 
-                        ? "Select Constituency" 
+                        ? constituencies.length === 0 
+                          ? "No constituencies available"
+                          : "Select Constituency"
                         : "Select county first"}
                   </Text>
                   <IconSymbol
@@ -626,7 +670,9 @@ export default function RegisterScreen() {
                     {selectedWardData 
                       ? `${selectedWardData.code} - ${selectedWardData.name}` 
                       : selectedConstituency 
-                        ? "Select Ward" 
+                        ? wards.length === 0
+                          ? "No wards available"
+                          : "Select Ward"
                         : "Select constituency first"}
                   </Text>
                   <IconSymbol
@@ -824,6 +870,7 @@ const styles = StyleSheet.create({
   pickerButtonText: {
     fontSize: 16,
     color: colors.text,
+    flex: 1,
   },
   placeholderText: {
     color: colors.textSecondary,

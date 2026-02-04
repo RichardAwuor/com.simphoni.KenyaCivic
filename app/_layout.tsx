@@ -1,3 +1,4 @@
+
 import "react-native-reanimated";
 import React, { useEffect, useState } from "react";
 import { useFonts } from "expo-font";
@@ -16,13 +17,12 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { WidgetProvider } from "@/contexts/WidgetContext";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
-// Note: Error logging is auto-initialized via index.ts import
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export const unstable_settings = {
-  initialRouteName: "(tabs)", // Ensure any route can link back to `/`
+  initialRouteName: "index",
 };
 
 function RootLayoutNav() {
@@ -34,17 +34,18 @@ function RootLayoutNav() {
     if (loading) return;
 
     const inAuthGroup = segments[0] === "auth" || segments[0] === "register";
+    const inWelcome = segments[0] === "index" || segments.length === 0;
 
-    console.log("[RootLayout] Auth state:", { user: !!user, inAuthGroup, segments });
+    console.log("[RootLayout] Auth state:", { user: !!user, inAuthGroup, inWelcome, segments });
 
-    if (!user && !inAuthGroup) {
-      // Redirect to auth if not authenticated
-      console.log("[RootLayout] Redirecting to /auth");
-      router.replace("/auth");
-    } else if (user && inAuthGroup) {
+    if (!user && !inAuthGroup && !inWelcome) {
+      // Redirect to welcome if not authenticated and not in auth/welcome
+      console.log("[RootLayout] Redirecting to /index (Welcome)");
+      router.replace("/");
+    } else if (user && (inAuthGroup || inWelcome)) {
       // Redirect to app if authenticated
-      console.log("[RootLayout] Redirecting to /(tabs)");
-      router.replace("/(tabs)");
+      console.log("[RootLayout] Redirecting to /(tabs)/on-location");
+      router.replace("/(tabs)/on-location");
     }
   }, [user, loading, segments, router]);
 
@@ -58,6 +59,9 @@ function RootLayoutNav() {
 
   return (
     <Stack>
+      {/* Welcome screen */}
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      
       {/* Auth screens */}
       <Stack.Screen name="auth" options={{ headerShown: false }} />
       <Stack.Screen name="auth-popup" options={{ headerShown: false }} />
@@ -98,26 +102,27 @@ export default function RootLayout() {
     ...DefaultTheme,
     dark: false,
     colors: {
-      primary: "rgb(0, 122, 255)", // System Blue
-      background: "rgb(242, 242, 247)", // Light mode background
-      card: "rgb(255, 255, 255)", // White cards/surfaces
-      text: "rgb(0, 0, 0)", // Black text for light mode
-      border: "rgb(216, 216, 220)", // Light gray for separators/borders
-      notification: "rgb(255, 59, 48)", // System Red
+      primary: "rgb(0, 122, 255)",
+      background: "rgb(242, 242, 247)",
+      card: "rgb(255, 255, 255)",
+      text: "rgb(0, 0, 0)",
+      border: "rgb(216, 216, 220)",
+      notification: "rgb(255, 59, 48)",
     },
   };
 
   const CustomDarkTheme: Theme = {
     ...DarkTheme,
     colors: {
-      primary: "rgb(10, 132, 255)", // System Blue (Dark Mode)
-      background: "rgb(1, 1, 1)", // True black background for OLED displays
-      card: "rgb(28, 28, 30)", // Dark card/surface color
-      text: "rgb(255, 255, 255)", // White text for dark mode
-      border: "rgb(44, 44, 46)", // Dark gray for separators/borders
-      notification: "rgb(255, 69, 58)", // System Red (Dark Mode)
+      primary: "rgb(10, 132, 255)",
+      background: "rgb(1, 1, 1)",
+      card: "rgb(28, 28, 30)",
+      text: "rgb(255, 255, 255)",
+      border: "rgb(44, 44, 46)",
+      notification: "rgb(255, 69, 58)",
     },
   };
+  
   return (
     <>
       <StatusBar style="auto" animated />

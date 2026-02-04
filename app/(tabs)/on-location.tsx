@@ -115,6 +115,11 @@ export default function OnLocationScreen() {
     router.push("/scan-form");
   };
 
+  const handleNavigateToReports = () => {
+    console.log("[OnLocation] User tapped My Reports");
+    router.push("/(tabs)/my-reports");
+  };
+
   const locationText = location
     ? `Lat: ${location.coords.latitude.toFixed(6)}, Lon: ${location.coords.longitude.toFixed(6)}`
     : "Location not available";
@@ -230,6 +235,34 @@ export default function OnLocationScreen() {
                 </Text>
               </View>
             </View>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.quickAccessSection}>
+          <TouchableOpacity
+            style={styles.quickAccessButton}
+            onPress={handleNavigateToReports}
+          >
+            <View style={styles.quickAccessIconContainer}>
+              <IconSymbol
+                ios_icon_name="chart.bar.fill"
+                android_material_icon_name="dashboard"
+                size={32}
+                color={colors.textLight}
+              />
+            </View>
+            <View style={styles.quickAccessContent}>
+              <Text style={styles.quickAccessTitle}>My Reports</Text>
+              <Text style={styles.quickAccessSubtitle}>
+                View your profile and dashboard
+              </Text>
+            </View>
+            <IconSymbol
+              ios_icon_name="chevron.right"
+              android_material_icon_name="chevron-right"
+              size={24}
+              color={colors.textLight}
+            />
           </TouchableOpacity>
         </View>
 
@@ -413,6 +446,44 @@ const styles = StyleSheet.create({
   },
   actionButtonSubtitleSecondary: {
     color: colors.textSecondary,
+  },
+  quickAccessSection: {
+    marginBottom: 24,
+  },
+  quickAccessButton: {
+    backgroundColor: colors.secondary,
+    borderRadius: 12,
+    padding: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  quickAccessIconContainer: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 16,
+  },
+  quickAccessContent: {
+    flex: 1,
+  },
+  quickAccessTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: colors.textLight,
+    marginBottom: 4,
+  },
+  quickAccessSubtitle: {
+    fontSize: 14,
+    color: colors.textLight,
+    opacity: 0.9,
   },
   infoCard: {
     ...commonStyles.card,

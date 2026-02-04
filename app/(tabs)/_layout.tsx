@@ -21,20 +21,6 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
-        options={{
-          title: "Dashboard",
-          tabBarIcon: ({ color }) => (
-            <IconSymbol
-              ios_icon_name="chart.bar.fill"
-              android_material_icon_name="dashboard"
-              size={28}
-              color={color}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="on-location"
         options={{
           title: "On-Location",
@@ -49,17 +35,35 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="my-reports"
         options={{
-          title: "Profile",
+          title: "My Reports",
           tabBarIcon: ({ color }) => (
             <IconSymbol
-              ios_icon_name="person.fill"
-              android_material_icon_name="person"
+              ios_icon_name="chart.bar.fill"
+              android_material_icon_name="dashboard"
               size={28}
               color={color}
             />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="index"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="(home)"
+        options={{
+          href: null,
         }}
       />
     </Tabs>

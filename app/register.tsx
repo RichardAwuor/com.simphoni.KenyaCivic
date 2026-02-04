@@ -274,13 +274,13 @@ export default function RegisterScreen() {
       
       showAlert(
         "Registration Successful",
-        `Your agent code is: ${response.agentCode}\n\nBiometric authentication has been enabled. You can now sign in using your email and biometrics.`,
+        `Your agent code is: ${response.agentCode}\n\nYou can now proceed to the On-Location screen to start reporting.`,
         "success"
       );
       
-      // Navigate to auth screen after modal is dismissed
+      // Navigate to On-Location screen after modal is dismissed
       setTimeout(() => {
-        router.replace("/auth");
+        router.replace("/(tabs)/on-location");
       }, 3000);
     } catch (error: any) {
       console.error("[Register] Registration error:", error);
@@ -572,7 +572,7 @@ export default function RegisterScreen() {
               {loading ? (
                 <ActivityIndicator color={colors.textLight} />
               ) : (
-                <Text style={styles.registerButtonText}>Register & Enable Biometrics</Text>
+                <Text style={styles.registerButtonText}>Register & Continue</Text>
               )}
             </TouchableOpacity>
 

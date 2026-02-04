@@ -33,7 +33,7 @@ export default function WelcomeScreen() {
         {/* Logo and Branding */}
         <View style={styles.logoSection}>
           <Image
-            source={require("@/assets/images/5187b23f-bdf8-470b-b1d3-0bffbe4cce78.jpeg")}
+            source={require("@/assets/images/57096317-9193-4e56-b7a3-c29fc689a168.png")}
             style={styles.logo}
             resizeMode="contain"
           />

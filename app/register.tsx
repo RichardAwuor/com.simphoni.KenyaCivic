@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -18,7 +18,7 @@ import { useRouter } from "expo-router";
 import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { apiPost } from "@/utils/api";
+import { apiPost, apiGet } from "@/utils/api";
 
 // Kenya counties data
 const COUNTIES = [
@@ -71,6 +71,16 @@ const COUNTIES = [
   { code: "047", name: "NAIROBI" },
 ];
 
+interface Constituency {
+  code: string;
+  name: string;
+}
+
+interface Ward {
+  code: string;
+  name: string;
+}
+
 export default function RegisterScreen() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -81,14 +91,22 @@ export default function RegisterScreen() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [selectedCounty, setSelectedCounty] = useState("");
-  const [constituencyCode, setConstituencyCode] = useState("");
-  const [constituencyName, setConstituencyName] = useState("");
-  const [wardCode, setWardCode] = useState("");
-  const [wardName, setWardName] = useState("");
+  const [selectedConstituency, setSelectedConstituency] = useState("");
+  const [selectedWard, setSelectedWard] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [nationalId, setNationalId] = useState("");
+  
+  // Picker states
   const [showCountyPicker, setShowCountyPicker] = useState(false);
+  const [showConstituencyPicker, setShowConstituencyPicker] = useState(false);
+  const [showWardPicker, setShowWardPicker] = useState(false);
+  
+  // Data states
+  const [constituencies, setConstituencies] = useState<Constituency[]>([]);
+  const [wards, setWards] = useState<Ward[]>([]);
+  const [loadingConstituencies, setLoadingConstituencies] = useState(false);
+  const [loadingWards, setLoadingWards] = useState(false);
   
   // Modal state
   const [showModal, setShowModal] = useState(false);
@@ -97,6 +115,75 @@ export default function RegisterScreen() {
   const [modalType, setModalType] = useState<"success" | "error">("success");
 
   const selectedCountyData = COUNTIES.find(c => c.code === selectedCounty);
+  const selectedConstituencyData = constituencies.find(c => c.code === selectedConstituency);
+  const selectedWardData = wards.find(w => w.code === selectedWard);
+
+  // Email validation
+  const emailsMatch = email && confirmEmail && email === confirmEmail;
+  const emailValid = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const confirmEmailValid = confirmEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(confirmEmail);
+
+  // Fetch constituencies when county is selected
+  useEffect(() => {
+    const fetchConstituencies = async () => {
+      if (!selectedCounty) {
+        setConstituencies([]);
+        setSelectedConstituency("");
+        setWards([]);
+        setSelectedWard("");
+        return;
+      }
+
+      console.log("[Register] Fetching constituencies for county:", selectedCounty);
+      setLoadingConstituencies(true);
+      setSelectedConstituency("");
+      setWards([]);
+      setSelectedWard("");
+
+      try {
+        const response = await apiGet(`/api/locations/constituencies?countyCode=${selectedCounty}`);
+        console.log("[Register] Constituencies fetched:", response);
+        setConstituencies(response.constituencies || []);
+      } catch (error: any) {
+        console.error("[Register] Error fetching constituencies:", error);
+        showAlert("Error", "Failed to load constituencies");
+        setConstituencies([]);
+      } finally {
+        setLoadingConstituencies(false);
+      }
+    };
+
+    fetchConstituencies();
+  }, [selectedCounty]);
+
+  // Fetch wards when constituency is selected
+  useEffect(() => {
+    const fetchWards = async () => {
+      if (!selectedCounty || !selectedConstituency) {
+        setWards([]);
+        setSelectedWard("");
+        return;
+      }
+
+      console.log("[Register] Fetching wards for county:", selectedCounty, "constituency:", selectedConstituency);
+      setLoadingWards(true);
+      setSelectedWard("");
+
+      try {
+        const response = await apiGet(`/api/locations/wards?countyCode=${selectedCounty}&constituencyCode=${selectedConstituency}`);
+        console.log("[Register] Wards fetched:", response);
+        setWards(response.wards || []);
+      } catch (error: any) {
+        console.error("[Register] Error fetching wards:", error);
+        showAlert("Error", "Failed to load wards");
+        setWards([]);
+      } finally {
+        setLoadingWards(false);
+      }
+    };
+
+    fetchWards();
+  }, [selectedCounty, selectedConstituency]);
 
   const handleDateChange = (event: any, selectedDate?: Date) => {
     setShowDatePicker(Platform.OS === 'ios');
@@ -124,6 +211,10 @@ export default function RegisterScreen() {
       showAlert("Error", "Please enter and confirm your email");
       return false;
     }
+    if (!emailValid) {
+      showAlert("Error", "Please enter a valid email address");
+      return false;
+    }
     if (email !== confirmEmail) {
       showAlert("Error", "Emails do not match");
       return false;
@@ -136,12 +227,12 @@ export default function RegisterScreen() {
       showAlert("Error", "Please select a county");
       return false;
     }
-    if (!constituencyCode || !constituencyName) {
-      showAlert("Error", "Please enter constituency code and name");
+    if (!selectedConstituency) {
+      showAlert("Error", "Please select a constituency");
       return false;
     }
-    if (!wardCode || !wardName) {
-      showAlert("Error", "Please enter ward code and name");
+    if (!selectedWard) {
+      showAlert("Error", "Please select a ward");
       return false;
     }
     if (!nationalId || nationalId.length !== 8) {
@@ -167,10 +258,10 @@ export default function RegisterScreen() {
         lastName,
         countyCode: selectedCounty,
         countyName: selectedCountyData?.name || "",
-        constituencyCode,
-        constituencyName,
-        wardCode,
-        wardName,
+        constituencyCode: selectedConstituency,
+        constituencyName: selectedConstituencyData?.name || "",
+        wardCode: selectedWard,
+        wardName: selectedWardData?.name || "",
         dateOfBirth: dateOfBirth.toISOString(),
         nationalId,
       };
@@ -210,7 +301,7 @@ export default function RegisterScreen() {
         <ScrollView contentContainerStyle={styles.scrollContent}>
           <View style={styles.header}>
             <Image
-              source={require("@/assets/images/16c30a17-865f-4ec0-8d78-4cb83856d9a1.png")}
+              source={require("@/assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png")}
               style={styles.logo}
               resizeMode="contain"
             />
@@ -223,26 +314,52 @@ export default function RegisterScreen() {
             <Text style={styles.sectionTitle}>Contact Information</Text>
             
             <Text style={styles.label}>Email</Text>
-            <TextInput
-              style={styles.input}
-              value={email}
-              onChangeText={setEmail}
-              placeholder="Enter your email"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
+            <View style={styles.inputWithIcon}>
+              <TextInput
+                style={[styles.input, styles.inputWithIconField]}
+                value={email}
+                onChangeText={setEmail}
+                placeholder="Enter your email"
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+              {emailValid && (
+                <IconSymbol
+                  ios_icon_name="checkmark.circle.fill"
+                  android_material_icon_name="check-circle"
+                  size={24}
+                  color={colors.success}
+                  style={styles.checkIcon}
+                />
+              )}
+            </View>
 
             <Text style={styles.label}>Confirm Email</Text>
-            <TextInput
-              style={styles.input}
-              value={confirmEmail}
-              onChangeText={setConfirmEmail}
-              placeholder="Confirm your email"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoCorrect={false}
-            />
+            <View style={styles.inputWithIcon}>
+              <TextInput
+                style={[styles.input, styles.inputWithIconField]}
+                value={confirmEmail}
+                onChangeText={setConfirmEmail}
+                placeholder="Confirm your email"
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+              {confirmEmailValid && emailsMatch && (
+                <IconSymbol
+                  ios_icon_name="checkmark.circle.fill"
+                  android_material_icon_name="check-circle"
+                  size={24}
+                  color={colors.success}
+                  style={styles.checkIcon}
+                />
+              )}
+            </View>
+
+            {confirmEmail && !emailsMatch && (
+              <Text style={styles.errorText}>Emails do not match</Text>
+            )}
 
             <Text style={styles.sectionTitle}>Personal Information</Text>
             
@@ -305,7 +422,7 @@ export default function RegisterScreen() {
               style={styles.pickerButton}
               onPress={() => setShowCountyPicker(!showCountyPicker)}
             >
-              <Text style={styles.pickerButtonText}>
+              <Text style={[styles.pickerButtonText, !selectedCountyData && styles.placeholderText]}>
                 {selectedCountyData ? `${selectedCountyData.code} - ${selectedCountyData.name}` : "Select County"}
               </Text>
               <IconSymbol
@@ -323,55 +440,129 @@ export default function RegisterScreen() {
                     key={county.code}
                     style={styles.pickerItem}
                     onPress={() => {
+                      console.log("[Register] County selected:", county.code, county.name);
                       setSelectedCounty(county.code);
                       setShowCountyPicker(false);
                     }}
                   >
                     <Text style={styles.pickerItemText}>
-                      {county.code} - {county.name}
+                      {county.code}
+                    </Text>
+                    <Text style={styles.pickerItemText}>
+                      {county.name}
                     </Text>
                   </TouchableOpacity>
                 ))}
               </ScrollView>
             )}
 
-            <Text style={styles.label}>Constituency Code (3 digits)</Text>
-            <TextInput
-              style={styles.input}
-              value={constituencyCode}
-              onChangeText={setConstituencyCode}
-              placeholder="e.g., 001"
-              keyboardType="number-pad"
-              maxLength={3}
-            />
+            <Text style={styles.label}>Constituency</Text>
+            <TouchableOpacity
+              style={[styles.pickerButton, !selectedCounty && styles.pickerButtonDisabled]}
+              onPress={() => {
+                if (selectedCounty && constituencies.length > 0) {
+                  setShowConstituencyPicker(!showConstituencyPicker);
+                }
+              }}
+              disabled={!selectedCounty || loadingConstituencies}
+            >
+              {loadingConstituencies ? (
+                <ActivityIndicator size="small" color={colors.primary} />
+              ) : (
+                <>
+                  <Text style={[styles.pickerButtonText, !selectedConstituencyData && styles.placeholderText]}>
+                    {selectedConstituencyData 
+                      ? `${selectedConstituencyData.code} - ${selectedConstituencyData.name}` 
+                      : selectedCounty 
+                        ? "Select Constituency" 
+                        : "Select county first"}
+                  </Text>
+                  <IconSymbol
+                    ios_icon_name="chevron.down"
+                    android_material_icon_name="arrow-drop-down"
+                    size={24}
+                    color={colors.textSecondary}
+                  />
+                </>
+              )}
+            </TouchableOpacity>
 
-            <Text style={styles.label}>Constituency Name</Text>
-            <TextInput
-              style={styles.input}
-              value={constituencyName}
-              onChangeText={setConstituencyName}
-              placeholder="e.g., CHANGAMWE"
-              autoCapitalize="characters"
-            />
+            {showConstituencyPicker && constituencies.length > 0 && (
+              <ScrollView style={styles.pickerList} nestedScrollEnabled>
+                {constituencies.map((constituency) => (
+                  <TouchableOpacity
+                    key={constituency.code}
+                    style={styles.pickerItem}
+                    onPress={() => {
+                      console.log("[Register] Constituency selected:", constituency.code, constituency.name);
+                      setSelectedConstituency(constituency.code);
+                      setShowConstituencyPicker(false);
+                    }}
+                  >
+                    <Text style={styles.pickerItemText}>
+                      {constituency.code}
+                    </Text>
+                    <Text style={styles.pickerItemText}>
+                      {constituency.name}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            )}
 
-            <Text style={styles.label}>Ward Code (4 digits)</Text>
-            <TextInput
-              style={styles.input}
-              value={wardCode}
-              onChangeText={setWardCode}
-              placeholder="e.g., 0001"
-              keyboardType="number-pad"
-              maxLength={4}
-            />
+            <Text style={styles.label}>Ward</Text>
+            <TouchableOpacity
+              style={[styles.pickerButton, (!selectedCounty || !selectedConstituency) && styles.pickerButtonDisabled]}
+              onPress={() => {
+                if (selectedCounty && selectedConstituency && wards.length > 0) {
+                  setShowWardPicker(!showWardPicker);
+                }
+              }}
+              disabled={!selectedCounty || !selectedConstituency || loadingWards}
+            >
+              {loadingWards ? (
+                <ActivityIndicator size="small" color={colors.primary} />
+              ) : (
+                <>
+                  <Text style={[styles.pickerButtonText, !selectedWardData && styles.placeholderText]}>
+                    {selectedWardData 
+                      ? `${selectedWardData.code} - ${selectedWardData.name}` 
+                      : selectedConstituency 
+                        ? "Select Ward" 
+                        : "Select constituency first"}
+                  </Text>
+                  <IconSymbol
+                    ios_icon_name="chevron.down"
+                    android_material_icon_name="arrow-drop-down"
+                    size={24}
+                    color={colors.textSecondary}
+                  />
+                </>
+              )}
+            </TouchableOpacity>
 
-            <Text style={styles.label}>Ward Name</Text>
-            <TextInput
-              style={styles.input}
-              value={wardName}
-              onChangeText={setWardName}
-              placeholder="e.g., PORT REITZ"
-              autoCapitalize="characters"
-            />
+            {showWardPicker && wards.length > 0 && (
+              <ScrollView style={styles.pickerList} nestedScrollEnabled>
+                {wards.map((ward) => (
+                  <TouchableOpacity
+                    key={ward.code}
+                    style={styles.pickerItem}
+                    onPress={() => {
+                      console.log("[Register] Ward selected:", ward.code, ward.name);
+                      setSelectedWard(ward.code);
+                      setShowWardPicker(false);
+                    }}
+                  >
+                    <Text style={styles.pickerItemText}>
+                      {ward.code}
+                    </Text>
+                    <Text style={styles.pickerItemText}>
+                      {ward.name}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            )}
 
             <TouchableOpacity
               style={[styles.registerButton, loading && styles.buttonDisabled]}
@@ -437,8 +628,8 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
     marginBottom: 12,
   },
   appName: {
@@ -477,6 +668,25 @@ const styles = StyleSheet.create({
     ...commonStyles.input,
     marginBottom: 16,
   },
+  inputWithIcon: {
+    position: "relative",
+    marginBottom: 16,
+  },
+  inputWithIconField: {
+    paddingRight: 40,
+    marginBottom: 0,
+  },
+  checkIcon: {
+    position: "absolute",
+    right: 12,
+    top: 12,
+  },
+  errorText: {
+    fontSize: 12,
+    color: colors.error,
+    marginTop: -12,
+    marginBottom: 16,
+  },
   dateButton: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -503,9 +713,15 @@ const styles = StyleSheet.create({
     padding: 12,
     marginBottom: 8,
   },
+  pickerButtonDisabled: {
+    opacity: 0.5,
+  },
   pickerButtonText: {
     fontSize: 16,
     color: colors.text,
+  },
+  placeholderText: {
+    color: colors.textSecondary,
   },
   pickerList: {
     maxHeight: 200,
@@ -519,6 +735,8 @@ const styles = StyleSheet.create({
     padding: 12,
     borderBottomWidth: 1,
     borderBottomColor: colors.border,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   pickerItemText: {
     fontSize: 16,

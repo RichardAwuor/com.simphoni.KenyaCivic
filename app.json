@@ -4,31 +4,31 @@
     "slug": "Kenya Civic",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/natively-dark.png",
+    "icon": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/natively-dark.png",
+      "image": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
       "resizeMode": "contain",
-      "backgroundColor": "#000000"
+      "backgroundColor": "#FFFFFF"
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.Natively",
+      "bundleIdentifier": "com.kenyacivic.app",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/natively-dark.png",
-        "backgroundColor": "#000000"
+        "foregroundImage": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
+        "backgroundColor": "#FFFFFF"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.anonymous.Natively"
+      "package": "com.kenyacivic.app"
     },
     "web": {
-      "favicon": "./assets/images/final_quest_240x240.png",
+      "favicon": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
       "bundler": "metro"
     },
     "plugins": [

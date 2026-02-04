@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Kenya Civic",
-    "slug": "Kenya Civic",
-    "version": "1.0.0",
+    "slug": "kenya-civic-app-xvakea",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
     "userInterfaceStyle": "automatic",
@@ -25,7 +25,8 @@
         "backgroundColor": "#FFFFFF"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.kenyacivic.app"
+      "package": "com.simphoni.kenyacivic",
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
@@ -42,7 +43,7 @@
     },
     "extra": {
       "router": {},
-      "backendUrl": "https://w8d5wb3wh94c69f2asap82uzf39m5ezs.app.specular.dev"
+      "backendUrl": "https://prod-proj-67jtsazcghhne66e7dzyv-liwg5h36mq-ey.a.run.app"
     }
   }
 }

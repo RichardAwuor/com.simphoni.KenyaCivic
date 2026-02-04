@@ -104,6 +104,16 @@ export default function AuthScreen() {
     }
   };
 
+  const handleBackToWelcome = () => {
+    console.log("[Auth] User tapped Back - navigating to welcome screen");
+    router.back();
+  };
+
+  const handleGoToRegister = () => {
+    console.log("[Auth] User tapped Register - navigating to registration screen");
+    router.push("/register");
+  };
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -111,6 +121,16 @@ export default function AuthScreen() {
     >
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.content}>
+          <TouchableOpacity style={styles.backButton} onPress={handleBackToWelcome}>
+            <IconSymbol
+              ios_icon_name="chevron.left"
+              android_material_icon_name="arrow-back"
+              size={24}
+              color={colors.primary}
+            />
+            <Text style={styles.backButtonText}>Back</Text>
+          </TouchableOpacity>
+
           <View style={styles.header}>
             <Image
               source={require("@/assets/images/3b525fcc-fe8a-4cc2-bf6f-cc763a5c680d.png")}
@@ -119,7 +139,6 @@ export default function AuthScreen() {
             />
             <Text style={styles.appName}>CIVIC</Text>
             <Text style={styles.slogan}>WANJIKU@63</Text>
-            <Text style={styles.tagline}>Electoral Agent Portal</Text>
           </View>
 
           <View style={styles.formSection}>
@@ -164,7 +183,7 @@ export default function AuthScreen() {
 
             <TouchableOpacity
               style={styles.registerButton}
-              onPress={() => router.push("/register")}
+              onPress={handleGoToRegister}
             >
               <IconSymbol
                 ios_icon_name="person.badge.plus"
@@ -225,14 +244,25 @@ const styles = StyleSheet.create({
     padding: 24,
     justifyContent: "space-between",
   },
+  backButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: Platform.OS === "android" ? 24 : 0,
+    marginBottom: 16,
+  },
+  backButtonText: {
+    fontSize: 16,
+    color: colors.primary,
+    marginLeft: 4,
+    fontWeight: "600",
+  },
   header: {
     alignItems: "center",
-    marginTop: 40,
     marginBottom: 32,
   },
   logo: {
-    width: 240,
-    height: 240,
+    width: 160,
+    height: 160,
     marginBottom: 16,
   },
   appName: {
@@ -245,11 +275,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: colors.secondary,
     fontWeight: "600",
-    marginBottom: 8,
-  },
-  tagline: {
-    fontSize: 14,
-    color: colors.textSecondary,
   },
   formSection: {
     flex: 1,

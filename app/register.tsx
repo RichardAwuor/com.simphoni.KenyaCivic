@@ -373,6 +373,11 @@ export default function RegisterScreen() {
     }
   };
 
+  const handleBack = () => {
+    console.log("[Register] User tapped Back - navigating to auth screen");
+    router.back();
+  };
+
   const dateText = formatDate(dateOfBirth);
 
   return (
@@ -382,6 +387,16 @@ export default function RegisterScreen() {
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <ScrollView contentContainerStyle={styles.scrollContent}>
+          <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+            <IconSymbol
+              ios_icon_name="chevron.left"
+              android_material_icon_name="arrow-back"
+              size={24}
+              color={colors.primary}
+            />
+            <Text style={styles.backButtonText}>Back</Text>
+          </TouchableOpacity>
+
           <View style={styles.header}>
             <Image
               source={require("@/assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png")}
@@ -658,13 +673,6 @@ export default function RegisterScreen() {
                 <Text style={styles.registerButtonText}>Register & Enable Biometrics</Text>
               )}
             </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.backButton}
-              onPress={() => router.back()}
-            >
-              <Text style={styles.backButtonText}>Already have an account? Sign In</Text>
-            </TouchableOpacity>
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -707,6 +715,18 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 20,
+  },
+  backButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+    marginTop: Platform.OS === "android" ? 24 : 0,
+  },
+  backButtonText: {
+    fontSize: 16,
+    color: colors.primary,
+    marginLeft: 4,
+    fontWeight: "600",
   },
   header: {
     alignItems: "center",
@@ -841,14 +861,6 @@ const styles = StyleSheet.create({
   },
   buttonDisabled: {
     opacity: 0.6,
-  },
-  backButton: {
-    marginTop: 16,
-    alignItems: "center",
-  },
-  backButtonText: {
-    color: colors.info,
-    fontSize: 14,
   },
   modalOverlay: {
     flex: 1,

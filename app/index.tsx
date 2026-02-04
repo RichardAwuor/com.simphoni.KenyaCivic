@@ -17,8 +17,13 @@ export default function WelcomeScreen() {
   const router = useRouter();
 
   const handleGetStarted = () => {
-    console.log("[Welcome] User tapped Get Started");
+    console.log("[Welcome] User tapped Get Started - navigating to auth screen");
     router.push("/auth");
+  };
+
+  const handleRegister = () => {
+    console.log("[Welcome] User tapped Register - navigating to registration screen");
+    router.push("/register");
   };
 
   return (
@@ -113,16 +118,29 @@ export default function WelcomeScreen() {
 
         <View style={styles.footer}>
           <TouchableOpacity
-            style={styles.getStartedButton}
+            style={styles.signInButton}
             onPress={handleGetStarted}
           >
-            <Text style={styles.getStartedButtonText}>Get Started</Text>
+            <Text style={styles.signInButtonText}>Sign In</Text>
             <IconSymbol
               ios_icon_name="arrow.right"
               android_material_icon_name="arrow-forward"
               size={24}
               color={colors.textLight}
             />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.registerButton}
+            onPress={handleRegister}
+          >
+            <IconSymbol
+              ios_icon_name="person.badge.plus"
+              android_material_icon_name="person-add"
+              size={24}
+              color={colors.primary}
+            />
+            <Text style={styles.registerButtonText}>Register as New Agent</Text>
           </TouchableOpacity>
 
           <Text style={styles.footerText}>Powered by Kenya Civic</Text>
@@ -226,7 +244,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingBottom: 16,
   },
-  getStartedButton: {
+  signInButton: {
     flexDirection: "row",
     backgroundColor: colors.primary,
     paddingVertical: 16,
@@ -234,7 +252,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 24,
+    marginBottom: 16,
     width: "100%",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
@@ -242,11 +260,30 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 4,
   },
-  getStartedButtonText: {
+  signInButtonText: {
     fontSize: 18,
     fontWeight: "bold",
     color: colors.textLight,
     marginRight: 8,
+  },
+  registerButton: {
+    flexDirection: "row",
+    backgroundColor: colors.card,
+    paddingVertical: 16,
+    paddingHorizontal: 32,
+    borderRadius: 12,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 24,
+    width: "100%",
+    borderWidth: 2,
+    borderColor: colors.primary,
+  },
+  registerButtonText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: colors.primary,
+    marginLeft: 8,
   },
   footerText: {
     fontSize: 14,

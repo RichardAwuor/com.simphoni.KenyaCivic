@@ -35,18 +35,21 @@ function RootLayoutNav() {
 
     const inAuthGroup = segments[0] === "auth" || segments[0] === "register";
     const inWelcome = segments[0] === "index" || segments.length === 0;
+    const inTabs = segments[0] === "(tabs)";
 
-    console.log("[RootLayout] Auth state:", { user: !!user, inAuthGroup, inWelcome, segments });
+    console.log("[RootLayout] Auth state:", { user: !!user, inAuthGroup, inWelcome, inTabs, segments });
 
-    if (!user && !inAuthGroup && !inWelcome) {
-      // Redirect to welcome if not authenticated and not in auth/welcome
-      console.log("[RootLayout] Redirecting to /index (Welcome)");
-      router.replace("/");
-    } else if (user && (inAuthGroup || inWelcome)) {
-      // Redirect to app if authenticated
-      console.log("[RootLayout] Redirecting to /(tabs)/on-location");
+    // If user is authenticated and trying to access welcome/auth screens, redirect to app
+    if (user && (inAuthGroup || inWelcome)) {
+      console.log("[RootLayout] User authenticated, redirecting to /(tabs)/on-location");
       router.replace("/(tabs)/on-location");
     }
+    // If user is not authenticated and trying to access protected routes, redirect to welcome
+    else if (!user && inTabs) {
+      console.log("[RootLayout] User not authenticated, redirecting to /index (Welcome)");
+      router.replace("/");
+    }
+    // Otherwise, let the user stay where they are (welcome, auth, register screens are accessible)
   }, [user, loading, segments, router]);
 
   if (loading) {
@@ -59,16 +62,16 @@ function RootLayoutNav() {
 
   return (
     <Stack>
-      {/* Welcome screen */}
+      {/* Welcome screen - First screen shown to all users */}
       <Stack.Screen name="index" options={{ headerShown: false }} />
       
-      {/* Auth screens */}
+      {/* Auth screens - Accessible from Welcome */}
       <Stack.Screen name="auth" options={{ headerShown: false }} />
       <Stack.Screen name="auth-popup" options={{ headerShown: false }} />
       <Stack.Screen name="auth-callback" options={{ headerShown: false }} />
       <Stack.Screen name="register" options={{ headerShown: false }} />
       
-      {/* Main app with tabs */}
+      {/* Main app with tabs - Only accessible when authenticated */}
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       
       {/* Camera and video recording - NO TABS */}

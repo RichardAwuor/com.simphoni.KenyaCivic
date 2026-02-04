@@ -33,7 +33,7 @@ export default function WelcomeScreen() {
         {/* Logo and Branding */}
         <View style={styles.logoSection}>
           <Image
-            source={require("@/assets/images/57096317-9193-4e56-b7a3-c29fc689a168.png")}
+            source={require("@/assets/images/c22b81d6-4b22-4830-9663-1a8827882d4c.png")}
             style={styles.logo}
             resizeMode="contain"
           />
@@ -163,8 +163,8 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   logo: {
-    width: 180,
-    height: 180,
+    width: 220,
+    height: 220,
     marginBottom: 20,
   },
   appName: {

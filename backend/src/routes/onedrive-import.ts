@@ -29,10 +29,67 @@ interface ImportResponse {
   errors: string[];
 }
 
+/**
+ * Convert OneDrive sharing link to direct download URL
+ * Example: https://1drv.ms/x/s!AHashToken to direct Graph API URL
+ */
+function convertSharingLinkToDownloadUrl(sharingUrl: string): string {
+  // Match OneDrive sharing link pattern
+  const match = sharingUrl.match(/https:\/\/(1drv\.ms|onedrive\.live\.com)\/([a-z])\/(.*)/i);
+  if (!match) {
+    throw new Error(`Invalid OneDrive sharing link format. Expected format: https://1drv.ms/x/s!...`);
+  }
+
+  const shareToken = match[3];
+  if (!shareToken) {
+    throw new Error('Invalid OneDrive sharing link: missing share token');
+  }
+
+  // Create base64-encoded share token with "u!" prefix for unauthenticated access
+  const encodedToken = Buffer.from(`u!${shareToken}`).toString('base64').replace(/\//g, '_').replace(/\+/g, '-').replace(/=/g, '');
+
+  return `https://graph.microsoft.com/v1.0/shares/${encodedToken}/driveItem/content`;
+}
+
+/**
+ * Determine if URL is a OneDrive sharing link or direct download URL
+ */
+function isOneDriveSharingLink(url: string): boolean {
+  return /https:\/\/(1drv\.ms|onedrive\.live\.com)\//i.test(url);
+}
+
+/**
+ * Get detailed error message based on HTTP status code and error response
+ */
+function getDetailedErrorMessage(error: any, context: string): string {
+  const status = error?.response?.status;
+  const statusText = error?.response?.statusText;
+  const data = error?.response?.data;
+
+  if (status === 401) {
+    return `${context}: Unauthorized - Access token is invalid, expired, or does not have permission to access this file`;
+  }
+  if (status === 403) {
+    return `${context}: Access Denied - You do not have permission to access this file`;
+  }
+  if (status === 404) {
+    return `${context}: File Not Found - The file does not exist or has been deleted`;
+  }
+  if (status === 400) {
+    return `${context}: Invalid Request - The file URL or sharing link format is invalid`;
+  }
+  if (status >= 500) {
+    return `${context}: OneDrive service error (${status}) - Please try again later`;
+  }
+
+  return `${context}: ${error?.message || 'Unknown error occurred'}`;
+}
+
 export function registerOnedriveImportRoutes(app: App) {
   /**
    * POST /api/onedrive/import-excel
    * Import polling stations from OneDrive Excel file
+   * Supports both direct download URLs and OneDrive sharing links (1drv.ms)
    */
   app.fastify.post('/api/onedrive/import-excel', async (
     request: FastifyRequest,
@@ -57,7 +114,7 @@ export function registerOnedriveImportRoutes(app: App) {
           success: false,
           imported: 0,
           failed: 0,
-          errors: ['Missing or invalid fileUrl'],
+          errors: ['Missing or invalid fileUrl - must be a valid URL string'],
         });
       }
 
@@ -67,8 +124,29 @@ export function registerOnedriveImportRoutes(app: App) {
           success: false,
           imported: 0,
           failed: 0,
-          errors: ['Missing or invalid accessToken'],
+          errors: ['Missing or invalid accessToken - required to download file from OneDrive'],
         });
+      }
+
+      // Convert sharing link to direct download URL if needed
+      let downloadUrl = fileUrl;
+      app.logger.info({ isSharingLink: isOneDriveSharingLink(fileUrl) }, 'Checking URL format');
+
+      if (isOneDriveSharingLink(fileUrl)) {
+        try {
+          app.logger.info({}, 'Converting OneDrive sharing link to direct download URL');
+          downloadUrl = convertSharingLinkToDownloadUrl(fileUrl);
+          app.logger.info({}, 'Sharing link converted successfully');
+        } catch (error: any) {
+          const errorMsg = error.message || 'Failed to convert sharing link';
+          app.logger.warn({ err: error, originalUrl: fileUrl }, errorMsg);
+          return reply.status(400).send({
+            success: false,
+            imported: 0,
+            failed: 0,
+            errors: [errorMsg],
+          });
+        }
       }
 
       // Download file from OneDrive
@@ -76,7 +154,7 @@ export function registerOnedriveImportRoutes(app: App) {
       let fileBuffer: Buffer;
 
       try {
-        const response = await axios.get(fileUrl, {
+        const response = await axios.get(downloadUrl, {
           headers: {
             'Authorization': `Bearer ${accessToken}`,
             'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -86,10 +164,10 @@ export function registerOnedriveImportRoutes(app: App) {
         fileBuffer = Buffer.from(response.data);
         app.logger.info({ fileSize: fileBuffer.length }, 'File downloaded successfully');
       } catch (error: any) {
-        const errorMsg = `Failed to download file from OneDrive: ${error?.message || 'Unknown error'}`;
-        app.logger.error({ err: error, fileUrl }, errorMsg);
+        const errorMsg = getDetailedErrorMessage(error, 'Failed to download file from OneDrive');
+        app.logger.error({ err: error, downloadUrl }, errorMsg);
         errors.push(errorMsg);
-        return reply.status(400).send({
+        return reply.status(error?.response?.status || 400).send({
           success: false,
           imported: 0,
           failed: 0,
@@ -107,19 +185,19 @@ export function registerOnedriveImportRoutes(app: App) {
         const sheetName = workbook.SheetNames[0];
 
         if (!sheetName) {
-          throw new Error('No sheets found in workbook');
+          throw new Error('No sheets found in workbook - file appears to be empty or corrupted');
         }
 
         const worksheet = workbook.Sheets[sheetName];
         rows = XLSX.utils.sheet_to_json<ExcelRow>(worksheet);
 
         if (rows.length === 0) {
-          throw new Error('No data rows found in Excel file');
+          throw new Error('No data rows found in Excel file - ensure the spreadsheet contains data rows below the header');
         }
 
-        app.logger.info({ rowCount: rows.length }, 'Excel file parsed successfully');
+        app.logger.info({ rowCount: rows.length, sheetName }, 'Excel file parsed successfully');
       } catch (error: any) {
-        const errorMsg = `Failed to parse Excel file: ${error?.message || 'Unknown error'}`;
+        const errorMsg = `Failed to parse Excel file: ${error?.message || 'The file may not be a valid Excel (.xlsx) file or is corrupted'}`;
         app.logger.error({ err: error }, errorMsg);
         errors.push(errorMsg);
         return reply.status(400).send({

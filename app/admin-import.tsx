@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import {
   TextInput,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useRouter } from "expo-router";
+import { useRouter, useLocalSearchParams } from "expo-router";
 import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
 import { apiPost } from "@/utils/api";
@@ -31,12 +31,26 @@ interface PollingStation {
 
 export default function AdminImportScreen() {
   const router = useRouter();
+  const params = useLocalSearchParams();
   const [loading, setLoading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
   const [oneDriveUrl, setOneDriveUrl] = useState("");
   const [accessToken, setAccessToken] = useState("");
+
+  // Pre-fill from URL parameters if provided
+  useEffect(() => {
+    console.log("[Admin Import] URL params:", params);
+    if (params.fileUrl && typeof params.fileUrl === 'string') {
+      console.log("[Admin Import] Pre-filling file URL from params");
+      setOneDriveUrl(params.fileUrl);
+    }
+    if (params.accessToken && typeof params.accessToken === 'string') {
+      console.log("[Admin Import] Pre-filling access token from params");
+      setAccessToken(params.accessToken);
+    }
+  }, [params]);
 
   const showAlert = (title: string, message: string) => {
     console.log("Admin Import Alert:", title, message);
@@ -524,5 +538,59 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 16,
     fontWeight: "600",
+  },
+});
+
+</write file>
+
+Now, let me create a helper screen that will automatically navigate to the admin-import screen with the pre-filled data. This will make it easy for the user to import the data:
+
+<write file="app/quick-import.tsx">
+import React, { useEffect } from "react";
+import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
+import { colors } from "@/styles/commonStyles";
+
+export default function QuickImportScreen() {
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log("[Quick Import] Redirecting to admin-import with pre-filled data");
+    
+    // OneDrive file URL from user
+    const fileUrl = "https://1drv.ms/x/c/5296d71c535f792c/IQDc1WbU9X3wQpcRZrWuRzPqAdM-Ud7C3hs--9r9WJ4_ssU?e=dNxlmd&nav=MTVfezAwMDAwMDAwLTAwMDEtMDAwMC0wMDAwLTAwMDAwMDAwMDAwMH0";
+    
+    // Microsoft access token from user
+    const accessToken = "EwBIBMl6BAAUu4TQbLz/EdYigQnDPtIo76ZZUKsAAaumHCQfWQE2pYBQRxwksb3C4gMcZI9y0rtmZ8Q7rtKR5yOUXZxGE1H+2TSmesWDSPA51NRyQwkvp/JqVmSr3tKmEHWOVCgAFwUDi1XdwOEBP/LqZt8TJjmc3iDLI1jE9E7spz8YJIeaP5RBfB/3hAqDgPhMa1nEFzglUesT3iG6hXzVJ81qHhRSnfoqjDr1qpTxMrWw917nhj2adffkjXtnVzgdjhVAlkf5L7Evgy9A+5KuVCpZbbBsyExvuPHA7mmCB+oW8gZv83bqknYK4uEHk9U7Pp2F+fDKpA5EQKR0ls20nTU2ixfgaScdFZ4DHIumTdqsr5qZNQAjp6NuZ60QZgAAELmpyLzG2bfAXDFgO7rCBHAQAzOsAFrhvWzAWhvvN1m4tPp+lZPOuUXjus3En4byDePEurGgeL9pmMnO8Yb544XlAvIHj7aHnDtWDkKk24fhpzwNkLy1sYaseBISt0pxz5LcZ/T6MIw90AMYPQmvXuWF0rjjXdzjT0kD09IZnWVyNZaE4dNfKRSHMCsqvqB7Sqyvx3GzQM3o8q3v03es5YJCb84QC4Oq2SwloAkRPSR1by6rf8tejcm17rwBgzqFIh8b5aiIeetGIFovW1pQwuSIJixhYasbcauFAsw/UgLxUThjFHtd5/O95BeOXEmPkI49dQlgTgboyD+TNY+I4867B9JJCOVqAZDQlFhkjV30/HkKatQhhUlQIQpb3owZajaQtCiNSnzLjqvC5V1YXQKZQZl5SS5MuV3T0m6VtpkS+c34+alGXS6jedlFn026idbLEgA2unPP/0w04vTUgO+Kl4L+v8m446MciSQDde3ITPWNwwTsayG4YKli8C6ArvU+RTuIh8TrLEGFbTiW//c9H6ew248DFmYmCdQLsNSlI3fpZHO1w96KIQ0nHCDRRkYDCXdaKvAZ7IolH62hSbbQ05nTpgWjiDRTwRFDqeoMfaDeC/b/+HfAHS0v0QwRl2z6QFpOKRbOggzDf1gBN+LvZ/sNynf78wBYVOwTh6WHHrDm+4kSo3mNjAf9C2qM6BHbdtoCc4xHF0HcrU+DTHCLvX57YHDn050Xyd2iQYopyMRoZ4lpf0th+DtJxXE4wBVAimzLrOZiSPUK2ud9VV/GujKX1SwKEEQOOdhqb70S2m+aQ9uq0hVb07GRAcnQfh5MBrkkM6ZQkiHLk90R+jQ04cHnDujlL4SrhfPny07TRGBPgDp2NOmCF0qCYRdPXpiUy5BgTwrtLgxa+7GQKSDc5LPfo79Rt6oA3wN1rKm85aze2dVmw0EgigRRlFmYgQbqze1lWRVw5UXqt+hPgK5/tP3lpNY2WOXNou5jd+0WIhK+4KTxyPGU9KL7aCJeO7FRcMPyVoWMGoXj8gr1mxqFQEyemySUQvsE1bx34fg4135BAw==";
+    
+    // Navigate to admin-import with pre-filled data
+    router.replace({
+      pathname: "/admin-import",
+      params: {
+        fileUrl,
+        accessToken,
+      },
+    });
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <ActivityIndicator size="large" color={colors.primary} />
+      <Text style={styles.text}>Loading import screen...</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: colors.background,
+  },
+  text: {
+    marginTop: 16,
+    fontSize: 16,
+    color: colors.textSecondary,
   },
 });

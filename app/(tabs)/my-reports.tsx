@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   View,
   Text,
@@ -48,7 +48,7 @@ export default function MyReportsScreen() {
   });
   const [showSignOutModal, setShowSignOutModal] = useState(false);
 
-  const loadData = async (isRefresh = false) => {
+  const loadData = useCallback(async (isRefresh = false) => {
     console.log("[MyReports] Loading data");
     
     if (isRefresh) {
@@ -93,12 +93,12 @@ export default function MyReportsScreen() {
       setLoading(false);
       setRefreshing(false);
     }
-  };
+  }, [user?.id]);
 
   useEffect(() => {
     console.log("My Reports screen loaded");
     loadData();
-  }, [user?.id]);
+  }, [loadData]);
 
   const onRefresh = () => {
     loadData(true);

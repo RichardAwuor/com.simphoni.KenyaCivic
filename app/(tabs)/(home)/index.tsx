@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   View,
   Text,
@@ -45,7 +45,7 @@ export default function HomeScreen() {
     hasForm34A: false,
   });
 
-  const loadDashboardData = async (isRefresh = false) => {
+  const loadDashboardData = useCallback(async (isRefresh = false) => {
     console.log("[Home] Loading dashboard data");
     
     if (isRefresh) {
@@ -90,12 +90,12 @@ export default function HomeScreen() {
       setLoading(false);
       setRefreshing(false);
     }
-  };
+  }, [user?.id]);
 
   useEffect(() => {
     console.log("Home screen loaded");
     loadDashboardData();
-  }, [user?.id]);
+  }, [loadDashboardData]);
 
   const onRefresh = () => {
     loadDashboardData(true);

@@ -16,167 +16,120 @@ import { IconSymbol } from "@/components/IconSymbol";
 
 export default function WelcomeScreen() {
   const router = useRouter();
-  const [adminTapCount, setAdminTapCount] = useState(0);
-  const [showAdminButton, setShowAdminButton] = useState(false);
+  const [logoTapCount, setLogoTapCount] = useState(0);
 
   const handleSignIn = () => {
-    console.log("[Welcome] User tapped Sign In - navigating to auth screen");
+    console.log("User tapped Sign In button");
     router.push("/auth");
   };
 
   const handleRegister = () => {
-    console.log("[Welcome] User tapped Register - navigating to registration screen");
+    console.log("User tapped Register button");
     router.push("/register");
   };
 
   const handleAdminAccess = () => {
-    console.log("[Welcome] User tapped Admin Access - navigating to admin import");
+    console.log("User accessing Admin Import");
     router.push("/admin-import");
   };
 
   const handleLogoTap = () => {
-    const newCount = adminTapCount + 1;
-    setAdminTapCount(newCount);
+    const newCount = logoTapCount + 1;
+    setLogoTapCount(newCount);
+    console.log(`Logo tapped ${newCount} times`);
     
     if (newCount >= 5) {
-      console.log("[Welcome] Admin mode activated");
-      setShowAdminButton(true);
-      setAdminTapCount(0);
+      console.log("Admin access unlocked");
+      setLogoTapCount(0);
+      handleAdminAccess();
     }
+  };
+
+  const handleQuickImport = () => {
+    console.log("User tapped Quick Import button");
+    router.push("/quick-import");
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
-        {/* Logo and Branding */}
-        <TouchableOpacity 
-          style={styles.logoSection}
-          onPress={handleLogoTap}
-          activeOpacity={0.9}
-        >
-          <Image
-            source={require("@/assets/images/4d9f6aef-8dc7-4801-8d21-adefc7d8b94a.png")}
-            style={styles.logo}
-            resizeMode="contain"
-          />
-          <Text style={styles.appName}>CIVIC</Text>
-          <Text style={styles.slogan}>WANJIKU@63</Text>
-        </TouchableOpacity>
-
-        {/* Title Section */}
-        <View style={styles.titleSection}>
-          <Text style={styles.title}>Electoral Agent Portal</Text>
-          <Text style={styles.subtitle}>
-            Report election results with transparency and accuracy
-          </Text>
-        </View>
-
-        {/* Feature Cards */}
-        <View style={styles.featuresContainer}>
-          <View style={styles.featureCard}>
-            <View style={styles.featureIconBox}>
-              <IconSymbol
-                ios_icon_name="video.fill"
-                android_material_icon_name="videocam"
-                size={28}
-                color={colors.textLight}
-              />
-            </View>
-            <View style={styles.featureTextContainer}>
-              <Text style={styles.featureTitle}>Record Incidents</Text>
-              <Text style={styles.featureDescription}>
-                Capture up to 3 videos with automatic geo-tagging
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.featureCard}>
-            <View style={styles.featureIconBox}>
-              <IconSymbol
-                ios_icon_name="doc.text.fill"
-                android_material_icon_name="description"
-                size={28}
-                color={colors.textLight}
-              />
-            </View>
-            <View style={styles.featureTextContainer}>
-              <Text style={styles.featureTitle}>Submit Form 34A</Text>
-              <Text style={styles.featureDescription}>
-                Scan and validate election results forms
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.featureCard}>
-            <View style={styles.featureIconBox}>
-              <IconSymbol
-                ios_icon_name="chart.bar.fill"
-                android_material_icon_name="dashboard"
-                size={28}
-                color={colors.textLight}
-              />
-            </View>
-            <View style={styles.featureTextContainer}>
-              <Text style={styles.featureTitle}>View Reports</Text>
-              <Text style={styles.featureDescription}>
-                Access real-time election data and analytics
-              </Text>
-            </View>
-          </View>
-        </View>
-
-        {/* Action Buttons */}
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity
-            style={styles.signInButton}
-            onPress={handleSignIn}
-            activeOpacity={0.8}
-          >
-            <Text style={styles.signInButtonText}>Sign In</Text>
-            <IconSymbol
-              ios_icon_name="arrow.right"
-              android_material_icon_name="arrow-forward"
-              size={20}
-              color={colors.textLight}
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <View style={styles.header}>
+          <TouchableOpacity onPress={handleLogoTap} activeOpacity={0.8}>
+            <Image
+              source={require("@/assets/images/4d9f6aef-8dc7-4801-8d21-adefc7d8b94a.png")}
+              style={styles.logo}
+              resizeMode="contain"
             />
           </TouchableOpacity>
+          <Text style={styles.appName}>CIVIC</Text>
+          <Text style={styles.slogan}>WANJIKU@63</Text>
+          <Text style={styles.tagline}>Electoral Reporting System</Text>
+        </View>
 
-          <TouchableOpacity
-            style={styles.registerButton}
-            onPress={handleRegister}
-            activeOpacity={0.8}
-          >
+        <View style={styles.featuresContainer}>
+          <View style={styles.featureCard}>
             <IconSymbol
-              ios_icon_name="person.badge.plus"
-              android_material_icon_name="person-add"
+              ios_icon_name="video.fill"
+              android_material_icon_name="videocam"
+              size={32}
+              color={colors.primary}
+            />
+            <Text style={styles.featureTitle}>Record Incidents</Text>
+            <Text style={styles.featureDescription}>
+              Capture and report electoral incidents with video evidence
+            </Text>
+          </View>
+
+          <View style={styles.featureCard}>
+            <IconSymbol
+              ios_icon_name="doc.text.fill"
+              android_material_icon_name="description"
+              size={32}
+              color={colors.primary}
+            />
+            <Text style={styles.featureTitle}>Submit Form 34A</Text>
+            <Text style={styles.featureDescription}>
+              Scan and submit official election result forms
+            </Text>
+          </View>
+
+          <View style={styles.featureCard}>
+            <IconSymbol
+              ios_icon_name="chart.bar.fill"
+              android_material_icon_name="bar-chart"
+              size={32}
+              color={colors.primary}
+            />
+            <Text style={styles.featureTitle}>View Reports</Text>
+            <Text style={styles.featureDescription}>
+              Access real-time election results and analytics
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.primaryButton} onPress={handleSignIn}>
+            <Text style={styles.primaryButtonText}>Sign In</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.secondaryButton} onPress={handleRegister}>
+            <Text style={styles.secondaryButtonText}>Register as Agent</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.adminButton} onPress={handleQuickImport}>
+            <IconSymbol
+              ios_icon_name="arrow.down.circle"
+              android_material_icon_name="cloud-download"
               size={20}
               color={colors.primary}
             />
-            <Text style={styles.registerButtonText}>Register as New Agent</Text>
+            <Text style={styles.adminButtonText}>Quick Import Data</Text>
           </TouchableOpacity>
-
-          {showAdminButton && (
-            <TouchableOpacity
-              style={styles.adminButton}
-              onPress={handleAdminAccess}
-              activeOpacity={0.8}
-            >
-              <IconSymbol
-                ios_icon_name="gear.circle.fill"
-                android_material_icon_name="settings"
-                size={20}
-                color={colors.textLight}
-              />
-              <Text style={styles.adminButtonText}>Admin: Import Data</Text>
-            </TouchableOpacity>
-          )}
         </View>
 
-        {/* Footer */}
         <View style={styles.footer}>
-          <Text style={styles.footerText}>Powered by Kenya Civic</Text>
-          <Text style={styles.footerSubtext}>
-            Transparent Elections • Real Results
+          <Text style={styles.footerText}>
+            Secure • Transparent • Accountable
           </Text>
         </View>
       </ScrollView>
@@ -191,169 +144,134 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
-    paddingHorizontal: 24,
-    paddingTop: Platform.OS === "android" ? 20 : 10,
-    paddingBottom: 40,
+    padding: 24,
+    paddingTop: Platform.OS === "android" ? 48 : 24,
   },
-  logoSection: {
+  header: {
     alignItems: "center",
-    marginTop: 20,
-    marginBottom: 30,
+    marginBottom: 40,
   },
   logo: {
-    width: 220,
-    height: 220,
-    marginBottom: 20,
+    width: 140,
+    height: 140,
+    marginBottom: 16,
   },
   appName: {
-    fontSize: 52,
+    fontSize: 42,
     fontWeight: "bold",
     color: colors.primary,
-    letterSpacing: 2,
     marginBottom: 8,
+    letterSpacing: 2,
   },
   slogan: {
-    fontSize: 22,
+    fontSize: 20,
     color: colors.secondary,
-    fontWeight: "700",
-    letterSpacing: 1,
+    fontWeight: "600",
+    marginBottom: 8,
   },
-  titleSection: {
-    alignItems: "center",
-    marginBottom: 32,
-    paddingHorizontal: 16,
-  },
-  title: {
-    fontSize: 26,
-    fontWeight: "bold",
-    color: colors.text,
-    marginBottom: 12,
-    textAlign: "center",
-  },
-  subtitle: {
+  tagline: {
     fontSize: 16,
     color: colors.textSecondary,
     textAlign: "center",
-    lineHeight: 24,
   },
   featuresContainer: {
-    marginBottom: 32,
+    marginBottom: 40,
   },
   featureCard: {
-    flexDirection: "row",
-    alignItems: "center",
     backgroundColor: colors.card,
-    borderRadius: 16,
-    padding: 18,
-    marginBottom: 14,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.12,
-    shadowRadius: 6,
-    elevation: 4,
-  },
-  featureIconBox: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: colors.primary,
-    justifyContent: "center",
+    borderRadius: 12,
+    padding: 20,
+    marginBottom: 16,
     alignItems: "center",
-    marginRight: 16,
-  },
-  featureTextContainer: {
-    flex: 1,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 2,
+      },
+    }),
   },
   featureTitle: {
-    fontSize: 17,
-    fontWeight: "700",
+    fontSize: 18,
+    fontWeight: "600",
     color: colors.text,
-    marginBottom: 6,
+    marginTop: 12,
+    marginBottom: 8,
   },
   featureDescription: {
     fontSize: 14,
     color: colors.textSecondary,
+    textAlign: "center",
     lineHeight: 20,
   },
-  buttonsContainer: {
-    marginBottom: 32,
+  buttonContainer: {
+    marginBottom: 24,
   },
-  signInButton: {
-    flexDirection: "row",
+  primaryButton: {
     backgroundColor: colors.primary,
-    paddingVertical: 18,
-    paddingHorizontal: 32,
-    borderRadius: 14,
+    borderRadius: 12,
+    padding: 16,
     alignItems: "center",
-    justifyContent: "center",
-    marginBottom: 16,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 6,
+    marginBottom: 12,
+    ...Platform.select({
+      ios: {
+        shadowColor: colors.primary,
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 8,
+      },
+      android: {
+        elevation: 4,
+      },
+    }),
   },
-  signInButtonText: {
-    fontSize: 19,
-    fontWeight: "bold",
-    color: colors.textLight,
-    marginRight: 10,
+  primaryButtonText: {
+    color: "#FFFFFF",
+    fontSize: 18,
+    fontWeight: "600",
   },
-  registerButton: {
-    flexDirection: "row",
+  secondaryButton: {
     backgroundColor: colors.card,
-    paddingVertical: 18,
-    paddingHorizontal: 32,
-    borderRadius: 14,
+    borderRadius: 12,
+    padding: 16,
     alignItems: "center",
-    justifyContent: "center",
     borderWidth: 2,
     borderColor: colors.primary,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    marginBottom: 12,
   },
-  registerButtonText: {
-    fontSize: 17,
-    fontWeight: "700",
+  secondaryButtonText: {
     color: colors.primary,
-    marginLeft: 10,
+    fontSize: 18,
+    fontWeight: "600",
   },
   adminButton: {
-    flexDirection: "row",
-    backgroundColor: colors.secondary,
-    paddingVertical: 16,
-    paddingHorizontal: 28,
-    borderRadius: 14,
+    backgroundColor: colors.card,
+    borderRadius: 12,
+    padding: 14,
     alignItems: "center",
+    flexDirection: "row",
     justifyContent: "center",
-    marginTop: 8,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 4,
-    elevation: 4,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   adminButtonText: {
+    color: colors.primary,
     fontSize: 16,
-    fontWeight: "700",
-    color: colors.textLight,
-    marginLeft: 10,
+    fontWeight: "500",
+    marginLeft: 8,
   },
   footer: {
     alignItems: "center",
-    marginTop: 20,
+    marginTop: "auto",
+    paddingTop: 24,
   },
   footerText: {
-    fontSize: 15,
+    fontSize: 14,
     color: colors.textSecondary,
-    fontWeight: "600",
-    marginBottom: 6,
-  },
-  footerSubtext: {
-    fontSize: 13,
-    color: colors.textSecondary,
+    textAlign: "center",
   },
 });

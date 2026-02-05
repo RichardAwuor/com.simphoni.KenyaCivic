@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Kenya Civic",
-    "slug": "kenya-civic-app-xvakea",
+    "slug": "Kenya Civic",
     "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
@@ -43,7 +43,7 @@
     },
     "extra": {
       "router": {},
-      "backendUrl": "https://prod-proj-67jtsazcghhne66e7dzyv-liwg5h36mq-ey.a.run.app"
+      "backendUrl": "https://w8d5wb3wh94c69f2asap82uzf39m5ezs.app.specular.dev"
     }
   }
 }

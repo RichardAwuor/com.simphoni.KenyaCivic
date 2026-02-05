@@ -49,7 +49,7 @@ export default function AdminImportScreen() {
     console.log("User tapped Import from OneDrive button");
     
     if (!oneDriveUrl.trim()) {
-      showAlert("Missing Information", "Please enter the OneDrive file URL");
+      showAlert("Missing Information", "Please enter the OneDrive file URL or sharing link");
       return;
     }
 
@@ -87,8 +87,11 @@ export default function AdminImportScreen() {
       }
 
       const successMessage = `Successfully imported ${imported} out of ${total} polling stations from OneDrive.`;
-      const failureMessage = failed > 0 ? ` ${failed} failed.` : "";
-      const fullMessage = successMessage + failureMessage;
+      const failureMessage = failed > 0 ? `\n\n${failed} rows failed to import.` : "";
+      const errorDetails = response.errors && response.errors.length > 0 
+        ? `\n\nFirst few errors:\n${response.errors.slice(0, 3).join('\n')}` 
+        : "";
+      const fullMessage = successMessage + failureMessage + errorDetails;
 
       showAlert("Import Complete", fullMessage);
       
@@ -110,6 +113,9 @@ export default function AdminImportScreen() {
       setLoading(false);
     }
   };
+
+  const urlText = oneDriveUrl;
+  const tokenText = accessToken;
 
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
@@ -142,22 +148,25 @@ export default function AdminImportScreen() {
           />
         </View>
 
-        <Text style={styles.title}>Import from Microsoft OneDrive</Text>
+        <Text style={styles.title}>Import Polling Station Data</Text>
         <Text style={styles.subtitle}>
           Import polling station data directly from an Excel file stored in OneDrive
         </Text>
 
         <View style={styles.formCard}>
-          <Text style={styles.formLabel}>OneDrive File URL</Text>
+          <Text style={styles.formLabel}>OneDrive File URL or Sharing Link</Text>
           <TextInput
             style={styles.input}
-            placeholder="https://onedrive.live.com/..."
+            placeholder="https://1drv.ms/x/... or https://onedrive.live.com/..."
             placeholderTextColor={colors.textSecondary}
-            value={oneDriveUrl}
+            value={urlText}
             onChangeText={setOneDriveUrl}
             autoCapitalize="none"
             autoCorrect={false}
             keyboardType="url"
+            multiline
+            numberOfLines={3}
+            textAlignVertical="top"
           />
 
           <Text style={styles.formLabel}>Microsoft Access Token</Text>
@@ -165,7 +174,7 @@ export default function AdminImportScreen() {
             style={[styles.input, styles.textArea]}
             placeholder="Enter your Microsoft Graph API access token"
             placeholderTextColor={colors.textSecondary}
-            value={accessToken}
+            value={tokenText}
             onChangeText={setAccessToken}
             autoCapitalize="none"
             autoCorrect={false}
@@ -208,31 +217,67 @@ export default function AdminImportScreen() {
         </TouchableOpacity>
 
         <View style={styles.helpSection}>
-          <Text style={styles.helpTitle}>How to get your access token:</Text>
+          <Text style={styles.helpTitle}>How to import your data:</Text>
+          
           <View style={styles.helpStep}>
             <Text style={styles.helpStepNumber}>1.</Text>
-            <Text style={styles.helpStepText}>
-              Go to Microsoft Graph Explorer: https://developer.microsoft.com/en-us/graph/graph-explorer
-            </Text>
+            <View style={styles.helpStepContent}>
+              <Text style={styles.helpStepText}>
+                Open your Excel file in OneDrive
+              </Text>
+            </View>
           </View>
+
           <View style={styles.helpStep}>
             <Text style={styles.helpStepNumber}>2.</Text>
-            <Text style={styles.helpStepText}>
-              Sign in with your Microsoft account
-            </Text>
+            <View style={styles.helpStepContent}>
+              <Text style={styles.helpStepText}>
+                Click "Share" and copy the sharing link
+              </Text>
+              <Text style={styles.helpStepSubtext}>
+                Example: https://1drv.ms/x/c/...
+              </Text>
+            </View>
           </View>
+
           <View style={styles.helpStep}>
             <Text style={styles.helpStepNumber}>3.</Text>
-            <Text style={styles.helpStepText}>
-              Copy the access token from the "Access token" tab
-            </Text>
+            <View style={styles.helpStepContent}>
+              <Text style={styles.helpStepText}>
+                Get your Microsoft access token:
+              </Text>
+              <Text style={styles.helpStepSubtext}>
+                • Go to: https://developer.microsoft.com/en-us/graph/graph-explorer
+              </Text>
+              <Text style={styles.helpStepSubtext}>
+                • Sign in with your Microsoft account
+              </Text>
+              <Text style={styles.helpStepSubtext}>
+                • Copy the access token from the "Access token" tab
+              </Text>
+            </View>
           </View>
+
           <View style={styles.helpStep}>
             <Text style={styles.helpStepNumber}>4.</Text>
-            <Text style={styles.helpStepText}>
-              Paste it in the field above
-            </Text>
+            <View style={styles.helpStepContent}>
+              <Text style={styles.helpStepText}>
+                Paste both the sharing link and access token above, then tap "Import from OneDrive"
+              </Text>
+            </View>
           </View>
+        </View>
+
+        <View style={styles.noteSection}>
+          <IconSymbol
+            ios_icon_name="exclamationmark.triangle"
+            android_material_icon_name="warning"
+            size={20}
+            color={colors.warning || colors.secondary}
+          />
+          <Text style={styles.noteText}>
+            Note: After importing polling station data, agents will be able to select their county, constituency, and ward during registration.
+          </Text>
         </View>
       </ScrollView>
 
@@ -245,7 +290,9 @@ export default function AdminImportScreen() {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>{modalTitle}</Text>
-            <Text style={styles.modalMessage}>{modalMessage}</Text>
+            <ScrollView style={styles.modalMessageContainer}>
+              <Text style={styles.modalMessage}>{modalMessage}</Text>
+            </ScrollView>
             <TouchableOpacity
               style={styles.modalButton}
               onPress={() => {
@@ -343,6 +390,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.text,
     marginBottom: 16,
+    minHeight: 80,
   },
   textArea: {
     minHeight: 100,
@@ -385,31 +433,55 @@ const styles = StyleSheet.create({
     backgroundColor: colors.card,
     borderRadius: 12,
     padding: 16,
-    marginBottom: 24,
+    marginBottom: 16,
   },
   helpTitle: {
     fontSize: 16,
     fontWeight: "600",
     color: colors.text,
-    marginBottom: 12,
+    marginBottom: 16,
   },
   helpStep: {
     flexDirection: "row",
     alignItems: "flex-start",
-    marginBottom: 12,
+    marginBottom: 16,
   },
   helpStepNumber: {
     fontSize: 14,
     fontWeight: "bold",
     color: colors.primary,
-    marginRight: 8,
+    marginRight: 12,
     width: 20,
   },
-  helpStepText: {
+  helpStepContent: {
     flex: 1,
+  },
+  helpStepText: {
     fontSize: 14,
-    color: colors.textSecondary,
+    color: colors.text,
     lineHeight: 20,
+    marginBottom: 4,
+  },
+  helpStepSubtext: {
+    fontSize: 12,
+    color: colors.textSecondary,
+    lineHeight: 18,
+    marginTop: 4,
+  },
+  noteSection: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    backgroundColor: colors.warningLight || colors.lightGray,
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 24,
+  },
+  noteText: {
+    flex: 1,
+    fontSize: 12,
+    color: colors.text,
+    marginLeft: 8,
+    lineHeight: 18,
   },
   modalOverlay: {
     flex: 1,
@@ -421,8 +493,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.card,
     borderRadius: 12,
     padding: 24,
-    width: "80%",
+    width: "85%",
     maxWidth: 400,
+    maxHeight: "80%",
   },
   modalTitle: {
     fontSize: 18,
@@ -431,10 +504,13 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     textAlign: "center",
   },
+  modalMessageContainer: {
+    maxHeight: 300,
+    marginBottom: 20,
+  },
   modalMessage: {
     fontSize: 14,
     color: colors.textSecondary,
-    marginBottom: 20,
     textAlign: "center",
     lineHeight: 20,
   },

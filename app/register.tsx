@@ -115,7 +115,8 @@ export default function RegisterScreen() {
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
-  const [modalType, setModalType] = useState<"success" | "error">("success");
+  const [modalType, setModalType] = useState<"success" | "error" | "info">("success");
+  const [showImportButton, setShowImportButton] = useState(false);
   
   // Biometric state
   const [biometricStep, setBiometricStep] = useState(false);
@@ -159,11 +160,16 @@ export default function RegisterScreen() {
           
           if (response.constituencies.length === 0) {
             console.warn("[Register] No constituencies found for county:", selectedCounty);
-            showAlert("No Data", `No constituencies found for the selected county. Please ensure polling station data has been imported.`);
+            showAlert(
+              "No Data Available", 
+              `No constituencies found for the selected county.\n\nPolling station data needs to be imported first. Would you like to go to the Admin Import screen?`,
+              "info",
+              true
+            );
           }
         } else {
           console.error("[Register] Invalid response structure:", response);
-          showAlert("Error", "Invalid response from server");
+          showAlert("Error", "Invalid response from server", "error", false);
           setConstituencies([]);
         }
       } catch (error: any) {
@@ -175,7 +181,7 @@ export default function RegisterScreen() {
         });
         
         const errorMessage = error.message || "Failed to load constituencies";
-        showAlert("Error", `Failed to load constituencies: ${errorMessage}`);
+        showAlert("Error", `Failed to load constituencies: ${errorMessage}`, "error", false);
         setConstituencies([]);
       } finally {
         setLoadingConstituencies(false);
@@ -209,11 +215,16 @@ export default function RegisterScreen() {
           
           if (response.wards.length === 0) {
             console.warn("[Register] No wards found for constituency:", selectedConstituency);
-            showAlert("No Data", `No wards found for the selected constituency. Please ensure polling station data has been imported.`);
+            showAlert(
+              "No Data Available", 
+              `No wards found for the selected constituency.\n\nPolling station data needs to be imported first. Would you like to go to the Admin Import screen?`,
+              "info",
+              true
+            );
           }
         } else {
           console.error("[Register] Invalid response structure:", response);
-          showAlert("Error", "Invalid response from server");
+          showAlert("Error", "Invalid response from server", "error", false);
           setWards([]);
         }
       } catch (error: any) {
@@ -225,7 +236,7 @@ export default function RegisterScreen() {
         });
         
         const errorMessage = error.message || "Failed to load wards";
-        showAlert("Error", `Failed to load wards: ${errorMessage}`);
+        showAlert("Error", `Failed to load wards: ${errorMessage}`, "error", false);
         setWards([]);
       } finally {
         setLoadingWards(false);
@@ -249,44 +260,45 @@ export default function RegisterScreen() {
     return `${day}/${month}/${year}`;
   };
 
-  const showAlert = (title: string, message: string, type: "success" | "error" = "error") => {
+  const showAlert = (title: string, message: string, type: "success" | "error" | "info" = "error", showImport: boolean = false) => {
     setModalTitle(title);
     setModalMessage(message);
     setModalType(type);
+    setShowImportButton(showImport);
     setShowModal(true);
   };
 
   const validateForm = () => {
     if (!email || !confirmEmail) {
-      showAlert("Error", "Please enter and confirm your email");
+      showAlert("Error", "Please enter and confirm your email", "error", false);
       return false;
     }
     if (!emailValid) {
-      showAlert("Error", "Please enter a valid email address");
+      showAlert("Error", "Please enter a valid email address", "error", false);
       return false;
     }
     if (email !== confirmEmail) {
-      showAlert("Error", "Emails do not match");
+      showAlert("Error", "Emails do not match", "error", false);
       return false;
     }
     if (!firstName || !lastName) {
-      showAlert("Error", "Please enter your first and last name");
+      showAlert("Error", "Please enter your first and last name", "error", false);
       return false;
     }
     if (!selectedCounty) {
-      showAlert("Error", "Please select a county");
+      showAlert("Error", "Please select a county", "error", false);
       return false;
     }
     if (!selectedConstituency) {
-      showAlert("Error", "Please select a constituency");
+      showAlert("Error", "Please select a constituency", "error", false);
       return false;
     }
     if (!selectedWard) {
-      showAlert("Error", "Please select a ward");
+      showAlert("Error", "Please select a ward", "error", false);
       return false;
     }
     if (!nationalId || nationalId.length !== 8) {
-      showAlert("Error", "Please enter a valid 8-digit national ID");
+      showAlert("Error", "Please enter a valid 8-digit national ID", "error", false);
       return false;
     }
     return true;
@@ -301,12 +313,12 @@ export default function RegisterScreen() {
       const isEnrolled = await LocalAuthentication.isEnrolledAsync();
       
       if (!hasHardware) {
-        showAlert("Error", "Your device does not support biometric authentication");
+        showAlert("Error", "Your device does not support biometric authentication", "error", false);
         return;
       }
       
       if (!isEnrolled) {
-        showAlert("Error", "No biometrics enrolled on this device. Please set up fingerprint or face recognition in your device settings.");
+        showAlert("Error", "No biometrics enrolled on this device. Please set up fingerprint or face recognition in your device settings.", "error", false);
         return;
       }
       
@@ -318,7 +330,7 @@ export default function RegisterScreen() {
       });
       
       if (!result.success) {
-        showAlert("Error", "Biometric authentication failed. Please try again.");
+        showAlert("Error", "Biometric authentication failed. Please try again.", "error", false);
         return;
       }
       
@@ -333,7 +345,8 @@ export default function RegisterScreen() {
         showAlert(
           "Registration Complete!",
           `Your agent code is: ${agentCode}\n\nBiometric authentication has been enabled. You can now sign in using your email and biometrics.`,
-          "success"
+          "success",
+          false
         );
         
         // Navigate to On-Location after a delay
@@ -341,11 +354,11 @@ export default function RegisterScreen() {
           router.replace("/(tabs)/on-location");
         }, 3000);
       } else {
-        showAlert("Error", "Failed to enable biometric authentication");
+        showAlert("Error", "Failed to enable biometric authentication", "error", false);
       }
     } catch (error: any) {
       console.error("[Register] Biometric setup error:", error);
-      showAlert("Error", error.message || "Failed to set up biometric authentication");
+      showAlert("Error", error.message || "Failed to set up biometric authentication", "error", false);
     } finally {
       setLoading(false);
     }
@@ -398,10 +411,11 @@ export default function RegisterScreen() {
       setModalTitle("Registration Successful!");
       setModalMessage(`Your agent code is: ${response.agentCode}\n\nNext step: Set up biometric authentication to complete your registration.`);
       setModalType("success");
+      setShowImportButton(false);
       setShowModal(true);
     } catch (error: any) {
       console.error("[Register] Registration error:", error);
-      showAlert("Error", error.message || "Registration failed");
+      showAlert("Error", error.message || "Registration failed", "error", false);
     } finally {
       setLoading(false);
     }
@@ -413,6 +427,12 @@ export default function RegisterScreen() {
       // Proceed to biometric setup
       setupBiometrics();
     }
+  };
+
+  const handleGoToImport = () => {
+    console.log("[Register] User tapped Go to Import - navigating to admin-import");
+    setShowModal(false);
+    router.push("/admin-import");
   };
 
   const handleBack = () => {
@@ -732,21 +752,39 @@ export default function RegisterScreen() {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <IconSymbol
-              ios_icon_name={modalType === "success" ? "checkmark.circle.fill" : "xmark.circle.fill"}
-              android_material_icon_name={modalType === "success" ? "check-circle" : "error"}
+              ios_icon_name={modalType === "success" ? "checkmark.circle.fill" : modalType === "info" ? "info.circle.fill" : "xmark.circle.fill"}
+              android_material_icon_name={modalType === "success" ? "check-circle" : modalType === "info" ? "info" : "error"}
               size={48}
-              color={modalType === "success" ? colors.success : colors.error}
+              color={modalType === "success" ? colors.success : modalType === "info" ? colors.primary : colors.error}
             />
             <Text style={styles.modalTitle}>{modalTitle}</Text>
             <Text style={styles.modalMessage}>{modalMessage}</Text>
-            <TouchableOpacity
-              style={[styles.modalButton, modalType === "success" ? styles.modalButtonSuccess : styles.modalButtonError]}
-              onPress={handleModalClose}
-            >
-              <Text style={styles.modalButtonText}>
-                {biometricStep ? "Set Up Biometrics" : "OK"}
-              </Text>
-            </TouchableOpacity>
+            
+            {showImportButton ? (
+              <View style={styles.modalButtonContainer}>
+                <TouchableOpacity
+                  style={[styles.modalButton, styles.modalButtonSecondary]}
+                  onPress={() => setShowModal(false)}
+                >
+                  <Text style={styles.modalButtonTextSecondary}>Cancel</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.modalButton, styles.modalButtonPrimary]}
+                  onPress={handleGoToImport}
+                >
+                  <Text style={styles.modalButtonText}>Go to Import</Text>
+                </TouchableOpacity>
+              </View>
+            ) : (
+              <TouchableOpacity
+                style={[styles.modalButton, modalType === "success" ? styles.modalButtonSuccess : modalType === "info" ? styles.modalButtonPrimary : styles.modalButtonError]}
+                onPress={handleModalClose}
+              >
+                <Text style={styles.modalButtonText}>
+                  {biometricStep ? "Set Up Biometrics" : "OK"}
+                </Text>
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       </Modal>
@@ -937,8 +975,13 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     textAlign: "center",
   },
-  modalButton: {
+  modalButtonContainer: {
+    flexDirection: "row",
     width: "100%",
+    gap: 12,
+  },
+  modalButton: {
+    flex: 1,
     padding: 12,
     borderRadius: 8,
     alignItems: "center",
@@ -949,9 +992,20 @@ const styles = StyleSheet.create({
   modalButtonError: {
     backgroundColor: colors.error,
   },
+  modalButtonPrimary: {
+    backgroundColor: colors.primary,
+  },
+  modalButtonSecondary: {
+    backgroundColor: colors.border,
+  },
   modalButtonText: {
     fontSize: 16,
     fontWeight: "600",
     color: colors.textLight,
+  },
+  modalButtonTextSecondary: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: colors.text,
   },
 });

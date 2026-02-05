@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -16,6 +16,8 @@ import { IconSymbol } from "@/components/IconSymbol";
 
 export default function WelcomeScreen() {
   const router = useRouter();
+  const [adminTapCount, setAdminTapCount] = useState(0);
+  const [showAdminButton, setShowAdminButton] = useState(false);
 
   const handleSignIn = () => {
     console.log("[Welcome] User tapped Sign In - navigating to auth screen");
@@ -27,11 +29,31 @@ export default function WelcomeScreen() {
     router.push("/register");
   };
 
+  const handleAdminAccess = () => {
+    console.log("[Welcome] User tapped Admin Access - navigating to admin import");
+    router.push("/admin-import");
+  };
+
+  const handleLogoTap = () => {
+    const newCount = adminTapCount + 1;
+    setAdminTapCount(newCount);
+    
+    if (newCount >= 5) {
+      console.log("[Welcome] Admin mode activated");
+      setShowAdminButton(true);
+      setAdminTapCount(0);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         {/* Logo and Branding */}
-        <View style={styles.logoSection}>
+        <TouchableOpacity 
+          style={styles.logoSection}
+          onPress={handleLogoTap}
+          activeOpacity={0.9}
+        >
           <Image
             source={require("@/assets/images/4d9f6aef-8dc7-4801-8d21-adefc7d8b94a.png")}
             style={styles.logo}
@@ -39,7 +61,7 @@ export default function WelcomeScreen() {
           />
           <Text style={styles.appName}>CIVIC</Text>
           <Text style={styles.slogan}>WANJIKU@63</Text>
-        </View>
+        </TouchableOpacity>
 
         {/* Title Section */}
         <View style={styles.titleSection}>
@@ -132,6 +154,22 @@ export default function WelcomeScreen() {
             />
             <Text style={styles.registerButtonText}>Register as New Agent</Text>
           </TouchableOpacity>
+
+          {showAdminButton && (
+            <TouchableOpacity
+              style={styles.adminButton}
+              onPress={handleAdminAccess}
+              activeOpacity={0.8}
+            >
+              <IconSymbol
+                ios_icon_name="gear.circle.fill"
+                android_material_icon_name="settings"
+                size={20}
+                color={colors.textLight}
+              />
+              <Text style={styles.adminButtonText}>Admin: Import Data</Text>
+            </TouchableOpacity>
+          )}
         </View>
 
         {/* Footer */}
@@ -281,6 +319,27 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: "700",
     color: colors.primary,
+    marginLeft: 10,
+  },
+  adminButton: {
+    flexDirection: "row",
+    backgroundColor: colors.secondary,
+    paddingVertical: 16,
+    paddingHorizontal: 28,
+    borderRadius: 14,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 8,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  adminButtonText: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: colors.textLight,
     marginLeft: 10,
   },
   footer: {

@@ -1,10 +1,11 @@
+
 {
   "expo": {
     "name": "Kenya Civic",
     "slug": "Kenya Civic",
     "version": "1.0.4",
     "orientation": "portrait",
-    "icon": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
+    "icon": "./assets/images/26e7725c-951b-429f-99ae-05a8bbffdb62.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -21,8 +22,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./assets/images/26e7725c-951b-429f-99ae-05a8bbffdb62.png",
+        "backgroundColor": "#00D98E"
       },
       "edgeToEdgeEnabled": true,
       "package": "com.simphoni.kenyacivic",

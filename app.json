@@ -1,7 +1,8 @@
+
 {
   "expo": {
     "name": "Kenya Civic",
-    "slug": "Kenya Civic",
+    "slug": "kenya-civic",
     "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/images/26e7725c-951b-429f-99ae-05a8bbffdb62.png",
@@ -15,8 +16,14 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.kenyacivic.app",
+      "buildNumber": "7",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSCameraUsageDescription": "This app uses the camera to record incident videos and scan Form 34A documents.",
+        "NSMicrophoneUsageDescription": "This app uses the microphone to record audio for incident videos.",
+        "NSLocationWhenInUseUsageDescription": "This app uses your location to tag incident videos and verify your polling station location.",
+        "NSPhotoLibraryUsageDescription": "This app needs access to your photo library to upload Form 34A images.",
+        "NSFaceIDUsageDescription": "This app uses Face ID for secure biometric authentication."
       }
     },
     "android": {
@@ -26,7 +33,17 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.simphoni.kenyacivic",
-      "versionCode": 5
+      "versionCode": 5,
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "USE_BIOMETRIC",
+        "USE_FINGERPRINT"
+      ]
     },
     "web": {
       "favicon": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
@@ -35,9 +52,35 @@
     "plugins": [
       "expo-font",
       "expo-router",
-      "expo-web-browser"
+      "expo-web-browser",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "This app uses the camera to record incident videos and scan Form 34A documents.",
+          "microphonePermission": "This app uses the microphone to record audio for incident videos.",
+          "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "This app uses your location to tag incident videos and verify your polling station location."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "This app needs access to your photo library to upload Form 34A images."
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "This app uses Face ID for secure biometric authentication."
+        }
+      ]
     ],
-    "scheme": "Kenya Civic",
+    "scheme": "kenyacivic",
     "experiments": {
       "typedRoutes": true
     },

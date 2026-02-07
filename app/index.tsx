@@ -47,7 +47,7 @@ export default function WelcomeScreen() {
 
   const handleQuickImport = () => {
     console.log("User tapped Quick Import button");
-    router.push("/quick-import");
+    router.push("/bulk-import");
   };
 
   return (

@@ -38,6 +38,8 @@ export default function AdminImportScreen() {
   const [modalMessage, setModalMessage] = useState("");
   const [oneDriveUrl, setOneDriveUrl] = useState("");
   const [accessToken, setAccessToken] = useState("");
+  const [importMethod, setImportMethod] = useState<"onedrive" | "json">("onedrive");
+  const [jsonData, setJsonData] = useState("");
 
   // Pre-fill from URL parameters if provided
   useEffect(() => {
@@ -128,6 +130,145 @@ export default function AdminImportScreen() {
     }
   };
 
+  const loadSampleData = () => {
+    console.log("[JSON Import] Loading sample data");
+    const sampleData = [
+      {
+        countyCode: "039",
+        countyName: "BUNGOMA",
+        constituencyCode: "001",
+        constituencyName: "BUMULA",
+        wardCode: "001",
+        wardName: "KABULA",
+        pollingStationCode: "039001001001",
+        pollingStationName: "Kabula Primary School",
+        registeredVoters: 1500
+      },
+      {
+        countyCode: "039",
+        countyName: "BUNGOMA",
+        constituencyCode: "001",
+        constituencyName: "BUMULA",
+        wardCode: "002",
+        wardName: "KHASOKO",
+        pollingStationCode: "039001002001",
+        pollingStationName: "Khasoko Secondary School",
+        registeredVoters: 1200
+      },
+      {
+        countyCode: "040",
+        countyName: "BUSIA",
+        constituencyCode: "001",
+        constituencyName: "BUDALANGI",
+        wardCode: "001",
+        wardName: "BUNYALA CENTRAL"
+        // Note: pollingStationCode, pollingStationName, and registeredVoters will be auto-generated
+      }
+    ];
+    setJsonData(JSON.stringify(sampleData, null, 2));
+    showAlert("Sample Data Loaded", "Sample JSON data has been loaded. You can edit it or import as-is.", "info", false);
+  };
+
+  const handleJsonImport = async () => {
+    console.log("[JSON Import] User tapped Import JSON Data button");
+    
+    if (!jsonData.trim()) {
+      showAlert("Missing Information", "Please enter JSON data to import");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      // Parse and validate JSON
+      let parsedData;
+      try {
+        parsedData = JSON.parse(jsonData);
+      } catch (parseError) {
+        showAlert("Invalid JSON", "The JSON data is not valid. Please check the format and try again.");
+        return;
+      }
+
+      // Ensure it's an array or has a stations property
+      let stations = Array.isArray(parsedData) ? parsedData : parsedData.stations;
+      
+      if (!Array.isArray(stations) || stations.length === 0) {
+        showAlert("Invalid Data", "JSON must be an array of polling stations or an object with a 'stations' property.");
+        return;
+      }
+
+      console.log("[JSON Import] Importing", stations.length, "polling stations");
+
+      // Transform data to match backend expectations
+      const transformedStations = stations.map((station: any) => {
+        // If station doesn't have pollingStationCode, create a placeholder
+        if (!station.pollingStationCode) {
+          const code = `${station.countyCode}${station.constituencyCode}${station.wardCode}001`;
+          return {
+            countyCode: station.countyCode,
+            countyName: station.countyName,
+            constituencyCode: station.constituencyCode,
+            constituencyName: station.constituencyName,
+            wardCode: station.wardCode,
+            wardName: station.wardName,
+            pollingStationCode: code,
+            pollingStationName: `${station.wardName} - Default Station`,
+            registeredVoters: station.registeredVoters || 0,
+          };
+        }
+        
+        return {
+          countyCode: station.countyCode,
+          countyName: station.countyName,
+          constituencyCode: station.constituencyCode,
+          constituencyName: station.constituencyName,
+          wardCode: station.wardCode,
+          wardName: station.wardName,
+          pollingStationCode: station.pollingStationCode,
+          pollingStationName: station.pollingStationName,
+          registeredVoters: station.registeredVoters || 0,
+        };
+      });
+
+      const response = await apiPost("/api/polling-stations/bulk-import", {
+        stations: transformedStations,
+      });
+
+      console.log("[JSON Import] Response received:", response);
+
+      // Handle the response
+      if (response.error) {
+        showAlert("Import Failed", response.error || response.message || "Unknown error occurred");
+        return;
+      }
+
+      const successful = response.summary?.successful || 0;
+      const failed = response.summary?.failed || 0;
+      const processed = response.summary?.processed || 0;
+
+      const successMessage = `Successfully imported ${successful} out of ${processed} polling stations.`;
+      const failureMessage = failed > 0 ? `\n\n${failed} records failed to import.` : "";
+      const fullMessage = successMessage + failureMessage;
+
+      showAlert("Import Complete", fullMessage);
+      
+      // Clear form on success
+      setJsonData("");
+    } catch (error: any) {
+      console.error("[JSON Import] Error:", error);
+      
+      let errorMessage = "Failed to import JSON data. Please check the format and try again.";
+      
+      if (error?.message) {
+        errorMessage = error.message;
+      }
+      
+      showAlert("Import Failed", errorMessage);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const urlText = oneDriveUrl;
   const tokenText = accessToken;
 
@@ -148,7 +289,7 @@ export default function AdminImportScreen() {
             color={colors.text}
           />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>OneDrive Import</Text>
+        <Text style={styles.headerTitle}>Data Import</Text>
         <View style={styles.placeholder} />
       </View>
 
@@ -164,123 +305,283 @@ export default function AdminImportScreen() {
 
         <Text style={styles.title}>Import Polling Station Data</Text>
         <Text style={styles.subtitle}>
-          Import polling station data directly from an Excel file stored in OneDrive
+          Choose your import method: OneDrive Excel file or direct JSON data
         </Text>
 
-        <View style={styles.formCard}>
-          <Text style={styles.formLabel}>OneDrive File URL or Sharing Link</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="https://1drv.ms/x/... or https://onedrive.live.com/..."
-            placeholderTextColor={colors.textSecondary}
-            value={urlText}
-            onChangeText={setOneDriveUrl}
-            autoCapitalize="none"
-            autoCorrect={false}
-            keyboardType="url"
-            multiline
-            numberOfLines={3}
-            textAlignVertical="top"
-          />
-
-          <Text style={styles.formLabel}>Microsoft Access Token</Text>
-          <TextInput
-            style={[styles.input, styles.textArea]}
-            placeholder="Enter your Microsoft Graph API access token"
-            placeholderTextColor={colors.textSecondary}
-            value={tokenText}
-            onChangeText={setAccessToken}
-            autoCapitalize="none"
-            autoCorrect={false}
-            multiline
-            numberOfLines={4}
-            textAlignVertical="top"
-          />
-
-          <View style={styles.infoBox}>
+        <View style={styles.tabContainer}>
+          <TouchableOpacity
+            style={[styles.tab, importMethod === "onedrive" && styles.tabActive]}
+            onPress={() => setImportMethod("onedrive")}
+          >
             <IconSymbol
-              ios_icon_name="info.circle"
-              android_material_icon_name="info"
+              ios_icon_name="cloud.fill"
+              android_material_icon_name="cloud-download"
               size={20}
-              color={colors.primary}
+              color={importMethod === "onedrive" ? colors.textLight : colors.text}
             />
-            <Text style={styles.infoText}>
-              Your Excel file should have columns: County Code, County Name, Const Code, Const. Name, CAW Code, CAW Name, Polling Station Code, Polling Station Name, Registered Voters
+            <Text style={[styles.tabText, importMethod === "onedrive" && styles.tabTextActive]}>
+              OneDrive
             </Text>
-          </View>
-        </View>
-
-        <TouchableOpacity
-          style={[styles.importButton, loading && styles.importButtonDisabled]}
-          onPress={handleOneDriveImport}
-          disabled={loading}
-        >
-          {loading ? (
-            <ActivityIndicator color="#FFFFFF" />
-          ) : (
-            <React.Fragment>
-              <IconSymbol
-                ios_icon_name="arrow.down.circle.fill"
-                android_material_icon_name="cloud-download"
-                size={24}
-                color="#FFFFFF"
-              />
-              <Text style={styles.importButtonText}>Import from OneDrive</Text>
-            </React.Fragment>
-          )}
-        </TouchableOpacity>
-
-        <View style={styles.helpSection}>
-          <Text style={styles.helpTitle}>How to import your data:</Text>
+          </TouchableOpacity>
           
-          <View style={styles.helpStep}>
-            <Text style={styles.helpStepNumber}>1.</Text>
-            <View style={styles.helpStepContent}>
-              <Text style={styles.helpStepText}>
-                Open your Excel file in OneDrive
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.helpStep}>
-            <Text style={styles.helpStepNumber}>2.</Text>
-            <View style={styles.helpStepContent}>
-              <Text style={styles.helpStepText}>
-                Click "Share" and copy the sharing link
-              </Text>
-              <Text style={styles.helpStepSubtext}>
-                Example: https://1drv.ms/x/c/...
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.helpStep}>
-            <Text style={styles.helpStepNumber}>3.</Text>
-            <View style={styles.helpStepContent}>
-              <Text style={styles.helpStepText}>
-                Get your Microsoft access token:
-              </Text>
-              <Text style={styles.helpStepSubtext}>
-                • Go to: https://developer.microsoft.com/en-us/graph/graph-explorer
-              </Text>
-              <Text style={styles.helpStepSubtext}>
-                • Sign in with your Microsoft account
-              </Text>
-              <Text style={styles.helpStepSubtext}>
-                • Copy the access token from the "Access token" tab
-              </Text>
-            </View>
-          </View>
-
-          <View style={styles.helpStep}>
-            <Text style={styles.helpStepNumber}>4.</Text>
-            <View style={styles.helpStepContent}>
-              <Text style={styles.helpStepText}>
-                Paste both the sharing link and access token above, then tap "Import from OneDrive"
-              </Text>
-            </View>
-          </View>
+          <TouchableOpacity
+            style={[styles.tab, importMethod === "json" && styles.tabActive]}
+            onPress={() => setImportMethod("json")}
+          >
+            <IconSymbol
+              ios_icon_name="doc.text.fill"
+              android_material_icon_name="code"
+              size={20}
+              color={importMethod === "json" ? colors.textLight : colors.text}
+            />
+            <Text style={[styles.tabText, importMethod === "json" && styles.tabTextActive]}>
+              JSON Data
+            </Text>
+          </TouchableOpacity>
         </View>
+
+        {importMethod === "onedrive" ? (
+          <>
+            <View style={styles.formCard}>
+              <Text style={styles.formLabel}>OneDrive File URL or Sharing Link</Text>
+              <TextInput
+                style={styles.input}
+                placeholder="https://1drv.ms/x/... or https://onedrive.live.com/..."
+                placeholderTextColor={colors.textSecondary}
+                value={urlText}
+                onChangeText={setOneDriveUrl}
+                autoCapitalize="none"
+                autoCorrect={false}
+                keyboardType="url"
+                multiline
+                numberOfLines={3}
+                textAlignVertical="top"
+              />
+
+              <Text style={styles.formLabel}>Microsoft Access Token</Text>
+              <TextInput
+                style={[styles.input, styles.textArea]}
+                placeholder="Enter your Microsoft Graph API access token"
+                placeholderTextColor={colors.textSecondary}
+                value={tokenText}
+                onChangeText={setAccessToken}
+                autoCapitalize="none"
+                autoCorrect={false}
+                multiline
+                numberOfLines={4}
+                textAlignVertical="top"
+              />
+
+              <View style={styles.infoBox}>
+                <IconSymbol
+                  ios_icon_name="info.circle"
+                  android_material_icon_name="info"
+                  size={20}
+                  color={colors.primary}
+                />
+                <Text style={styles.infoText}>
+                  Your Excel file should have columns: County Code, County Name, Const Code, Const. Name, CAW Code, CAW Name, Polling Station Code, Polling Station Name, Registered Voters
+                </Text>
+              </View>
+            </View>
+
+            <TouchableOpacity
+              style={[styles.importButton, loading && styles.importButtonDisabled]}
+              onPress={handleOneDriveImport}
+              disabled={loading}
+            >
+              {loading ? (
+                <ActivityIndicator color="#FFFFFF" />
+              ) : (
+                <React.Fragment>
+                  <IconSymbol
+                    ios_icon_name="arrow.down.circle.fill"
+                    android_material_icon_name="cloud-download"
+                    size={24}
+                    color="#FFFFFF"
+                  />
+                  <Text style={styles.importButtonText}>Import from OneDrive</Text>
+                </React.Fragment>
+              )}
+            </TouchableOpacity>
+          </>
+        ) : (
+          <>
+            <View style={styles.formCard}>
+              <View style={styles.formLabelRow}>
+                <Text style={styles.formLabel}>JSON Data</Text>
+                <TouchableOpacity
+                  style={styles.sampleButton}
+                  onPress={loadSampleData}
+                >
+                  <IconSymbol
+                    ios_icon_name="doc.text"
+                    android_material_icon_name="description"
+                    size={16}
+                    color={colors.primary}
+                  />
+                  <Text style={styles.sampleButtonText}>Load Sample</Text>
+                </TouchableOpacity>
+              </View>
+              <TextInput
+                style={[styles.input, styles.jsonTextArea]}
+                placeholder='[{"countyCode":"039","countyName":"BUNGOMA","constituencyCode":"001","constituencyName":"BUMULA","wardCode":"001","wardName":"KABULA"}]'
+                placeholderTextColor={colors.textSecondary}
+                value={jsonData}
+                onChangeText={setJsonData}
+                autoCapitalize="none"
+                autoCorrect={false}
+                multiline
+                numberOfLines={10}
+                textAlignVertical="top"
+              />
+
+              <View style={styles.infoBox}>
+                <IconSymbol
+                  ios_icon_name="info.circle"
+                  android_material_icon_name="info"
+                  size={20}
+                  color={colors.primary}
+                />
+                <Text style={styles.infoText}>
+                  Paste JSON array of polling stations. Each station must have: countyCode, countyName, constituencyCode, constituencyName, wardCode, wardName. Optional: pollingStationCode, pollingStationName, registeredVoters
+                </Text>
+              </View>
+            </View>
+
+            <TouchableOpacity
+              style={[styles.importButton, loading && styles.importButtonDisabled]}
+              onPress={handleJsonImport}
+              disabled={loading}
+            >
+              {loading ? (
+                <ActivityIndicator color="#FFFFFF" />
+              ) : (
+                <React.Fragment>
+                  <IconSymbol
+                    ios_icon_name="arrow.down.circle.fill"
+                    android_material_icon_name="upload"
+                    size={24}
+                    color="#FFFFFF"
+                  />
+                  <Text style={styles.importButtonText}>Import JSON Data</Text>
+                </React.Fragment>
+              )}
+            </TouchableOpacity>
+          </>
+        )}
+
+        {importMethod === "onedrive" ? (
+          <View style={styles.helpSection}>
+            <Text style={styles.helpTitle}>How to import from OneDrive:</Text>
+            
+            <View style={styles.helpStep}>
+              <Text style={styles.helpStepNumber}>1.</Text>
+              <View style={styles.helpStepContent}>
+                <Text style={styles.helpStepText}>
+                  Open your Excel file in OneDrive
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.helpStep}>
+              <Text style={styles.helpStepNumber}>2.</Text>
+              <View style={styles.helpStepContent}>
+                <Text style={styles.helpStepText}>
+                  Click "Share" and copy the sharing link
+                </Text>
+                <Text style={styles.helpStepSubtext}>
+                  Example: https://1drv.ms/x/c/...
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.helpStep}>
+              <Text style={styles.helpStepNumber}>3.</Text>
+              <View style={styles.helpStepContent}>
+                <Text style={styles.helpStepText}>
+                  Get your Microsoft access token:
+                </Text>
+                <Text style={styles.helpStepSubtext}>
+                  • Go to: https://developer.microsoft.com/en-us/graph/graph-explorer
+                </Text>
+                <Text style={styles.helpStepSubtext}>
+                  • Sign in with your Microsoft account
+                </Text>
+                <Text style={styles.helpStepSubtext}>
+                  • Copy the access token from the "Access token" tab
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.helpStep}>
+              <Text style={styles.helpStepNumber}>4.</Text>
+              <View style={styles.helpStepContent}>
+                <Text style={styles.helpStepText}>
+                  Paste both the sharing link and access token above, then tap "Import from OneDrive"
+                </Text>
+              </View>
+            </View>
+          </View>
+        ) : (
+          <View style={styles.helpSection}>
+            <Text style={styles.helpTitle}>How to import JSON data:</Text>
+            
+            <View style={styles.helpStep}>
+              <Text style={styles.helpStepNumber}>1.</Text>
+              <View style={styles.helpStepContent}>
+                <Text style={styles.helpStepText}>
+                  Prepare your JSON data as an array of polling station objects
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.helpStep}>
+              <Text style={styles.helpStepNumber}>2.</Text>
+              <View style={styles.helpStepContent}>
+                <Text style={styles.helpStepText}>
+                  Required fields for each station:
+                </Text>
+                <Text style={styles.helpStepSubtext}>
+                  • countyCode, countyName
+                </Text>
+                <Text style={styles.helpStepSubtext}>
+                  • constituencyCode, constituencyName
+                </Text>
+                <Text style={styles.helpStepSubtext}>
+                  • wardCode, wardName
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.helpStep}>
+              <Text style={styles.helpStepNumber}>3.</Text>
+              <View style={styles.helpStepContent}>
+                <Text style={styles.helpStepText}>
+                  Optional fields (will be auto-generated if missing):
+                </Text>
+                <Text style={styles.helpStepSubtext}>
+                  • pollingStationCode (auto: countyCode+constituencyCode+wardCode+001)
+                </Text>
+                <Text style={styles.helpStepSubtext}>
+                  • pollingStationName (auto: "WardName - Default Station")
+                </Text>
+                <Text style={styles.helpStepSubtext}>
+                  • registeredVoters (default: 0)
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.helpStep}>
+              <Text style={styles.helpStepNumber}>4.</Text>
+              <View style={styles.helpStepContent}>
+                <Text style={styles.helpStepText}>
+                  Paste your JSON data in the text area above and tap "Import JSON Data"
+                </Text>
+              </View>
+            </View>
+          </View>
+        )}
 
         <View style={styles.noteSection}>
           <IconSymbol
@@ -395,6 +696,26 @@ const styles = StyleSheet.create({
     color: colors.text,
     marginBottom: 8,
   },
+  formLabelRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  sampleButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    backgroundColor: colors.primaryLight || colors.lightGray,
+    borderRadius: 6,
+  },
+  sampleButtonText: {
+    fontSize: 12,
+    fontWeight: "600",
+    color: colors.primary,
+  },
   input: {
     backgroundColor: colors.background,
     borderWidth: 1,
@@ -409,6 +730,51 @@ const styles = StyleSheet.create({
   textArea: {
     minHeight: 100,
     paddingTop: 12,
+  },
+  jsonTextArea: {
+    minHeight: 200,
+    paddingTop: 12,
+    fontFamily: Platform.OS === "ios" ? "Courier" : "monospace",
+    fontSize: 12,
+  },
+  tabContainer: {
+    flexDirection: "row",
+    backgroundColor: colors.card,
+    borderRadius: 12,
+    padding: 4,
+    marginBottom: 24,
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 2,
+      },
+    }),
+  },
+  tab: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 8,
+    gap: 8,
+  },
+  tabActive: {
+    backgroundColor: colors.primary,
+  },
+  tabText: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: colors.text,
+  },
+  tabTextActive: {
+    color: colors.textLight,
   },
   infoBox: {
     flexDirection: "row",

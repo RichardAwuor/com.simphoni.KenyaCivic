@@ -69,50 +69,100 @@ export function registerPollingStationRoutes(app: App) {
 
   /**
    * POST /api/polling-stations/bulk-import
-   * Bulk import polling station data
+   * PUBLIC - Bulk import polling station data with flexible format
+   * Accepts: { pollingStations: [{ countyCode, countyName, constituencyCode, constituencyName, wardCode, wardName, pollingStationCode?, pollingStationName?, registeredVoters? }] }
+   * - For records WITHOUT pollingStationCode, creates placeholder stations
+   * - For records WITH pollingStationCode, uses the provided data
+   * - Skips duplicates (pollingStationCode already exists)
    */
   app.fastify.post('/api/polling-stations/bulk-import', async (
     request: FastifyRequest,
     reply: FastifyReply
   ): Promise<any> => {
-    const { stations } = request.body as any;
+    const { pollingStations } = request.body as any;
 
     app.logger.info({
-      stationCount: stations?.length || 0,
+      stationCount: pollingStations?.length || 0,
     }, 'Starting bulk import of polling stations');
 
     try {
-      if (!Array.isArray(stations) || stations.length === 0) {
-        app.logger.warn({}, 'Invalid or empty stations array');
-        return reply.status(400).send({ error: 'Invalid or empty stations array' });
+      if (!Array.isArray(pollingStations) || pollingStations.length === 0) {
+        app.logger.warn({}, 'Invalid or empty pollingStations array');
+        return reply.status(400).send({
+          success: false,
+          imported: 0,
+          skipped: 0,
+          message: 'Invalid or empty pollingStations array',
+        });
       }
 
-      // Validate each station
+      // Validate and prepare stations
+      const stationsToImport: any[] = [];
       const validationErrors: string[] = [];
-      for (let i = 0; i < stations.length; i++) {
-        const station = stations[i];
-        if (!station.countyCode || !station.countyName || !station.constituencyCode ||
-          !station.constituencyName || !station.wardCode || !station.wardName ||
-          !station.pollingStationCode || !station.pollingStationName ||
-          station.registeredVoters === undefined) {
-          validationErrors.push(`Row ${i + 1}: Missing required fields`);
+
+      for (let i = 0; i < pollingStations.length; i++) {
+        const record = pollingStations[i];
+        const rowNumber = i + 1;
+
+        // Validate required location fields
+        if (!record.countyCode || !record.countyName || !record.constituencyCode ||
+          !record.constituencyName || !record.wardCode || !record.wardName) {
+          validationErrors.push(`Row ${rowNumber}: Missing required location fields (countyCode, countyName, constituencyCode, constituencyName, wardCode, wardName)`);
+          continue;
+        }
+
+        // If pollingStationCode is provided, use the complete record
+        if (record.pollingStationCode && record.pollingStationName) {
+          stationsToImport.push({
+            countyCode: record.countyCode,
+            countyName: record.countyName,
+            constituencyCode: record.constituencyCode,
+            constituencyName: record.constituencyName,
+            wardCode: record.wardCode,
+            wardName: record.wardName,
+            pollingStationCode: record.pollingStationCode,
+            pollingStationName: record.pollingStationName,
+            registeredVoters: record.registeredVoters || 0,
+          });
+        } else {
+          // Create placeholder polling station for location-only records
+          const placeholderCode = `${record.countyCode}${record.constituencyCode}${record.wardCode}001`;
+          const placeholderName = `${record.wardName} - Default Station`;
+
+          stationsToImport.push({
+            countyCode: record.countyCode,
+            countyName: record.countyName,
+            constituencyCode: record.constituencyCode,
+            constituencyName: record.constituencyName,
+            wardCode: record.wardCode,
+            wardName: record.wardName,
+            pollingStationCode: placeholderCode,
+            pollingStationName: placeholderName,
+            registeredVoters: 0,
+          });
         }
       }
 
       if (validationErrors.length > 0) {
-        app.logger.warn({ errors: validationErrors }, 'Validation errors in bulk import');
+        app.logger.warn({
+          errorCount: validationErrors.length,
+          errors: validationErrors.slice(0, 10), // Log first 10 errors
+        }, 'Validation errors in bulk import');
         return reply.status(400).send({
-          error: 'Validation failed',
-          details: validationErrors,
+          success: false,
+          imported: 0,
+          skipped: 0,
+          message: `Validation failed: ${validationErrors.length} record(s) with errors`,
+          errors: validationErrors,
         });
       }
 
-      // Insert stations
-      const insertedStations: any[] = [];
-      let successCount = 0;
-      let errorCount = 0;
+      // Import stations
+      let importedCount = 0;
+      let skippedCount = 0;
+      const importErrors: string[] = [];
 
-      for (const station of stations) {
+      for (const station of stationsToImport) {
         try {
           // Check if station already exists
           const existing = await app.db.query.pollingStations.findFirst({
@@ -120,23 +170,15 @@ export function registerPollingStationRoutes(app: App) {
           });
 
           if (existing) {
-            // Update existing station
-            await app.db.update(schema.pollingStations)
-              .set({
-                countyCode: station.countyCode,
-                countyName: station.countyName,
-                constituencyCode: station.constituencyCode,
-                constituencyName: station.constituencyName,
-                wardCode: station.wardCode,
-                wardName: station.wardName,
-                pollingStationName: station.pollingStationName,
-                registeredVoters: station.registeredVoters,
-              })
-              .where(eq(schema.pollingStations.pollingStationCode, station.pollingStationCode));
-            successCount++;
+            // Skip duplicate
+            skippedCount++;
+            app.logger.debug(
+              { pollingStationCode: station.pollingStationCode },
+              'Skipping duplicate polling station'
+            );
           } else {
             // Insert new station
-            const newStation = await app.db.insert(schema.pollingStations).values({
+            await app.db.insert(schema.pollingStations).values({
               countyCode: station.countyCode,
               countyName: station.countyName,
               constituencyCode: station.constituencyCode,
@@ -146,38 +188,44 @@ export function registerPollingStationRoutes(app: App) {
               pollingStationCode: station.pollingStationCode,
               pollingStationName: station.pollingStationName,
               registeredVoters: station.registeredVoters,
-            }).returning();
+            });
 
-            insertedStations.push(newStation[0]);
-            successCount++;
+            importedCount++;
+            app.logger.debug(
+              { pollingStationCode: station.pollingStationCode },
+              'Polling station imported'
+            );
           }
-        } catch (error) {
-          app.logger.warn({
-            err: error,
-            stationCode: station.pollingStationCode,
-          }, 'Failed to import polling station');
-          errorCount++;
+        } catch (error: any) {
+          skippedCount++;
+          const errorMsg = `Station ${station.pollingStationCode}: ${error?.message || 'Unknown error'}`;
+          app.logger.warn({ err: error, pollingStationCode: station.pollingStationCode }, errorMsg);
+          importErrors.push(errorMsg);
         }
       }
 
       app.logger.info({
-        successCount,
-        errorCount,
-        totalProcessed: stations.length,
+        imported: importedCount,
+        skipped: skippedCount,
+        total: stationsToImport.length,
+        errorCount: importErrors.length,
       }, 'Bulk import completed');
 
       return {
-        success: errorCount === 0,
-        summary: {
-          processed: stations.length,
-          successful: successCount,
-          failed: errorCount,
-        },
-        insertedStations: insertedStations.length,
+        success: importErrors.length === 0,
+        imported: importedCount,
+        skipped: skippedCount,
+        message: `Successfully imported ${importedCount} polling stations (${skippedCount} skipped)`,
+        errors: importErrors.length > 0 ? importErrors : undefined,
       };
-    } catch (error) {
+    } catch (error: any) {
       app.logger.error({ err: error }, 'Bulk import failed');
-      return reply.status(500).send({ error: 'Bulk import failed' });
+      return reply.status(500).send({
+        success: false,
+        imported: 0,
+        skipped: 0,
+        message: `Bulk import failed: ${error?.message || 'Unknown error'}`,
+      });
     }
   });
 }

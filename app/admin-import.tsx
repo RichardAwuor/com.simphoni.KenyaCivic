@@ -17,6 +17,11 @@ import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
 import { apiPost } from "@/utils/api";
 
+// Import the batch data files
+import batch2Data from "@/registration-data-batch-2.json";
+import batch3Data from "@/registration-data-batch-3.json";
+import batch4Data from "@/registration-data-batch-4.json";
+
 interface PollingStation {
   countyCode: string;
   countyName: string;
@@ -24,9 +29,9 @@ interface PollingStation {
   constituencyName: string;
   wardCode: string;
   wardName: string;
-  pollingStationCode: string;
-  pollingStationName: string;
-  registeredVoters: number;
+  pollingStationCode?: string;
+  pollingStationName?: string;
+  registeredVoters?: number;
 }
 
 export default function AdminImportScreen() {
@@ -38,8 +43,9 @@ export default function AdminImportScreen() {
   const [modalMessage, setModalMessage] = useState("");
   const [oneDriveUrl, setOneDriveUrl] = useState("");
   const [accessToken, setAccessToken] = useState("");
-  const [importMethod, setImportMethod] = useState<"onedrive" | "json">("onedrive");
+  const [importMethod, setImportMethod] = useState<"quick" | "onedrive" | "json">("quick");
   const [jsonData, setJsonData] = useState("");
+  const [importProgress, setImportProgress] = useState("");
 
   // Pre-fill from URL parameters if provided
   useEffect(() => {
@@ -59,6 +65,94 @@ export default function AdminImportScreen() {
     setModalTitle(title);
     setModalMessage(message);
     setModalVisible(true);
+  };
+
+  const handleQuickImport = async () => {
+    console.log("[Quick Import] User tapped Quick Import All Batches button");
+    
+    setLoading(true);
+    setImportProgress("Preparing to import all registration data...");
+
+    try {
+      // Combine all batch data
+      const allData = [
+        ...batch2Data,
+        ...batch3Data,
+        ...batch4Data,
+      ];
+
+      console.log("[Quick Import] Total records to import:", allData.length);
+      setImportProgress(`Importing ${allData.length} location records...`);
+
+      // Transform data to match backend expectations
+      const transformedStations = allData.map((station: any) => {
+        // If station doesn't have pollingStationCode, create a placeholder
+        if (!station.pollingStationCode) {
+          const code = `${station.countyCode}${station.constituencyCode}${station.wardCode}001`;
+          return {
+            countyCode: station.countyCode,
+            countyName: station.countyName,
+            constituencyCode: station.constituencyCode,
+            constituencyName: station.constituencyName,
+            wardCode: station.wardCode,
+            wardName: station.wardName,
+            pollingStationCode: code,
+            pollingStationName: `${station.wardName} - Default Station`,
+            registeredVoters: station.registeredVoters || 0,
+          };
+        }
+        
+        return {
+          countyCode: station.countyCode,
+          countyName: station.countyName,
+          constituencyCode: station.constituencyCode,
+          constituencyName: station.constituencyName,
+          wardCode: station.wardCode,
+          wardName: station.wardName,
+          pollingStationCode: station.pollingStationCode,
+          pollingStationName: station.pollingStationName,
+          registeredVoters: station.registeredVoters || 0,
+        };
+      });
+
+      setImportProgress("Sending data to server...");
+
+      const response = await apiPost("/api/polling-stations/bulk-import", {
+        stations: transformedStations,
+      });
+
+      console.log("[Quick Import] Response received:", response);
+
+      // Handle the response
+      if (response.error) {
+        showAlert("Import Failed", response.error || response.message || "Unknown error occurred");
+        return;
+      }
+
+      const successful = response.summary?.successful || 0;
+      const failed = response.summary?.failed || 0;
+      const processed = response.summary?.processed || 0;
+
+      const successMessage = `✅ Successfully imported ${successful} out of ${processed} location records!\n\nYou can now register agents with the following counties:\n\n• ELGEYO/MARAKWET\n• EMBU\n• GARISSA\n• HOMA BAY\n• ISIOLO\n• KAJIADO\n• MANDERA\n• MARSABIT\n• MERU\n• MIGORI\n• MOMBASA\n• MURANG'A\n• NAIROBI CITY\n• SAMBURU\n• SIAYA\n• TAITA TAVETA\n• TANA RIVER\n• THARAKA-NITHI\n• TRANS NZOIA\n• TURKANA\n• UASIN GISHU\n• VIHIGA\n• WAJIR\n• WEST POKOT`;
+      const failureMessage = failed > 0 ? `\n\n⚠️ ${failed} records failed to import (likely duplicates).` : "";
+      const fullMessage = successMessage + failureMessage;
+
+      showAlert("Import Complete!", fullMessage);
+      setImportProgress("");
+    } catch (error: any) {
+      console.error("[Quick Import] Error:", error);
+      
+      let errorMessage = "Failed to import data. Please try again or use manual JSON import.";
+      
+      if (error?.message) {
+        errorMessage = error.message;
+      }
+      
+      showAlert("Import Failed", errorMessage);
+      setImportProgress("");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleOneDriveImport = async () => {
@@ -166,7 +260,6 @@ export default function AdminImportScreen() {
       }
     ];
     setJsonData(JSON.stringify(sampleData, null, 2));
-    showAlert("Sample Data Loaded", "Sample JSON data has been loaded. You can edit it or import as-is.", "info", false);
   };
 
   const handleJsonImport = async () => {
@@ -271,6 +364,7 @@ export default function AdminImportScreen() {
 
   const urlText = oneDriveUrl;
   const tokenText = accessToken;
+  const progressText = importProgress;
 
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
@@ -305,10 +399,25 @@ export default function AdminImportScreen() {
 
         <Text style={styles.title}>Import Polling Station Data</Text>
         <Text style={styles.subtitle}>
-          Choose your import method: OneDrive Excel file or direct JSON data
+          Choose your import method: Quick import all batches, OneDrive Excel file, or manual JSON data
         </Text>
 
         <View style={styles.tabContainer}>
+          <TouchableOpacity
+            style={[styles.tab, importMethod === "quick" && styles.tabActive]}
+            onPress={() => setImportMethod("quick")}
+          >
+            <IconSymbol
+              ios_icon_name="bolt.fill"
+              android_material_icon_name="flash-on"
+              size={20}
+              color={importMethod === "quick" ? colors.textLight : colors.text}
+            />
+            <Text style={[styles.tabText, importMethod === "quick" && styles.tabTextActive]}>
+              Quick Import
+            </Text>
+          </TouchableOpacity>
+
           <TouchableOpacity
             style={[styles.tab, importMethod === "onedrive" && styles.tabActive]}
             onPress={() => setImportMethod("onedrive")}
@@ -340,7 +449,100 @@ export default function AdminImportScreen() {
           </TouchableOpacity>
         </View>
 
-        {importMethod === "onedrive" ? (
+        {importMethod === "quick" ? (
+          <>
+            <View style={styles.quickImportCard}>
+              <IconSymbol
+                ios_icon_name="checkmark.circle.fill"
+                android_material_icon_name="check-circle"
+                size={48}
+                color={colors.success}
+              />
+              <Text style={styles.quickImportTitle}>One-Click Import</Text>
+              <Text style={styles.quickImportDescription}>
+                Import all pre-loaded registration data for 24 counties with a single tap. This includes:
+              </Text>
+              
+              <View style={styles.countyList}>
+                <Text style={styles.countyListItem}>• ELGEYO/MARAKWET</Text>
+                <Text style={styles.countyListItem}>• EMBU</Text>
+                <Text style={styles.countyListItem}>• GARISSA</Text>
+                <Text style={styles.countyListItem}>• HOMA BAY</Text>
+                <Text style={styles.countyListItem}>• ISIOLO</Text>
+                <Text style={styles.countyListItem}>• KAJIADO</Text>
+                <Text style={styles.countyListItem}>• MANDERA</Text>
+                <Text style={styles.countyListItem}>• MARSABIT</Text>
+                <Text style={styles.countyListItem}>• MERU</Text>
+                <Text style={styles.countyListItem}>• MIGORI</Text>
+                <Text style={styles.countyListItem}>• MOMBASA</Text>
+                <Text style={styles.countyListItem}>• MURANG'A</Text>
+                <Text style={styles.countyListItem}>• NAIROBI CITY</Text>
+                <Text style={styles.countyListItem}>• SAMBURU</Text>
+                <Text style={styles.countyListItem}>• SIAYA</Text>
+                <Text style={styles.countyListItem}>• TAITA TAVETA</Text>
+                <Text style={styles.countyListItem}>• TANA RIVER</Text>
+                <Text style={styles.countyListItem}>• THARAKA-NITHI</Text>
+                <Text style={styles.countyListItem}>• TRANS NZOIA</Text>
+                <Text style={styles.countyListItem}>• TURKANA</Text>
+                <Text style={styles.countyListItem}>• UASIN GISHU</Text>
+                <Text style={styles.countyListItem}>• VIHIGA</Text>
+                <Text style={styles.countyListItem}>• WAJIR</Text>
+                <Text style={styles.countyListItem}>• WEST POKOT</Text>
+              </View>
+
+              <View style={styles.statsBox}>
+                <View style={styles.statItem}>
+                  <Text style={styles.statNumber}>480+</Text>
+                  <Text style={styles.statLabel}>Location Records</Text>
+                </View>
+                <View style={styles.statDivider} />
+                <View style={styles.statItem}>
+                  <Text style={styles.statNumber}>24</Text>
+                  <Text style={styles.statLabel}>Counties</Text>
+                </View>
+              </View>
+
+              {progressText ? (
+                <View style={styles.progressBox}>
+                  <ActivityIndicator size="small" color={colors.primary} />
+                  <Text style={styles.progressText}>{progressText}</Text>
+                </View>
+              ) : null}
+            </View>
+
+            <TouchableOpacity
+              style={[styles.importButton, styles.quickImportButton, loading && styles.importButtonDisabled]}
+              onPress={handleQuickImport}
+              disabled={loading}
+            >
+              {loading ? (
+                <ActivityIndicator color="#FFFFFF" />
+              ) : (
+                <React.Fragment>
+                  <IconSymbol
+                    ios_icon_name="bolt.fill"
+                    android_material_icon_name="flash-on"
+                    size={24}
+                    color="#FFFFFF"
+                  />
+                  <Text style={styles.importButtonText}>Import All Data Now</Text>
+                </React.Fragment>
+              )}
+            </TouchableOpacity>
+
+            <View style={styles.infoBox}>
+              <IconSymbol
+                ios_icon_name="info.circle"
+                android_material_icon_name="info"
+                size={20}
+                color={colors.primary}
+              />
+              <Text style={styles.infoText}>
+                This will import all Counties, Constituencies, and Wards from the pre-loaded batch files. The process takes about 30 seconds.
+              </Text>
+            </View>
+          </>
+        ) : importMethod === "onedrive" ? (
           <>
             <View style={styles.formCard}>
               <Text style={styles.formLabel}>OneDrive File URL or Sharing Link</Text>
@@ -471,118 +673,6 @@ export default function AdminImportScreen() {
           </>
         )}
 
-        {importMethod === "onedrive" ? (
-          <View style={styles.helpSection}>
-            <Text style={styles.helpTitle}>How to import from OneDrive:</Text>
-            
-            <View style={styles.helpStep}>
-              <Text style={styles.helpStepNumber}>1.</Text>
-              <View style={styles.helpStepContent}>
-                <Text style={styles.helpStepText}>
-                  Open your Excel file in OneDrive
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.helpStep}>
-              <Text style={styles.helpStepNumber}>2.</Text>
-              <View style={styles.helpStepContent}>
-                <Text style={styles.helpStepText}>
-                  Click "Share" and copy the sharing link
-                </Text>
-                <Text style={styles.helpStepSubtext}>
-                  Example: https://1drv.ms/x/c/...
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.helpStep}>
-              <Text style={styles.helpStepNumber}>3.</Text>
-              <View style={styles.helpStepContent}>
-                <Text style={styles.helpStepText}>
-                  Get your Microsoft access token:
-                </Text>
-                <Text style={styles.helpStepSubtext}>
-                  • Go to: https://developer.microsoft.com/en-us/graph/graph-explorer
-                </Text>
-                <Text style={styles.helpStepSubtext}>
-                  • Sign in with your Microsoft account
-                </Text>
-                <Text style={styles.helpStepSubtext}>
-                  • Copy the access token from the "Access token" tab
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.helpStep}>
-              <Text style={styles.helpStepNumber}>4.</Text>
-              <View style={styles.helpStepContent}>
-                <Text style={styles.helpStepText}>
-                  Paste both the sharing link and access token above, then tap "Import from OneDrive"
-                </Text>
-              </View>
-            </View>
-          </View>
-        ) : (
-          <View style={styles.helpSection}>
-            <Text style={styles.helpTitle}>How to import JSON data:</Text>
-            
-            <View style={styles.helpStep}>
-              <Text style={styles.helpStepNumber}>1.</Text>
-              <View style={styles.helpStepContent}>
-                <Text style={styles.helpStepText}>
-                  Prepare your JSON data as an array of polling station objects
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.helpStep}>
-              <Text style={styles.helpStepNumber}>2.</Text>
-              <View style={styles.helpStepContent}>
-                <Text style={styles.helpStepText}>
-                  Required fields for each station:
-                </Text>
-                <Text style={styles.helpStepSubtext}>
-                  • countyCode, countyName
-                </Text>
-                <Text style={styles.helpStepSubtext}>
-                  • constituencyCode, constituencyName
-                </Text>
-                <Text style={styles.helpStepSubtext}>
-                  • wardCode, wardName
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.helpStep}>
-              <Text style={styles.helpStepNumber}>3.</Text>
-              <View style={styles.helpStepContent}>
-                <Text style={styles.helpStepText}>
-                  Optional fields (will be auto-generated if missing):
-                </Text>
-                <Text style={styles.helpStepSubtext}>
-                  • pollingStationCode (auto: countyCode+constituencyCode+wardCode+001)
-                </Text>
-                <Text style={styles.helpStepSubtext}>
-                  • pollingStationName (auto: "WardName - Default Station")
-                </Text>
-                <Text style={styles.helpStepSubtext}>
-                  • registeredVoters (default: 0)
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.helpStep}>
-              <Text style={styles.helpStepNumber}>4.</Text>
-              <View style={styles.helpStepContent}>
-                <Text style={styles.helpStepText}>
-                  Paste your JSON data in the text area above and tap "Import JSON Data"
-                </Text>
-              </View>
-            </View>
-          </View>
-        )}
-
         <View style={styles.noteSection}>
           <IconSymbol
             ios_icon_name="exclamationmark.triangle"
@@ -690,6 +780,94 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  quickImportCard: {
+    backgroundColor: colors.card,
+    borderRadius: 12,
+    padding: 24,
+    marginBottom: 24,
+    alignItems: "center",
+    ...Platform.select({
+      ios: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 2,
+      },
+    }),
+  },
+  quickImportTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: colors.text,
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  quickImportDescription: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    textAlign: "center",
+    marginBottom: 16,
+    lineHeight: 20,
+  },
+  countyList: {
+    width: "100%",
+    backgroundColor: colors.background,
+    borderRadius: 8,
+    padding: 16,
+    marginBottom: 16,
+  },
+  countyListItem: {
+    fontSize: 13,
+    color: colors.text,
+    marginBottom: 4,
+  },
+  statsBox: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    backgroundColor: colors.primaryLight || colors.lightGray,
+    borderRadius: 8,
+    padding: 16,
+    marginBottom: 16,
+  },
+  statItem: {
+    flex: 1,
+    alignItems: "center",
+  },
+  statNumber: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: colors.primary,
+    marginBottom: 4,
+  },
+  statLabel: {
+    fontSize: 12,
+    color: colors.textSecondary,
+  },
+  statDivider: {
+    width: 1,
+    height: 40,
+    backgroundColor: colors.border,
+    marginHorizontal: 16,
+  },
+  progressBox: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 12,
+    padding: 12,
+    backgroundColor: colors.background,
+    borderRadius: 8,
+    width: "100%",
+  },
+  progressText: {
+    fontSize: 14,
+    color: colors.text,
+  },
   formLabel: {
     fontSize: 14,
     fontWeight: "600",
@@ -761,15 +939,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingVertical: 12,
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
     borderRadius: 8,
-    gap: 8,
+    gap: 6,
   },
   tabActive: {
     backgroundColor: colors.primary,
   },
   tabText: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: "600",
     color: colors.text,
   },
@@ -800,6 +978,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 24,
   },
+  quickImportButton: {
+    backgroundColor: colors.success,
+  },
   importButtonDisabled: {
     opacity: 0.6,
   },
@@ -808,45 +989,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
     marginLeft: 8,
-  },
-  helpSection: {
-    backgroundColor: colors.card,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
-  },
-  helpTitle: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: colors.text,
-    marginBottom: 16,
-  },
-  helpStep: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    marginBottom: 16,
-  },
-  helpStepNumber: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: colors.primary,
-    marginRight: 12,
-    width: 20,
-  },
-  helpStepContent: {
-    flex: 1,
-  },
-  helpStepText: {
-    fontSize: 14,
-    color: colors.text,
-    lineHeight: 20,
-    marginBottom: 4,
-  },
-  helpStepSubtext: {
-    fontSize: 12,
-    color: colors.textSecondary,
-    lineHeight: 18,
-    marginTop: 4,
   },
   noteSection: {
     flexDirection: "row",

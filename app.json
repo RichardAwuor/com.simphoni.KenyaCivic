@@ -1,9 +1,8 @@
-
 {
   "expo": {
     "name": "Kenya Civic",
     "slug": "kenya-civic-app-xvakea",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "orientation": "portrait",
     "icon": "./assets/images/f866f388-7eb8-40ec-ae4a-3b8d02571151.png",
     "userInterfaceStyle": "automatic",
@@ -33,7 +32,7 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.simphoni.kenyacivic",
-      "versionCode": 10,
+      "versionCode": 11,
       "permissions": [
         "CAMERA",
         "RECORD_AUDIO",

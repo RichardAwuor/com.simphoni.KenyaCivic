@@ -1,0 +1,907 @@
+
+[
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "005",
+    "constituencyName": "KITUTU CHACHE NORTH",
+    "wardCode": "001",
+    "wardName": "KEGOGI"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "005",
+    "constituencyName": "KITUTU CHACHE NORTH",
+    "wardCode": "002",
+    "wardName": "MARANI"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "005",
+    "constituencyName": "KITUTU CHACHE NORTH",
+    "wardCode": "003",
+    "wardName": "MONYERERO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "005",
+    "constituencyName": "KITUTU CHACHE NORTH",
+    "wardCode": "004",
+    "wardName": "SENSI"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "006",
+    "constituencyName": "KITUTU CHACHE SOUTH",
+    "wardCode": "001",
+    "wardName": "BOGEKA"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "006",
+    "constituencyName": "KITUTU CHACHE SOUTH",
+    "wardCode": "002",
+    "wardName": "BOGUSERO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "006",
+    "constituencyName": "KITUTU CHACHE SOUTH",
+    "wardCode": "003",
+    "wardName": "KITUTU CENTRAL"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "006",
+    "constituencyName": "KITUTU CHACHE SOUTH",
+    "wardCode": "004",
+    "wardName": "NYAKOE"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "006",
+    "constituencyName": "KITUTU CHACHE SOUTH",
+    "wardCode": "005",
+    "wardName": "NYATIEKO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "007",
+    "constituencyName": "NYARIBARI CHACHE",
+    "wardCode": "001",
+    "wardName": "BIRONGO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "007",
+    "constituencyName": "NYARIBARI CHACHE",
+    "wardCode": "002",
+    "wardName": "BOBARACHO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "007",
+    "constituencyName": "NYARIBARI CHACHE",
+    "wardCode": "003",
+    "wardName": "IBENO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "007",
+    "constituencyName": "NYARIBARI CHACHE",
+    "wardCode": "004",
+    "wardName": "KEUMBU"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "007",
+    "constituencyName": "NYARIBARI CHACHE",
+    "wardCode": "005",
+    "wardName": "KIOGORO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "007",
+    "constituencyName": "NYARIBARI CHACHE",
+    "wardCode": "006",
+    "wardName": "KISII CENTRAL"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "008",
+    "constituencyName": "NYARIBARI MASABA",
+    "wardCode": "001",
+    "wardName": "GESUSU"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "008",
+    "constituencyName": "NYARIBARI MASABA",
+    "wardCode": "002",
+    "wardName": "ICHUNI"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "008",
+    "constituencyName": "NYARIBARI MASABA",
+    "wardCode": "003",
+    "wardName": "KIAMOKAMA"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "008",
+    "constituencyName": "NYARIBARI MASABA",
+    "wardCode": "004",
+    "wardName": "MASIMBA"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "008",
+    "constituencyName": "NYARIBARI MASABA",
+    "wardCode": "005",
+    "wardName": "NYAMASIBI"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "009",
+    "constituencyName": "SOUTH MUGIRANGO",
+    "wardCode": "001",
+    "wardName": "BOGETENGA"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "009",
+    "constituencyName": "SOUTH MUGIRANGO",
+    "wardCode": "002",
+    "wardName": "BOIKANG'A"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "009",
+    "constituencyName": "SOUTH MUGIRANGO",
+    "wardCode": "003",
+    "wardName": "BORABU / CHITAGO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "009",
+    "constituencyName": "SOUTH MUGIRANGO",
+    "wardCode": "004",
+    "wardName": "GETENGA"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "009",
+    "constituencyName": "SOUTH MUGIRANGO",
+    "wardCode": "005",
+    "wardName": "MOTICHO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "009",
+    "constituencyName": "SOUTH MUGIRANGO",
+    "wardCode": "006",
+    "wardName": "TABAKA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "001",
+    "constituencyName": "KISUMU CENTRAL",
+    "wardCode": "001",
+    "wardName": "KONDELE"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "001",
+    "constituencyName": "KISUMU CENTRAL",
+    "wardCode": "002",
+    "wardName": "MARKET MILIMANI"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "001",
+    "constituencyName": "KISUMU CENTRAL",
+    "wardCode": "003",
+    "wardName": "MIGOSI"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "001",
+    "constituencyName": "KISUMU CENTRAL",
+    "wardCode": "004",
+    "wardName": "NYALENDA B"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "001",
+    "constituencyName": "KISUMU CENTRAL",
+    "wardCode": "005",
+    "wardName": "RAILWAYS"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "001",
+    "constituencyName": "KISUMU CENTRAL",
+    "wardCode": "006",
+    "wardName": "SHAURIMOYO KALOLENI"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "002",
+    "constituencyName": "KISUMU EAST",
+    "wardCode": "001",
+    "wardName": "KAJULU"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "002",
+    "constituencyName": "KISUMU EAST",
+    "wardCode": "002",
+    "wardName": "KOLWA CENTRAL"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "002",
+    "constituencyName": "KISUMU EAST",
+    "wardCode": "003",
+    "wardName": "KOLWA EAST"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "002",
+    "constituencyName": "KISUMU EAST",
+    "wardCode": "004",
+    "wardName": "MANYATTA 'B'"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "002",
+    "constituencyName": "KISUMU EAST",
+    "wardCode": "005",
+    "wardName": "NYALENDA 'A'"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "003",
+    "constituencyName": "KISUMU WEST",
+    "wardCode": "001",
+    "wardName": "CENTRAL KISUMU"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "003",
+    "constituencyName": "KISUMU WEST",
+    "wardCode": "002",
+    "wardName": "KISUMU NORTH"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "003",
+    "constituencyName": "KISUMU WEST",
+    "wardCode": "003",
+    "wardName": "NORTH WEST KISUMU"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "003",
+    "constituencyName": "KISUMU WEST",
+    "wardCode": "004",
+    "wardName": "SOUTH WEST KISUMU"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "003",
+    "constituencyName": "KISUMU WEST",
+    "wardCode": "005",
+    "wardName": "WEST KISUMU"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "004",
+    "constituencyName": "MUHORONI",
+    "wardCode": "001",
+    "wardName": "CHEMELIL"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "004",
+    "constituencyName": "MUHORONI",
+    "wardCode": "002",
+    "wardName": "MASOGO/NYANG'OMA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "004",
+    "constituencyName": "MUHORONI",
+    "wardCode": "003",
+    "wardName": "MIWANI"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "004",
+    "constituencyName": "MUHORONI",
+    "wardCode": "004",
+    "wardName": "MUHORONI/KORU"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "004",
+    "constituencyName": "MUHORONI",
+    "wardCode": "005",
+    "wardName": "OMBEYI"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "005",
+    "constituencyName": "NYAKACH",
+    "wardCode": "001",
+    "wardName": "CENTRAL NYAKACH"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "005",
+    "constituencyName": "NYAKACH",
+    "wardCode": "002",
+    "wardName": "NORTH NYAKACH"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "005",
+    "constituencyName": "NYAKACH",
+    "wardCode": "003",
+    "wardName": "SOUTH EAST NYAKACH"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "005",
+    "constituencyName": "NYAKACH",
+    "wardCode": "004",
+    "wardName": "SOUTH WEST NYAKACH"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "005",
+    "constituencyName": "NYAKACH",
+    "wardCode": "005",
+    "wardName": "WEST NYAKACH"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "006",
+    "constituencyName": "NYANDO",
+    "wardCode": "001",
+    "wardName": "AHERO"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "006",
+    "constituencyName": "NYANDO",
+    "wardCode": "002",
+    "wardName": "AWASI/ONJIKO"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "006",
+    "constituencyName": "NYANDO",
+    "wardCode": "003",
+    "wardName": "EAST KANO/WAWIDHI"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "006",
+    "constituencyName": "NYANDO",
+    "wardCode": "004",
+    "wardName": "KABONYO/KANYAGWAL"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "006",
+    "constituencyName": "NYANDO",
+    "wardCode": "005",
+    "wardName": "KOBURA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "007",
+    "constituencyName": "SEME",
+    "wardCode": "001",
+    "wardName": "CENTRAL SEME"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "007",
+    "constituencyName": "SEME",
+    "wardCode": "002",
+    "wardName": "EAST SEME"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "007",
+    "constituencyName": "SEME",
+    "wardCode": "003",
+    "wardName": "NORTH SEME"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "KISUMU",
+    "constituencyCode": "007",
+    "constituencyName": "SEME",
+    "wardCode": "004",
+    "wardName": "WEST SEME"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "001",
+    "constituencyName": "KITUI CENTRAL",
+    "wardCode": "001",
+    "wardName": "KYANGWITHYA EAST"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "001",
+    "constituencyName": "KITUI CENTRAL",
+    "wardCode": "002",
+    "wardName": "KYANGWITHYA WEST"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "001",
+    "constituencyName": "KITUI CENTRAL",
+    "wardCode": "003",
+    "wardName": "MIAMBANI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "001",
+    "constituencyName": "KITUI CENTRAL",
+    "wardCode": "004",
+    "wardName": "MULANGO"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "001",
+    "constituencyName": "KITUI CENTRAL",
+    "wardCode": "005",
+    "wardName": "TOWNSHIP"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "002",
+    "constituencyName": "KITUI EAST",
+    "wardCode": "001",
+    "wardName": "CHULUNI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "002",
+    "constituencyName": "KITUI EAST",
+    "wardCode": "002",
+    "wardName": "ENDAU/MALALANI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "002",
+    "constituencyName": "KITUI EAST",
+    "wardCode": "003",
+    "wardName": "MUTITO/KALIKU"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "002",
+    "constituencyName": "KITUI EAST",
+    "wardCode": "004",
+    "wardName": "NZAMBANI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "002",
+    "constituencyName": "KITUI EAST",
+    "wardCode": "005",
+    "wardName": "VOO/KYAMATU"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "002",
+    "constituencyName": "KITUI EAST",
+    "wardCode": "006",
+    "wardName": "ZOMBE/MWITIKA"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "003",
+    "constituencyName": "KITUI RURAL",
+    "wardCode": "001",
+    "wardName": "KANYANGI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "003",
+    "constituencyName": "KITUI RURAL",
+    "wardCode": "002",
+    "wardName": "KISASI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "003",
+    "constituencyName": "KITUI RURAL",
+    "wardCode": "003",
+    "wardName": "KWAVONZA/YATTA"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "003",
+    "constituencyName": "KITUI RURAL",
+    "wardCode": "004",
+    "wardName": "MBITINI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "004",
+    "constituencyName": "KITUI SOUTH",
+    "wardCode": "001",
+    "wardName": "ATHI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "004",
+    "constituencyName": "KITUI SOUTH",
+    "wardCode": "002",
+    "wardName": "IKANGA/KYATUNE"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "004",
+    "constituencyName": "KITUI SOUTH",
+    "wardCode": "003",
+    "wardName": "IKUTHA"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "004",
+    "constituencyName": "KITUI SOUTH",
+    "wardCode": "004",
+    "wardName": "KANZIKO"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "004",
+    "constituencyName": "KITUI SOUTH",
+    "wardCode": "005",
+    "wardName": "MUTHA"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "004",
+    "constituencyName": "KITUI SOUTH",
+    "wardCode": "006",
+    "wardName": "MUTOMO"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "005",
+    "constituencyName": "KITUI WEST",
+    "wardCode": "001",
+    "wardName": "KAUWI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "005",
+    "constituencyName": "KITUI WEST",
+    "wardCode": "002",
+    "wardName": "KWA MUTONGA/KITHUMULA"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "005",
+    "constituencyName": "KITUI WEST",
+    "wardCode": "003",
+    "wardName": "MATINYANI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "005",
+    "constituencyName": "KITUI WEST",
+    "wardCode": "004",
+    "wardName": "MUTONGUNI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "006",
+    "constituencyName": "MWINGI CENTRAL",
+    "wardCode": "001",
+    "wardName": "CENTRAL"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "006",
+    "constituencyName": "MWINGI CENTRAL",
+    "wardCode": "002",
+    "wardName": "KIVOU"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "006",
+    "constituencyName": "MWINGI CENTRAL",
+    "wardCode": "003",
+    "wardName": "MUI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "006",
+    "constituencyName": "MWINGI CENTRAL",
+    "wardCode": "004",
+    "wardName": "NGUNI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "006",
+    "constituencyName": "MWINGI CENTRAL",
+    "wardCode": "005",
+    "wardName": "NUU"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "006",
+    "constituencyName": "MWINGI CENTRAL",
+    "wardCode": "006",
+    "wardName": "WAITA"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "007",
+    "constituencyName": "MWINGI NORTH",
+    "wardCode": "001",
+    "wardName": "KYUSO"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "007",
+    "constituencyName": "MWINGI NORTH",
+    "wardCode": "002",
+    "wardName": "MUMONI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "007",
+    "constituencyName": "MWINGI NORTH",
+    "wardCode": "003",
+    "wardName": "NGOMENI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "007",
+    "constituencyName": "MWINGI NORTH",
+    "wardCode": "004",
+    "wardName": "THARAKA"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "007",
+    "constituencyName": "MWINGI NORTH",
+    "wardCode": "005",
+    "wardName": "TSEIKURU"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "008",
+    "constituencyName": "MWINGI WEST",
+    "wardCode": "001",
+    "wardName": "KIOMO/KYETHANI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "008",
+    "constituencyName": "MWINGI WEST",
+    "wardCode": "002",
+    "wardName": "KYOME/THAANA"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "008",
+    "constituencyName": "MWINGI WEST",
+    "wardCode": "003",
+    "wardName": "MIGWANI"
+  },
+  {
+    "countyCode": "015",
+    "countyName": "KITUI",
+    "constituencyCode": "008",
+    "constituencyName": "MWINGI WEST",
+    "wardCode": "004",
+    "wardName": "NGUUTANI"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGO",
+    "wardCode": "001",
+    "wardName": "CHENGONI/SAMBURU"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGO",
+    "wardCode": "002",
+    "wardName": "KASEMENI"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGO",
+    "wardCode": "003",
+    "wardName": "KINANGO"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGO",
+    "wardCode": "004",
+    "wardName": "MACKINNON ROAD"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGO",
+    "wardCode": "005",
+    "wardName": "MWAVUMBO"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGO",
+    "wardCode": "006",
+    "wardName": "NDAVAYA"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGO",
+    "wardCode": "007",
+    "wardName": "PUMA"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "002",
+    "constituencyName": "LUNGALUNGA",
+    "wardCode": "001",
+    "wardName": "LUNGALUNGA"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "002",
+    "constituencyName": "LUNGALUNGA",
+    "wardCode": "002",
+    "wardName": "MWERENI"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "002",
+    "constituencyName": "LUNGALUNGA",
+    "wardCode": "003",
+    "wardName": "PONGWE/KIKONENI"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "002",
+    "constituencyName": "LUNGALUNGA",
+    "wardCode": "004",
+    "wardName": "VANGA"
+  },
+  {
+    "countyCode": "002",
+    "countyName": "KWALE",
+    "constituencyCode": "003",
+    "constituencyName": "MATUGA",
+    "wardCode": "001",
+    "wardName": "KUBO SOUTH"
+  }
+]

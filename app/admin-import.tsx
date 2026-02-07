@@ -24,6 +24,7 @@ import batch4Data from "@/registration-data-batch-4.json";
 import batch5Data from "@/registration-data-batch-5.json";
 import batch6Data from "@/registration-data-batch-6.json";
 import batch7Data from "@/registration-data-batch-7.json";
+import batch8Data from "@/registration-data-batch-8.json";
 
 interface PollingStation {
   countyCode: string;
@@ -41,100 +42,66 @@ export default function AdminImportScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const [loading, setLoading] = useState(false);
-  const [importProgress, setImportProgress] = useState("");
-  const [jsonInput, setJsonInput] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
-  const [modalType, setModalType] = useState<"success" | "error">("success");
-  const [activeTab, setActiveTab] = useState<"json" | "onedrive" | "quick">("quick");
+  const [jsonInput, setJsonInput] = useState("");
 
   useEffect(() => {
-    // Check if we came from registration screen
-    if (params.from === "register") {
-      console.log("[AdminImport] Navigated from registration screen");
-    }
+    console.log("[AdminImport] Screen loaded with params:", params);
   }, [params]);
 
   const showAlert = (title: string, message: string) => {
     setModalTitle(title);
     setModalMessage(message);
-    setModalType(title.toLowerCase().includes("error") ? "error" : "success");
     setShowModal(true);
   };
 
   const handleQuickImport = async () => {
-    console.log("[AdminImport] Starting quick import of all batch files");
+    console.log("[AdminImport] User tapped Quick Import - importing all batches");
+    
+    // Combine all batch data
+    const allData = [
+      ...batch2Data,
+      ...batch3Data,
+      ...batch4Data,
+      ...batch5Data,
+      ...batch6Data,
+      ...batch7Data,
+      ...batch8Data,
+    ];
+
+    console.log("[AdminImport] Total records to import:", allData.length);
+
     setLoading(true);
-    setImportProgress("Preparing to import all batch files...");
-
     try {
-      const batches = [
-        { name: "Batch 2", data: batch2Data },
-        { name: "Batch 3", data: batch3Data },
-        { name: "Batch 4", data: batch4Data },
-        { name: "Batch 5", data: batch5Data },
-        { name: "Batch 6", data: batch6Data },
-        { name: "Batch 7", data: batch7Data },
-      ];
+      const response = await apiPost("/api/locations/import", {
+        locations: allData,
+      });
 
-      let totalImported = 0;
-      let totalRecords = 0;
-
-      for (const batch of batches) {
-        totalRecords += batch.data.length;
-      }
-
-      for (const batch of batches) {
-        setImportProgress(`Importing ${batch.name} (${batch.data.length} records)...`);
-        console.log(`[AdminImport] Importing ${batch.name} with ${batch.data.length} records`);
-
-        const response = await apiPost("/api/polling-stations/bulk-import", {
-          stations: batch.data,
-        });
-
-        totalImported += response.imported || batch.data.length;
-        console.log(`[AdminImport] ${batch.name} imported successfully`);
-      }
-
-      setImportProgress("");
+      console.log("[AdminImport] Import successful:", response);
       showAlert(
         "Import Successful",
-        `Successfully imported ${totalImported} records from ${batches.length} batch files.\n\nYou can now proceed with agent registration.`
+        `Successfully imported ${allData.length} location records from all batches (2-8).`
       );
     } catch (error: any) {
-      console.error("[AdminImport] Quick import error:", error);
-      setImportProgress("");
-      showAlert("Import Error", error.message || "Failed to import batch files");
+      console.error("[AdminImport] Import error:", error);
+      showAlert("Import Failed", error.message || "Failed to import location data");
     } finally {
       setLoading(false);
     }
   };
 
   const handleOneDriveImport = async () => {
-    console.log("[AdminImport] Starting OneDrive import");
-    setLoading(true);
-    setImportProgress("Connecting to OneDrive...");
-
-    try {
-      // Call the OneDrive import endpoint
-      const response = await apiPost("/api/onedrive/import", {});
-      
-      setImportProgress("");
-      showAlert(
-        "Import Successful",
-        `Successfully imported ${response.imported || 0} records from OneDrive.\n\nYou can now proceed with agent registration.`
-      );
-    } catch (error: any) {
-      console.error("[AdminImport] OneDrive import error:", error);
-      setImportProgress("");
-      showAlert("Import Error", error.message || "Failed to import from OneDrive");
-    } finally {
-      setLoading(false);
-    }
+    console.log("[AdminImport] User tapped OneDrive Import");
+    showAlert(
+      "OneDrive Import",
+      "OneDrive import functionality is not yet implemented. Please use Quick Import or JSON Import instead."
+    );
   };
 
   const loadSampleData = () => {
+    console.log("[AdminImport] Loading sample data into JSON input");
     const sampleData = [
       {
         countyCode: "001",
@@ -152,39 +119,40 @@ export default function AdminImportScreen() {
   };
 
   const handleJsonImport = async () => {
+    console.log("[AdminImport] User tapped JSON Import");
+
     if (!jsonInput.trim()) {
-      showAlert("Error", "Please paste JSON data or load sample data");
+      showAlert("Error", "Please enter JSON data to import");
       return;
     }
 
-    console.log("[AdminImport] Starting JSON import");
-    setLoading(true);
-    setImportProgress("Parsing JSON data...");
-
     try {
-      const data = JSON.parse(jsonInput);
-      const stations = Array.isArray(data) ? data : [data];
+      const parsedData = JSON.parse(jsonInput);
+      
+      if (!Array.isArray(parsedData)) {
+        showAlert("Error", "JSON data must be an array of location records");
+        return;
+      }
 
-      setImportProgress(`Importing ${stations.length} records...`);
-      console.log(`[AdminImport] Importing ${stations.length} records from JSON`);
+      console.log("[AdminImport] Parsed JSON data:", parsedData.length, "records");
 
-      const response = await apiPost("/api/polling-stations/bulk-import", {
-        stations,
+      setLoading(true);
+      const response = await apiPost("/api/locations/import", {
+        locations: parsedData,
       });
 
-      setImportProgress("");
+      console.log("[AdminImport] Import successful:", response);
       showAlert(
         "Import Successful",
-        `Successfully imported ${response.imported || stations.length} records.\n\nYou can now proceed with agent registration.`
+        `Successfully imported ${parsedData.length} location records from JSON input.`
       );
       setJsonInput("");
     } catch (error: any) {
-      console.error("[AdminImport] JSON import error:", error);
-      setImportProgress("");
-      if (error.message.includes("JSON")) {
-        showAlert("Parse Error", "Invalid JSON format. Please check your data and try again.");
+      console.error("[AdminImport] JSON Import error:", error);
+      if (error instanceof SyntaxError) {
+        showAlert("Invalid JSON", "The JSON data is not valid. Please check the format and try again.");
       } else {
-        showAlert("Import Error", error.message || "Failed to import data");
+        showAlert("Import Failed", error.message || "Failed to import location data");
       }
     } finally {
       setLoading(false);
@@ -198,15 +166,11 @@ export default function AdminImportScreen() {
 
   const handleModalClose = () => {
     setShowModal(false);
-    if (modalType === "success") {
-      // Navigate back to registration after successful import
-      router.back();
-    }
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
         <TouchableOpacity style={styles.backButton} onPress={handleBack}>
           <IconSymbol
             ios_icon_name="chevron.left"
@@ -216,192 +180,138 @@ export default function AdminImportScreen() {
           />
           <Text style={styles.backButtonText}>Back</Text>
         </TouchableOpacity>
-        <Text style={styles.title}>Import Location Data</Text>
-        <Text style={styles.subtitle}>
-          Import county, constituency, and ward data for agent registration
-        </Text>
-      </View>
 
-      <View style={styles.tabContainer}>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === "quick" && styles.activeTab]}
-          onPress={() => setActiveTab("quick")}
-        >
-          <Text style={[styles.tabText, activeTab === "quick" && styles.activeTabText]}>
-            Quick Import
+        <View style={styles.header}>
+          <IconSymbol
+            ios_icon_name="square.and.arrow.down.fill"
+            android_material_icon_name="cloud-download"
+            size={64}
+            color={colors.primary}
+          />
+          <Text style={styles.title}>Data Import</Text>
+          <Text style={styles.subtitle}>
+            Import location data (Counties, Constituencies, Wards, Polling Stations)
           </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === "json" && styles.activeTab]}
-          onPress={() => setActiveTab("json")}
-        >
-          <Text style={[styles.tabText, activeTab === "json" && styles.activeTabText]}>
-            JSON Import
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Quick Import (All Batches)</Text>
+          <Text style={styles.sectionDescription}>
+            Import all available location data from batches 2-8 in one click.
+            This includes data for multiple counties.
           </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === "onedrive" && styles.activeTab]}
-          onPress={() => setActiveTab("onedrive")}
-        >
-          <Text style={[styles.tabText, activeTab === "onedrive" && styles.activeTabText]}>
-            OneDrive
-          </Text>
-        </TouchableOpacity>
-      </View>
-
-      <ScrollView style={styles.content}>
-        {activeTab === "quick" && (
-          <View style={styles.section}>
-            <View style={styles.infoBox}>
-              <IconSymbol
-                ios_icon_name="info.circle.fill"
-                android_material_icon_name="info"
-                size={24}
-                color={colors.primary}
-              />
-              <Text style={styles.infoText}>
-                Quick Import will automatically import all pre-loaded batch files containing county, constituency, and ward data.
-              </Text>
-            </View>
-
-            <View style={styles.batchInfo}>
-              <Text style={styles.batchTitle}>Batch Files to Import:</Text>
-              <Text style={styles.batchItem}>• Batch 2: MOMBASA</Text>
-              <Text style={styles.batchItem}>• Batch 3: MOMBASA (continued)</Text>
-              <Text style={styles.batchItem}>• Batch 4: MOMBASA (continued)</Text>
-              <Text style={styles.batchItem}>• Batch 5: BUNGOMA, BUSIA, DIASPORA, ELGEYO/MARAKWET</Text>
-              <Text style={styles.batchItem}>• Batch 6: EMBU, GARISSA, HOMA BAY, ISIOLO, KAJIADO, KAKAMEGA, KERICHO, KIAMBU (partial)</Text>
-              <Text style={styles.batchItem}>• Batch 7: KIAMBU (complete), KILIFI, KIRINYAGA, KISII</Text>
-            </View>
-
-            <TouchableOpacity
-              style={[styles.importButton, loading && styles.buttonDisabled]}
-              onPress={handleQuickImport}
-              disabled={loading}
-            >
-              {loading ? (
-                <ActivityIndicator color={colors.textLight} />
-              ) : (
-                <>
-                  <IconSymbol
-                    ios_icon_name="arrow.down.circle.fill"
-                    android_material_icon_name="cloud-download"
-                    size={24}
-                    color={colors.textLight}
-                  />
-                  <Text style={styles.importButtonText}>Import All Batches</Text>
-                </>
-              )}
-            </TouchableOpacity>
-
-            {importProgress && (
-              <View style={styles.progressBox}>
-                <ActivityIndicator color={colors.primary} />
-                <Text style={styles.progressText}>{importProgress}</Text>
-              </View>
+          <TouchableOpacity
+            style={[styles.button, styles.primaryButton, loading && styles.buttonDisabled]}
+            onPress={handleQuickImport}
+            disabled={loading}
+          >
+            {loading ? (
+              <ActivityIndicator color={colors.textLight} />
+            ) : (
+              <>
+                <IconSymbol
+                  ios_icon_name="bolt.fill"
+                  android_material_icon_name="flash-on"
+                  size={20}
+                  color={colors.textLight}
+                />
+                <Text style={styles.buttonText}>Quick Import All Batches</Text>
+              </>
             )}
-          </View>
-        )}
+          </TouchableOpacity>
+        </View>
 
-        {activeTab === "json" && (
-          <View style={styles.section}>
-            <View style={styles.infoBox}>
-              <IconSymbol
-                ios_icon_name="info.circle.fill"
-                android_material_icon_name="info"
-                size={24}
-                color={colors.primary}
-              />
-              <Text style={styles.infoText}>
-                Paste JSON data containing location records or load sample data to see the expected format.
-              </Text>
-            </View>
+        <View style={styles.divider} />
 
-            <TouchableOpacity style={styles.sampleButton} onPress={loadSampleData}>
-              <Text style={styles.sampleButtonText}>Load Sample Data</Text>
-            </TouchableOpacity>
-
-            <TextInput
-              style={styles.jsonInput}
-              value={jsonInput}
-              onChangeText={setJsonInput}
-              placeholder="Paste JSON data here..."
-              multiline
-              numberOfLines={10}
-              textAlignVertical="top"
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>OneDrive Import</Text>
+          <Text style={styles.sectionDescription}>
+            Import location data from a OneDrive Excel file.
+          </Text>
+          <TouchableOpacity
+            style={[styles.button, styles.secondaryButton, loading && styles.buttonDisabled]}
+            onPress={handleOneDriveImport}
+            disabled={loading}
+          >
+            <IconSymbol
+              ios_icon_name="cloud.fill"
+              android_material_icon_name="cloud"
+              size={20}
+              color={colors.primary}
             />
+            <Text style={[styles.buttonText, styles.secondaryButtonText]}>
+              Import from OneDrive
+            </Text>
+          </TouchableOpacity>
+        </View>
 
-            <TouchableOpacity
-              style={[styles.importButton, loading && styles.buttonDisabled]}
-              onPress={handleJsonImport}
-              disabled={loading}
-            >
-              {loading ? (
-                <ActivityIndicator color={colors.textLight} />
-              ) : (
-                <>
-                  <IconSymbol
-                    ios_icon_name="arrow.up.circle.fill"
-                    android_material_icon_name="cloud-upload"
-                    size={24}
-                    color={colors.textLight}
-                  />
-                  <Text style={styles.importButtonText}>Import JSON Data</Text>
-                </>
-              )}
-            </TouchableOpacity>
+        <View style={styles.divider} />
 
-            {importProgress && (
-              <View style={styles.progressBox}>
-                <ActivityIndicator color={colors.primary} />
-                <Text style={styles.progressText}>{importProgress}</Text>
-              </View>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>JSON Import</Text>
+          <Text style={styles.sectionDescription}>
+            Paste JSON data directly to import custom location records.
+          </Text>
+          
+          <TouchableOpacity
+            style={[styles.button, styles.tertiaryButton]}
+            onPress={loadSampleData}
+          >
+            <IconSymbol
+              ios_icon_name="doc.text.fill"
+              android_material_icon_name="description"
+              size={20}
+              color={colors.textSecondary}
+            />
+            <Text style={[styles.buttonText, styles.tertiaryButtonText]}>
+              Load Sample Data
+            </Text>
+          </TouchableOpacity>
+
+          <TextInput
+            style={styles.jsonInput}
+            value={jsonInput}
+            onChangeText={setJsonInput}
+            placeholder="Paste JSON data here..."
+            placeholderTextColor={colors.textSecondary}
+            multiline
+            numberOfLines={10}
+            textAlignVertical="top"
+          />
+
+          <TouchableOpacity
+            style={[styles.button, styles.primaryButton, loading && styles.buttonDisabled]}
+            onPress={handleJsonImport}
+            disabled={loading}
+          >
+            {loading ? (
+              <ActivityIndicator color={colors.textLight} />
+            ) : (
+              <>
+                <IconSymbol
+                  ios_icon_name="square.and.arrow.up.fill"
+                  android_material_icon_name="cloud-upload"
+                  size={20}
+                  color={colors.textLight}
+                />
+                <Text style={styles.buttonText}>Import JSON Data</Text>
+              </>
             )}
-          </View>
-        )}
+          </TouchableOpacity>
+        </View>
 
-        {activeTab === "onedrive" && (
-          <View style={styles.section}>
-            <View style={styles.infoBox}>
-              <IconSymbol
-                ios_icon_name="info.circle.fill"
-                android_material_icon_name="info"
-                size={24}
-                color={colors.primary}
-              />
-              <Text style={styles.infoText}>
-                Import location data directly from OneDrive. Make sure the file is shared and accessible.
-              </Text>
-            </View>
-
-            <TouchableOpacity
-              style={[styles.importButton, loading && styles.buttonDisabled]}
-              onPress={handleOneDriveImport}
-              disabled={loading}
-            >
-              {loading ? (
-                <ActivityIndicator color={colors.textLight} />
-              ) : (
-                <>
-                  <IconSymbol
-                    ios_icon_name="cloud.fill"
-                    android_material_icon_name="cloud"
-                    size={24}
-                    color={colors.textLight}
-                  />
-                  <Text style={styles.importButtonText}>Import from OneDrive</Text>
-                </>
-              )}
-            </TouchableOpacity>
-
-            {importProgress && (
-              <View style={styles.progressBox}>
-                <ActivityIndicator color={colors.primary} />
-                <Text style={styles.progressText}>{importProgress}</Text>
-              </View>
-            )}
-          </View>
-        )}
+        <View style={styles.infoBox}>
+          <IconSymbol
+            ios_icon_name="info.circle.fill"
+            android_material_icon_name="info"
+            size={24}
+            color={colors.primary}
+          />
+          <Text style={styles.infoText}>
+            Note: Location data is now embedded directly in the registration screen.
+            This import is optional and only needed if you want to populate the backend database.
+          </Text>
+        </View>
       </ScrollView>
 
       <Modal
@@ -413,21 +323,19 @@ export default function AdminImportScreen() {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <IconSymbol
-              ios_icon_name={modalType === "success" ? "checkmark.circle.fill" : "xmark.circle.fill"}
-              android_material_icon_name={modalType === "success" ? "check-circle" : "error"}
+              ios_icon_name="checkmark.circle.fill"
+              android_material_icon_name="check-circle"
               size={48}
-              color={modalType === "success" ? colors.success : colors.error}
+              color={colors.success}
             />
             <Text style={styles.modalTitle}>{modalTitle}</Text>
             <Text style={styles.modalMessage}>{modalMessage}</Text>
+            
             <TouchableOpacity
-              style={[
-                styles.modalButton,
-                modalType === "success" ? styles.modalButtonSuccess : styles.modalButtonError,
-              ]}
+              style={[styles.button, styles.primaryButton]}
               onPress={handleModalClose}
             >
-              <Text style={styles.modalButtonText}>OK</Text>
+              <Text style={styles.buttonText}>OK</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -441,16 +349,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
   },
-  header: {
+  scrollContent: {
     padding: 20,
-    paddingTop: Platform.OS === "android" ? 40 : 20,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
   },
   backButton: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 16,
+    marginBottom: 24,
+    marginTop: Platform.OS === "android" ? 24 : 0,
   },
   backButtonText: {
     fontSize: 16,
@@ -458,109 +364,38 @@ const styles = StyleSheet.create({
     marginLeft: 4,
     fontWeight: "600",
   },
+  header: {
+    alignItems: "center",
+    marginBottom: 32,
+  },
   title: {
-    fontSize: 24,
+    fontSize: 28,
+    fontWeight: "bold",
+    color: colors.text,
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: colors.textSecondary,
+    textAlign: "center",
+  },
+  section: {
+    marginBottom: 24,
+  },
+  sectionTitle: {
+    fontSize: 20,
     fontWeight: "bold",
     color: colors.text,
     marginBottom: 8,
   },
-  subtitle: {
+  sectionDescription: {
     fontSize: 14,
     color: colors.textSecondary,
-  },
-  tabContainer: {
-    flexDirection: "row",
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  tab: {
-    flex: 1,
-    paddingVertical: 12,
-    alignItems: "center",
-    borderBottomWidth: 2,
-    borderBottomColor: "transparent",
-  },
-  activeTab: {
-    borderBottomColor: colors.primary,
-  },
-  tabText: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    fontWeight: "500",
-  },
-  activeTabText: {
-    color: colors.primary,
-    fontWeight: "600",
-  },
-  content: {
-    flex: 1,
-  },
-  section: {
-    padding: 20,
-  },
-  infoBox: {
-    flexDirection: "row",
-    backgroundColor: colors.card,
-    padding: 16,
-    borderRadius: 8,
-    marginBottom: 20,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  infoText: {
-    flex: 1,
-    fontSize: 14,
-    color: colors.text,
-    marginLeft: 12,
+    marginBottom: 16,
     lineHeight: 20,
   },
-  batchInfo: {
-    backgroundColor: colors.card,
-    padding: 16,
-    borderRadius: 8,
-    marginBottom: 20,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  batchTitle: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: colors.text,
-    marginBottom: 12,
-  },
-  batchItem: {
-    fontSize: 14,
-    color: colors.textSecondary,
-    marginBottom: 6,
-  },
-  sampleButton: {
-    backgroundColor: colors.card,
-    padding: 12,
-    borderRadius: 8,
-    alignItems: "center",
-    marginBottom: 16,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  sampleButtonText: {
-    fontSize: 14,
-    color: colors.primary,
-    fontWeight: "600",
-  },
-  jsonInput: {
-    backgroundColor: colors.card,
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: 8,
-    padding: 12,
-    fontSize: 12,
-    color: colors.text,
-    fontFamily: Platform.OS === "ios" ? "Courier" : "monospace",
-    minHeight: 200,
-    marginBottom: 20,
-  },
-  importButton: {
-    backgroundColor: colors.primary,
+  button: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
@@ -568,29 +403,66 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     gap: 8,
   },
-  importButtonText: {
-    color: colors.textLight,
+  primaryButton: {
+    backgroundColor: colors.primary,
+  },
+  secondaryButton: {
+    backgroundColor: colors.card,
+    borderWidth: 1,
+    borderColor: colors.primary,
+  },
+  tertiaryButton: {
+    backgroundColor: colors.card,
+    borderWidth: 1,
+    borderColor: colors.border,
+    marginBottom: 12,
+  },
+  buttonText: {
     fontSize: 16,
     fontWeight: "600",
+    color: colors.textLight,
+  },
+  secondaryButtonText: {
+    color: colors.primary,
+  },
+  tertiaryButtonText: {
+    color: colors.textSecondary,
   },
   buttonDisabled: {
     opacity: 0.6,
   },
-  progressBox: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 20,
-    padding: 16,
+  divider: {
+    height: 1,
+    backgroundColor: colors.border,
+    marginVertical: 24,
+  },
+  jsonInput: {
     backgroundColor: colors.card,
-    borderRadius: 8,
     borderWidth: 1,
     borderColor: colors.border,
-  },
-  progressText: {
+    borderRadius: 8,
+    padding: 12,
     fontSize: 14,
     color: colors.text,
-    marginLeft: 12,
+    fontFamily: Platform.OS === "ios" ? "Courier" : "monospace",
+    minHeight: 200,
+    marginBottom: 16,
+  },
+  infoBox: {
+    flexDirection: "row",
+    backgroundColor: colors.card,
+    borderWidth: 1,
+    borderColor: colors.primary,
+    borderRadius: 8,
+    padding: 16,
+    marginTop: 24,
+    gap: 12,
+  },
+  infoText: {
+    flex: 1,
+    fontSize: 14,
+    color: colors.textSecondary,
+    lineHeight: 20,
   },
   modalOverlay: {
     flex: 1,
@@ -619,22 +491,5 @@ const styles = StyleSheet.create({
     color: colors.textSecondary,
     marginBottom: 24,
     textAlign: "center",
-  },
-  modalButton: {
-    width: "100%",
-    padding: 12,
-    borderRadius: 8,
-    alignItems: "center",
-  },
-  modalButtonSuccess: {
-    backgroundColor: colors.success,
-  },
-  modalButtonError: {
-    backgroundColor: colors.error,
-  },
-  modalButtonText: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: colors.textLight,
   },
 });

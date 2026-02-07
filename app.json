@@ -1,10 +1,11 @@
+
 {
   "expo": {
     "name": "Kenya Civic",
     "slug": "kenya-civic-app-xvakea",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "orientation": "portrait",
-    "icon": "./assets/images/8f6014f4-c490-4d3d-80db-f380b1ea5183.png",
+    "icon": "./assets/images/c0d64326-8a54-460f-ab48-de8cc346f9d9.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -16,6 +17,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.kenyacivic.app",
       "buildNumber": "7",
+      "icon": "./assets/images/c0d64326-8a54-460f-ab48-de8cc346f9d9.png",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
         "NSCameraUsageDescription": "This app uses the camera to record incident videos and scan Form 34A documents.",
@@ -27,12 +29,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/8f6014f4-c490-4d3d-80db-f380b1ea5183.png",
+        "foregroundImage": "./assets/images/c0d64326-8a54-460f-ab48-de8cc346f9d9.png",
         "backgroundColor": "#000000"
       },
       "edgeToEdgeEnabled": true,
       "package": "com.simphoni.kenyacivic",
-      "versionCode": 11,
+      "versionCode": 12,
       "permissions": [
         "CAMERA",
         "RECORD_AUDIO",
@@ -45,7 +47,7 @@
       ]
     },
     "web": {
-      "favicon": "./assets/images/8f6014f4-c490-4d3d-80db-f380b1ea5183.png",
+      "favicon": "./assets/images/c0d64326-8a54-460f-ab48-de8cc346f9d9.png",
       "bundler": "metro"
     },
     "plugins": [
@@ -85,7 +87,7 @@
     },
     "extra": {
       "router": {},
-      "backendUrl": "https://w8d5wb3wh94c69f2asap82uzf39m5ezs.app.specular.dev"
+      "backendUrl": "https://prod-proj-67jtsazcghhne66e7dzyv-liwg5h36mq-ey.a.run.app"
     }
   }
 }

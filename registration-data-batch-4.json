@@ -1,0 +1,923 @@
+
+[
+  {
+    "countyCode": "034",
+    "countyName": "SAMBURU",
+    "constituencyCode": "001",
+    "constituencyName": "SAMBURU EAST",
+    "wardCode": "001",
+    "wardName": "WASO"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "SAMBURU",
+    "constituencyCode": "002",
+    "constituencyName": "SAMBURU NORTH",
+    "wardCode": "001",
+    "wardName": "EL-BARTA"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "SAMBURU",
+    "constituencyCode": "002",
+    "constituencyName": "SAMBURU NORTH",
+    "wardCode": "002",
+    "wardName": "NACHOLA"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "SAMBURU",
+    "constituencyCode": "002",
+    "constituencyName": "SAMBURU NORTH",
+    "wardCode": "003",
+    "wardName": "NDOTO"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "SAMBURU",
+    "constituencyCode": "002",
+    "constituencyName": "SAMBURU NORTH",
+    "wardCode": "004",
+    "wardName": "NYIRO"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "SAMBURU",
+    "constituencyCode": "003",
+    "constituencyName": "SAMBURU WEST",
+    "wardCode": "001",
+    "wardName": "LOOSUK"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "SAMBURU",
+    "constituencyCode": "003",
+    "constituencyName": "SAMBURU WEST",
+    "wardCode": "002",
+    "wardName": "MARALAL"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "SAMBURU",
+    "constituencyCode": "003",
+    "constituencyName": "SAMBURU WEST",
+    "wardCode": "003",
+    "wardName": "PORO"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "SAMBURU",
+    "constituencyCode": "003",
+    "constituencyName": "SAMBURU WEST",
+    "wardCode": "004",
+    "wardName": "SUGUTA MARMAR"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "001",
+    "constituencyName": "ALEGO USONGA",
+    "wardCode": "001",
+    "wardName": "CENTRAL ALEGO"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "001",
+    "constituencyName": "ALEGO USONGA",
+    "wardCode": "002",
+    "wardName": "NORTH ALEGO"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "001",
+    "constituencyName": "ALEGO USONGA",
+    "wardCode": "003",
+    "wardName": "SOUTH EAST ALEGO"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "001",
+    "constituencyName": "ALEGO USONGA",
+    "wardCode": "004",
+    "wardName": "USONGA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "001",
+    "constituencyName": "ALEGO USONGA",
+    "wardCode": "005",
+    "wardName": "WEST ALEGO"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "002",
+    "constituencyName": "BONDO",
+    "wardCode": "001",
+    "wardName": "CENTRAL SAKWA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "002",
+    "constituencyName": "BONDO",
+    "wardCode": "002",
+    "wardName": "SOUTH SAKWA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "002",
+    "constituencyName": "BONDO",
+    "wardCode": "003",
+    "wardName": "WEST SAKWA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "002",
+    "constituencyName": "BONDO",
+    "wardCode": "004",
+    "wardName": "WEST YIMBO"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "002",
+    "constituencyName": "BONDO",
+    "wardCode": "005",
+    "wardName": "YIMBO EAST"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "003",
+    "constituencyName": "GEM",
+    "wardCode": "001",
+    "wardName": "CENTRAL GEM"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "003",
+    "constituencyName": "GEM",
+    "wardCode": "002",
+    "wardName": "EAST GEM"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "003",
+    "constituencyName": "GEM",
+    "wardCode": "003",
+    "wardName": "SOUTH GEM"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "003",
+    "constituencyName": "GEM",
+    "wardCode": "004",
+    "wardName": "WEST GEM"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "003",
+    "constituencyName": "GEM",
+    "wardCode": "005",
+    "wardName": "YALA TOWNSHIP"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "004",
+    "constituencyName": "RARIEDA",
+    "wardCode": "001",
+    "wardName": "EAST ASEMBO"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "004",
+    "constituencyName": "RARIEDA",
+    "wardCode": "002",
+    "wardName": "NORTH UYOMA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "004",
+    "constituencyName": "RARIEDA",
+    "wardCode": "003",
+    "wardName": "SOUTH UYOMA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "004",
+    "constituencyName": "RARIEDA",
+    "wardCode": "004",
+    "wardName": "WEST UYOMA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "005",
+    "constituencyName": "UGENYA",
+    "wardCode": "001",
+    "wardName": "EAST UGENYA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "005",
+    "constituencyName": "UGENYA",
+    "wardCode": "002",
+    "wardName": "NORTH UGENYA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "005",
+    "constituencyName": "UGENYA",
+    "wardCode": "003",
+    "wardName": "UKWALA"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "006",
+    "constituencyName": "UGUNJA",
+    "wardCode": "001",
+    "wardName": "SIGOMERE"
+  },
+  {
+    "countyCode": "042",
+    "countyName": "SIAYA",
+    "constituencyCode": "006",
+    "constituencyName": "UGUNJA",
+    "wardCode": "002",
+    "wardName": "UGUNJA"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "001",
+    "constituencyName": "MWATATE",
+    "wardCode": "001",
+    "wardName": "BURA"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "001",
+    "constituencyName": "MWATATE",
+    "wardCode": "002",
+    "wardName": "CHAWIA"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "001",
+    "constituencyName": "MWATATE",
+    "wardCode": "003",
+    "wardName": "RONG'E"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "001",
+    "constituencyName": "MWATATE",
+    "wardCode": "004",
+    "wardName": "WUSI/KISHAMBA"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "002",
+    "constituencyName": "TAVETA",
+    "wardCode": "001",
+    "wardName": "BOMANI"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "002",
+    "constituencyName": "TAVETA",
+    "wardCode": "002",
+    "wardName": "CHALA"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "002",
+    "constituencyName": "TAVETA",
+    "wardCode": "003",
+    "wardName": "MAHOO"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "002",
+    "constituencyName": "TAVETA",
+    "wardCode": "004",
+    "wardName": "MATA"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "003",
+    "constituencyName": "VOI",
+    "wardCode": "001",
+    "wardName": "KALOLENI"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "003",
+    "constituencyName": "VOI",
+    "wardCode": "002",
+    "wardName": "KASIGAU"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "003",
+    "constituencyName": "VOI",
+    "wardCode": "003",
+    "wardName": "MARUNGU"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "003",
+    "constituencyName": "VOI",
+    "wardCode": "004",
+    "wardName": "MBOLOLO"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "003",
+    "constituencyName": "VOI",
+    "wardCode": "005",
+    "wardName": "NGOLIA"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "004",
+    "constituencyName": "WUNDANYI",
+    "wardCode": "001",
+    "wardName": "MWANDA/MGANGE"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "004",
+    "constituencyName": "WUNDANYI",
+    "wardCode": "002",
+    "wardName": "WERUGHA"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "004",
+    "constituencyName": "WUNDANYI",
+    "wardCode": "003",
+    "wardName": "WUMINGU/KISHUSHE"
+  },
+  {
+    "countyCode": "006",
+    "countyName": "TAITA TAVETA",
+    "constituencyCode": "004",
+    "constituencyName": "WUNDANYI",
+    "wardCode": "004",
+    "wardName": "WUNDANYI/MBALE"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "001",
+    "constituencyName": "BURA",
+    "wardCode": "001",
+    "wardName": "BANGALE"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "001",
+    "constituencyName": "BURA",
+    "wardCode": "002",
+    "wardName": "CHEWELE"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "001",
+    "constituencyName": "BURA",
+    "wardCode": "003",
+    "wardName": "HIRIMANI"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "001",
+    "constituencyName": "BURA",
+    "wardCode": "004",
+    "wardName": "MADOGO"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "001",
+    "constituencyName": "BURA",
+    "wardCode": "005",
+    "wardName": "SALA"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "002",
+    "constituencyName": "GALOLE",
+    "wardCode": "001",
+    "wardName": "CHEWANI"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "002",
+    "constituencyName": "GALOLE",
+    "wardCode": "002",
+    "wardName": "KINAKOMBA"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "002",
+    "constituencyName": "GALOLE",
+    "wardCode": "003",
+    "wardName": "MIKINDUNI"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "002",
+    "constituencyName": "GALOLE",
+    "wardCode": "004",
+    "wardName": "WAYU"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "003",
+    "constituencyName": "GARSEN",
+    "wardCode": "001",
+    "wardName": "GARSEN CENTRAL"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "003",
+    "constituencyName": "GARSEN",
+    "wardCode": "002",
+    "wardName": "GARSEN NORTH"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "003",
+    "constituencyName": "GARSEN",
+    "wardCode": "003",
+    "wardName": "GARSEN SOUTH"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "003",
+    "constituencyName": "GARSEN",
+    "wardCode": "004",
+    "wardName": "GARSEN WEST"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "003",
+    "constituencyName": "GARSEN",
+    "wardCode": "005",
+    "wardName": "KIPINI EAST"
+  },
+  {
+    "countyCode": "005",
+    "countyName": "TANA RIVER",
+    "constituencyCode": "003",
+    "constituencyName": "GARSEN",
+    "wardCode": "006",
+    "wardName": "KIPINI WEST"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "001",
+    "constituencyName": "CHUKA/IGAMBANG'OMBE",
+    "wardCode": "001",
+    "wardName": "IGAMBANG'OMBE"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "001",
+    "constituencyName": "CHUKA/IGAMBANG'OMBE",
+    "wardCode": "002",
+    "wardName": "KARINGANI"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "001",
+    "constituencyName": "CHUKA/IGAMBANG'OMBE",
+    "wardCode": "003",
+    "wardName": "MAGUMONI"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "001",
+    "constituencyName": "CHUKA/IGAMBANG'OMBE",
+    "wardCode": "004",
+    "wardName": "MARIANI"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "001",
+    "constituencyName": "CHUKA/IGAMBANG'OMBE",
+    "wardCode": "005",
+    "wardName": "MUGWE"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "002",
+    "constituencyName": "MAARA",
+    "wardCode": "001",
+    "wardName": "CHOGORIA"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "002",
+    "constituencyName": "MAARA",
+    "wardCode": "002",
+    "wardName": "MAARA"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "002",
+    "constituencyName": "MAARA",
+    "wardCode": "003",
+    "wardName": "MITHERU"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "002",
+    "constituencyName": "MAARA",
+    "wardCode": "004",
+    "wardName": "MUTHAMBI"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "002",
+    "constituencyName": "MAARA",
+    "wardCode": "005",
+    "wardName": "MWIMBI"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "003",
+    "constituencyName": "THARAKA",
+    "wardCode": "001",
+    "wardName": "CHIAKARIGA"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "003",
+    "constituencyName": "THARAKA",
+    "wardCode": "002",
+    "wardName": "GATUNGA"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "003",
+    "constituencyName": "THARAKA",
+    "wardCode": "003",
+    "wardName": "MARIMANTI"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "003",
+    "constituencyName": "THARAKA",
+    "wardCode": "004",
+    "wardName": "MUKOTHIMA"
+  },
+  {
+    "countyCode": "013",
+    "countyName": "THARAKA - NITHI",
+    "constituencyCode": "003",
+    "constituencyName": "THARAKA",
+    "wardCode": "005",
+    "wardName": "NKONDI"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "001",
+    "constituencyName": "CHERANGANY",
+    "wardCode": "001",
+    "wardName": "CHEPSIRO/KIPTOROR"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "001",
+    "constituencyName": "CHERANGANY",
+    "wardCode": "002",
+    "wardName": "CHERANGANY/SUWERWA"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "001",
+    "constituencyName": "CHERANGANY",
+    "wardCode": "003",
+    "wardName": "KAPLAMAI"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "001",
+    "constituencyName": "CHERANGANY",
+    "wardCode": "004",
+    "wardName": "MAKUTANO"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "001",
+    "constituencyName": "CHERANGANY",
+    "wardCode": "005",
+    "wardName": "MOTOSIET"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "001",
+    "constituencyName": "CHERANGANY",
+    "wardCode": "006",
+    "wardName": "SINYERERE"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "001",
+    "constituencyName": "CHERANGANY",
+    "wardCode": "007",
+    "wardName": "SITATUNGA"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "002",
+    "constituencyName": "ENDEBESS",
+    "wardCode": "001",
+    "wardName": "CHEPCHOINA"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "002",
+    "constituencyName": "ENDEBESS",
+    "wardCode": "002",
+    "wardName": "ENDEBESS"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "002",
+    "constituencyName": "ENDEBESS",
+    "wardCode": "003",
+    "wardName": "MATUMBEI"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "003",
+    "constituencyName": "KIMININI",
+    "wardCode": "001",
+    "wardName": "HOSPITAL"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "003",
+    "constituencyName": "KIMININI",
+    "wardCode": "002",
+    "wardName": "KIMININI"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "003",
+    "constituencyName": "KIMININI",
+    "wardCode": "003",
+    "wardName": "NABISWA"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "003",
+    "constituencyName": "KIMININI",
+    "wardCode": "004",
+    "wardName": "SIKHENDU"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "003",
+    "constituencyName": "KIMININI",
+    "wardCode": "005",
+    "wardName": "SIRENDE"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "003",
+    "constituencyName": "KIMININI",
+    "wardCode": "006",
+    "wardName": "WAITALUK"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "004",
+    "constituencyName": "KWANZA",
+    "wardCode": "001",
+    "wardName": "BIDII"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "004",
+    "constituencyName": "KWANZA",
+    "wardCode": "002",
+    "wardName": "KAPOMBOI"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "004",
+    "constituencyName": "KWANZA",
+    "wardCode": "003",
+    "wardName": "KEIYO"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "004",
+    "constituencyName": "KWANZA",
+    "wardCode": "004",
+    "wardName": "KWANZA"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "005",
+    "constituencyName": "SABOTI",
+    "wardCode": "001",
+    "wardName": "KINYORO"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "005",
+    "constituencyName": "SABOTI",
+    "wardCode": "002",
+    "wardName": "MACHEWA"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "005",
+    "constituencyName": "SABOTI",
+    "wardCode": "003",
+    "wardName": "MATISI"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "005",
+    "constituencyName": "SABOTI",
+    "wardCode": "004",
+    "wardName": "SABOTI"
+  },
+  {
+    "countyCode": "026",
+    "countyName": "TRANS NZOIA",
+    "constituencyCode": "005",
+    "constituencyName": "SABOTI",
+    "wardCode": "005",
+    "wardName": "TUWANI"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "001",
+    "constituencyName": "LOIMA",
+    "wardCode": "001",
+    "wardName": "KOTARUK/LOBEI"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "001",
+    "constituencyName": "LOIMA",
+    "wardCode": "002",
+    "wardName": "LOIMA"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "001",
+    "constituencyName": "LOIMA",
+    "wardCode": "003",
+    "wardName": "LOKIRIAMA/LORENGIPPI"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "001",
+    "constituencyName": "LOIMA",
+    "wardCode": "004",
+    "wardName": "TURKWEL"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "002",
+    "constituencyName": "TURKANA CENTRAL",
+    "wardCode": "001",
+    "wardName": "KALOKOL"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "002",
+    "constituencyName": "TURKANA CENTRAL",
+    "wardCode": "002",
+    "wardName": "KANAMKEMER"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "002",
+    "constituencyName": "TURKANA CENTRAL",
+    "wardCode": "003",
+    "wardName": "KANG'ATOTHA"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "002",
+    "constituencyName": "TURKANA CENTRAL",
+    "wardCode": "004",
+    "wardName": "KERIO DELTA"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "002",
+    "constituencyName": "TURKANA CENTRAL",
+    "wardCode": "005",
+    "wardName": "LODWAR TOWNSHIP"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "003",
+    "constituencyName": "TURKANA EAST",
+    "wardCode": "001",
+    "wardName": "KAPEDO/NAPEITOM"
+  }
+]

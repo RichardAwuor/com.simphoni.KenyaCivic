@@ -22,7 +22,7 @@ You have two options:
 2. Replace the sample data with your actual data from the batch files
 
 **Option B: Copy and Paste**
-1. Open one of the batch files (e.g., `registration-data-batch-3.json`)
+1. Open one of the batch files (e.g., `registration-data-batch-4.json`)
 2. Copy all the JSON content
 3. Paste it into the JSON Data text area in the app
 
@@ -78,7 +78,7 @@ Contains data for:
 
 **Total: 117 ward records across 6 counties**
 
-### Batch 3 (registration-data-batch-3.json) - UPDATED!
+### Batch 3 (registration-data-batch-3.json)
 Contains comprehensive data for:
 
 1. **MANDERA County** (5 wards - continuation)
@@ -150,7 +150,53 @@ Contains comprehensive data for:
 
 **Total: 238 ward records across 7 counties**
 
-This batch now includes complete coverage for MOMBASA and NAIROBI CITY counties, plus extensive data for MANDERA, MARSABIT, MERU, MIGORI, and MURANG'A.
+### Batch 4 (registration-data-batch-4.json) - NEW!
+Contains comprehensive data for:
+
+1. **SAMBURU County** (9 wards - COMPLETE)
+   - SAMBURU EAST constituency: 1 ward (WASO)
+   - SAMBURU NORTH constituency: 4 wards (EL-BARTA, NACHOLA, NDOTO, NYIRO)
+   - SAMBURU WEST constituency: 4 wards (LOOSUK, MARALAL, PORO, SUGUTA MARMAR)
+
+2. **SIAYA County** (33 wards - COMPLETE)
+   - ALEGO USONGA constituency: 5 wards (CENTRAL ALEGO, NORTH ALEGO, SOUTH EAST ALEGO, USONGA, WEST ALEGO)
+   - BONDO constituency: 5 wards (CENTRAL SAKWA, SOUTH SAKWA, WEST SAKWA, WEST YIMBO, YIMBO EAST)
+   - GEM constituency: 5 wards (CENTRAL GEM, EAST GEM, SOUTH GEM, WEST GEM, YALA TOWNSHIP)
+   - RARIEDA constituency: 4 wards (EAST ASEMBO, NORTH UYOMA, SOUTH UYOMA, WEST UYOMA)
+   - UGENYA constituency: 3 wards (EAST UGENYA, NORTH UGENYA, UKWALA)
+   - UGUNJA constituency: 2 wards (SIGOMERE, UGUNJA)
+
+3. **TAITA TAVETA County** (17 wards - COMPLETE)
+   - MWATATE constituency: 4 wards (BURA, CHAWIA, RONG'E, WUSI/KISHAMBA)
+   - TAVETA constituency: 4 wards (BOMANI, CHALA, MAHOO, MATA)
+   - VOI constituency: 5 wards (KALOLENI, KASIGAU, MARUNGU, MBOLOLO, NGOLIA)
+   - WUNDANYI constituency: 4 wards (MWANDA/MGANGE, WERUGHA, WUMINGU/KISHUSHE, WUNDANYI/MBALE)
+
+4. **TANA RIVER County** (15 wards - COMPLETE)
+   - BURA constituency: 5 wards (BANGALE, CHEWELE, HIRIMANI, MADOGO, SALA)
+   - GALOLE constituency: 4 wards (CHEWANI, KINAKOMBA, MIKINDUNI, WAYU)
+   - GARSEN constituency: 6 wards (GARSEN CENTRAL, GARSEN NORTH, GARSEN SOUTH, GARSEN WEST, KIPINI EAST, KIPINI WEST)
+
+5. **THARAKA-NITHI County** (15 wards - COMPLETE)
+   - CHUKA/IGAMBANG'OMBE constituency: 5 wards (IGAMBANG'OMBE, KARINGANI, MAGUMONI, MARIANI, MUGWE)
+   - MAARA constituency: 5 wards (CHOGORIA, MAARA, MITHERU, MUTHAMBI, MWIMBI)
+   - THARAKA constituency: 5 wards (CHIAKARIGA, GATUNGA, MARIMANTI, MUKOTHIMA, NKONDI)
+
+6. **TRANS NZOIA County** (25 wards - COMPLETE)
+   - CHERANGANY constituency: 7 wards (CHEPSIRO/KIPTOROR, CHERANGANY/SUWERWA, KAPLAMAI, MAKUTANO, MOTOSIET, SINYERERE, SITATUNGA)
+   - ENDEBESS constituency: 3 wards (CHEPCHOINA, ENDEBESS, MATUMBEI)
+   - KIMININI constituency: 6 wards (HOSPITAL, KIMININI, NABISWA, SIKHENDU, SIRENDE, WAITALUK)
+   - KWANZA constituency: 4 wards (BIDII, KAPOMBOI, KEIYO, KWANZA)
+   - SABOTI constituency: 5 wards (KINYORO, MACHEWA, MATISI, SABOTI, TUWANI)
+
+7. **TURKANA County** (11 wards - PARTIAL)
+   - LOIMA constituency: 4 wards (KOTARUK/LOBEI, LOIMA, LOKIRIAMA/LORENGIPPI, TURKWEL)
+   - TURKANA CENTRAL constituency: 5 wards (KALOKOL, KANAMKEMER, KANG'ATOTHA, KERIO DELTA, LODWAR TOWNSHIP)
+   - TURKANA EAST constituency: 1 ward (KAPEDO/NAPEITOM)
+
+**Total: 125 ward records across 7 counties**
+
+This batch includes complete coverage for SAMBURU, SIAYA, TAITA TAVETA, TANA RIVER, THARAKA-NITHI, and TRANS NZOIA counties, plus partial data for TURKANA county.
 
 ## Importing Multiple Batches
 
@@ -158,7 +204,8 @@ You can import data in batches:
 1. Import batch 1 first
 2. Then import batch 2
 3. Then import batch 3
-4. The system will handle duplicates and merge the data
+4. Then import batch 4
+5. The system will handle duplicates and merge the data
 
 Or you can combine all batches into a single JSON array and import at once.
 
@@ -195,4 +242,4 @@ If you encounter any issues during import:
 
 ---
 
-**Note:** Import all three batches to have complete coverage of the electoral locations. Each batch can be imported independently, and the system will handle any duplicates automatically.
+**Note:** Import all four batches to have comprehensive coverage of the electoral locations. Each batch can be imported independently, and the system will handle any duplicates automatically.

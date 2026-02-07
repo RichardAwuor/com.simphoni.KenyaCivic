@@ -1,10 +1,11 @@
+
 {
   "expo": {
     "name": "Kenya Civic",
     "slug": "kenya-civic-app-xvakea",
     "version": "1.0.9",
     "orientation": "portrait",
-    "icon": "./assets/images/26e7725c-951b-429f-99ae-05a8bbffdb62.png",
+    "icon": "./assets/images/f866f388-7eb8-40ec-ae4a-3b8d02571151.png",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -27,7 +28,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/26e7725c-951b-429f-99ae-05a8bbffdb62.png",
+        "foregroundImage": "./assets/images/f866f388-7eb8-40ec-ae4a-3b8d02571151.png",
         "backgroundColor": "#00D98E"
       },
       "edgeToEdgeEnabled": true,
@@ -45,7 +46,7 @@
       ]
     },
     "web": {
-      "favicon": "./assets/images/0f3a776e-9221-47d8-82c0-709cf12e74b9.png",
+      "favicon": "./assets/images/f866f388-7eb8-40ec-ae4a-3b8d02571151.png",
       "bundler": "metro"
     },
     "plugins": [

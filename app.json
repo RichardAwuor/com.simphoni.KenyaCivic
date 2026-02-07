@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "Kenya Civic",
-    "slug": "Kenya Civic",
-    "version": "1.0.4",
+    "slug": "kenya-civic-app-xvakea",
+    "version": "1.0.9",
     "orientation": "portrait",
     "icon": "./assets/images/26e7725c-951b-429f-99ae-05a8bbffdb62.png",
     "userInterfaceStyle": "automatic",
@@ -32,7 +32,7 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.simphoni.kenyacivic",
-      "versionCode": 5,
+      "versionCode": 10,
       "permissions": [
         "CAMERA",
         "RECORD_AUDIO",
@@ -85,7 +85,7 @@
     },
     "extra": {
       "router": {},
-      "backendUrl": "https://w8d5wb3wh94c69f2asap82uzf39m5ezs.app.specular.dev"
+      "backendUrl": "https://prod-proj-67jtsazcghhne66e7dzyv-liwg5h36mq-ey.a.run.app"
     }
   }
 }

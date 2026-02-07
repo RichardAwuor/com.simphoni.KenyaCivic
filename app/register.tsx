@@ -83,6 +83,18 @@ interface Ward {
   name: string;
 }
 
+interface PollingStation {
+  countyCode: string;
+  countyName: string;
+  constituencyCode: string;
+  constituencyName: string;
+  wardCode: string;
+  wardName: string;
+  pollingStationCode: string;
+  pollingStationName: string;
+  registeredVoters: number;
+}
+
 export default function RegisterScreen() {
   const router = useRouter();
   const { fetchUser } = useAuth();
@@ -106,6 +118,7 @@ export default function RegisterScreen() {
   const [showWardPicker, setShowWardPicker] = useState(false);
   
   // Data states
+  const [pollingStations, setPollingStations] = useState<PollingStation[]>([]);
   const [constituencies, setConstituencies] = useState<Constituency[]>([]);
   const [wards, setWards] = useState<Ward[]>([]);
   const [loadingConstituencies, setLoadingConstituencies] = useState(false);
@@ -150,15 +163,32 @@ export default function RegisterScreen() {
       setSelectedWard("");
 
       try {
-        console.log("[Register] Making API call to /api/locations/constituencies?countyCode=" + selectedCounty);
-        const response = await apiGet(`/api/locations/constituencies?countyCode=${selectedCounty}`);
+        console.log("[Register] Making API call to /api/polling-stations?countyCode=" + selectedCounty);
+        const response = await apiGet(`/api/polling-stations?countyCode=${selectedCounty}`);
         console.log("[Register] API response received:", JSON.stringify(response, null, 2));
         
-        if (response && response.constituencies) {
-          console.log("[Register] Setting constituencies:", response.constituencies.length, "items");
-          setConstituencies(response.constituencies);
+        if (response && response.stations) {
+          console.log("[Register] Processing", response.stations.length, "polling stations");
           
-          if (response.constituencies.length === 0) {
+          // Extract unique constituencies
+          const constituenciesMap = new Map<string, Constituency>();
+          response.stations.forEach((station: PollingStation) => {
+            if (station.constituencyCode && station.constituencyName) {
+              if (!constituenciesMap.has(station.constituencyCode)) {
+                constituenciesMap.set(station.constituencyCode, {
+                  code: station.constituencyCode,
+                  name: station.constituencyName,
+                });
+              }
+            }
+          });
+          
+          const uniqueConstituencies = Array.from(constituenciesMap.values());
+          console.log("[Register] Found", uniqueConstituencies.length, "unique constituencies");
+          setConstituencies(uniqueConstituencies);
+          setPollingStations(response.stations);
+          
+          if (uniqueConstituencies.length === 0) {
             console.warn("[Register] No constituencies found for county:", selectedCounty);
             showAlert(
               "No Data Available", 
@@ -177,7 +207,6 @@ export default function RegisterScreen() {
         console.error("[Register] Error details:", {
           message: error.message,
           stack: error.stack,
-          response: error.response,
         });
         
         const errorMessage = error.message || "Failed to load constituencies";
@@ -200,41 +229,46 @@ export default function RegisterScreen() {
         return;
       }
 
-      console.log("[Register] Fetching wards for county:", selectedCounty, "constituency:", selectedConstituency);
+      console.log("[Register] Fetching wards for constituency:", selectedConstituency);
       setLoadingWards(true);
       setSelectedWard("");
 
       try {
-        console.log("[Register] Making API call to /api/locations/wards?countyCode=" + selectedCounty + "&constituencyCode=" + selectedConstituency);
-        const response = await apiGet(`/api/locations/wards?countyCode=${selectedCounty}&constituencyCode=${selectedConstituency}`);
-        console.log("[Register] API response received:", JSON.stringify(response, null, 2));
+        // Filter polling stations by constituency
+        const filteredStations = pollingStations.filter(
+          (station) => station.constituencyCode === selectedConstituency
+        );
         
-        if (response && response.wards) {
-          console.log("[Register] Setting wards:", response.wards.length, "items");
-          setWards(response.wards);
-          
-          if (response.wards.length === 0) {
-            console.warn("[Register] No wards found for constituency:", selectedConstituency);
-            showAlert(
-              "No Data Available", 
-              `No wards found for the selected constituency.\n\nPolling station data needs to be imported first. Would you like to go to the Admin Import screen?`,
-              "info",
-              true
-            );
+        console.log("[Register] Found", filteredStations.length, "polling stations for constituency");
+        
+        // Extract unique wards
+        const wardsMap = new Map<string, Ward>();
+        filteredStations.forEach((station) => {
+          if (station.wardCode && station.wardName) {
+            if (!wardsMap.has(station.wardCode)) {
+              wardsMap.set(station.wardCode, {
+                code: station.wardCode,
+                name: station.wardName,
+              });
+            }
           }
-        } else {
-          console.error("[Register] Invalid response structure:", response);
-          showAlert("Error", "Invalid response from server", "error", false);
-          setWards([]);
-        }
-      } catch (error: any) {
-        console.error("[Register] Error fetching wards:", error);
-        console.error("[Register] Error details:", {
-          message: error.message,
-          stack: error.stack,
-          response: error.response,
         });
         
+        const uniqueWards = Array.from(wardsMap.values());
+        console.log("[Register] Found", uniqueWards.length, "unique wards");
+        setWards(uniqueWards);
+        
+        if (uniqueWards.length === 0) {
+          console.warn("[Register] No wards found for constituency:", selectedConstituency);
+          showAlert(
+            "No Data Available", 
+            `No wards found for the selected constituency.\n\nPolling station data needs to be imported first. Would you like to go to the Admin Import screen?`,
+            "info",
+            true
+          );
+        }
+      } catch (error: any) {
+        console.error("[Register] Error processing wards:", error);
         const errorMessage = error.message || "Failed to load wards";
         showAlert("Error", `Failed to load wards: ${errorMessage}`, "error", false);
         setWards([]);
@@ -244,7 +278,7 @@ export default function RegisterScreen() {
     };
 
     fetchWards();
-  }, [selectedCounty, selectedConstituency]);
+  }, [selectedCounty, selectedConstituency, pollingStations]);
 
   const handleDateChange = (event: any, selectedDate?: Date) => {
     setShowDatePicker(Platform.OS === 'ios');
@@ -257,7 +291,8 @@ export default function RegisterScreen() {
     const day = date.getDate().toString().padStart(2, '0');
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
     const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
+    const formattedDate = `${day}/${month}/${year}`;
+    return formattedDate;
   };
 
   const showAlert = (title: string, message: string, type: "success" | "error" | "info" = "error", showImport: boolean = false) => {

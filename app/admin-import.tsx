@@ -26,6 +26,7 @@ import batch6Data from "@/registration-data-batch-6.json";
 import batch7Data from "@/registration-data-batch-7.json";
 import batch8Data from "@/registration-data-batch-8.json";
 import batch9Data from "@/registration-data-batch-9.json";
+import batch10Data from "@/registration-data-batch-10.json";
 
 interface PollingStation {
   countyCode: string;
@@ -71,6 +72,7 @@ export default function AdminImportScreen() {
       ...batch7Data,
       ...batch8Data,
       ...batch9Data,
+      ...batch10Data,
     ];
 
     console.log("[AdminImport] Total records to import:", allData.length);
@@ -84,7 +86,7 @@ export default function AdminImportScreen() {
       console.log("[AdminImport] Import successful:", response);
       showAlert(
         "Import Successful",
-        `Successfully imported ${allData.length} location records from all batches (2-9).`
+        `Successfully imported ${allData.length} location records from all batches (2-10).`
       );
     } catch (error: any) {
       console.error("[AdminImport] Import error:", error);
@@ -199,8 +201,8 @@ export default function AdminImportScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Quick Import (All Batches)</Text>
           <Text style={styles.sectionDescription}>
-            Import all available location data from batches 2-9 in one click.
-            This includes data for multiple counties.
+            Import all available location data from batches 2-10 in one click.
+            This includes data for multiple counties including MANDERA (complete), MARSABIT, MERU, MIGORI, and MOMBASA.
           </Text>
           <TouchableOpacity
             style={[styles.button, styles.primaryButton, loading && styles.buttonDisabled]}

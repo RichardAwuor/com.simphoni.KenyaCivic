@@ -51,104 +51,86 @@ This document tracks the status of County, Constituency, and Ward data imported 
 
 ---
 
-### Batch 5 (registration-data-batch-5.json) ✨ NEW
+### Batch 5 (registration-data-batch-5.json)
 **Counties Included:**
 - **BUNGOMA** (9 constituencies, 47 wards)
-  - BUMULA (7 wards)
-  - KABUCHAI (4 wards)
-  - KANDUYI (8 wards)
-  - KIMILILI (4 wards)
-  - MT. ELGON (6 wards)
-  - SIRISIA (3 wards)
-  - TONGAREN (6 wards)
-  - WEBUYE EAST (3 wards)
-  - WEBUYE WEST (4 wards)
-
 - **BUSIA** (7 constituencies, 33 wards)
-  - BUDALANGI (4 wards)
-  - BUTULA (6 wards)
-  - FUNYULA (4 wards)
-  - MATAYOS (5 wards)
-  - NAMBALE (4 wards)
-  - TESO NORTH (6 wards)
-  - TESO SOUTH (6 wards)
-
 - **DIASPORA** (1 constituency, 12 wards)
-  - DIASPORA (12 international locations)
-    - Burundi
-    - Canada
-    - Germany
-    - Qatar
-    - Rwanda
-    - South Africa
-    - South Sudan
-    - Tanzania
-    - Uganda
-    - United Arab Emirates
-    - United Kingdom
-    - United States of America
-
 - **ELGEYO/MARAKWET** (4 constituencies, 19 wards) - COMPLETE
-  - KEIYO NORTH (4 wards)
-  - KEIYO SOUTH (6 wards)
-  - MARAKWET EAST (4 wards)
-  - MARAKWET WEST (5 wards)
 
 **Total Records:** ~111
 
 ---
 
-### Batch 9 (registration-data-batch-9.json) ✨ NEW
+### Batch 6-8 (registration-data-batch-6/7/8.json)
+**Counties Included:**
+- Additional counties and wards
+
+---
+
+### Batch 9 (registration-data-batch-9.json)
 **Counties Included:**
 - **KWALE** (4 constituencies, 13 wards) - COMPLETE
-  - KINANGO (7 wards)
-  - LUNGALUNGA (4 wards)
-  - MATUGA (5 wards)
-  - MSAMBWENI (4 wards)
-
 - **LAIKIPIA** (3 constituencies, 11 wards) - COMPLETE
-  - LAIKIPIA EAST (3 wards)
-  - LAIKIPIA NORTH (3 wards)
-  - LAIKIPIA WEST (5 wards)
-
 - **LAMU** (2 constituencies, 7 wards) - COMPLETE
-  - LAMU EAST (3 wards)
-  - LAMU WEST (4 wards)
-
 - **MACHAKOS** (8 constituencies, 40 wards) - COMPLETE
-  - KANGUNDO (4 wards)
-  - KATHIANI (4 wards)
-  - MACHAKOS TOWN (7 wards)
-  - MASINGA (5 wards)
-  - MATUNGULU (5 wards)
-  - MAVOKO (4 wards)
-  - MWALA (6 wards)
-  - YATTA (5 wards)
-
 - **MAKUENI** (6 constituencies, 30 wards) - COMPLETE
-  - KAITI (4 wards)
-  - KIBWEZI EAST (4 wards)
-  - KIBWEZI WEST (6 wards)
-  - KILOME (3 wards)
-  - MAKUENI (7 wards)
-  - MBOONI (6 wards)
+- **MANDERA** (5 constituencies, 18 wards) - PARTIAL
 
-- **MANDERA** (5 constituencies, 18 wards) - COMPLETE
+**Total Records:** ~119
+
+---
+
+### Batch 10 (registration-data-batch-10.json) ✨ NEW
+**Counties Included:**
+- **MANDERA** (6 constituencies, 23 wards) - NOW COMPLETE
   - BANISSA (5 wards)
   - LAFEY (5 wards)
   - MANDERA EAST (5 wards)
   - MANDERA NORTH (5 wards)
-  - MANDERA SOUTH (3 wards)
+  - MANDERA SOUTH (5 wards) - Added SHIMBIR FATUMA, WARGADUD
+  - MANDERA WEST (5 wards) - NEW: DANDU, GITHER, LAGSURE, TAKABA, TAKABA SOUTH
 
-**Total Records:** ~119
+- **MARSABIT** (4 constituencies, 20 wards) - COMPLETE
+  - LAISAMIS (5 wards)
+  - MOYALE (7 wards)
+  - NORTH HORR (5 wards)
+  - SAKU (3 wards)
+
+- **MERU** (9 constituencies, 49 wards) - COMPLETE
+  - BUURI (5 wards)
+  - CENTRAL IMENTI (4 wards)
+  - IGEMBE CENTRAL (5 wards)
+  - IGEMBE NORTH (5 wards)
+  - IGEMBE SOUTH (5 wards)
+  - NORTH IMENTI (5 wards)
+  - SOUTH IMENTI (6 wards)
+  - TIGANIA EAST (5 wards)
+  - TIGANIA WEST (5 wards)
+
+- **MIGORI** (8 constituencies, 36 wards) - COMPLETE
+  - AWENDO (4 wards)
+  - KURIA EAST (5 wards)
+  - KURIA WEST (7 wards)
+  - NYATIKE (7 wards)
+  - RONGO (4 wards)
+  - SUNA EAST (4 wards)
+  - SUNA WEST (4 wards)
+  - URIRI (5 wards)
+
+- **MOMBASA** (2 constituencies, 8 wards) - PARTIAL
+  - CHANGAMWE (5 wards)
+  - JOMVU (3 wards)
+
+**Total Records:** ~136
 
 ---
 
 ## Summary Statistics
 
 ### Total Coverage
-- **Total Counties:** 33
-- **Total Location Records:** 770+
+- **Total Counties:** 37+
+- **Total Location Records:** 900+
 - **Status:** Ready for agent registration
 
 ### Complete Counties (All Constituencies & Wards)
@@ -168,26 +150,25 @@ This document tracks the status of County, Constituency, and Ward data imported 
 14. LAMU ✅
 15. MACHAKOS ✅
 16. MAKUENI ✅
-17. MANDERA ✅
-18. MARSABIT ✅
-19. MERU ✅
-20. MIGORI ✅
-21. MOMBASA ✅
-22. SAMBURU ✅
-23. SIAYA ✅
-24. TAITA TAVETA ✅
-25. TANA RIVER ✅
-26. THARAKA-NITHI ✅
-27. TRANS NZOIA ✅
-28. TURKANA ✅
-29. UASIN GISHU ✅
-30. VIHIGA ✅
-31. WAJIR ✅
-32. WEST POKOT ✅
+17. MANDERA ✅ (NOW COMPLETE with Batch 10)
+18. MARSABIT ✅ (NEW in Batch 10)
+19. MERU ✅ (NEW in Batch 10)
+20. MIGORI ✅ (NEW in Batch 10)
+21. SAMBURU ✅
+22. SIAYA ✅
+23. TAITA TAVETA ✅
+24. TANA RIVER ✅
+25. THARAKA-NITHI ✅
+26. TRANS NZOIA ✅
+27. TURKANA ✅
+28. UASIN GISHU ✅
+29. VIHIGA ✅
+30. WAJIR ✅
+31. WEST POKOT ✅
 
 ### Partial Counties (Some data available)
 - KAJIADO (partial)
-- MANDERA (partial)
+- MOMBASA (partial - only 2 of 6 constituencies)
 - MURANG'A (partial)
 - NAIROBI CITY (partial)
 
@@ -201,7 +182,7 @@ This document tracks the status of County, Constituency, and Ward data imported 
 3. Tap "Import All Data Now"
 4. Wait for the import to complete (~30 seconds)
 
-This will import all batches (2, 3, 4, 5, 6, 7, 8, and 9) automatically.
+This will import all batches (2-10) automatically.
 
 ### Manual JSON Import
 If you need to import specific data:
@@ -217,12 +198,12 @@ If you need to import specific data:
 Each location record contains:
 ```json
 {
-  "countyCode": "039",
-  "countyName": "BUNGOMA",
-  "constituencyCode": "001",
-  "constituencyName": "BUMULA",
-  "wardCode": "001",
-  "wardName": "KABULA"
+  "countyCode": "021",
+  "countyName": "MANDERA",
+  "constituencyCode": "006",
+  "constituencyName": "MANDERA WEST",
+  "wardCode": "0001",
+  "wardName": "DANDU"
 }
 ```
 
@@ -236,21 +217,21 @@ Optional fields (auto-generated if not provided):
 ## Agent Registration
 
 Once data is imported, agents can register by selecting:
-1. **County** - From the list of 33 available counties
+1. **County** - From the list of 37+ available counties
 2. **Constituency** - Filtered based on selected county
 3. **Ward** - Filtered based on selected constituency
 
 The system will automatically generate a unique Agent ID code in the format:
 `COUNTYNAME-XXX-XXXX-XX`
 
-Example: `BUNGOMA-001-0001-01`
+Example: `MANDERA-006-0001-01` (for an agent in DANDU ward, MANDERA WEST constituency)
 
 ---
 
 ## Next Steps
 
 To add more counties or update existing data:
-1. Create a new batch file (e.g., `registration-data-batch-10.json`)
+1. Create a new batch file (e.g., `registration-data-batch-11.json`)
 2. Add the import statement in `app/register.tsx` and `app/admin-import.tsx`
 3. Include it in the `ALL_LOCATION_DATA` array in `app/register.tsx`
 4. Include it in the `allData` array in the `handleQuickImport` function in `app/admin-import.tsx`
@@ -264,3 +245,4 @@ To add more counties or update existing data:
 - Ward names may contain special characters (e.g., slashes, apostrophes)
 - The DIASPORA county is a special case representing international locations
 - Duplicate records are automatically detected and skipped during import
+- **Batch 10 completes MANDERA county** and adds full data for MARSABIT, MERU, and MIGORI counties

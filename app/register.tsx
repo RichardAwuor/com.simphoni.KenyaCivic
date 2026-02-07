@@ -18,60 +18,24 @@ import { useRouter } from "expo-router";
 import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { apiPost, apiGet } from "@/utils/api";
+import { apiPost } from "@/utils/api";
 import * as LocalAuthentication from "expo-local-authentication";
 import { useAuth } from "@/contexts/AuthContext";
 
-// Kenya counties data
-const COUNTIES = [
-  { code: "001", name: "MOMBASA" },
-  { code: "002", name: "KWALE" },
-  { code: "003", name: "KILIFI" },
-  { code: "004", name: "TANA RIVER" },
-  { code: "005", name: "LAMU" },
-  { code: "006", name: "TAITA TAVETA" },
-  { code: "007", name: "GARISSA" },
-  { code: "008", name: "WAJIR" },
-  { code: "009", name: "MANDERA" },
-  { code: "010", name: "MARSABIT" },
-  { code: "011", name: "ISIOLO" },
-  { code: "012", name: "MERU" },
-  { code: "013", name: "THARAKA NITHI" },
-  { code: "014", name: "EMBU" },
-  { code: "015", name: "KITUI" },
-  { code: "016", name: "MACHAKOS" },
-  { code: "017", name: "MAKUENI" },
-  { code: "018", name: "NYANDARUA" },
-  { code: "019", name: "NYERI" },
-  { code: "020", name: "KIRINYAGA" },
-  { code: "021", name: "MURANG'A" },
-  { code: "022", name: "KIAMBU" },
-  { code: "023", name: "TURKANA" },
-  { code: "024", name: "WEST POKOT" },
-  { code: "025", name: "SAMBURU" },
-  { code: "026", name: "TRANS NZOIA" },
-  { code: "027", name: "UASIN GISHU" },
-  { code: "028", name: "ELGEYO MARAKWET" },
-  { code: "029", name: "NANDI" },
-  { code: "030", name: "BARINGO" },
-  { code: "031", name: "LAIKIPIA" },
-  { code: "032", name: "NAKURU" },
-  { code: "033", name: "NAROK" },
-  { code: "034", name: "KAJIADO" },
-  { code: "035", name: "KERICHO" },
-  { code: "036", name: "BOMET" },
-  { code: "037", name: "KAKAMEGA" },
-  { code: "038", name: "VIHIGA" },
-  { code: "039", name: "BUNGOMA" },
-  { code: "040", name: "BUSIA" },
-  { code: "041", name: "SIAYA" },
-  { code: "042", name: "KISUMU" },
-  { code: "043", name: "HOMA BAY" },
-  { code: "044", name: "MIGORI" },
-  { code: "045", name: "KISII" },
-  { code: "046", name: "NYAMIRA" },
-  { code: "047", name: "NAIROBI" },
-];
+// Import location data directly from JSON files
+import batch2Data from "@/registration-data-batch-2.json";
+import batch3Data from "@/registration-data-batch-3.json";
+import batch4Data from "@/registration-data-batch-4.json";
+import batch5Data from "@/registration-data-batch-5.json";
+
+interface LocationRecord {
+  countyCode: string;
+  countyName: string;
+  constituencyCode: string;
+  constituencyName: string;
+  wardCode: string;
+  wardName: string;
+}
 
 interface Constituency {
   code: string;
@@ -83,17 +47,23 @@ interface Ward {
   name: string;
 }
 
-interface PollingStation {
-  countyCode: string;
-  countyName: string;
-  constituencyCode: string;
-  constituencyName: string;
-  wardCode: string;
-  wardName: string;
-  pollingStationCode: string;
-  pollingStationName: string;
-  registeredVoters: number;
-}
+// Combine all batch data into a single array
+const ALL_LOCATION_DATA: LocationRecord[] = [
+  ...batch2Data,
+  ...batch3Data,
+  ...batch4Data,
+  ...batch5Data,
+] as LocationRecord[];
+
+// Extract unique counties from the location data
+const COUNTIES = Array.from(
+  new Map(
+    ALL_LOCATION_DATA.map((record) => [
+      record.countyCode,
+      { code: record.countyCode, name: record.countyName },
+    ])
+  ).values()
+).sort((a, b) => a.code.localeCompare(b.code));
 
 export default function RegisterScreen() {
   const router = useRouter();
@@ -118,11 +88,8 @@ export default function RegisterScreen() {
   const [showWardPicker, setShowWardPicker] = useState(false);
   
   // Data states
-  const [pollingStations, setPollingStations] = useState<PollingStation[]>([]);
   const [constituencies, setConstituencies] = useState<Constituency[]>([]);
   const [wards, setWards] = useState<Ward[]>([]);
-  const [loadingConstituencies, setLoadingConstituencies] = useState(false);
-  const [loadingWards, setLoadingWards] = useState(false);
   
   // Modal state
   const [showModal, setShowModal] = useState(false);
@@ -145,140 +112,105 @@ export default function RegisterScreen() {
   const emailValid = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const confirmEmailValid = confirmEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(confirmEmail);
 
-  // Fetch constituencies when county is selected
+  // Load constituencies when county is selected (directly from JSON data)
   useEffect(() => {
-    const fetchConstituencies = async () => {
-      if (!selectedCounty) {
-        setConstituencies([]);
-        setSelectedConstituency("");
-        setWards([]);
-        setSelectedWard("");
-        return;
-      }
-
-      console.log("[Register] Fetching constituencies for county:", selectedCounty);
-      setLoadingConstituencies(true);
+    if (!selectedCounty) {
+      setConstituencies([]);
       setSelectedConstituency("");
       setWards([]);
       setSelectedWard("");
+      return;
+    }
 
-      try {
-        console.log("[Register] Making API call to /api/polling-stations?countyCode=" + selectedCounty);
-        const response = await apiGet(`/api/polling-stations?countyCode=${selectedCounty}`);
-        console.log("[Register] API response received:", JSON.stringify(response, null, 2));
-        
-        if (response && response.stations) {
-          console.log("[Register] Processing", response.stations.length, "polling stations");
-          
-          // Extract unique constituencies
-          const constituenciesMap = new Map<string, Constituency>();
-          response.stations.forEach((station: PollingStation) => {
-            if (station.constituencyCode && station.constituencyName) {
-              if (!constituenciesMap.has(station.constituencyCode)) {
-                constituenciesMap.set(station.constituencyCode, {
-                  code: station.constituencyCode,
-                  name: station.constituencyName,
-                });
-              }
-            }
+    console.log("[Register] Loading constituencies for county:", selectedCounty);
+    setSelectedConstituency("");
+    setWards([]);
+    setSelectedWard("");
+
+    // Filter location data by selected county
+    const countyData = ALL_LOCATION_DATA.filter(
+      (record) => record.countyCode === selectedCounty
+    );
+
+    // Extract unique constituencies
+    const constituenciesMap = new Map<string, Constituency>();
+    countyData.forEach((record) => {
+      if (record.constituencyCode && record.constituencyName) {
+        if (!constituenciesMap.has(record.constituencyCode)) {
+          constituenciesMap.set(record.constituencyCode, {
+            code: record.constituencyCode,
+            name: record.constituencyName,
           });
-          
-          const uniqueConstituencies = Array.from(constituenciesMap.values());
-          console.log("[Register] Found", uniqueConstituencies.length, "unique constituencies");
-          setConstituencies(uniqueConstituencies);
-          setPollingStations(response.stations);
-          
-          if (uniqueConstituencies.length === 0) {
-            console.warn("[Register] No constituencies found for county:", selectedCounty);
-            showAlert(
-              "No Data Available", 
-              `No constituencies found for the selected county.\n\nPolling station data needs to be imported first. Would you like to go to the Admin Import screen?`,
-              "info",
-              true
-            );
-          }
-        } else {
-          console.error("[Register] Invalid response structure:", response);
-          showAlert("Error", "Invalid response from server", "error", false);
-          setConstituencies([]);
         }
-      } catch (error: any) {
-        console.error("[Register] Error fetching constituencies:", error);
-        console.error("[Register] Error details:", {
-          message: error.message,
-          stack: error.stack,
-        });
-        
-        const errorMessage = error.message || "Failed to load constituencies";
-        showAlert("Error", `Failed to load constituencies: ${errorMessage}`, "error", false);
-        setConstituencies([]);
-      } finally {
-        setLoadingConstituencies(false);
       }
-    };
+    });
 
-    fetchConstituencies();
+    const uniqueConstituencies = Array.from(constituenciesMap.values()).sort(
+      (a, b) => a.code.localeCompare(b.code)
+    );
+    
+    console.log("[Register] Found", uniqueConstituencies.length, "unique constituencies");
+    setConstituencies(uniqueConstituencies);
+
+    if (uniqueConstituencies.length === 0) {
+      console.warn("[Register] No constituencies found for county:", selectedCounty);
+      showAlert(
+        "No Data Available",
+        "No constituencies found for the selected county. Please select a different county.",
+        "info",
+        false
+      );
+    }
   }, [selectedCounty]);
 
-  // Fetch wards when constituency is selected
+  // Load wards when constituency is selected (directly from JSON data)
   useEffect(() => {
-    const fetchWards = async () => {
-      if (!selectedCounty || !selectedConstituency) {
-        setWards([]);
-        setSelectedWard("");
-        return;
-      }
-
-      console.log("[Register] Fetching wards for constituency:", selectedConstituency);
-      setLoadingWards(true);
+    if (!selectedCounty || !selectedConstituency) {
+      setWards([]);
       setSelectedWard("");
+      return;
+    }
 
-      try {
-        // Filter polling stations by constituency
-        const filteredStations = pollingStations.filter(
-          (station) => station.constituencyCode === selectedConstituency
-        );
-        
-        console.log("[Register] Found", filteredStations.length, "polling stations for constituency");
-        
-        // Extract unique wards
-        const wardsMap = new Map<string, Ward>();
-        filteredStations.forEach((station) => {
-          if (station.wardCode && station.wardName) {
-            if (!wardsMap.has(station.wardCode)) {
-              wardsMap.set(station.wardCode, {
-                code: station.wardCode,
-                name: station.wardName,
-              });
-            }
-          }
-        });
-        
-        const uniqueWards = Array.from(wardsMap.values());
-        console.log("[Register] Found", uniqueWards.length, "unique wards");
-        setWards(uniqueWards);
-        
-        if (uniqueWards.length === 0) {
-          console.warn("[Register] No wards found for constituency:", selectedConstituency);
-          showAlert(
-            "No Data Available", 
-            `No wards found for the selected constituency.\n\nPolling station data needs to be imported first. Would you like to go to the Admin Import screen?`,
-            "info",
-            true
-          );
+    console.log("[Register] Loading wards for constituency:", selectedConstituency);
+    setSelectedWard("");
+
+    // Filter location data by selected county and constituency
+    const constituencyData = ALL_LOCATION_DATA.filter(
+      (record) =>
+        record.countyCode === selectedCounty &&
+        record.constituencyCode === selectedConstituency
+    );
+
+    // Extract unique wards
+    const wardsMap = new Map<string, Ward>();
+    constituencyData.forEach((record) => {
+      if (record.wardCode && record.wardName) {
+        if (!wardsMap.has(record.wardCode)) {
+          wardsMap.set(record.wardCode, {
+            code: record.wardCode,
+            name: record.wardName,
+          });
         }
-      } catch (error: any) {
-        console.error("[Register] Error processing wards:", error);
-        const errorMessage = error.message || "Failed to load wards";
-        showAlert("Error", `Failed to load wards: ${errorMessage}`, "error", false);
-        setWards([]);
-      } finally {
-        setLoadingWards(false);
       }
-    };
+    });
 
-    fetchWards();
-  }, [selectedCounty, selectedConstituency, pollingStations]);
+    const uniqueWards = Array.from(wardsMap.values()).sort((a, b) =>
+      a.code.localeCompare(b.code)
+    );
+    
+    console.log("[Register] Found", uniqueWards.length, "unique wards");
+    setWards(uniqueWards);
+
+    if (uniqueWards.length === 0) {
+      console.warn("[Register] No wards found for constituency:", selectedConstituency);
+      showAlert(
+        "No Data Available",
+        "No wards found for the selected constituency. Please select a different constituency.",
+        "info",
+        false
+      );
+    }
+  }, [selectedCounty, selectedConstituency]);
 
   const handleDateChange = (event: any, selectedDate?: Date) => {
     setShowDatePicker(Platform.OS === 'ios');
@@ -464,11 +396,7 @@ export default function RegisterScreen() {
     }
   };
 
-  const handleGoToImport = () => {
-    console.log("[Register] User tapped Go to Import - navigating to admin-import");
-    setShowModal(false);
-    router.push("/admin-import");
-  };
+
 
   const handleBack = () => {
     console.log("[Register] User tapped Back - navigating to auth screen");
@@ -659,29 +587,23 @@ export default function RegisterScreen() {
                   setShowConstituencyPicker(!showConstituencyPicker);
                 }
               }}
-              disabled={!selectedCounty || loadingConstituencies}
+              disabled={!selectedCounty}
             >
-              {loadingConstituencies ? (
-                <ActivityIndicator size="small" color={colors.primary} />
-              ) : (
-                <>
-                  <Text style={[styles.pickerButtonText, !selectedConstituencyData && styles.placeholderText]}>
-                    {selectedConstituencyData 
-                      ? `${selectedConstituencyData.code} - ${selectedConstituencyData.name}` 
-                      : selectedCounty 
-                        ? constituencies.length === 0 
-                          ? "No constituencies available"
-                          : "Select Constituency"
-                        : "Select county first"}
-                  </Text>
-                  <IconSymbol
-                    ios_icon_name="chevron.down"
-                    android_material_icon_name="arrow-drop-down"
-                    size={24}
-                    color={colors.textSecondary}
-                  />
-                </>
-              )}
+              <Text style={[styles.pickerButtonText, !selectedConstituencyData && styles.placeholderText]}>
+                {selectedConstituencyData 
+                  ? `${selectedConstituencyData.code} - ${selectedConstituencyData.name}` 
+                  : selectedCounty 
+                    ? constituencies.length === 0 
+                      ? "No constituencies available"
+                      : "Select Constituency"
+                    : "Select county first"}
+              </Text>
+              <IconSymbol
+                ios_icon_name="chevron.down"
+                android_material_icon_name="arrow-drop-down"
+                size={24}
+                color={colors.textSecondary}
+              />
             </TouchableOpacity>
 
             {showConstituencyPicker && constituencies.length > 0 && (
@@ -715,29 +637,23 @@ export default function RegisterScreen() {
                   setShowWardPicker(!showWardPicker);
                 }
               }}
-              disabled={!selectedCounty || !selectedConstituency || loadingWards}
+              disabled={!selectedCounty || !selectedConstituency}
             >
-              {loadingWards ? (
-                <ActivityIndicator size="small" color={colors.primary} />
-              ) : (
-                <>
-                  <Text style={[styles.pickerButtonText, !selectedWardData && styles.placeholderText]}>
-                    {selectedWardData 
-                      ? `${selectedWardData.code} - ${selectedWardData.name}` 
-                      : selectedConstituency 
-                        ? wards.length === 0
-                          ? "No wards available"
-                          : "Select Ward"
-                        : "Select constituency first"}
-                  </Text>
-                  <IconSymbol
-                    ios_icon_name="chevron.down"
-                    android_material_icon_name="arrow-drop-down"
-                    size={24}
-                    color={colors.textSecondary}
-                  />
-                </>
-              )}
+              <Text style={[styles.pickerButtonText, !selectedWardData && styles.placeholderText]}>
+                {selectedWardData 
+                  ? `${selectedWardData.code} - ${selectedWardData.name}` 
+                  : selectedConstituency 
+                    ? wards.length === 0
+                      ? "No wards available"
+                      : "Select Ward"
+                    : "Select constituency first"}
+              </Text>
+              <IconSymbol
+                ios_icon_name="chevron.down"
+                android_material_icon_name="arrow-drop-down"
+                size={24}
+                color={colors.textSecondary}
+              />
             </TouchableOpacity>
 
             {showWardPicker && wards.length > 0 && (
@@ -795,31 +711,14 @@ export default function RegisterScreen() {
             <Text style={styles.modalTitle}>{modalTitle}</Text>
             <Text style={styles.modalMessage}>{modalMessage}</Text>
             
-            {showImportButton ? (
-              <View style={styles.modalButtonContainer}>
-                <TouchableOpacity
-                  style={[styles.modalButton, styles.modalButtonSecondary]}
-                  onPress={() => setShowModal(false)}
-                >
-                  <Text style={styles.modalButtonTextSecondary}>Cancel</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.modalButton, styles.modalButtonPrimary]}
-                  onPress={handleGoToImport}
-                >
-                  <Text style={styles.modalButtonText}>Go to Import</Text>
-                </TouchableOpacity>
-              </View>
-            ) : (
-              <TouchableOpacity
-                style={[styles.modalButton, modalType === "success" ? styles.modalButtonSuccess : modalType === "info" ? styles.modalButtonPrimary : styles.modalButtonError]}
-                onPress={handleModalClose}
-              >
-                <Text style={styles.modalButtonText}>
-                  {biometricStep ? "Set Up Biometrics" : "OK"}
-                </Text>
-              </TouchableOpacity>
-            )}
+            <TouchableOpacity
+              style={[styles.modalButton, modalType === "success" ? styles.modalButtonSuccess : modalType === "info" ? styles.modalButtonPrimary : styles.modalButtonError]}
+              onPress={handleModalClose}
+            >
+              <Text style={styles.modalButtonText}>
+                {biometricStep ? "Set Up Biometrics" : "OK"}
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </Modal>

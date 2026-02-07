@@ -78,48 +78,79 @@ Contains data for:
 
 **Total: 117 ward records across 6 counties**
 
-### Batch 3 (registration-data-batch-3.json) - NEW!
-Contains data for:
+### Batch 3 (registration-data-batch-3.json) - UPDATED!
+Contains comprehensive data for:
 
-1. **KWALE County** (8 wards)
-   - MATUGA constituency: 4 wards (MKONGANI, TIWI, TSIMBA GOLINI, WAA)
-   - MSAMBWENI constituency: 4 wards (GOMBATO BONGWE, KINONDO, RAMISI, UKUNDA)
+1. **MANDERA County** (5 wards - continuation)
+   - MANDERA SOUTH constituency: 2 wards (SHIMBIR FATUMA, WARGADUD)
+   - MANDERA WEST constituency: 5 wards (DANDU, GITHER, LAGSURE, TAKABA, TAKABA SOUTH)
 
-2. **LAIKIPIA County** (11 wards)
-   - LAIKIPIA EAST constituency: 3 wards (THINGITHU, TIGITHI, UMANDE)
-   - LAIKIPIA NORTH constituency: 3 wards (MUGOGODO EAST, MUGOGODO WEST, SOSIAN)
-   - LAIKIPIA WEST constituency: 5 wards (GITHIGA, IGWAMITI, MARMANET, RUMURUTI TOWNSHIP, SALAMA)
+2. **MARSABIT County** (20 wards)
+   - LAISAMIS constituency: 5 wards (KARGI/SOUTH HORR, KORR/NGURUNIT, LAISAMIS, LOGO LOGO, LOIYANGALANI)
+   - MOYALE constituency: 7 wards (BUTIYE, GOLBO, HEILLU/MANYATTA, MOYALE TOWNSHIP, OBBU, SOLOLO, URAN)
+   - NORTH HORR constituency: 5 wards (DUKANA, ILLERET, MAIKONA, NORTH HORR, TURBI)
+   - SAKU constituency: 3 wards (KARARE, MARSABIT CENTRAL, SAGANTE/JALDESA)
 
-3. **LAMU County** (7 wards)
-   - LAMU EAST constituency: 3 wards (BASUBA, FAZA, KIUNGA)
-   - LAMU WEST constituency: 4 wards (BAHARI, MKOMANI, MKUNUMBI, SHELLA)
+3. **MERU County** (41 wards)
+   - BUURI constituency: 5 wards
+   - CENTRAL IMENTI constituency: 4 wards
+   - IGEMBE CENTRAL constituency: 5 wards
+   - IGEMBE NORTH constituency: 5 wards
+   - IGEMBE SOUTH constituency: 5 wards
+   - NORTH IMENTI constituency: 5 wards
+   - SOUTH IMENTI constituency: 6 wards
+   - TIGANIA EAST constituency: 5 wards
+   - TIGANIA WEST constituency: 5 wards
 
-4. **MACHAKOS County** (40 wards)
-   - KANGUNDO constituency: 4 wards
-   - KATHIANI constituency: 4 wards
-   - MACHAKOS TOWN constituency: 7 wards
-   - MASINGA constituency: 5 wards
-   - MATUNGULU constituency: 5 wards
-   - MAVOKO constituency: 4 wards
-   - MWALA constituency: 6 wards
-   - YATTA constituency: 5 wards
+4. **MIGORI County** (35 wards)
+   - AWENDO constituency: 4 wards
+   - KURIA EAST constituency: 5 wards
+   - KURIA WEST constituency: 7 wards
+   - NYATIKE constituency: 7 wards
+   - RONGO constituency: 4 wards
+   - SUNA EAST constituency: 4 wards
+   - SUNA WEST constituency: 4 wards
+   - URIRI constituency: 5 wards
 
-5. **MAKUENI County** (30 wards)
-   - KAITI constituency: 4 wards
-   - KIBWEZI EAST constituency: 4 wards
-   - KIBWEZI WEST constituency: 6 wards
-   - KILOME constituency: 3 wards
-   - MAKUENI constituency: 7 wards
-   - MBOONI constituency: 6 wards
+5. **MOMBASA County** (24 wards - COMPLETE)
+   - CHANGAMWE constituency: 5 wards (AIRPORT, CHAANI, CHANGAMWE, KIPEVU, PORT REITZ)
+   - JOMVU constituency: 3 wards (JOMVU KUU, MIKINDANI, MIRITINI)
+   - KISAUNI constituency: 7 wards (BAMBURI, JUNDA, MAGOGONI, MJAMBERE, MTOPANGA, MWAKIRUNGE, SHANZU)
+   - LIKONI constituency: 5 wards (BOFU, LIKONI, MTONGWE, SHIKA ADABU, TIMBWANI)
+   - MVITA constituency: 4 wards (MJI WA KALE/MAKADARA, SHIMANZI/GANJONI, TONONOKA, TUDOR)
+   - NYALI constituency: 4 wards (FRERE TOWN, KONGOWEA, MKOMANI, ZIWA LA NG'OMBE)
 
-6. **MANDERA County** (23 wards)
-   - BANISSA constituency: 5 wards
-   - LAFEY constituency: 5 wards
-   - MANDERA EAST constituency: 5 wards
-   - MANDERA NORTH constituency: 5 wards
-   - MANDERA SOUTH constituency: 3 wards
+6. **MURANG'A County** (28 wards)
+   - GATANGA constituency: 4 wards (GATANGA, ITHANGA, KIHUMBU-INI, MUGUMO-INI)
+   - KANDARA constituency: 5 wards (GAICHANJIRU, ITHIRU, KAGUNDU-INI, MURUKA, RUCHU)
+   - KANGEMA constituency: 3 wards (KANYENYA-INI, MUGURU, RWATHIA)
+   - KIGUMO constituency: 4 wards (KAHUMBU, KANGARI, KINYONA, MUTHITHI)
+   - KIHARU constituency: 5 wards (GATURI, MUGOIRI, MURARANDIA, TOWNSHIP, WANGU)
+   - MARAGWA constituency: 5 wards (ICHAGAKI, KAMBITI, KIMORORI/WEMPA, MAKUYU, NGINDA)
+   - MATHIOYA constituency: 2 wards (GITUGI, KAMACHARIA)
 
-**Total: 119 ward records across 6 counties**
+7. **NAIROBI CITY County** (85 wards - COMPLETE)
+   - DAGORETTI NORTH constituency: 5 wards (GATINA, KABIRO, KAWANGWARE, KILELESHWA, KILIMANI)
+   - DAGORETTI SOUTH constituency: 4 wards (MUTU-INI, RIRUTA, UTHIRU/RUTHIMITU, WAITHAKA)
+   - EMBAKASI CENTRAL constituency: 3 wards (KAYOLE SOUTH, KOMAROCK, MATOPENI/SPRING VALLEY)
+   - EMBAKASI EAST constituency: 4 wards (EMBAKASI, LOWER SAVANNAH, UPPER SAVANNAH, UTAWALA)
+   - EMBAKASI NORTH constituency: 4 wards (DANDORA AREA I, II, III, KARIOBANGI NORTH)
+   - EMBAKASI SOUTH constituency: 4 wards (IMARA DAIMA, KWA NJENGA, KWA REUBEN, KWARE)
+   - EMBAKASI WEST constituency: 4 wards (KARIOBANGI SOUTH, MOWLEM, UMOJA I, UMOJA II)
+   - KAMUKUNJI constituency: 4 wards (AIRBASE, EASTLEIGH NORTH, EASTLEIGH SOUTH, PUMWANI)
+   - KASARANI constituency: 3 wards (KASARANI, MWIKI, RUAI)
+   - KIBRA constituency: 4 wards (LAINI SABA, MAKINA, SARANGOMBE, WOODLEY/KENYATTA GOLF COU)
+   - LANGATA constituency: 3 wards (MUGUMU-INI, NYAYO HIGHRISE, SOUTH C)
+   - MAKADARA constituency: 2 wards (HARAMBEE, MARINGO/HAMZA)
+   - MATHARE constituency: 4 wards (HOSPITAL, HURUMA, KIAMAIKO, MABATINI)
+   - ROYSAMBU constituency: 5 wards (GITHURAI, KAHAWA, KAHAWA WEST, ROYSAMBU, ZIMMERMAN)
+   - RUARAKA constituency: 3 wards (LUCKY SUMMER, MATHARE NORTH, UTALII)
+   - STAREHE constituency: 4 wards (LANDIMAWE, NAIROBI SOUTH, PANGANI, ZIWANI/KARIOKOR)
+   - WESTLANDS constituency: 1 ward (KANGEMI)
+
+**Total: 238 ward records across 7 counties**
+
+This batch now includes complete coverage for MOMBASA and NAIROBI CITY counties, plus extensive data for MANDERA, MARSABIT, MERU, MIGORI, and MURANG'A.
 
 ## Importing Multiple Batches
 

@@ -959,5 +959,877 @@
     "constituencyName": "JOMVU",
     "wardCode": "003",
     "wardName": "MIRITINI"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "003",
+    "constituencyName": "KISAUNI",
+    "wardCode": "001",
+    "wardName": "BAMBURI"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "003",
+    "constituencyName": "KISAUNI",
+    "wardCode": "002",
+    "wardName": "JUNDA"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "003",
+    "constituencyName": "KISAUNI",
+    "wardCode": "003",
+    "wardName": "MAGOGONI"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "003",
+    "constituencyName": "KISAUNI",
+    "wardCode": "004",
+    "wardName": "MJAMBERE"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "003",
+    "constituencyName": "KISAUNI",
+    "wardCode": "005",
+    "wardName": "MTOPANGA"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "003",
+    "constituencyName": "KISAUNI",
+    "wardCode": "006",
+    "wardName": "MWAKIRUNGE"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "003",
+    "constituencyName": "KISAUNI",
+    "wardCode": "007",
+    "wardName": "SHANZU"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "004",
+    "constituencyName": "LIKONI",
+    "wardCode": "001",
+    "wardName": "BOFU"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "004",
+    "constituencyName": "LIKONI",
+    "wardCode": "002",
+    "wardName": "LIKONI"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "004",
+    "constituencyName": "LIKONI",
+    "wardCode": "003",
+    "wardName": "MTONGWE"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "004",
+    "constituencyName": "LIKONI",
+    "wardCode": "004",
+    "wardName": "SHIKA ADABU"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "004",
+    "constituencyName": "LIKONI",
+    "wardCode": "005",
+    "wardName": "TIMBWANI"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "005",
+    "constituencyName": "MVITA",
+    "wardCode": "001",
+    "wardName": "MJI WA KALE/MAKADARA"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "005",
+    "constituencyName": "MVITA",
+    "wardCode": "002",
+    "wardName": "SHIMANZI/GANJONI"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "005",
+    "constituencyName": "MVITA",
+    "wardCode": "003",
+    "wardName": "TONONOKA"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "005",
+    "constituencyName": "MVITA",
+    "wardCode": "004",
+    "wardName": "TUDOR"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "006",
+    "constituencyName": "NYALI",
+    "wardCode": "001",
+    "wardName": "FRERE TOWN"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "006",
+    "constituencyName": "NYALI",
+    "wardCode": "002",
+    "wardName": "KONGOWEA"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "006",
+    "constituencyName": "NYALI",
+    "wardCode": "003",
+    "wardName": "MKOMANI"
+  },
+  {
+    "countyCode": "001",
+    "countyName": "MOMBASA",
+    "constituencyCode": "006",
+    "constituencyName": "NYALI",
+    "wardCode": "004",
+    "wardName": "ZIWA LA NG'OMBE"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "001",
+    "constituencyName": "GATANGA",
+    "wardCode": "001",
+    "wardName": "GATANGA"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "001",
+    "constituencyName": "GATANGA",
+    "wardCode": "002",
+    "wardName": "ITHANGA"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "001",
+    "constituencyName": "GATANGA",
+    "wardCode": "003",
+    "wardName": "KIHUMBU-INI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "001",
+    "constituencyName": "GATANGA",
+    "wardCode": "004",
+    "wardName": "MUGUMO-INI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "002",
+    "constituencyName": "KANDARA",
+    "wardCode": "001",
+    "wardName": "GAICHANJIRU"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "002",
+    "constituencyName": "KANDARA",
+    "wardCode": "002",
+    "wardName": "ITHIRU"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "002",
+    "constituencyName": "KANDARA",
+    "wardCode": "003",
+    "wardName": "KAGUNDU-INI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "002",
+    "constituencyName": "KANDARA",
+    "wardCode": "004",
+    "wardName": "MURUKA"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "002",
+    "constituencyName": "KANDARA",
+    "wardCode": "005",
+    "wardName": "RUCHU"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "003",
+    "constituencyName": "KANGEMA",
+    "wardCode": "001",
+    "wardName": "KANYENYA-INI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "003",
+    "constituencyName": "KANGEMA",
+    "wardCode": "002",
+    "wardName": "MUGURU"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "003",
+    "constituencyName": "KANGEMA",
+    "wardCode": "003",
+    "wardName": "RWATHIA"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "004",
+    "constituencyName": "KIGUMO",
+    "wardCode": "001",
+    "wardName": "KAHUMBU"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "004",
+    "constituencyName": "KIGUMO",
+    "wardCode": "002",
+    "wardName": "KANGARI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "004",
+    "constituencyName": "KIGUMO",
+    "wardCode": "003",
+    "wardName": "KINYONA"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "004",
+    "constituencyName": "KIGUMO",
+    "wardCode": "004",
+    "wardName": "MUTHITHI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "005",
+    "constituencyName": "KIHARU",
+    "wardCode": "001",
+    "wardName": "GATURI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "005",
+    "constituencyName": "KIHARU",
+    "wardCode": "002",
+    "wardName": "MUGOIRI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "005",
+    "constituencyName": "KIHARU",
+    "wardCode": "003",
+    "wardName": "MURARANDIA"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "005",
+    "constituencyName": "KIHARU",
+    "wardCode": "004",
+    "wardName": "TOWNSHIP"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "005",
+    "constituencyName": "KIHARU",
+    "wardCode": "005",
+    "wardName": "WANGU"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "006",
+    "constituencyName": "MARAGWA",
+    "wardCode": "001",
+    "wardName": "ICHAGAKI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "006",
+    "constituencyName": "MARAGWA",
+    "wardCode": "002",
+    "wardName": "KAMBITI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "006",
+    "constituencyName": "MARAGWA",
+    "wardCode": "003",
+    "wardName": "KIMORORI/WEMPA"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "006",
+    "constituencyName": "MARAGWA",
+    "wardCode": "004",
+    "wardName": "MAKUYU"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "006",
+    "constituencyName": "MARAGWA",
+    "wardCode": "005",
+    "wardName": "NGINDA"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "007",
+    "constituencyName": "MATHIOYA",
+    "wardCode": "001",
+    "wardName": "GITUGI"
+  },
+  {
+    "countyCode": "021",
+    "countyName": "MURANG'A",
+    "constituencyCode": "007",
+    "constituencyName": "MATHIOYA",
+    "wardCode": "002",
+    "wardName": "KAMACHARIA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "001",
+    "constituencyName": "DAGORETTI NORTH",
+    "wardCode": "001",
+    "wardName": "GATINA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "001",
+    "constituencyName": "DAGORETTI NORTH",
+    "wardCode": "002",
+    "wardName": "KABIRO"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "001",
+    "constituencyName": "DAGORETTI NORTH",
+    "wardCode": "003",
+    "wardName": "KAWANGWARE"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "001",
+    "constituencyName": "DAGORETTI NORTH",
+    "wardCode": "004",
+    "wardName": "KILELESHWA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "001",
+    "constituencyName": "DAGORETTI NORTH",
+    "wardCode": "005",
+    "wardName": "KILIMANI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "002",
+    "constituencyName": "DAGORETTI SOUTH",
+    "wardCode": "001",
+    "wardName": "MUTU-INI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "002",
+    "constituencyName": "DAGORETTI SOUTH",
+    "wardCode": "002",
+    "wardName": "RIRUTA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "002",
+    "constituencyName": "DAGORETTI SOUTH",
+    "wardCode": "003",
+    "wardName": "UTHIRU/RUTHIMITU"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "002",
+    "constituencyName": "DAGORETTI SOUTH",
+    "wardCode": "004",
+    "wardName": "WAITHAKA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "003",
+    "constituencyName": "EMBAKASI CENTRAL",
+    "wardCode": "001",
+    "wardName": "KAYOLE SOUTH"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "003",
+    "constituencyName": "EMBAKASI CENTRAL",
+    "wardCode": "002",
+    "wardName": "KOMAROCK"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "003",
+    "constituencyName": "EMBAKASI CENTRAL",
+    "wardCode": "003",
+    "wardName": "MATOPENI/SPRING VALLEY"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "004",
+    "constituencyName": "EMBAKASI EAST",
+    "wardCode": "001",
+    "wardName": "EMBAKASI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "004",
+    "constituencyName": "EMBAKASI EAST",
+    "wardCode": "002",
+    "wardName": "LOWER SAVANNAH"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "004",
+    "constituencyName": "EMBAKASI EAST",
+    "wardCode": "003",
+    "wardName": "UPPER SAVANNAH"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "004",
+    "constituencyName": "EMBAKASI EAST",
+    "wardCode": "004",
+    "wardName": "UTAWALA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "005",
+    "constituencyName": "EMBAKASI NORTH",
+    "wardCode": "001",
+    "wardName": "DANDORA AREA I"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "005",
+    "constituencyName": "EMBAKASI NORTH",
+    "wardCode": "002",
+    "wardName": "DANDORA AREA II"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "005",
+    "constituencyName": "EMBAKASI NORTH",
+    "wardCode": "003",
+    "wardName": "DANDORA AREA III"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "005",
+    "constituencyName": "EMBAKASI NORTH",
+    "wardCode": "004",
+    "wardName": "KARIOBANGI NORTH"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "006",
+    "constituencyName": "EMBAKASI SOUTH",
+    "wardCode": "001",
+    "wardName": "IMARA DAIMA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "006",
+    "constituencyName": "EMBAKASI SOUTH",
+    "wardCode": "002",
+    "wardName": "KWA NJENGA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "006",
+    "constituencyName": "EMBAKASI SOUTH",
+    "wardCode": "003",
+    "wardName": "KWA REUBEN"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "006",
+    "constituencyName": "EMBAKASI SOUTH",
+    "wardCode": "004",
+    "wardName": "KWARE"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "007",
+    "constituencyName": "EMBAKASI WEST",
+    "wardCode": "001",
+    "wardName": "KARIOBANGI SOUTH"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "007",
+    "constituencyName": "EMBAKASI WEST",
+    "wardCode": "002",
+    "wardName": "MOWLEM"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "007",
+    "constituencyName": "EMBAKASI WEST",
+    "wardCode": "003",
+    "wardName": "UMOJA I"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "007",
+    "constituencyName": "EMBAKASI WEST",
+    "wardCode": "004",
+    "wardName": "UMOJA II"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "008",
+    "constituencyName": "KAMUKUNJI",
+    "wardCode": "001",
+    "wardName": "AIRBASE"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "008",
+    "constituencyName": "KAMUKUNJI",
+    "wardCode": "002",
+    "wardName": "EASTLEIGH NORTH"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "008",
+    "constituencyName": "KAMUKUNJI",
+    "wardCode": "003",
+    "wardName": "EASTLEIGH SOUTH"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "008",
+    "constituencyName": "KAMUKUNJI",
+    "wardCode": "004",
+    "wardName": "PUMWANI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "009",
+    "constituencyName": "KASARANI",
+    "wardCode": "001",
+    "wardName": "KASARANI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "009",
+    "constituencyName": "KASARANI",
+    "wardCode": "002",
+    "wardName": "MWIKI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "009",
+    "constituencyName": "KASARANI",
+    "wardCode": "003",
+    "wardName": "RUAI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "010",
+    "constituencyName": "KIBRA",
+    "wardCode": "001",
+    "wardName": "LAINI SABA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "010",
+    "constituencyName": "KIBRA",
+    "wardCode": "002",
+    "wardName": "MAKINA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "010",
+    "constituencyName": "KIBRA",
+    "wardCode": "003",
+    "wardName": "SARANGOMBE"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "010",
+    "constituencyName": "KIBRA",
+    "wardCode": "004",
+    "wardName": "WOODLEY/KENYATTA GOLF COU"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "011",
+    "constituencyName": "LANGATA",
+    "wardCode": "001",
+    "wardName": "MUGUMU-INI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "011",
+    "constituencyName": "LANGATA",
+    "wardCode": "002",
+    "wardName": "NYAYO HIGHRISE"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "011",
+    "constituencyName": "LANGATA",
+    "wardCode": "003",
+    "wardName": "SOUTH C"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "012",
+    "constituencyName": "MAKADARA",
+    "wardCode": "001",
+    "wardName": "HARAMBEE"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "012",
+    "constituencyName": "MAKADARA",
+    "wardCode": "002",
+    "wardName": "MARINGO/HAMZA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "013",
+    "constituencyName": "MATHARE",
+    "wardCode": "001",
+    "wardName": "HOSPITAL"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "013",
+    "constituencyName": "MATHARE",
+    "wardCode": "002",
+    "wardName": "HURUMA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "013",
+    "constituencyName": "MATHARE",
+    "wardCode": "003",
+    "wardName": "KIAMAIKO"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "013",
+    "constituencyName": "MATHARE",
+    "wardCode": "004",
+    "wardName": "MABATINI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "014",
+    "constituencyName": "ROYSAMBU",
+    "wardCode": "001",
+    "wardName": "GITHURAI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "014",
+    "constituencyName": "ROYSAMBU",
+    "wardCode": "002",
+    "wardName": "KAHAWA"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "014",
+    "constituencyName": "ROYSAMBU",
+    "wardCode": "003",
+    "wardName": "KAHAWA WEST"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "014",
+    "constituencyName": "ROYSAMBU",
+    "wardCode": "004",
+    "wardName": "ROYSAMBU"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "014",
+    "constituencyName": "ROYSAMBU",
+    "wardCode": "005",
+    "wardName": "ZIMMERMAN"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "015",
+    "constituencyName": "RUARAKA",
+    "wardCode": "001",
+    "wardName": "LUCKY SUMMER"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "015",
+    "constituencyName": "RUARAKA",
+    "wardCode": "002",
+    "wardName": "MATHARE NORTH"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "015",
+    "constituencyName": "RUARAKA",
+    "wardCode": "003",
+    "wardName": "UTALII"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "016",
+    "constituencyName": "STAREHE",
+    "wardCode": "001",
+    "wardName": "LANDIMAWE"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "016",
+    "constituencyName": "STAREHE",
+    "wardCode": "002",
+    "wardName": "NAIROBI SOUTH"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "016",
+    "constituencyName": "STAREHE",
+    "wardCode": "003",
+    "wardName": "PANGANI"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "016",
+    "constituencyName": "STAREHE",
+    "wardCode": "004",
+    "wardName": "ZIWANI/KARIOKOR"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "017",
+    "constituencyName": "WESTLANDS",
+    "wardCode": "001",
+    "wardName": "KANGEMI"
   }
 ]

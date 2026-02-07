@@ -19,10 +19,10 @@ You have two options:
 
 **Option A: Use the Sample Data Button**
 1. Tap the "Load Sample" button to see the format
-2. Replace the sample data with your actual data from `registration-data-batch-2.json`
+2. Replace the sample data with your actual data from the batch files
 
 **Option B: Copy and Paste**
-1. Open the `registration-data-batch-2.json` file
+1. Open one of the batch files (e.g., `registration-data-batch-3.json`)
 2. Copy all the JSON content
 3. Paste it into the JSON Data text area in the app
 
@@ -37,12 +37,12 @@ You have two options:
 Each record in the JSON file must have these fields:
 
 ### Required Fields:
-- `countyCode`: 3-digit county code (e.g., "014" for EMBU)
-- `countyName`: Full county name (e.g., "EMBU")
+- `countyCode`: 3-digit county code (e.g., "016" for MACHAKOS)
+- `countyName`: Full county name (e.g., "MACHAKOS")
 - `constituencyCode`: 3-digit constituency code (e.g., "001")
-- `constituencyName`: Full constituency name (e.g., "RUNYENJES")
+- `constituencyName`: Full constituency name (e.g., "KANGUNDO")
 - `wardCode`: 3-digit ward code (e.g., "001")
-- `wardName`: Full ward name (e.g., "CENTRAL WARD")
+- `wardName`: Full ward name (e.g., "KANGUNDO CENTRAL")
 
 ### Optional Fields (auto-generated if missing):
 - `pollingStationCode`: Will be auto-generated as countyCode + constituencyCode + wardCode + "001"
@@ -53,56 +53,83 @@ Each record in the JSON file must have these fields:
 
 ```json
 {
-  "countyCode": "014",
-  "countyName": "EMBU",
+  "countyCode": "016",
+  "countyName": "MACHAKOS",
   "constituencyCode": "001",
-  "constituencyName": "RUNYENJES",
+  "constituencyName": "KANGUNDO",
   "wardCode": "001",
-  "wardName": "CENTRAL WARD"
+  "wardName": "KANGUNDO CENTRAL"
 }
 ```
 
-## What This Data Includes
+## Available Data Batches
 
-The `registration-data-batch-2.json` file contains registration data for:
+### Batch 1 (registration-data-batch-1.json)
+Contains data for MOMBASA, BUNGOMA, BUSIA, and DIASPORA counties.
 
-1. **ELGEYO/MARAKWET County** (1 ward)
-   - MARAKWET WEST constituency: SENGWER ward
-
-2. **EMBU County** (21 wards)
-   - MANYATTA constituency: 6 wards
-   - MBEERE NORTH constituency: 3 wards
-   - MBEERE SOUTH constituency: 5 wards
-   - RUNYENJES constituency: 6 wards
-
-3. **GARISSA County** (30 wards)
-   - BALAMBALA constituency: 5 wards
-   - DADAAB constituency: 6 wards
-   - FAFI constituency: 5 wards
-   - GARISSA TOWNSHIP constituency: 4 wards
-   - IJARA constituency: 4 wards
-   - LAGDERA constituency: 6 wards
-
-4. **HOMA BAY County** (40 wards)
-   - HOMA BAY TOWN constituency: 4 wards
-   - KABONDO KASIPUL constituency: 4 wards
-   - KARACHUONYO constituency: 7 wards
-   - KASIPUL constituency: 5 wards
-   - NDHIWA constituency: 7 wards
-   - RANGWE constituency: 4 wards
-   - SUBA NORTH constituency: 5 wards
-   - SUBA SOUTH constituency: 4 wards
-
-5. **ISIOLO County** (10 wards)
-   - ISIOLO NORTH constituency: 7 wards
-   - ISIOLO SOUTH constituency: 3 wards
-
-6. **KAJIADO County** (15 wards)
-   - KAJIADO CENTRAL constituency: 5 wards
-   - KAJIADO EAST constituency: 5 wards
-   - KAJIADO NORTH constituency: 5 wards
+### Batch 2 (registration-data-batch-2.json)
+Contains data for:
+- **ELGEYO/MARAKWET County** (1 ward)
+- **EMBU County** (21 wards)
+- **GARISSA County** (30 wards)
+- **HOMA BAY County** (40 wards)
+- **ISIOLO County** (10 wards)
+- **KAJIADO County** (15 wards)
 
 **Total: 117 ward records across 6 counties**
+
+### Batch 3 (registration-data-batch-3.json) - NEW!
+Contains data for:
+
+1. **KWALE County** (8 wards)
+   - MATUGA constituency: 4 wards (MKONGANI, TIWI, TSIMBA GOLINI, WAA)
+   - MSAMBWENI constituency: 4 wards (GOMBATO BONGWE, KINONDO, RAMISI, UKUNDA)
+
+2. **LAIKIPIA County** (11 wards)
+   - LAIKIPIA EAST constituency: 3 wards (THINGITHU, TIGITHI, UMANDE)
+   - LAIKIPIA NORTH constituency: 3 wards (MUGOGODO EAST, MUGOGODO WEST, SOSIAN)
+   - LAIKIPIA WEST constituency: 5 wards (GITHIGA, IGWAMITI, MARMANET, RUMURUTI TOWNSHIP, SALAMA)
+
+3. **LAMU County** (7 wards)
+   - LAMU EAST constituency: 3 wards (BASUBA, FAZA, KIUNGA)
+   - LAMU WEST constituency: 4 wards (BAHARI, MKOMANI, MKUNUMBI, SHELLA)
+
+4. **MACHAKOS County** (40 wards)
+   - KANGUNDO constituency: 4 wards
+   - KATHIANI constituency: 4 wards
+   - MACHAKOS TOWN constituency: 7 wards
+   - MASINGA constituency: 5 wards
+   - MATUNGULU constituency: 5 wards
+   - MAVOKO constituency: 4 wards
+   - MWALA constituency: 6 wards
+   - YATTA constituency: 5 wards
+
+5. **MAKUENI County** (30 wards)
+   - KAITI constituency: 4 wards
+   - KIBWEZI EAST constituency: 4 wards
+   - KIBWEZI WEST constituency: 6 wards
+   - KILOME constituency: 3 wards
+   - MAKUENI constituency: 7 wards
+   - MBOONI constituency: 6 wards
+
+6. **MANDERA County** (23 wards)
+   - BANISSA constituency: 5 wards
+   - LAFEY constituency: 5 wards
+   - MANDERA EAST constituency: 5 wards
+   - MANDERA NORTH constituency: 5 wards
+   - MANDERA SOUTH constituency: 3 wards
+
+**Total: 119 ward records across 6 counties**
+
+## Importing Multiple Batches
+
+You can import data in batches:
+1. Import batch 1 first
+2. Then import batch 2
+3. Then import batch 3
+4. The system will handle duplicates and merge the data
+
+Or you can combine all batches into a single JSON array and import at once.
 
 ## After Import
 
@@ -137,4 +164,4 @@ If you encounter any issues during import:
 
 ---
 
-**Note:** This is batch 2 of the registration data. Make sure you've also imported batch 1 (BUNGOMA, BUSIA, DIASPORA counties) if you haven't already.
+**Note:** Import all three batches to have complete coverage of the electoral locations. Each batch can be imported independently, and the system will handle any duplicates automatically.

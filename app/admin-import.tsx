@@ -25,6 +25,7 @@ import batch5Data from "@/registration-data-batch-5.json";
 import batch6Data from "@/registration-data-batch-6.json";
 import batch7Data from "@/registration-data-batch-7.json";
 import batch8Data from "@/registration-data-batch-8.json";
+import batch9Data from "@/registration-data-batch-9.json";
 
 interface PollingStation {
   countyCode: string;
@@ -69,6 +70,7 @@ export default function AdminImportScreen() {
       ...batch6Data,
       ...batch7Data,
       ...batch8Data,
+      ...batch9Data,
     ];
 
     console.log("[AdminImport] Total records to import:", allData.length);
@@ -82,7 +84,7 @@ export default function AdminImportScreen() {
       console.log("[AdminImport] Import successful:", response);
       showAlert(
         "Import Successful",
-        `Successfully imported ${allData.length} location records from all batches (2-8).`
+        `Successfully imported ${allData.length} location records from all batches (2-9).`
       );
     } catch (error: any) {
       console.error("[AdminImport] Import error:", error);
@@ -197,7 +199,7 @@ export default function AdminImportScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Quick Import (All Batches)</Text>
           <Text style={styles.sectionDescription}>
-            Import all available location data from batches 2-8 in one click.
+            Import all available location data from batches 2-9 in one click.
             This includes data for multiple counties.
           </Text>
           <TouchableOpacity

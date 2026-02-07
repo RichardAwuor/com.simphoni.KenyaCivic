@@ -126,7 +126,7 @@ This document tracks the status of County, Constituency, and Ward data imported 
 
 ---
 
-### Batch 11 (registration-data-batch-11.json) ✨ NEW
+### Batch 11 (registration-data-batch-11.json)
 **Counties Included:**
 - **MOMBASA** (6 constituencies, 28 wards) - NOW COMPLETE
   - CHANGAMWE (5 wards) - from Batch 10
@@ -134,9 +134,9 @@ This document tracks the status of County, Constituency, and Ward data imported 
   - KISAUNI (7 wards) - NEW: BAMBURI, JUNDA, MAGOGONI, MJAMBERE, MTOPANGA, MWAKIRUNGE, SHANZU
   - LIKONI (5 wards) - NEW: BOFU, LIKONI, MTONGWE, SHIKA ADABU, TIMBWANI
   - MVITA (4 wards) - NEW: MJI WA KALE/MAKADARA, SHIMANZI/GANJONI, TONONOKA, TUDOR
-  - NYALI (4 wards) - NEW: FRERE TOWN, KONGOWEA, MKOMANI, ZIWA LA NG&apos;OMBE
+  - NYALI (4 wards) - NEW: FRERE TOWN, KONGOWEA, MKOMANI, ZIWA LA NG'OMBE
 
-- **MURANG&apos;A** (7 constituencies, 31 wards) - COMPLETE
+- **MURANG'A** (7 constituencies, 31 wards) - COMPLETE
   - GATANGA (4 wards): GATANGA, ITHANGA, KIHUMBU-INI, MUGUMO-INI
   - KANDARA (5 wards): GAICHANJIRU, ITHIRU, KAGUNDU-INI, MURUKA, RUCHU
   - KANGEMA (3 wards): KANYENYA-INI, MUGURU, RWATHIA
@@ -168,11 +168,74 @@ This document tracks the status of County, Constituency, and Ward data imported 
 
 ---
 
+### Batch 12 (registration-data-batch-12.json) ✨ NEW
+**Counties Included:**
+- **NAIROBI CITY** (17 constituencies, 87 wards) - NOW COMPLETE
+  - WESTLANDS (3 wards) - ADDED: KITISURU, MOUNTAIN VIEW (completing WESTLANDS constituency)
+
+- **NAKURU** (10 constituencies, 41 wards) - COMPLETE
+  - BAHATI (4 wards): BAHATI, DUNDORI, KABATINI, LANET/UMOJA
+  - GILGIL (3 wards): GILGIL, MALEWA WEST, MBARUK/EBURU
+  - KURESOI NORTH (3 wards): KIPTORORO, NYOTA, SIRIKWA
+  - KURESOI SOUTH (2 wards): KERINGET, TINET
+  - MOLO (3 wards): ELBURGON, MARIASHONI, MOLO
+  - NAIVASHA (5 wards): HELLS GATE, LAKE VIEW, MAI MAHIU, MAIELLA, OLKARIA
+  - NAKURU TOWN EAST (4 wards): BIASHARA, FLAMINGO, MENENGAI, NAKURU EAST
+  - NAKURU TOWN WEST (4 wards): BARUT, KAPKURES, RHODA, SHAABAB
+  - NJORO (3 wards): KIHINGO, LARE, MAU NAROK
+  - RONGAI (6 wards): MENENGAI WEST, MOSOP, SOIN, SOLAI, VISOI, WASEGES
+
+- **NANDI** (6 constituencies, 17 wards) - COMPLETE
+  - ALDAI (4 wards): KABWARENG, KAPTUMO-KABOI, KEMELOI-MARABA, KOBUJOI
+  - CHESUMEI (4 wards): CHEMUNDU/KAPNG'ETUNY, KAPTEL/KAMOIYWO, KIPTUYA, KOSIRAI
+  - EMGWEN (2 wards): KAPSABET, KILIBWONI
+  - MOSOP (4 wards): CHEPTERWAI, KABIYET, NDALAT, SANGALO/KEBULONIK
+  - NANDI HILLS (1 ward): CHEPKUNYUK
+  - TINDERET (2 wards): CHEMELIL/CHEMASE, SONGHOR/SOBA
+
+- **NAROK** (6 constituencies, 16 wards) - COMPLETE
+  - EMURUA DIKIRR (3 wards): ILKERIN, KAPSASIAN, MOGONDO
+  - KILGORIS (4 wards): KILGORIS CENTRAL, KIMINTET, LOLGORIAN, SHANKOE
+  - NAROK EAST (1 ward): SUSWA
+  - NAROK NORTH (4 wards): MELILI, NAROK TOWN, NKARETA, OLPUSIMORU
+  - NAROK SOUTH (4 wards): MAJIMOTO/NAROOSURA, OLOLULUNG'A, SAGAMIAN, SOGOO
+  - NAROK WEST (2 wards): ILMOTIOK, NAIKARRA
+
+- **NYAMIRA** (4 constituencies, 10 wards) - COMPLETE
+  - BORABU (2 wards): KIABONYORU, MEKENENE
+  - KITUTU MASABA (4 wards): GACHUBA, GESIMA, MAGOMBO, MANGA
+  - NORTH MUGIRANGO (1 ward): MAGWAGWA
+  - WEST MUGIRANGO (3 wards): BOGICHORA, BONYAMATUTA, TOWNSHIP
+
+- **NYANDARUA** (4 constituencies, 15 wards) - COMPLETE
+  - KINANGOP (6 wards): ENGINEER, GITHABAI, MAGUMU, NJABINI\KIBURU, GITHIORO, WANJOHI
+  - NDARAGWA (3 wards): KIRIITA, LESHAU/PONDO, SHAMATA
+  - OL JOROK (2 wards): CHARAGITA, GATIMU
+  - OL KALOU (4 wards): KANJUIRI RANGE, KARAU, MIRANGINE, RURII
+
+- **NYERI** (6 constituencies, 16 wards) - COMPLETE
+  - KIENI (4 wards): MUGUNDA, MWIYOGO/ENDARASHA, NAROMORU KIAMATHAGA, THEGU RIVER
+  - MATHIRA (2 wards): MAGUTU, RUGURU
+  - MUKURWEINI (3 wards): GIKONDI, MUKURWE-INI CENTRAL, RUGI
+  - NYERI TOWN (3 wards): KAMAKWA/MUKARO, KIGANJO/MATHARI, RWARE
+  - OTHAYA (2 wards): IRIA-INI, MAHIGA
+  - TETU (1 ward): AGUTHI-GAAKI
+
+- **PRISONS** (1 constituency, 1 ward) - COMPLETE
+  - PRISONS (1 ward): PRISONS
+
+- **SAMBURU** (1 constituency, 2 wards) - PARTIAL
+  - SAMBURU EAST (2 wards): WAMBA EAST, WAMBA WEST
+
+**Total Records:** ~120
+
+---
+
 ## Summary Statistics
 
 ### Total Coverage
 - **Total Counties:** 40+
-- **Total Location Records:** 1,100+
+- **Total Location Records:** 1,220+
 - **Status:** Ready for agent registration
 
 ### Complete Counties (All Constituencies & Wards)
@@ -196,20 +259,27 @@ This document tracks the status of County, Constituency, and Ward data imported 
 18. MARSABIT ✅
 19. MERU ✅
 20. MIGORI ✅
-21. MOMBASA ✅ (NOW COMPLETE with Batch 11)
-22. MURANG&apos;A ✅ (NEW in Batch 11)
-23. NAIROBI CITY ✅ (NEW in Batch 11)
-24. SAMBURU ✅
-25. SIAYA ✅
-26. TAITA TAVETA ✅
-27. TANA RIVER ✅
-28. THARAKA-NITHI ✅
-29. TRANS NZOIA ✅
-30. TURKANA ✅
-31. UASIN GISHU ✅
-32. VIHIGA ✅
-33. WAJIR ✅
-34. WEST POKOT ✅
+21. MOMBASA ✅
+22. MURANG'A ✅
+23. NAIROBI CITY ✅ (NOW FULLY COMPLETE with Batch 12)
+24. NAKURU ✅ (NEW in Batch 12)
+25. NANDI ✅ (NEW in Batch 12)
+26. NAROK ✅ (NEW in Batch 12)
+27. NYAMIRA ✅ (NEW in Batch 12)
+28. NYANDARUA ✅ (NEW in Batch 12)
+29. NYERI ✅ (NEW in Batch 12)
+30. PRISONS ✅ (NEW in Batch 12)
+31. SAMBURU ✅
+32. SIAYA ✅
+33. TAITA TAVETA ✅
+34. TANA RIVER ✅
+35. THARAKA-NITHI ✅
+36. TRANS NZOIA ✅
+37. TURKANA ✅
+38. UASIN GISHU ✅
+39. VIHIGA ✅
+40. WAJIR ✅
+41. WEST POKOT ✅
 
 ### Partial Counties (Some data available)
 - KAJIADO (partial)
@@ -224,7 +294,7 @@ This document tracks the status of County, Constituency, and Ward data imported 
 3. Tap "Import All Data Now"
 4. Wait for the import to complete (~30 seconds)
 
-This will import all batches (2-11) automatically.
+This will import all batches (2-12) automatically.
 
 ### Manual JSON Import
 If you need to import specific data:
@@ -240,12 +310,12 @@ If you need to import specific data:
 Each location record contains:
 ```json
 {
-  "countyCode": "021",
-  "countyName": "MANDERA",
-  "constituencyCode": "006",
-  "constituencyName": "MANDERA WEST",
+  "countyCode": "029",
+  "countyName": "NAKURU",
+  "constituencyCode": "001",
+  "constituencyName": "BAHATI",
   "wardCode": "0001",
-  "wardName": "DANDU"
+  "wardName": "BAHATI"
 }
 ```
 
@@ -267,16 +337,16 @@ The system will automatically generate a unique Agent ID code in the format:
 `COUNTYNAME-XXX-XXXX-XX`
 
 Examples:
-- `MANDERA-006-0001-01` (for an agent in DANDU ward, MANDERA WEST constituency)
-- `MOMBASA-003-0001-01` (for an agent in BAMBURI ward, KISAUNI constituency)
-- `NAIROBI CITY-001-0001-01` (for an agent in GATINA ward, DAGORETTI NORTH constituency)
+- `NAKURU-001-0001-01` (for an agent in BAHATI ward, BAHATI constituency)
+- `NANDI-001-0001-01` (for an agent in KABWARENG ward, ALDAI constituency)
+- `NAIROBI CITY-017-0002-01` (for an agent in KITISURU ward, WESTLANDS constituency)
 
 ---
 
 ## Next Steps
 
 To add more counties or update existing data:
-1. Create a new batch file (e.g., `registration-data-batch-12.json`)
+1. Create a new batch file (e.g., `registration-data-batch-13.json`)
 2. Add the import statement in `app/register.tsx` and `app/admin-import.tsx`
 3. Include it in the `ALL_LOCATION_DATA` array in `app/register.tsx`
 4. Include it in the `allData` array in the `handleQuickImport` function in `app/admin-import.tsx`
@@ -289,6 +359,8 @@ To add more counties or update existing data:
 - All county names are stored in UPPERCASE for consistency
 - Ward names may contain special characters (e.g., slashes, apostrophes)
 - The DIASPORA county is a special case representing international locations
+- The PRISONS county is a special administrative unit
 - Duplicate records are automatically detected and skipped during import
 - **Batch 10** completes MANDERA county and adds full data for MARSABIT, MERU, and MIGORI counties
-- **Batch 11** completes MOMBASA, MURANG&apos;A, and NAIROBI CITY counties with all constituencies and wards
+- **Batch 11** completes MOMBASA, MURANG'A, and NAIROBI CITY counties with all constituencies and wards
+- **Batch 12** completes NAIROBI CITY (WESTLANDS), and adds full data for NAKURU, NANDI, NAROK, NYAMIRA, NYANDARUA, NYERI, and PRISONS counties

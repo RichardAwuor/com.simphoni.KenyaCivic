@@ -1,0 +1,939 @@
+
+[
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "017",
+    "constituencyName": "WESTLANDS",
+    "wardCode": "0002",
+    "wardName": "KITISURU"
+  },
+  {
+    "countyCode": "047",
+    "countyName": "NAIROBI CITY",
+    "constituencyCode": "017",
+    "constituencyName": "WESTLANDS",
+    "wardCode": "0003",
+    "wardName": "MOUNTAIN VIEW"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "001",
+    "constituencyName": "BAHATI",
+    "wardCode": "0001",
+    "wardName": "BAHATI"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "001",
+    "constituencyName": "BAHATI",
+    "wardCode": "0002",
+    "wardName": "DUNDORI"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "001",
+    "constituencyName": "BAHATI",
+    "wardCode": "0003",
+    "wardName": "KABATINI"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "001",
+    "constituencyName": "BAHATI",
+    "wardCode": "0004",
+    "wardName": "LANET/UMOJA"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "002",
+    "constituencyName": "GILGIL",
+    "wardCode": "0001",
+    "wardName": "GILGIL"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "002",
+    "constituencyName": "GILGIL",
+    "wardCode": "0002",
+    "wardName": "MALEWA WEST"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "002",
+    "constituencyName": "GILGIL",
+    "wardCode": "0003",
+    "wardName": "MBARUK/EBURU"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "003",
+    "constituencyName": "KURESOI NORTH",
+    "wardCode": "0001",
+    "wardName": "KIPTORORO"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "003",
+    "constituencyName": "KURESOI NORTH",
+    "wardCode": "0002",
+    "wardName": "NYOTA"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "003",
+    "constituencyName": "KURESOI NORTH",
+    "wardCode": "0003",
+    "wardName": "SIRIKWA"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "004",
+    "constituencyName": "KURESOI SOUTH",
+    "wardCode": "0001",
+    "wardName": "KERINGET"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "004",
+    "constituencyName": "KURESOI SOUTH",
+    "wardCode": "0002",
+    "wardName": "TINET"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "005",
+    "constituencyName": "MOLO",
+    "wardCode": "0001",
+    "wardName": "ELBURGON"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "005",
+    "constituencyName": "MOLO",
+    "wardCode": "0002",
+    "wardName": "MARIASHONI"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "005",
+    "constituencyName": "MOLO",
+    "wardCode": "0003",
+    "wardName": "MOLO"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "006",
+    "constituencyName": "NAIVASHA",
+    "wardCode": "0001",
+    "wardName": "HELLS GATE"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "006",
+    "constituencyName": "NAIVASHA",
+    "wardCode": "0002",
+    "wardName": "LAKE VIEW"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "006",
+    "constituencyName": "NAIVASHA",
+    "wardCode": "0003",
+    "wardName": "MAI MAHIU"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "006",
+    "constituencyName": "NAIVASHA",
+    "wardCode": "0004",
+    "wardName": "MAIELLA"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "006",
+    "constituencyName": "NAIVASHA",
+    "wardCode": "0005",
+    "wardName": "OLKARIA"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "007",
+    "constituencyName": "NAKURU TOWN EAST",
+    "wardCode": "0001",
+    "wardName": "BIASHARA"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "007",
+    "constituencyName": "NAKURU TOWN EAST",
+    "wardCode": "0002",
+    "wardName": "FLAMINGO"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "007",
+    "constituencyName": "NAKURU TOWN EAST",
+    "wardCode": "0003",
+    "wardName": "MENENGAI"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "007",
+    "constituencyName": "NAKURU TOWN EAST",
+    "wardCode": "0004",
+    "wardName": "NAKURU EAST"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "008",
+    "constituencyName": "NAKURU TOWN WEST",
+    "wardCode": "0001",
+    "wardName": "BARUT"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "008",
+    "constituencyName": "NAKURU TOWN WEST",
+    "wardCode": "0002",
+    "wardName": "KAPKURES"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "008",
+    "constituencyName": "NAKURU TOWN WEST",
+    "wardCode": "0003",
+    "wardName": "RHODA"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "008",
+    "constituencyName": "NAKURU TOWN WEST",
+    "wardCode": "0004",
+    "wardName": "SHAABAB"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "009",
+    "constituencyName": "NJORO",
+    "wardCode": "0001",
+    "wardName": "KIHINGO"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "009",
+    "constituencyName": "NJORO",
+    "wardCode": "0002",
+    "wardName": "LARE"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "009",
+    "constituencyName": "NJORO",
+    "wardCode": "0003",
+    "wardName": "MAU NAROK"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "010",
+    "constituencyName": "RONGAI",
+    "wardCode": "0001",
+    "wardName": "MENENGAI WEST"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "010",
+    "constituencyName": "RONGAI",
+    "wardCode": "0002",
+    "wardName": "MOSOP"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "010",
+    "constituencyName": "RONGAI",
+    "wardCode": "0003",
+    "wardName": "SOIN"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "010",
+    "constituencyName": "RONGAI",
+    "wardCode": "0004",
+    "wardName": "SOLAI"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "010",
+    "constituencyName": "RONGAI",
+    "wardCode": "0005",
+    "wardName": "VISOI"
+  },
+  {
+    "countyCode": "029",
+    "countyName": "NAKURU",
+    "constituencyCode": "010",
+    "constituencyName": "RONGAI",
+    "wardCode": "0006",
+    "wardName": "WASEGES"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "001",
+    "constituencyName": "ALDAI",
+    "wardCode": "0001",
+    "wardName": "KABWARENG"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "001",
+    "constituencyName": "ALDAI",
+    "wardCode": "0002",
+    "wardName": "KAPTUMO-KABOI"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "001",
+    "constituencyName": "ALDAI",
+    "wardCode": "0003",
+    "wardName": "KEMELOI-MARABA"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "001",
+    "constituencyName": "ALDAI",
+    "wardCode": "0004",
+    "wardName": "KOBUJOI"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "002",
+    "constituencyName": "CHESUMEI",
+    "wardCode": "0001",
+    "wardName": "CHEMUNDU/KAPNG'ETUNY"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "002",
+    "constituencyName": "CHESUMEI",
+    "wardCode": "0002",
+    "wardName": "KAPTEL/KAMOIYWO"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "002",
+    "constituencyName": "CHESUMEI",
+    "wardCode": "0003",
+    "wardName": "KIPTUYA"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "002",
+    "constituencyName": "CHESUMEI",
+    "wardCode": "0004",
+    "wardName": "KOSIRAI"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "003",
+    "constituencyName": "EMGWEN",
+    "wardCode": "0001",
+    "wardName": "KAPSABET"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "003",
+    "constituencyName": "EMGWEN",
+    "wardCode": "0002",
+    "wardName": "KILIBWONI"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "004",
+    "constituencyName": "MOSOP",
+    "wardCode": "0001",
+    "wardName": "CHEPTERWAI"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "004",
+    "constituencyName": "MOSOP",
+    "wardCode": "0002",
+    "wardName": "KABIYET"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "004",
+    "constituencyName": "MOSOP",
+    "wardCode": "0003",
+    "wardName": "NDALAT"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "004",
+    "constituencyName": "MOSOP",
+    "wardCode": "0004",
+    "wardName": "SANGALO/KEBULONIK"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "005",
+    "constituencyName": "NANDI HILLS",
+    "wardCode": "0001",
+    "wardName": "CHEPKUNYUK"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "006",
+    "constituencyName": "TINDERET",
+    "wardCode": "0001",
+    "wardName": "CHEMELIL/CHEMASE"
+  },
+  {
+    "countyCode": "030",
+    "countyName": "NANDI",
+    "constituencyCode": "006",
+    "constituencyName": "TINDERET",
+    "wardCode": "0002",
+    "wardName": "SONGHOR/SOBA"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "001",
+    "constituencyName": "EMURUA DIKIRR",
+    "wardCode": "0001",
+    "wardName": "ILKERIN"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "001",
+    "constituencyName": "EMURUA DIKIRR",
+    "wardCode": "0002",
+    "wardName": "KAPSASIAN"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "001",
+    "constituencyName": "EMURUA DIKIRR",
+    "wardCode": "0003",
+    "wardName": "MOGONDO"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "002",
+    "constituencyName": "KILGORIS",
+    "wardCode": "0001",
+    "wardName": "KILGORIS CENTRAL"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "002",
+    "constituencyName": "KILGORIS",
+    "wardCode": "0002",
+    "wardName": "KIMINTET"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "002",
+    "constituencyName": "KILGORIS",
+    "wardCode": "0003",
+    "wardName": "LOLGORIAN"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "002",
+    "constituencyName": "KILGORIS",
+    "wardCode": "0004",
+    "wardName": "SHANKOE"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "003",
+    "constituencyName": "NAROK EAST",
+    "wardCode": "0001",
+    "wardName": "SUSWA"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "004",
+    "constituencyName": "NAROK NORTH",
+    "wardCode": "0001",
+    "wardName": "MELILI"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "004",
+    "constituencyName": "NAROK NORTH",
+    "wardCode": "0002",
+    "wardName": "NAROK TOWN"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "004",
+    "constituencyName": "NAROK NORTH",
+    "wardCode": "0003",
+    "wardName": "NKARETA"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "004",
+    "constituencyName": "NAROK NORTH",
+    "wardCode": "0004",
+    "wardName": "OLPUSIMORU"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "005",
+    "constituencyName": "NAROK SOUTH",
+    "wardCode": "0001",
+    "wardName": "MAJIMOTO/NAROOSURA"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "005",
+    "constituencyName": "NAROK SOUTH",
+    "wardCode": "0002",
+    "wardName": "OLOLULUNG'A"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "005",
+    "constituencyName": "NAROK SOUTH",
+    "wardCode": "0003",
+    "wardName": "SAGAMIAN"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "005",
+    "constituencyName": "NAROK SOUTH",
+    "wardCode": "0004",
+    "wardName": "SOGOO"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "006",
+    "constituencyName": "NAROK WEST",
+    "wardCode": "0001",
+    "wardName": "ILMOTIOK"
+  },
+  {
+    "countyCode": "031",
+    "countyName": "NAROK",
+    "constituencyCode": "006",
+    "constituencyName": "NAROK WEST",
+    "wardCode": "0002",
+    "wardName": "NAIKARRA"
+  },
+  {
+    "countyCode": "032",
+    "countyName": "NYAMIRA",
+    "constituencyCode": "001",
+    "constituencyName": "BORABU",
+    "wardCode": "0001",
+    "wardName": "KIABONYORU"
+  },
+  {
+    "countyCode": "032",
+    "countyName": "NYAMIRA",
+    "constituencyCode": "001",
+    "constituencyName": "BORABU",
+    "wardCode": "0002",
+    "wardName": "MEKENENE"
+  },
+  {
+    "countyCode": "032",
+    "countyName": "NYAMIRA",
+    "constituencyCode": "002",
+    "constituencyName": "KITUTU MASABA",
+    "wardCode": "0001",
+    "wardName": "GACHUBA"
+  },
+  {
+    "countyCode": "032",
+    "countyName": "NYAMIRA",
+    "constituencyCode": "002",
+    "constituencyName": "KITUTU MASABA",
+    "wardCode": "0002",
+    "wardName": "GESIMA"
+  },
+  {
+    "countyCode": "032",
+    "countyName": "NYAMIRA",
+    "constituencyCode": "002",
+    "constituencyName": "KITUTU MASABA",
+    "wardCode": "0003",
+    "wardName": "MAGOMBO"
+  },
+  {
+    "countyCode": "032",
+    "countyName": "NYAMIRA",
+    "constituencyCode": "002",
+    "constituencyName": "KITUTU MASABA",
+    "wardCode": "0004",
+    "wardName": "MANGA"
+  },
+  {
+    "countyCode": "032",
+    "countyName": "NYAMIRA",
+    "constituencyCode": "003",
+    "constituencyName": "NORTH MUGIRANGO",
+    "wardCode": "0001",
+    "wardName": "MAGWAGWA"
+  },
+  {
+    "countyCode": "032",
+    "countyName": "NYAMIRA",
+    "constituencyCode": "004",
+    "constituencyName": "WEST MUGIRANGO",
+    "wardCode": "0001",
+    "wardName": "BOGICHORA"
+  },
+  {
+    "countyCode": "032",
+    "countyName": "NYAMIRA",
+    "constituencyCode": "004",
+    "constituencyName": "WEST MUGIRANGO",
+    "wardCode": "0002",
+    "wardName": "BONYAMATUTA"
+  },
+  {
+    "countyCode": "032",
+    "countyName": "NYAMIRA",
+    "constituencyCode": "004",
+    "constituencyName": "WEST MUGIRANGO",
+    "wardCode": "0003",
+    "wardName": "TOWNSHIP"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGOP",
+    "wardCode": "0001",
+    "wardName": "ENGINEER"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGOP",
+    "wardCode": "0002",
+    "wardName": "GITHABAI"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGOP",
+    "wardCode": "0003",
+    "wardName": "MAGUMU"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGOP",
+    "wardCode": "0004",
+    "wardName": "NJABINI\\KIBURU"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGOP",
+    "wardCode": "0005",
+    "wardName": "GITHIORO"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "001",
+    "constituencyName": "KINANGOP",
+    "wardCode": "0006",
+    "wardName": "WANJOHI"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "002",
+    "constituencyName": "NDARAGWA",
+    "wardCode": "0001",
+    "wardName": "KIRIITA"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "002",
+    "constituencyName": "NDARAGWA",
+    "wardCode": "0002",
+    "wardName": "LESHAU/PONDO"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "002",
+    "constituencyName": "NDARAGWA",
+    "wardCode": "0003",
+    "wardName": "SHAMATA"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "003",
+    "constituencyName": "OL JOROK",
+    "wardCode": "0001",
+    "wardName": "CHARAGITA"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "003",
+    "constituencyName": "OL JOROK",
+    "wardCode": "0002",
+    "wardName": "GATIMU"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "004",
+    "constituencyName": "OL KALOU",
+    "wardCode": "0001",
+    "wardName": "KANJUIRI RANGE"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "004",
+    "constituencyName": "OL KALOU",
+    "wardCode": "0002",
+    "wardName": "KARAU"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "004",
+    "constituencyName": "OL KALOU",
+    "wardCode": "0003",
+    "wardName": "MIRANGINE"
+  },
+  {
+    "countyCode": "033",
+    "countyName": "NYANDARUA",
+    "constituencyCode": "004",
+    "constituencyName": "OL KALOU",
+    "wardCode": "0004",
+    "wardName": "RURII"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "001",
+    "constituencyName": "KIENI",
+    "wardCode": "0001",
+    "wardName": "MUGUNDA"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "001",
+    "constituencyName": "KIENI",
+    "wardCode": "0002",
+    "wardName": "MWIYOGO/ENDARASHA"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "001",
+    "constituencyName": "KIENI",
+    "wardCode": "0003",
+    "wardName": "NAROMORU KIAMATHAGA"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "001",
+    "constituencyName": "KIENI",
+    "wardCode": "0004",
+    "wardName": "THEGU RIVER"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "002",
+    "constituencyName": "MATHIRA",
+    "wardCode": "0001",
+    "wardName": "MAGUTU"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "002",
+    "constituencyName": "MATHIRA",
+    "wardCode": "0002",
+    "wardName": "RUGURU"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "003",
+    "constituencyName": "MUKURWEINI",
+    "wardCode": "0001",
+    "wardName": "GIKONDI"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "003",
+    "constituencyName": "MUKURWEINI",
+    "wardCode": "0002",
+    "wardName": "MUKURWE-INI CENTRAL"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "003",
+    "constituencyName": "MUKURWEINI",
+    "wardCode": "0003",
+    "wardName": "RUGI"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "004",
+    "constituencyName": "NYERI TOWN",
+    "wardCode": "0001",
+    "wardName": "KAMAKWA/MUKARO"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "004",
+    "constituencyName": "NYERI TOWN",
+    "wardCode": "0002",
+    "wardName": "KIGANJO/MATHARI"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "004",
+    "constituencyName": "NYERI TOWN",
+    "wardCode": "0003",
+    "wardName": "RWARE"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "005",
+    "constituencyName": "OTHAYA",
+    "wardCode": "0001",
+    "wardName": "IRIA-INI"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "005",
+    "constituencyName": "OTHAYA",
+    "wardCode": "0002",
+    "wardName": "MAHIGA"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "NYERI",
+    "constituencyCode": "006",
+    "constituencyName": "TETU",
+    "wardCode": "0001",
+    "wardName": "AGUTHI-GAAKI"
+  },
+  {
+    "countyCode": "099",
+    "countyName": "PRISONS",
+    "constituencyCode": "001",
+    "constituencyName": "PRISONS",
+    "wardCode": "0001",
+    "wardName": "PRISONS"
+  },
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "001",
+    "constituencyName": "SAMBURU EAST",
+    "wardCode": "0001",
+    "wardName": "WAMBA EAST"
+  },
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "001",
+    "constituencyName": "SAMBURU EAST",
+    "wardCode": "0002",
+    "wardName": "WAMBA WEST"
+  }
+]

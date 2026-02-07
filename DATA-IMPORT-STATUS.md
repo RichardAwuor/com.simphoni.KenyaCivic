@@ -168,7 +168,7 @@ This document tracks the status of County, Constituency, and Ward data imported 
 
 ---
 
-### Batch 12 (registration-data-batch-12.json) ✨ NEW
+### Batch 12 (registration-data-batch-12.json)
 **Counties Included:**
 - **NAIROBI CITY** (17 constituencies, 87 wards) - NOW COMPLETE
   - WESTLANDS (3 wards) - ADDED: KITISURU, MOUNTAIN VIEW (completing WESTLANDS constituency)
@@ -231,11 +231,22 @@ This document tracks the status of County, Constituency, and Ward data imported 
 
 ---
 
+### Batch 13 (registration-data-batch-13.json) ✨ NEW
+**Counties Included:**
+- **SAMBURU** (3 constituencies, 11 wards) - NOW COMPLETE
+  - SAMBURU EAST (3 wards): WAMBA EAST, WAMBA WEST, WASO
+  - SAMBURU NORTH (4 wards): EL-BARTA, NACHOLA, NDOTO, NYIRO
+  - SAMBURU WEST (4 wards): LOOSUK, MARALAL, PORO, SUGUTA MARMAR
+
+**Total Records:** 9
+
+---
+
 ## Summary Statistics
 
 ### Total Coverage
-- **Total Counties:** 40+
-- **Total Location Records:** 1,220+
+- **Total Counties:** 42
+- **Total Location Records:** 1,229+
 - **Status:** Ready for agent registration
 
 ### Complete Counties (All Constituencies & Wards)
@@ -261,15 +272,15 @@ This document tracks the status of County, Constituency, and Ward data imported 
 20. MIGORI ✅
 21. MOMBASA ✅
 22. MURANG'A ✅
-23. NAIROBI CITY ✅ (NOW FULLY COMPLETE with Batch 12)
-24. NAKURU ✅ (NEW in Batch 12)
-25. NANDI ✅ (NEW in Batch 12)
-26. NAROK ✅ (NEW in Batch 12)
-27. NYAMIRA ✅ (NEW in Batch 12)
-28. NYANDARUA ✅ (NEW in Batch 12)
-29. NYERI ✅ (NEW in Batch 12)
-30. PRISONS ✅ (NEW in Batch 12)
-31. SAMBURU ✅
+23. NAIROBI CITY ✅
+24. NAKURU ✅
+25. NANDI ✅
+26. NAROK ✅
+27. NYAMIRA ✅
+28. NYANDARUA ✅
+29. NYERI ✅
+30. PRISONS ✅
+31. SAMBURU ✅ (NOW COMPLETE with Batch 13)
 32. SIAYA ✅
 33. TAITA TAVETA ✅
 34. TANA RIVER ✅
@@ -294,7 +305,7 @@ This document tracks the status of County, Constituency, and Ward data imported 
 3. Tap "Import All Data Now"
 4. Wait for the import to complete (~30 seconds)
 
-This will import all batches (2-12) automatically.
+This will import all batches (2-13) automatically.
 
 ### Manual JSON Import
 If you need to import specific data:
@@ -310,12 +321,12 @@ If you need to import specific data:
 Each location record contains:
 ```json
 {
-  "countyCode": "029",
-  "countyName": "NAKURU",
-  "constituencyCode": "001",
-  "constituencyName": "BAHATI",
+  "countyCode": "036",
+  "countyName": "SAMBURU",
+  "constituencyCode": "003",
+  "constituencyName": "SAMBURU WEST",
   "wardCode": "0001",
-  "wardName": "BAHATI"
+  "wardName": "LOOSUK"
 }
 ```
 
@@ -329,7 +340,7 @@ Optional fields (auto-generated if not provided):
 ## Agent Registration
 
 Once data is imported, agents can register by selecting:
-1. **County** - From the list of 40+ available counties
+1. **County** - From the list of 42 available counties
 2. **Constituency** - Filtered based on selected county
 3. **Ward** - Filtered based on selected constituency
 
@@ -337,16 +348,16 @@ The system will automatically generate a unique Agent ID code in the format:
 `COUNTYNAME-XXX-XXXX-XX`
 
 Examples:
-- `NAKURU-001-0001-01` (for an agent in BAHATI ward, BAHATI constituency)
-- `NANDI-001-0001-01` (for an agent in KABWARENG ward, ALDAI constituency)
-- `NAIROBI CITY-017-0002-01` (for an agent in KITISURU ward, WESTLANDS constituency)
+- `SAMBURU-003-0001-01` (for an agent in LOOSUK ward, SAMBURU WEST constituency)
+- `SAMBURU-002-0001-01` (for an agent in EL-BARTA ward, SAMBURU NORTH constituency)
+- `SAMBURU-001-0003-01` (for an agent in WASO ward, SAMBURU EAST constituency)
 
 ---
 
 ## Next Steps
 
 To add more counties or update existing data:
-1. Create a new batch file (e.g., `registration-data-batch-13.json`)
+1. Create a new batch file (e.g., `registration-data-batch-14.json`)
 2. Add the import statement in `app/register.tsx` and `app/admin-import.tsx`
 3. Include it in the `ALL_LOCATION_DATA` array in `app/register.tsx`
 4. Include it in the `allData` array in the `handleQuickImport` function in `app/admin-import.tsx`
@@ -364,3 +375,4 @@ To add more counties or update existing data:
 - **Batch 10** completes MANDERA county and adds full data for MARSABIT, MERU, and MIGORI counties
 - **Batch 11** completes MOMBASA, MURANG'A, and NAIROBI CITY counties with all constituencies and wards
 - **Batch 12** completes NAIROBI CITY (WESTLANDS), and adds full data for NAKURU, NANDI, NAROK, NYAMIRA, NYANDARUA, NYERI, and PRISONS counties
+- **Batch 13** completes SAMBURU county with all 3 constituencies (SAMBURU EAST, SAMBURU NORTH, SAMBURU WEST) and 11 wards

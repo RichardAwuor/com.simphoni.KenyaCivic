@@ -1,0 +1,75 @@
+
+[
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "001",
+    "constituencyName": "SAMBURU EAST",
+    "wardCode": "0003",
+    "wardName": "WASO"
+  },
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "002",
+    "constituencyName": "SAMBURU NORTH",
+    "wardCode": "0001",
+    "wardName": "EL-BARTA"
+  },
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "002",
+    "constituencyName": "SAMBURU NORTH",
+    "wardCode": "0002",
+    "wardName": "NACHOLA"
+  },
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "002",
+    "constituencyName": "SAMBURU NORTH",
+    "wardCode": "0003",
+    "wardName": "NDOTO"
+  },
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "002",
+    "constituencyName": "SAMBURU NORTH",
+    "wardCode": "0004",
+    "wardName": "NYIRO"
+  },
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "003",
+    "constituencyName": "SAMBURU WEST",
+    "wardCode": "0001",
+    "wardName": "LOOSUK"
+  },
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "003",
+    "constituencyName": "SAMBURU WEST",
+    "wardCode": "0002",
+    "wardName": "MARALAL"
+  },
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "003",
+    "constituencyName": "SAMBURU WEST",
+    "wardCode": "0003",
+    "wardName": "PORO"
+  },
+  {
+    "countyCode": "036",
+    "countyName": "SAMBURU",
+    "constituencyCode": "003",
+    "constituencyName": "SAMBURU WEST",
+    "wardCode": "0004",
+    "wardName": "SUGUTA MARMAR"
+  }
+]

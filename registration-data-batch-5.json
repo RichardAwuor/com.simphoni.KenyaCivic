@@ -1,0 +1,891 @@
+
+[
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "001",
+    "constituencyName": "BUMULA",
+    "wardCode": "001",
+    "wardName": "BUMULA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "001",
+    "constituencyName": "BUMULA",
+    "wardCode": "002",
+    "wardName": "KABULA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "001",
+    "constituencyName": "BUMULA",
+    "wardCode": "003",
+    "wardName": "KHASOKO"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "001",
+    "constituencyName": "BUMULA",
+    "wardCode": "004",
+    "wardName": "KIMAETI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "001",
+    "constituencyName": "BUMULA",
+    "wardCode": "005",
+    "wardName": "SIBOTI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "001",
+    "constituencyName": "BUMULA",
+    "wardCode": "006",
+    "wardName": "SOUTH BUKUSU"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "001",
+    "constituencyName": "BUMULA",
+    "wardCode": "007",
+    "wardName": "WEST BUKUSU"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "002",
+    "constituencyName": "KABUCHAI",
+    "wardCode": "001",
+    "wardName": "BWAKE/LUUYA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "002",
+    "constituencyName": "KABUCHAI",
+    "wardCode": "002",
+    "wardName": "KABUCHAI/CHWELE"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "002",
+    "constituencyName": "KABUCHAI",
+    "wardCode": "003",
+    "wardName": "MUKUYUNI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "002",
+    "constituencyName": "KABUCHAI",
+    "wardCode": "004",
+    "wardName": "WEST NALONDO"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "003",
+    "constituencyName": "KANDUYI",
+    "wardCode": "001",
+    "wardName": "BUKEMBE EAST"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "003",
+    "constituencyName": "KANDUYI",
+    "wardCode": "002",
+    "wardName": "BUKEMBE WEST"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "003",
+    "constituencyName": "KANDUYI",
+    "wardCode": "003",
+    "wardName": "EAST SANG'ALO"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "003",
+    "constituencyName": "KANDUYI",
+    "wardCode": "004",
+    "wardName": "KHALABA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "003",
+    "constituencyName": "KANDUYI",
+    "wardCode": "005",
+    "wardName": "MARAKARU/TUUTI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "003",
+    "constituencyName": "KANDUYI",
+    "wardCode": "006",
+    "wardName": "MUSIKOMA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "003",
+    "constituencyName": "KANDUYI",
+    "wardCode": "007",
+    "wardName": "TOWNSHIP"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "003",
+    "constituencyName": "KANDUYI",
+    "wardCode": "008",
+    "wardName": "WEST SANG'ALO"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "004",
+    "constituencyName": "KIMILILI",
+    "wardCode": "001",
+    "wardName": "KAMUKUYWA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "004",
+    "constituencyName": "KIMILILI",
+    "wardCode": "002",
+    "wardName": "KIBINGEI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "004",
+    "constituencyName": "KIMILILI",
+    "wardCode": "003",
+    "wardName": "KIMILILI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "004",
+    "constituencyName": "KIMILILI",
+    "wardCode": "004",
+    "wardName": "MAENI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "005",
+    "constituencyName": "MT. ELGON",
+    "wardCode": "001",
+    "wardName": "CHEPTAIS"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "005",
+    "constituencyName": "MT. ELGON",
+    "wardCode": "002",
+    "wardName": "CHEPYUK"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "005",
+    "constituencyName": "MT. ELGON",
+    "wardCode": "003",
+    "wardName": "CHESIKAKI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "005",
+    "constituencyName": "MT. ELGON",
+    "wardCode": "004",
+    "wardName": "ELGON"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "005",
+    "constituencyName": "MT. ELGON",
+    "wardCode": "005",
+    "wardName": "KAPKATENY"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "005",
+    "constituencyName": "MT. ELGON",
+    "wardCode": "006",
+    "wardName": "KAPTAMA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "006",
+    "constituencyName": "SIRISIA",
+    "wardCode": "001",
+    "wardName": "LWANDANYI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "006",
+    "constituencyName": "SIRISIA",
+    "wardCode": "002",
+    "wardName": "MALAKISI/SOUTH KULISIRU"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "006",
+    "constituencyName": "SIRISIA",
+    "wardCode": "003",
+    "wardName": "NAMWELA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "007",
+    "constituencyName": "TONGAREN",
+    "wardCode": "001",
+    "wardName": "MBAKALO"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "007",
+    "constituencyName": "TONGAREN",
+    "wardCode": "002",
+    "wardName": "MILIMA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "007",
+    "constituencyName": "TONGAREN",
+    "wardCode": "003",
+    "wardName": "NAITIRI/KABUYEFWE"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "007",
+    "constituencyName": "TONGAREN",
+    "wardCode": "004",
+    "wardName": "NDALU/ TABANI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "007",
+    "constituencyName": "TONGAREN",
+    "wardCode": "005",
+    "wardName": "SOYSAMBU/ MITUA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "007",
+    "constituencyName": "TONGAREN",
+    "wardCode": "006",
+    "wardName": "TONGAREN"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "008",
+    "constituencyName": "WEBUYE EAST",
+    "wardCode": "001",
+    "wardName": "MARAKA"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "008",
+    "constituencyName": "WEBUYE EAST",
+    "wardCode": "002",
+    "wardName": "MIHUU"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "008",
+    "constituencyName": "WEBUYE EAST",
+    "wardCode": "003",
+    "wardName": "NDIVISI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "009",
+    "constituencyName": "WEBUYE WEST",
+    "wardCode": "001",
+    "wardName": "BOKOLI"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "009",
+    "constituencyName": "WEBUYE WEST",
+    "wardCode": "002",
+    "wardName": "MATULO"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "009",
+    "constituencyName": "WEBUYE WEST",
+    "wardCode": "003",
+    "wardName": "MISIKHU"
+  },
+  {
+    "countyCode": "039",
+    "countyName": "BUNGOMA",
+    "constituencyCode": "009",
+    "constituencyName": "WEBUYE WEST",
+    "wardCode": "004",
+    "wardName": "SITIKHO"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "001",
+    "constituencyName": "BUDALANGI",
+    "wardCode": "001",
+    "wardName": "BUNYALA CENTRAL"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "001",
+    "constituencyName": "BUDALANGI",
+    "wardCode": "002",
+    "wardName": "BUNYALA NORTH"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "001",
+    "constituencyName": "BUDALANGI",
+    "wardCode": "003",
+    "wardName": "BUNYALA SOUTH"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "001",
+    "constituencyName": "BUDALANGI",
+    "wardCode": "004",
+    "wardName": "BUNYALA WEST"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "002",
+    "constituencyName": "BUTULA",
+    "wardCode": "001",
+    "wardName": "ELUGULU"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "002",
+    "constituencyName": "BUTULA",
+    "wardCode": "002",
+    "wardName": "KINGANDOLE"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "002",
+    "constituencyName": "BUTULA",
+    "wardCode": "003",
+    "wardName": "MARACHI CENTRAL"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "002",
+    "constituencyName": "BUTULA",
+    "wardCode": "004",
+    "wardName": "MARACHI EAST"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "002",
+    "constituencyName": "BUTULA",
+    "wardCode": "005",
+    "wardName": "MARACHI NORTH"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "002",
+    "constituencyName": "BUTULA",
+    "wardCode": "006",
+    "wardName": "MARACHI WEST"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "003",
+    "constituencyName": "FUNYULA",
+    "wardCode": "001",
+    "wardName": "AGENG'A NANGUBA"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "003",
+    "constituencyName": "FUNYULA",
+    "wardCode": "002",
+    "wardName": "BWIRI"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "003",
+    "constituencyName": "FUNYULA",
+    "wardCode": "003",
+    "wardName": "NAMBOBOTO NAMBUKU"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "003",
+    "constituencyName": "FUNYULA",
+    "wardCode": "004",
+    "wardName": "NANGINA"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "004",
+    "constituencyName": "MATAYOS",
+    "wardCode": "001",
+    "wardName": "MATAYOS"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "004",
+    "constituencyName": "MATAYOS",
+    "wardCode": "002",
+    "wardName": "BURUMBA"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "004",
+    "constituencyName": "MATAYOS",
+    "wardCode": "003",
+    "wardName": "BUSIBWABO"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "004",
+    "constituencyName": "MATAYOS",
+    "wardCode": "004",
+    "wardName": "MATAYOS SOUTH"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "004",
+    "constituencyName": "MATAYOS",
+    "wardCode": "005",
+    "wardName": "MAYENJE"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "005",
+    "constituencyName": "NAMBALE",
+    "wardCode": "001",
+    "wardName": "BUKHAYO CENTRAL"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "005",
+    "constituencyName": "NAMBALE",
+    "wardCode": "002",
+    "wardName": "BUKHAYO EAST"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "005",
+    "constituencyName": "NAMBALE",
+    "wardCode": "003",
+    "wardName": "BUKHAYO NORTH/WALTSI"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "005",
+    "constituencyName": "NAMBALE",
+    "wardCode": "004",
+    "wardName": "NAMBALE TOWNSHIP"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "006",
+    "constituencyName": "TESO NORTH",
+    "wardCode": "001",
+    "wardName": "ANG'URAI EAST"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "006",
+    "constituencyName": "TESO NORTH",
+    "wardCode": "002",
+    "wardName": "ANG'URAI NORTH"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "006",
+    "constituencyName": "TESO NORTH",
+    "wardCode": "003",
+    "wardName": "ANG'URAI SOUTH"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "006",
+    "constituencyName": "TESO NORTH",
+    "wardCode": "004",
+    "wardName": "MALABA CENTRAL"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "006",
+    "constituencyName": "TESO NORTH",
+    "wardCode": "005",
+    "wardName": "MALABA NORTH"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "006",
+    "constituencyName": "TESO NORTH",
+    "wardCode": "006",
+    "wardName": "MALABA SOUTH"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "007",
+    "constituencyName": "TESO SOUTH",
+    "wardCode": "001",
+    "wardName": "AMUKURA CENTRAL"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "007",
+    "constituencyName": "TESO SOUTH",
+    "wardCode": "002",
+    "wardName": "AMUKURA EAST"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "007",
+    "constituencyName": "TESO SOUTH",
+    "wardCode": "003",
+    "wardName": "AMUKURA WEST"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "007",
+    "constituencyName": "TESO SOUTH",
+    "wardCode": "004",
+    "wardName": "ANG'OROM"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "007",
+    "constituencyName": "TESO SOUTH",
+    "wardCode": "005",
+    "wardName": "CHAKOL NORTH"
+  },
+  {
+    "countyCode": "040",
+    "countyName": "BUSIA",
+    "constituencyCode": "007",
+    "constituencyName": "TESO SOUTH",
+    "wardCode": "006",
+    "wardName": "CHAKOL SOUTH"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "001",
+    "wardName": "BURUNDI"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "002",
+    "wardName": "CANADA"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "003",
+    "wardName": "GERMANY"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "004",
+    "wardName": "QATAR"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "005",
+    "wardName": "RWANDA"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "006",
+    "wardName": "SOUTH AFRICA"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "007",
+    "wardName": "SOUTH SUDAN"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "008",
+    "wardName": "TANZANIA"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "009",
+    "wardName": "UGANDA"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "010",
+    "wardName": "UNITED ARAB EMIRATES"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "011",
+    "wardName": "UNITED KINGDOM"
+  },
+  {
+    "countyCode": "048",
+    "countyName": "DIASPORA",
+    "constituencyCode": "001",
+    "constituencyName": "DIASPORA",
+    "wardCode": "012",
+    "wardName": "UNITED STATES OF AMERICA"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "001",
+    "constituencyName": "KEIYO NORTH",
+    "wardCode": "001",
+    "wardName": "KEIYO NORTH"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "001",
+    "constituencyName": "KEIYO NORTH",
+    "wardCode": "002",
+    "wardName": "KAMARINY"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "001",
+    "constituencyName": "KEIYO NORTH",
+    "wardCode": "003",
+    "wardName": "KAPCHEMUTWA"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "001",
+    "constituencyName": "KEIYO NORTH",
+    "wardCode": "004",
+    "wardName": "TAMBACH"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "002",
+    "constituencyName": "KEIYO SOUTH",
+    "wardCode": "001",
+    "wardName": "CHEPKORIO"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "002",
+    "constituencyName": "KEIYO SOUTH",
+    "wardCode": "002",
+    "wardName": "KABIEMIT"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "002",
+    "constituencyName": "KEIYO SOUTH",
+    "wardCode": "003",
+    "wardName": "KAPTARAKWA"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "002",
+    "constituencyName": "KEIYO SOUTH",
+    "wardCode": "004",
+    "wardName": "METKEI"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "002",
+    "constituencyName": "KEIYO SOUTH",
+    "wardCode": "005",
+    "wardName": "SOY NORTH"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "002",
+    "constituencyName": "KEIYO SOUTH",
+    "wardCode": "006",
+    "wardName": "SOY SOUTH"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "003",
+    "constituencyName": "MARAKWET EAST",
+    "wardCode": "001",
+    "wardName": "EMBOBUT / EMBULOT"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "003",
+    "constituencyName": "MARAKWET EAST",
+    "wardCode": "002",
+    "wardName": "ENDO"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "003",
+    "constituencyName": "MARAKWET EAST",
+    "wardCode": "003",
+    "wardName": "KAPYEGO"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "003",
+    "constituencyName": "MARAKWET EAST",
+    "wardCode": "004",
+    "wardName": "SAMBIRIR"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "004",
+    "constituencyName": "MARAKWET WEST",
+    "wardCode": "001",
+    "wardName": "ARROR"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "004",
+    "constituencyName": "MARAKWET WEST",
+    "wardCode": "002",
+    "wardName": "CHERANG'ANY/CHEBORORWA"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "004",
+    "constituencyName": "MARAKWET WEST",
+    "wardCode": "003",
+    "wardName": "KAPSOWAR"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "004",
+    "constituencyName": "MARAKWET WEST",
+    "wardCode": "004",
+    "wardName": "LELAN"
+  },
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "004",
+    "constituencyName": "MARAKWET WEST",
+    "wardCode": "005",
+    "wardName": "MOIBEN/KUSERWO"
+  }
+]

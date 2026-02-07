@@ -21,6 +21,7 @@ import { apiPost } from "@/utils/api";
 import batch2Data from "@/registration-data-batch-2.json";
 import batch3Data from "@/registration-data-batch-3.json";
 import batch4Data from "@/registration-data-batch-4.json";
+import batch5Data from "@/registration-data-batch-5.json";
 
 interface PollingStation {
   countyCode: string;
@@ -79,6 +80,7 @@ export default function AdminImportScreen() {
         ...batch2Data,
         ...batch3Data,
         ...batch4Data,
+        ...batch5Data,
       ];
 
       console.log("[Quick Import] Total records to import:", allData.length);
@@ -133,7 +135,7 @@ export default function AdminImportScreen() {
       const failed = response.summary?.failed || 0;
       const processed = response.summary?.processed || 0;
 
-      const successMessage = `✅ Successfully imported ${successful} out of ${processed} location records!\n\nYou can now register agents with the following counties:\n\n• ELGEYO/MARAKWET\n• EMBU\n• GARISSA\n• HOMA BAY\n• ISIOLO\n• KAJIADO\n• MANDERA\n• MARSABIT\n• MERU\n• MIGORI\n• MOMBASA\n• MURANG'A\n• NAIROBI CITY\n• SAMBURU\n• SIAYA\n• TAITA TAVETA\n• TANA RIVER\n• THARAKA-NITHI\n• TRANS NZOIA\n• TURKANA\n• UASIN GISHU\n• VIHIGA\n• WAJIR\n• WEST POKOT`;
+      const successMessage = `✅ Successfully imported ${successful} out of ${processed} location records!\n\nYou can now register agents with the following counties:\n\n• BUNGOMA\n• BUSIA\n• DIASPORA\n• ELGEYO/MARAKWET\n• EMBU\n• GARISSA\n• HOMA BAY\n• ISIOLO\n• KAJIADO\n• MANDERA\n• MARSABIT\n• MERU\n• MIGORI\n• MOMBASA\n• MURANG'A\n• NAIROBI CITY\n• SAMBURU\n• SIAYA\n• TAITA TAVETA\n• TANA RIVER\n• THARAKA-NITHI\n• TRANS NZOIA\n• TURKANA\n• UASIN GISHU\n• VIHIGA\n• WAJIR\n• WEST POKOT`;
       const failureMessage = failed > 0 ? `\n\n⚠️ ${failed} records failed to import (likely duplicates).` : "";
       const fullMessage = successMessage + failureMessage;
 
@@ -460,10 +462,13 @@ export default function AdminImportScreen() {
               />
               <Text style={styles.quickImportTitle}>One-Click Import</Text>
               <Text style={styles.quickImportDescription}>
-                Import all pre-loaded registration data for 24 counties with a single tap. This includes:
+                Import all pre-loaded registration data for 27 counties with a single tap. This includes:
               </Text>
               
               <View style={styles.countyList}>
+                <Text style={styles.countyListItem}>• BUNGOMA</Text>
+                <Text style={styles.countyListItem}>• BUSIA</Text>
+                <Text style={styles.countyListItem}>• DIASPORA</Text>
                 <Text style={styles.countyListItem}>• ELGEYO/MARAKWET</Text>
                 <Text style={styles.countyListItem}>• EMBU</Text>
                 <Text style={styles.countyListItem}>• GARISSA</Text>
@@ -492,12 +497,12 @@ export default function AdminImportScreen() {
 
               <View style={styles.statsBox}>
                 <View style={styles.statItem}>
-                  <Text style={styles.statNumber}>480+</Text>
+                  <Text style={styles.statNumber}>650+</Text>
                   <Text style={styles.statLabel}>Location Records</Text>
                 </View>
                 <View style={styles.statDivider} />
                 <View style={styles.statItem}>
-                  <Text style={styles.statNumber}>24</Text>
+                  <Text style={styles.statNumber}>27</Text>
                   <Text style={styles.statLabel}>Counties</Text>
                 </View>
               </View>

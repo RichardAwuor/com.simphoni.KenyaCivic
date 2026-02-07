@@ -15,14 +15,12 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import * as LocalAuthentication from "expo-local-authentication";
 import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import { apiPost } from "@/utils/api";
-import * as LocalAuthentication from "expo-local-authentication";
 import { useAuth } from "@/contexts/AuthContext";
-
-// Import location data directly from JSON files
 import batch2Data from "@/registration-data-batch-2.json";
 import batch3Data from "@/registration-data-batch-3.json";
 import batch4Data from "@/registration-data-batch-4.json";
@@ -413,8 +411,6 @@ export default function RegisterScreen() {
       setupBiometrics();
     }
   };
-
-
 
   const handleBack = () => {
     console.log("[Register] User tapped Back - navigating to auth screen");
@@ -927,11 +923,6 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     textAlign: "center",
   },
-  modalButtonContainer: {
-    flexDirection: "row",
-    width: "100%",
-    gap: 12,
-  },
   modalButton: {
     flex: 1,
     padding: 12,
@@ -947,17 +938,9 @@ const styles = StyleSheet.create({
   modalButtonPrimary: {
     backgroundColor: colors.primary,
   },
-  modalButtonSecondary: {
-    backgroundColor: colors.border,
-  },
   modalButtonText: {
     fontSize: 16,
     fontWeight: "600",
     color: colors.textLight,
-  },
-  modalButtonTextSecondary: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: colors.text,
   },
 });

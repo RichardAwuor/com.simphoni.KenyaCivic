@@ -16,8 +16,6 @@ import { useRouter, useLocalSearchParams } from "expo-router";
 import { colors, commonStyles } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
 import { apiPost } from "@/utils/api";
-
-// Import all batch data
 import batch2Data from "@/registration-data-batch-2.json";
 import batch3Data from "@/registration-data-batch-3.json";
 import batch4Data from "@/registration-data-batch-4.json";

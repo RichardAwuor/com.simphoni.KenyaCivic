@@ -231,7 +231,7 @@ This document tracks the status of County, Constituency, and Ward data imported 
 
 ---
 
-### Batch 13 (registration-data-batch-13.json) ✨ NEW
+### Batch 13 (registration-data-batch-13.json)
 **Counties Included:**
 - **SAMBURU** (3 constituencies, 11 wards) - NOW COMPLETE
   - SAMBURU EAST (3 wards): WAMBA EAST, WAMBA WEST, WASO
@@ -242,11 +242,52 @@ This document tracks the status of County, Constituency, and Ward data imported 
 
 ---
 
+### Batch 14 (registration-data-batch-14.json) ✨ NEW
+**Counties Included:**
+- **TURKANA** (7 constituencies, 24 wards) - NOW COMPLETE
+  - TURKANA EAST (3 wards): KAPEDO/NAPEITOM, KATILIA, LOKORI/KOCHODIN
+  - TURKANA NORTH (6 wards): KAALENG/KAIKOR, KAERIS, KIBISH, LAKE ZONE, LAPUR, NAKALALE
+  - TURKANA SOUTH (5 wards): KALAPATA, KAPUTIR, KATILU, LOBOKAT, LOKICHAR
+  - TURKANA WEST (7 wards): KAKUMA, KALOBEYEI, LETEA, LOKICHOGGIO, LOPUR, NANAAM, SONGOT
+
+- **UASIN GISHU** (6 constituencies, 30 wards) - NOW COMPLETE
+  - AINABKOI (3 wards): AINABKOI/OLARE, KAPSOYA, KAPTAGAT
+  - KAPSERET (5 wards): KIPKENYO, LANGAS, MEGUN, NGERIA, SIMAT/KAPSERET
+  - KESSES (4 wards): CHEPTIRET/KIPCHAMO, RACECOURSE, TARAKWA, TULWET/CHUIYAT
+  - MOIBEN (5 wards): KARUNA/MEIBEKI, KIMUMU, MOIBEN, SERGOIT, TEMBELIO
+  - SOY (7 wards): KAPKURES, KIPSOMBA, KUINET/KAPSUSWA, MOI'S BRIDGE, SEGERO/BARSOMBE, SOY, ZIWA
+  - TURBO (6 wards): HURUMA, KAMAGUT, KAPSAOS, KIPLOMBE, NGENYILEL, TAPSAGOI
+
+- **VIHIGA** (5 constituencies, 25 wards) - NOW COMPLETE
+  - EMUHAYA (3 wards): CENTRAL BUNYORE, NORTH EAST BUNYORE, WEST BUNYORE
+  - HAMISI (7 wards): BANJA, GISAMBAI, JEPKOYAI, MUHUDU, SHAMAKHOKHO, SHIRU, TAMBUA
+  - LUANDA (5 wards): EMABUNGO, LUANDA SOUTH, LUANDA TOWNSHIP, MWIBONA, WEMILABI
+  - SABATIA (6 wards): BUSALI, CHAVAKALI, LYADUYWA/IZAVA, NORTH MARAGOLI, WEST SABATIA, WODANGA
+  - VIHIGA (4 wards): CENTRAL MARAGOLI, LUGAGA-WAMULUMA, MUNGOMA, SOUTH MARAGOLI
+
+- **WAJIR** (6 constituencies, 28 wards) - NOW COMPLETE
+  - ELDAS (4 wards): DELLA, ELDAS, ELNUR/TULA TULA, LAKOLEY SOUTH/BASIR
+  - TARBAJ (4 wards): ELBEN, SARMAN, TARBAJ, WARGADUD
+  - WAJIR EAST (4 wards): BARWAGO, KHOROF/HARAR, TOWNSHIP, WAGBERI
+  - WAJIR NORTH (7 wards): BATALU, BUTE, DANABA, GODOMA, GURAR, KORONDILE, MALKAGUFU
+  - WAJIR SOUTH (7 wards): BENANE, BURDER, DADAJA BULLA, DIIF, HABASSWEIN, IBRAHIM URE, LAGBOGHOL SOUTH
+  - WAJIR WEST (4 wards): ADAMASAJIDE, ARBAJAHAN, GANYURE/WAGALLA, HADADO/ATHIBOHOL
+
+- **WEST POKOT** (4 constituencies, 17 wards) - NOW COMPLETE
+  - KACHELIBA (6 wards): ALALE, KAPCHOK, KASEI, KIWAWA, KODICH, SUAM
+  - KAPENGURIA (6 wards): ENDUGH, KAPENGURIA, MNAGEI, RIWO, SIYOI, SOOK
+  - POKOT SOUTH (4 wards): BATEI, CHEPARERIA, LELAN, TAPACH
+  - SIGOR (1 ward): LOMUT
+
+**Total Records:** 124
+
+---
+
 ## Summary Statistics
 
 ### Total Coverage
-- **Total Counties:** 42
-- **Total Location Records:** 1,229+
+- **Total Counties:** 47 (5 new counties completed in Batch 14)
+- **Total Location Records:** 1,353+
 - **Status:** Ready for agent registration
 
 ### Complete Counties (All Constituencies & Wards)
@@ -280,17 +321,17 @@ This document tracks the status of County, Constituency, and Ward data imported 
 28. NYANDARUA ✅
 29. NYERI ✅
 30. PRISONS ✅
-31. SAMBURU ✅ (NOW COMPLETE with Batch 13)
+31. SAMBURU ✅
 32. SIAYA ✅
 33. TAITA TAVETA ✅
 34. TANA RIVER ✅
 35. THARAKA-NITHI ✅
 36. TRANS NZOIA ✅
-37. TURKANA ✅
-38. UASIN GISHU ✅
-39. VIHIGA ✅
-40. WAJIR ✅
-41. WEST POKOT ✅
+37. TURKANA ✅ (NOW COMPLETE with Batch 14)
+38. UASIN GISHU ✅ (NOW COMPLETE with Batch 14)
+39. VIHIGA ✅ (NOW COMPLETE with Batch 14)
+40. WAJIR ✅ (NOW COMPLETE with Batch 14)
+41. WEST POKOT ✅ (NOW COMPLETE with Batch 14)
 
 ### Partial Counties (Some data available)
 - KAJIADO (partial)
@@ -305,7 +346,7 @@ This document tracks the status of County, Constituency, and Ward data imported 
 3. Tap "Import All Data Now"
 4. Wait for the import to complete (~30 seconds)
 
-This will import all batches (2-13) automatically.
+This will import all batches (2-14) automatically.
 
 ### Manual JSON Import
 If you need to import specific data:
@@ -321,12 +362,12 @@ If you need to import specific data:
 Each location record contains:
 ```json
 {
-  "countyCode": "036",
-  "countyName": "SAMBURU",
-  "constituencyCode": "003",
-  "constituencyName": "SAMBURU WEST",
+  "countyCode": "023",
+  "countyName": "TURKANA",
+  "constituencyCode": "007",
+  "constituencyName": "TURKANA WEST",
   "wardCode": "0001",
-  "wardName": "LOOSUK"
+  "wardName": "KAKUMA"
 }
 ```
 
@@ -340,7 +381,7 @@ Optional fields (auto-generated if not provided):
 ## Agent Registration
 
 Once data is imported, agents can register by selecting:
-1. **County** - From the list of 42 available counties
+1. **County** - From the list of 47 available counties
 2. **Constituency** - Filtered based on selected county
 3. **Ward** - Filtered based on selected constituency
 
@@ -348,16 +389,18 @@ The system will automatically generate a unique Agent ID code in the format:
 `COUNTYNAME-XXX-XXXX-XX`
 
 Examples:
-- `SAMBURU-003-0001-01` (for an agent in LOOSUK ward, SAMBURU WEST constituency)
-- `SAMBURU-002-0001-01` (for an agent in EL-BARTA ward, SAMBURU NORTH constituency)
-- `SAMBURU-001-0003-01` (for an agent in WASO ward, SAMBURU EAST constituency)
+- `TURKANA-007-0001-01` (for an agent in KAKUMA ward, TURKANA WEST constituency)
+- `UASIN GISHU-005-0004-01` (for an agent in MOI'S BRIDGE ward, SOY constituency)
+- `VIHIGA-002-0001-01` (for an agent in BANJA ward, HAMISI constituency)
+- `WAJIR-004-0001-01` (for an agent in BATALU ward, WAJIR NORTH constituency)
+- `WEST POKOT-001-0001-01` (for an agent in ALALE ward, KACHELIBA constituency)
 
 ---
 
 ## Next Steps
 
 To add more counties or update existing data:
-1. Create a new batch file (e.g., `registration-data-batch-14.json`)
+1. Create a new batch file (e.g., `registration-data-batch-15.json`)
 2. Add the import statement in `app/register.tsx` and `app/admin-import.tsx`
 3. Include it in the `ALL_LOCATION_DATA` array in `app/register.tsx`
 4. Include it in the `allData` array in the `handleQuickImport` function in `app/admin-import.tsx`
@@ -376,3 +419,4 @@ To add more counties or update existing data:
 - **Batch 11** completes MOMBASA, MURANG'A, and NAIROBI CITY counties with all constituencies and wards
 - **Batch 12** completes NAIROBI CITY (WESTLANDS), and adds full data for NAKURU, NANDI, NAROK, NYAMIRA, NYANDARUA, NYERI, and PRISONS counties
 - **Batch 13** completes SAMBURU county with all 3 constituencies (SAMBURU EAST, SAMBURU NORTH, SAMBURU WEST) and 11 wards
+- **Batch 14** completes TURKANA (7 constituencies, 24 wards), UASIN GISHU (6 constituencies, 30 wards), VIHIGA (5 constituencies, 25 wards), WAJIR (6 constituencies, 28 wards), and WEST POKOT (4 constituencies, 17 wards) - bringing the total to 47 complete counties

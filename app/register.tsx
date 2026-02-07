@@ -35,6 +35,7 @@ import batch10Data from "@/registration-data-batch-10.json";
 import batch11Data from "@/registration-data-batch-11.json";
 import batch12Data from "@/registration-data-batch-12.json";
 import batch13Data from "@/registration-data-batch-13.json";
+import batch14Data from "@/registration-data-batch-14.json";
 
 interface LocationRecord {
   countyCode: string;
@@ -69,6 +70,7 @@ const ALL_LOCATION_DATA: LocationRecord[] = [
   ...batch11Data,
   ...batch12Data,
   ...batch13Data,
+  ...batch14Data,
 ] as LocationRecord[];
 
 // Extract unique counties from the location data

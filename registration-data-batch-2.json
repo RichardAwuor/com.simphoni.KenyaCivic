@@ -1,0 +1,931 @@
+
+[
+  {
+    "countyCode": "028",
+    "countyName": "ELGEYO/MARAKWET",
+    "constituencyCode": "004",
+    "constituencyName": "MARAKWET WEST",
+    "wardCode": "005",
+    "wardName": "SENGWER"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "002",
+    "constituencyName": "MANYATTA",
+    "wardCode": "001",
+    "wardName": "GATURI SOUTH"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "002",
+    "constituencyName": "MANYATTA",
+    "wardCode": "002",
+    "wardName": "KIRIMARI"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "002",
+    "constituencyName": "MANYATTA",
+    "wardCode": "003",
+    "wardName": "KITHIMU"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "002",
+    "constituencyName": "MANYATTA",
+    "wardCode": "004",
+    "wardName": "MBETI NORTH"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "002",
+    "constituencyName": "MANYATTA",
+    "wardCode": "005",
+    "wardName": "NGINDA"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "002",
+    "constituencyName": "MANYATTA",
+    "wardCode": "006",
+    "wardName": "RUGURU/NGANDORI"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "003",
+    "constituencyName": "MBEERE NORTH",
+    "wardCode": "001",
+    "wardName": "EVURORE"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "003",
+    "constituencyName": "MBEERE NORTH",
+    "wardCode": "002",
+    "wardName": "MUMINJI"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "003",
+    "constituencyName": "MBEERE NORTH",
+    "wardCode": "003",
+    "wardName": "NTHAWA"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "004",
+    "constituencyName": "MBEERE SOUTH",
+    "wardCode": "001",
+    "wardName": "KIAMBERE"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "004",
+    "constituencyName": "MBEERE SOUTH",
+    "wardCode": "002",
+    "wardName": "MAKIMA"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "004",
+    "constituencyName": "MBEERE SOUTH",
+    "wardCode": "003",
+    "wardName": "MAVURIA"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "004",
+    "constituencyName": "MBEERE SOUTH",
+    "wardCode": "004",
+    "wardName": "MBETI SOUTH"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "004",
+    "constituencyName": "MBEERE SOUTH",
+    "wardCode": "005",
+    "wardName": "MWEA"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "001",
+    "constituencyName": "RUNYENJES",
+    "wardCode": "001",
+    "wardName": "CENTRAL WARD"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "001",
+    "constituencyName": "RUNYENJES",
+    "wardCode": "002",
+    "wardName": "GATURI NORTH"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "001",
+    "constituencyName": "RUNYENJES",
+    "wardCode": "003",
+    "wardName": "KAGAARI NORTH"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "001",
+    "constituencyName": "RUNYENJES",
+    "wardCode": "004",
+    "wardName": "KAGAARI SOUTH"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "001",
+    "constituencyName": "RUNYENJES",
+    "wardCode": "005",
+    "wardName": "KYENI NORTH"
+  },
+  {
+    "countyCode": "014",
+    "countyName": "EMBU",
+    "constituencyCode": "001",
+    "constituencyName": "RUNYENJES",
+    "wardCode": "006",
+    "wardName": "KYENI SOUTH"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "001",
+    "constituencyName": "BALAMBALA",
+    "wardCode": "001",
+    "wardName": "BALAMBALA"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "001",
+    "constituencyName": "BALAMBALA",
+    "wardCode": "002",
+    "wardName": "DANYERE"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "001",
+    "constituencyName": "BALAMBALA",
+    "wardCode": "003",
+    "wardName": "JARA JARA"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "001",
+    "constituencyName": "BALAMBALA",
+    "wardCode": "004",
+    "wardName": "SAKA"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "001",
+    "constituencyName": "BALAMBALA",
+    "wardCode": "005",
+    "wardName": "SANKURI"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "002",
+    "constituencyName": "DADAAB",
+    "wardCode": "001",
+    "wardName": "ABAKAILE"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "002",
+    "constituencyName": "DADAAB",
+    "wardCode": "002",
+    "wardName": "DADAAB"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "002",
+    "constituencyName": "DADAAB",
+    "wardCode": "003",
+    "wardName": "DAMAJALE"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "002",
+    "constituencyName": "DADAAB",
+    "wardCode": "004",
+    "wardName": "DERTU"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "002",
+    "constituencyName": "DADAAB",
+    "wardCode": "005",
+    "wardName": "LABASIGALE"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "002",
+    "constituencyName": "DADAAB",
+    "wardCode": "006",
+    "wardName": "LIBOI"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "003",
+    "constituencyName": "FAFI",
+    "wardCode": "001",
+    "wardName": "BURA"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "003",
+    "constituencyName": "FAFI",
+    "wardCode": "002",
+    "wardName": "DEKAHARIA"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "003",
+    "constituencyName": "FAFI",
+    "wardCode": "003",
+    "wardName": "FAFI"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "003",
+    "constituencyName": "FAFI",
+    "wardCode": "004",
+    "wardName": "JARAJILA"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "003",
+    "constituencyName": "FAFI",
+    "wardCode": "005",
+    "wardName": "NANIGHI"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "004",
+    "constituencyName": "GARISSA TOWNSHIP",
+    "wardCode": "001",
+    "wardName": "GALBET"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "004",
+    "constituencyName": "GARISSA TOWNSHIP",
+    "wardCode": "002",
+    "wardName": "IFTIN"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "004",
+    "constituencyName": "GARISSA TOWNSHIP",
+    "wardCode": "003",
+    "wardName": "TOWNSHIP"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "004",
+    "constituencyName": "GARISSA TOWNSHIP",
+    "wardCode": "004",
+    "wardName": "WABERI"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "005",
+    "constituencyName": "IJARA",
+    "wardCode": "001",
+    "wardName": "HULUGHO"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "005",
+    "constituencyName": "IJARA",
+    "wardCode": "002",
+    "wardName": "IJARA"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "005",
+    "constituencyName": "IJARA",
+    "wardCode": "003",
+    "wardName": "MASALANI"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "005",
+    "constituencyName": "IJARA",
+    "wardCode": "004",
+    "wardName": "SANGAILU"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "006",
+    "constituencyName": "LAGDERA",
+    "wardCode": "001",
+    "wardName": "BARAKI"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "006",
+    "constituencyName": "LAGDERA",
+    "wardCode": "002",
+    "wardName": "BENANE"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "006",
+    "constituencyName": "LAGDERA",
+    "wardCode": "003",
+    "wardName": "GOREALE"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "006",
+    "constituencyName": "LAGDERA",
+    "wardCode": "004",
+    "wardName": "MAALIMIN"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "006",
+    "constituencyName": "LAGDERA",
+    "wardCode": "005",
+    "wardName": "MODOGASHE"
+  },
+  {
+    "countyCode": "007",
+    "countyName": "GARISSA",
+    "constituencyCode": "006",
+    "constituencyName": "LAGDERA",
+    "wardCode": "006",
+    "wardName": "SABENA"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "001",
+    "constituencyName": "HOMA BAY TOWN",
+    "wardCode": "001",
+    "wardName": "HOMA BAY ARUJO"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "001",
+    "constituencyName": "HOMA BAY TOWN",
+    "wardCode": "002",
+    "wardName": "HOMA BAY CENTRAL"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "001",
+    "constituencyName": "HOMA BAY TOWN",
+    "wardCode": "003",
+    "wardName": "HOMA BAY EAST"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "001",
+    "constituencyName": "HOMA BAY TOWN",
+    "wardCode": "004",
+    "wardName": "HOMA BAY WEST"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "002",
+    "constituencyName": "KABONDO KASIPUL",
+    "wardCode": "001",
+    "wardName": "KABONDO EAST"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "002",
+    "constituencyName": "KABONDO KASIPUL",
+    "wardCode": "002",
+    "wardName": "KABONDO WEST"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "002",
+    "constituencyName": "KABONDO KASIPUL",
+    "wardCode": "003",
+    "wardName": "KOJWACH"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "002",
+    "constituencyName": "KABONDO KASIPUL",
+    "wardCode": "004",
+    "wardName": "KOKWANYO/KAKELO"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "003",
+    "constituencyName": "KARACHUONYO",
+    "wardCode": "001",
+    "wardName": "CENTRAL"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "003",
+    "constituencyName": "KARACHUONYO",
+    "wardCode": "002",
+    "wardName": "KANYALUO"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "003",
+    "constituencyName": "KARACHUONYO",
+    "wardCode": "003",
+    "wardName": "KENDU BAY TOWN"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "003",
+    "constituencyName": "KARACHUONYO",
+    "wardCode": "004",
+    "wardName": "KIBIRI"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "003",
+    "constituencyName": "KARACHUONYO",
+    "wardCode": "005",
+    "wardName": "NORTH KARACHUONYO"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "003",
+    "constituencyName": "KARACHUONYO",
+    "wardCode": "006",
+    "wardName": "WANGCHIENG"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "003",
+    "constituencyName": "KARACHUONYO",
+    "wardCode": "007",
+    "wardName": "WEST KARACHUONYO"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "004",
+    "constituencyName": "KASIPUL",
+    "wardCode": "001",
+    "wardName": "CENTRAL KASIPUL"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "004",
+    "constituencyName": "KASIPUL",
+    "wardCode": "002",
+    "wardName": "EAST KAMAGAK"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "004",
+    "constituencyName": "KASIPUL",
+    "wardCode": "003",
+    "wardName": "SOUTH KASIPUL"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "004",
+    "constituencyName": "KASIPUL",
+    "wardCode": "004",
+    "wardName": "WEST KAMAGAK"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "004",
+    "constituencyName": "KASIPUL",
+    "wardCode": "005",
+    "wardName": "WEST KASIPUL"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "005",
+    "constituencyName": "NDHIWA",
+    "wardCode": "001",
+    "wardName": "KABUOCH NORTH"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "005",
+    "constituencyName": "NDHIWA",
+    "wardCode": "002",
+    "wardName": "KABUOCH SOUTH/PALA"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "005",
+    "constituencyName": "NDHIWA",
+    "wardCode": "003",
+    "wardName": "KANYADOTO"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "005",
+    "constituencyName": "NDHIWA",
+    "wardCode": "004",
+    "wardName": "KANYAMWA KOLOGI"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "005",
+    "constituencyName": "NDHIWA",
+    "wardCode": "005",
+    "wardName": "KANYAMWA KOSEWE"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "005",
+    "constituencyName": "NDHIWA",
+    "wardCode": "006",
+    "wardName": "KANYIKELA"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "005",
+    "constituencyName": "NDHIWA",
+    "wardCode": "007",
+    "wardName": "KWABWAI"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "006",
+    "constituencyName": "RANGWE",
+    "wardCode": "001",
+    "wardName": "EAST GEM"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "006",
+    "constituencyName": "RANGWE",
+    "wardCode": "002",
+    "wardName": "KAGAN"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "006",
+    "constituencyName": "RANGWE",
+    "wardCode": "003",
+    "wardName": "KOCHIA"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "006",
+    "constituencyName": "RANGWE",
+    "wardCode": "004",
+    "wardName": "WEST GEM"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "007",
+    "constituencyName": "SUBA NORTH",
+    "wardCode": "001",
+    "wardName": "SUBA NORTH"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "007",
+    "constituencyName": "SUBA NORTH",
+    "wardCode": "002",
+    "wardName": "KASGUNGA"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "007",
+    "constituencyName": "SUBA NORTH",
+    "wardCode": "003",
+    "wardName": "LAMBWE"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "007",
+    "constituencyName": "SUBA NORTH",
+    "wardCode": "004",
+    "wardName": "MFANGANO ISLAND"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "007",
+    "constituencyName": "SUBA NORTH",
+    "wardCode": "005",
+    "wardName": "RUSINGA ISLAND"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "008",
+    "constituencyName": "SUBA SOUTH",
+    "wardCode": "001",
+    "wardName": "GWASSI NORTH"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "008",
+    "constituencyName": "SUBA SOUTH",
+    "wardCode": "002",
+    "wardName": "GWASSI SOUTH"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "008",
+    "constituencyName": "SUBA SOUTH",
+    "wardCode": "003",
+    "wardName": "KAKSINGRI WEST"
+  },
+  {
+    "countyCode": "043",
+    "countyName": "HOMA BAY",
+    "constituencyCode": "008",
+    "constituencyName": "SUBA SOUTH",
+    "wardCode": "004",
+    "wardName": "RUMA-KAKSINGRI"
+  },
+  {
+    "countyCode": "011",
+    "countyName": "ISIOLO",
+    "constituencyCode": "001",
+    "constituencyName": "ISIOLO NORTH",
+    "wardCode": "001",
+    "wardName": "BULLA PESA"
+  },
+  {
+    "countyCode": "011",
+    "countyName": "ISIOLO",
+    "constituencyCode": "001",
+    "constituencyName": "ISIOLO NORTH",
+    "wardCode": "002",
+    "wardName": "BURAT"
+  },
+  {
+    "countyCode": "011",
+    "countyName": "ISIOLO",
+    "constituencyCode": "001",
+    "constituencyName": "ISIOLO NORTH",
+    "wardCode": "003",
+    "wardName": "ISIOLO NORTH"
+  },
+  {
+    "countyCode": "011",
+    "countyName": "ISIOLO",
+    "constituencyCode": "001",
+    "constituencyName": "ISIOLO NORTH",
+    "wardCode": "004",
+    "wardName": "CHERAB"
+  },
+  {
+    "countyCode": "011",
+    "countyName": "ISIOLO",
+    "constituencyCode": "001",
+    "constituencyName": "ISIOLO NORTH",
+    "wardCode": "005",
+    "wardName": "NGARE MARA"
+  },
+  {
+    "countyCode": "011",
+    "countyName": "ISIOLO",
+    "constituencyCode": "001",
+    "constituencyName": "ISIOLO NORTH",
+    "wardCode": "006",
+    "wardName": "OLDO/NYIRO"
+  },
+  {
+    "countyCode": "011",
+    "countyName": "ISIOLO",
+    "constituencyCode": "001",
+    "constituencyName": "ISIOLO NORTH",
+    "wardCode": "007",
+    "wardName": "WABERA"
+  },
+  {
+    "countyCode": "011",
+    "countyName": "ISIOLO",
+    "constituencyCode": "002",
+    "constituencyName": "ISIOLO SOUTH",
+    "wardCode": "001",
+    "wardName": "GARBATULLA"
+  },
+  {
+    "countyCode": "011",
+    "countyName": "ISIOLO",
+    "constituencyCode": "002",
+    "constituencyName": "ISIOLO SOUTH",
+    "wardCode": "002",
+    "wardName": "KINNA"
+  },
+  {
+    "countyCode": "011",
+    "countyName": "ISIOLO",
+    "constituencyCode": "002",
+    "constituencyName": "ISIOLO SOUTH",
+    "wardCode": "003",
+    "wardName": "SERICHO"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "001",
+    "constituencyName": "KAJIADO CENTRAL",
+    "wardCode": "001",
+    "wardName": "DALALEKUTUK"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "001",
+    "constituencyName": "KAJIADO CENTRAL",
+    "wardCode": "002",
+    "wardName": "ILDAMAT"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "001",
+    "constituencyName": "KAJIADO CENTRAL",
+    "wardCode": "003",
+    "wardName": "MATAPATO NORTH"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "001",
+    "constituencyName": "KAJIADO CENTRAL",
+    "wardCode": "004",
+    "wardName": "MATAPATO SOUTH"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "001",
+    "constituencyName": "KAJIADO CENTRAL",
+    "wardCode": "005",
+    "wardName": "PURKO"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "002",
+    "constituencyName": "KAJIADO EAST",
+    "wardCode": "001",
+    "wardName": "IMARORO"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "002",
+    "constituencyName": "KAJIADO EAST",
+    "wardCode": "002",
+    "wardName": "KAPUTIEI NORTH"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "002",
+    "constituencyName": "KAJIADO EAST",
+    "wardCode": "003",
+    "wardName": "KENYAWA-POKA"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "002",
+    "constituencyName": "KAJIADO EAST",
+    "wardCode": "004",
+    "wardName": "KITENGELA"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "002",
+    "constituencyName": "KAJIADO EAST",
+    "wardCode": "005",
+    "wardName": "OLOOSIRKON/SHOLINKE"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "003",
+    "constituencyName": "KAJIADO NORTH",
+    "wardCode": "001",
+    "wardName": "NGONG"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "003",
+    "constituencyName": "KAJIADO NORTH",
+    "wardCode": "002",
+    "wardName": "NKAIMURUNYA"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "003",
+    "constituencyName": "KAJIADO NORTH",
+    "wardCode": "003",
+    "wardName": "OLKERI"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "003",
+    "constituencyName": "KAJIADO NORTH",
+    "wardCode": "004",
+    "wardName": "OLOOLUA"
+  },
+  {
+    "countyCode": "034",
+    "countyName": "KAJIADO",
+    "constituencyCode": "003",
+    "constituencyName": "KAJIADO NORTH",
+    "wardCode": "005",
+    "wardName": "ONGATA RONGAI"
+  }
+]

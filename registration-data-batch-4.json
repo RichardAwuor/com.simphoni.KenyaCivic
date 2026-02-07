@@ -919,5 +919,1005 @@
     "constituencyName": "TURKANA EAST",
     "wardCode": "001",
     "wardName": "KAPEDO/NAPEITOM"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "003",
+    "constituencyName": "TURKANA EAST",
+    "wardCode": "002",
+    "wardName": "KATILIA"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "003",
+    "constituencyName": "TURKANA EAST",
+    "wardCode": "003",
+    "wardName": "LOKORI/KOCHODIN"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "004",
+    "constituencyName": "TURKANA NORTH",
+    "wardCode": "001",
+    "wardName": "KAALENG/KAIKOR"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "004",
+    "constituencyName": "TURKANA NORTH",
+    "wardCode": "002",
+    "wardName": "KAERIS"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "004",
+    "constituencyName": "TURKANA NORTH",
+    "wardCode": "003",
+    "wardName": "KIBISH"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "004",
+    "constituencyName": "TURKANA NORTH",
+    "wardCode": "004",
+    "wardName": "LAKE ZONE"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "004",
+    "constituencyName": "TURKANA NORTH",
+    "wardCode": "005",
+    "wardName": "LAPUR"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "004",
+    "constituencyName": "TURKANA NORTH",
+    "wardCode": "006",
+    "wardName": "NAKALALE"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "005",
+    "constituencyName": "TURKANA SOUTH",
+    "wardCode": "001",
+    "wardName": "KALAPATA"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "005",
+    "constituencyName": "TURKANA SOUTH",
+    "wardCode": "002",
+    "wardName": "KAPUTIR"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "005",
+    "constituencyName": "TURKANA SOUTH",
+    "wardCode": "003",
+    "wardName": "KATILU"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "005",
+    "constituencyName": "TURKANA SOUTH",
+    "wardCode": "004",
+    "wardName": "LOBOKAT"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "005",
+    "constituencyName": "TURKANA SOUTH",
+    "wardCode": "005",
+    "wardName": "LOKICHAR"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "006",
+    "constituencyName": "TURKANA WEST",
+    "wardCode": "001",
+    "wardName": "KAKUMA"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "006",
+    "constituencyName": "TURKANA WEST",
+    "wardCode": "002",
+    "wardName": "KALOBEYEI"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "006",
+    "constituencyName": "TURKANA WEST",
+    "wardCode": "003",
+    "wardName": "LETEA"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "006",
+    "constituencyName": "TURKANA WEST",
+    "wardCode": "004",
+    "wardName": "LOKICHOGGIO"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "006",
+    "constituencyName": "TURKANA WEST",
+    "wardCode": "005",
+    "wardName": "LOPUR"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "006",
+    "constituencyName": "TURKANA WEST",
+    "wardCode": "006",
+    "wardName": "NANAAM"
+  },
+  {
+    "countyCode": "004",
+    "countyName": "TURKANA",
+    "constituencyCode": "006",
+    "constituencyName": "TURKANA WEST",
+    "wardCode": "007",
+    "wardName": "SONGOT"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "001",
+    "constituencyName": "AINABKOI",
+    "wardCode": "001",
+    "wardName": "AINABKOI/OLARE"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "001",
+    "constituencyName": "AINABKOI",
+    "wardCode": "002",
+    "wardName": "KAPSOYA"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "001",
+    "constituencyName": "AINABKOI",
+    "wardCode": "003",
+    "wardName": "KAPTAGAT"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "002",
+    "constituencyName": "KAPSERET",
+    "wardCode": "001",
+    "wardName": "KIPKENYO"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "002",
+    "constituencyName": "KAPSERET",
+    "wardCode": "002",
+    "wardName": "LANGAS"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "002",
+    "constituencyName": "KAPSERET",
+    "wardCode": "003",
+    "wardName": "MEGUN"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "002",
+    "constituencyName": "KAPSERET",
+    "wardCode": "004",
+    "wardName": "NGERIA"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "002",
+    "constituencyName": "KAPSERET",
+    "wardCode": "005",
+    "wardName": "SIMAT/KAPSERET"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "003",
+    "constituencyName": "KESSES",
+    "wardCode": "001",
+    "wardName": "CHEPTIRET/KIPCHAMO"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "003",
+    "constituencyName": "KESSES",
+    "wardCode": "002",
+    "wardName": "RACECOURSE"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "003",
+    "constituencyName": "KESSES",
+    "wardCode": "003",
+    "wardName": "TARAKWA"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "003",
+    "constituencyName": "KESSES",
+    "wardCode": "004",
+    "wardName": "TULWET/CHUIYAT"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "004",
+    "constituencyName": "MOIBEN",
+    "wardCode": "001",
+    "wardName": "KARUNA/MEIBEKI"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "004",
+    "constituencyName": "MOIBEN",
+    "wardCode": "002",
+    "wardName": "KIMUMU"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "004",
+    "constituencyName": "MOIBEN",
+    "wardCode": "003",
+    "wardName": "MOIBEN"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "004",
+    "constituencyName": "MOIBEN",
+    "wardCode": "004",
+    "wardName": "SERGOIT"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "004",
+    "constituencyName": "MOIBEN",
+    "wardCode": "005",
+    "wardName": "TEMBELIO"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "005",
+    "constituencyName": "SOY",
+    "wardCode": "001",
+    "wardName": "KAPKURES"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "005",
+    "constituencyName": "SOY",
+    "wardCode": "002",
+    "wardName": "KIPSOMBA"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "005",
+    "constituencyName": "SOY",
+    "wardCode": "003",
+    "wardName": "KUINET/KAPSUSWA"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "005",
+    "constituencyName": "SOY",
+    "wardCode": "004",
+    "wardName": "MOI'S BRIDGE"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "005",
+    "constituencyName": "SOY",
+    "wardCode": "005",
+    "wardName": "SEGERO/BARSOMBE"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "005",
+    "constituencyName": "SOY",
+    "wardCode": "006",
+    "wardName": "SOY"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "005",
+    "constituencyName": "SOY",
+    "wardCode": "007",
+    "wardName": "ZIWA"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "006",
+    "constituencyName": "TURBO",
+    "wardCode": "001",
+    "wardName": "HURUMA"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "006",
+    "constituencyName": "TURBO",
+    "wardCode": "002",
+    "wardName": "KAMAGUT"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "006",
+    "constituencyName": "TURBO",
+    "wardCode": "003",
+    "wardName": "KAPSAOS"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "006",
+    "constituencyName": "TURBO",
+    "wardCode": "004",
+    "wardName": "KIPLOMBE"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "006",
+    "constituencyName": "TURBO",
+    "wardCode": "005",
+    "wardName": "NGENYILEL"
+  },
+  {
+    "countyCode": "027",
+    "countyName": "UASIN GISHU",
+    "constituencyCode": "006",
+    "constituencyName": "TURBO",
+    "wardCode": "006",
+    "wardName": "TAPSAGOI"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "001",
+    "constituencyName": "EMUHAYA",
+    "wardCode": "001",
+    "wardName": "CENTRAL BUNYORE"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "001",
+    "constituencyName": "EMUHAYA",
+    "wardCode": "002",
+    "wardName": "NORTH EAST BUNYORE"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "001",
+    "constituencyName": "EMUHAYA",
+    "wardCode": "003",
+    "wardName": "WEST BUNYORE"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "002",
+    "constituencyName": "HAMISI",
+    "wardCode": "001",
+    "wardName": "BANJA"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "002",
+    "constituencyName": "HAMISI",
+    "wardCode": "002",
+    "wardName": "GISAMBAI"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "002",
+    "constituencyName": "HAMISI",
+    "wardCode": "003",
+    "wardName": "JEPKOYAI"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "002",
+    "constituencyName": "HAMISI",
+    "wardCode": "004",
+    "wardName": "MUHUDU"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "002",
+    "constituencyName": "HAMISI",
+    "wardCode": "005",
+    "wardName": "SHAMAKHOKHO"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "002",
+    "constituencyName": "HAMISI",
+    "wardCode": "006",
+    "wardName": "SHIRU"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "002",
+    "constituencyName": "HAMISI",
+    "wardCode": "007",
+    "wardName": "TAMBUA"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "003",
+    "constituencyName": "LUANDA",
+    "wardCode": "001",
+    "wardName": "EMABUNGO"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "003",
+    "constituencyName": "LUANDA",
+    "wardCode": "002",
+    "wardName": "LUANDA SOUTH"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "003",
+    "constituencyName": "LUANDA",
+    "wardCode": "003",
+    "wardName": "LUANDA TOWNSHIP"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "003",
+    "constituencyName": "LUANDA",
+    "wardCode": "004",
+    "wardName": "MWIBONA"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "003",
+    "constituencyName": "LUANDA",
+    "wardCode": "005",
+    "wardName": "WEMILABI"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "004",
+    "constituencyName": "SABATIA",
+    "wardCode": "001",
+    "wardName": "BUSALI"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "004",
+    "constituencyName": "SABATIA",
+    "wardCode": "002",
+    "wardName": "CHAVAKALI"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "004",
+    "constituencyName": "SABATIA",
+    "wardCode": "003",
+    "wardName": "LYADUYWA/IZAVA"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "004",
+    "constituencyName": "SABATIA",
+    "wardCode": "004",
+    "wardName": "NORTH MARAGOLI"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "004",
+    "constituencyName": "SABATIA",
+    "wardCode": "005",
+    "wardName": "WEST SABATIA"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "004",
+    "constituencyName": "SABATIA",
+    "wardCode": "006",
+    "wardName": "WODANGA"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "005",
+    "constituencyName": "VIHIGA",
+    "wardCode": "001",
+    "wardName": "CENTRAL MARAGOLI"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "005",
+    "constituencyName": "VIHIGA",
+    "wardCode": "002",
+    "wardName": "LUGAGA-WAMULUMA"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "005",
+    "constituencyName": "VIHIGA",
+    "wardCode": "003",
+    "wardName": "MUNGOMA"
+  },
+  {
+    "countyCode": "037",
+    "countyName": "VIHIGA",
+    "constituencyCode": "005",
+    "constituencyName": "VIHIGA",
+    "wardCode": "004",
+    "wardName": "SOUTH MARAGOLI"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "001",
+    "constituencyName": "ELDAS",
+    "wardCode": "001",
+    "wardName": "DELLA"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "001",
+    "constituencyName": "ELDAS",
+    "wardCode": "002",
+    "wardName": "ELDAS"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "001",
+    "constituencyName": "ELDAS",
+    "wardCode": "003",
+    "wardName": "ELNUR/TULA TULA"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "001",
+    "constituencyName": "ELDAS",
+    "wardCode": "004",
+    "wardName": "LAKOLEY SOUTH/BASIR"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "002",
+    "constituencyName": "TARBAJ",
+    "wardCode": "001",
+    "wardName": "ELBEN"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "002",
+    "constituencyName": "TARBAJ",
+    "wardCode": "002",
+    "wardName": "SARMAN"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "002",
+    "constituencyName": "TARBAJ",
+    "wardCode": "003",
+    "wardName": "TARBAJ"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "002",
+    "constituencyName": "TARBAJ",
+    "wardCode": "004",
+    "wardName": "WARGADUD"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "003",
+    "constituencyName": "WAJIR EAST",
+    "wardCode": "001",
+    "wardName": "BARWAGO"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "003",
+    "constituencyName": "WAJIR EAST",
+    "wardCode": "002",
+    "wardName": "KHOROF/HARAR"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "003",
+    "constituencyName": "WAJIR EAST",
+    "wardCode": "003",
+    "wardName": "TOWNSHIP"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "003",
+    "constituencyName": "WAJIR EAST",
+    "wardCode": "004",
+    "wardName": "WAGBERI"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "004",
+    "constituencyName": "WAJIR NORTH",
+    "wardCode": "001",
+    "wardName": "BATALU"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "004",
+    "constituencyName": "WAJIR NORTH",
+    "wardCode": "002",
+    "wardName": "BUTE"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "004",
+    "constituencyName": "WAJIR NORTH",
+    "wardCode": "003",
+    "wardName": "DANABA"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "004",
+    "constituencyName": "WAJIR NORTH",
+    "wardCode": "004",
+    "wardName": "GODOMA"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "004",
+    "constituencyName": "WAJIR NORTH",
+    "wardCode": "005",
+    "wardName": "GURAR"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "004",
+    "constituencyName": "WAJIR NORTH",
+    "wardCode": "006",
+    "wardName": "KORONDILE"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "004",
+    "constituencyName": "WAJIR NORTH",
+    "wardCode": "007",
+    "wardName": "MALKAGUFU"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "005",
+    "constituencyName": "WAJIR SOUTH",
+    "wardCode": "001",
+    "wardName": "BENANE"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "005",
+    "constituencyName": "WAJIR SOUTH",
+    "wardCode": "002",
+    "wardName": "BURDER"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "005",
+    "constituencyName": "WAJIR SOUTH",
+    "wardCode": "003",
+    "wardName": "DADAJA BULLA"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "005",
+    "constituencyName": "WAJIR SOUTH",
+    "wardCode": "004",
+    "wardName": "DIIF"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "005",
+    "constituencyName": "WAJIR SOUTH",
+    "wardCode": "005",
+    "wardName": "HABASSWEIN"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "005",
+    "constituencyName": "WAJIR SOUTH",
+    "wardCode": "006",
+    "wardName": "IBRAHIM URE"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "005",
+    "constituencyName": "WAJIR SOUTH",
+    "wardCode": "007",
+    "wardName": "LAGBOGHOL SOUTH"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "006",
+    "constituencyName": "WAJIR WEST",
+    "wardCode": "001",
+    "wardName": "ADAMASAJIDE"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "006",
+    "constituencyName": "WAJIR WEST",
+    "wardCode": "002",
+    "wardName": "ARBAJAHAN"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "006",
+    "constituencyName": "WAJIR WEST",
+    "wardCode": "003",
+    "wardName": "GANYURE/WAGALLA"
+  },
+  {
+    "countyCode": "008",
+    "countyName": "WAJIR",
+    "constituencyCode": "006",
+    "constituencyName": "WAJIR WEST",
+    "wardCode": "004",
+    "wardName": "HADADO/ATHIBOHOL"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "001",
+    "constituencyName": "KACHELIBA",
+    "wardCode": "001",
+    "wardName": "ALALE"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "001",
+    "constituencyName": "KACHELIBA",
+    "wardCode": "002",
+    "wardName": "KAPCHOK"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "001",
+    "constituencyName": "KACHELIBA",
+    "wardCode": "003",
+    "wardName": "KASEI"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "001",
+    "constituencyName": "KACHELIBA",
+    "wardCode": "004",
+    "wardName": "KIWAWA"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "001",
+    "constituencyName": "KACHELIBA",
+    "wardCode": "005",
+    "wardName": "KODICH"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "001",
+    "constituencyName": "KACHELIBA",
+    "wardCode": "006",
+    "wardName": "SUAM"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "002",
+    "constituencyName": "KAPENGURIA",
+    "wardCode": "001",
+    "wardName": "ENDUGH"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "002",
+    "constituencyName": "KAPENGURIA",
+    "wardCode": "002",
+    "wardName": "KAPENGURIA"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "002",
+    "constituencyName": "KAPENGURIA",
+    "wardCode": "003",
+    "wardName": "MNAGEI"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "002",
+    "constituencyName": "KAPENGURIA",
+    "wardCode": "004",
+    "wardName": "RIWO"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "002",
+    "constituencyName": "KAPENGURIA",
+    "wardCode": "005",
+    "wardName": "SIYOI"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "002",
+    "constituencyName": "KAPENGURIA",
+    "wardCode": "006",
+    "wardName": "SOOK"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "003",
+    "constituencyName": "POKOT SOUTH",
+    "wardCode": "001",
+    "wardName": "BATEI"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "003",
+    "constituencyName": "POKOT SOUTH",
+    "wardCode": "002",
+    "wardName": "CHEPARERIA"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "003",
+    "constituencyName": "POKOT SOUTH",
+    "wardCode": "003",
+    "wardName": "LELAN"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "003",
+    "constituencyName": "POKOT SOUTH",
+    "wardCode": "004",
+    "wardName": "TAPACH"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "004",
+    "constituencyName": "SIGOR",
+    "wardCode": "001",
+    "wardName": "LOMUT"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "004",
+    "constituencyName": "SIGOR",
+    "wardCode": "002",
+    "wardName": "MASOOL"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "004",
+    "constituencyName": "SIGOR",
+    "wardCode": "003",
+    "wardName": "SEKERR"
+  },
+  {
+    "countyCode": "024",
+    "countyName": "WEST POKOT",
+    "constituencyCode": "004",
+    "constituencyName": "SIGOR",
+    "wardCode": "004",
+    "wardName": "WEIWEI"
   }
 ]

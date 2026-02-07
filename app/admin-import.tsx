@@ -23,6 +23,7 @@ import batch3Data from "@/registration-data-batch-3.json";
 import batch4Data from "@/registration-data-batch-4.json";
 import batch5Data from "@/registration-data-batch-5.json";
 import batch6Data from "@/registration-data-batch-6.json";
+import batch7Data from "@/registration-data-batch-7.json";
 
 interface PollingStation {
   countyCode: string;
@@ -74,6 +75,7 @@ export default function AdminImportScreen() {
         { name: "Batch 4", data: batch4Data },
         { name: "Batch 5", data: batch5Data },
         { name: "Batch 6", data: batch6Data },
+        { name: "Batch 7", data: batch7Data },
       ];
 
       let totalImported = 0;
@@ -268,7 +270,8 @@ export default function AdminImportScreen() {
               <Text style={styles.batchItem}>• Batch 3: MOMBASA (continued)</Text>
               <Text style={styles.batchItem}>• Batch 4: MOMBASA (continued)</Text>
               <Text style={styles.batchItem}>• Batch 5: BUNGOMA, BUSIA, DIASPORA, ELGEYO/MARAKWET</Text>
-              <Text style={styles.batchItem}>• Batch 6: EMBU, GARISSA, HOMA BAY, ISIOLO, KAJIADO, KAKAMEGA, KERICHO, KIAMBU</Text>
+              <Text style={styles.batchItem}>• Batch 6: EMBU, GARISSA, HOMA BAY, ISIOLO, KAJIADO, KAKAMEGA, KERICHO, KIAMBU (partial)</Text>
+              <Text style={styles.batchItem}>• Batch 7: KIAMBU (complete), KILIFI, KIRINYAGA, KISII</Text>
             </View>
 
             <TouchableOpacity

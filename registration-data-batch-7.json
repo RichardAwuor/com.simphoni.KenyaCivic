@@ -1,0 +1,971 @@
+
+[
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "004",
+    "constituencyName": "JUJA",
+    "wardCode": "001",
+    "wardName": "JUJA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "004",
+    "constituencyName": "JUJA",
+    "wardCode": "002",
+    "wardName": "KALIMONI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "004",
+    "constituencyName": "JUJA",
+    "wardCode": "003",
+    "wardName": "MURERA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "004",
+    "constituencyName": "JUJA",
+    "wardCode": "004",
+    "wardName": "THETA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "004",
+    "constituencyName": "JUJA",
+    "wardCode": "005",
+    "wardName": "WITEITHIE"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "005",
+    "constituencyName": "KABETE",
+    "wardCode": "001",
+    "wardName": "GITARU"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "005",
+    "constituencyName": "KABETE",
+    "wardCode": "002",
+    "wardName": "KABETE"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "005",
+    "constituencyName": "KABETE",
+    "wardCode": "003",
+    "wardName": "MUGUGA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "005",
+    "constituencyName": "KABETE",
+    "wardCode": "004",
+    "wardName": "NYADHUNA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "005",
+    "constituencyName": "KABETE",
+    "wardCode": "005",
+    "wardName": "UTHIRU"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "006",
+    "constituencyName": "KIAMBAA",
+    "wardCode": "001",
+    "wardName": "CIANDA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "006",
+    "constituencyName": "KIAMBAA",
+    "wardCode": "002",
+    "wardName": "KARURI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "006",
+    "constituencyName": "KIAMBAA",
+    "wardCode": "003",
+    "wardName": "KIHARA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "006",
+    "constituencyName": "KIAMBAA",
+    "wardCode": "004",
+    "wardName": "MUCHATHA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "006",
+    "constituencyName": "KIAMBAA",
+    "wardCode": "005",
+    "wardName": "NDENDERU"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "007",
+    "constituencyName": "KIAMBU",
+    "wardCode": "001",
+    "wardName": "NDUMBERI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "007",
+    "constituencyName": "KIAMBU",
+    "wardCode": "002",
+    "wardName": "RIABAI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "007",
+    "constituencyName": "KIAMBU",
+    "wardCode": "003",
+    "wardName": "TING'ANG'A"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "007",
+    "constituencyName": "KIAMBU",
+    "wardCode": "004",
+    "wardName": "TOWNSHIP"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "008",
+    "constituencyName": "KIKUYU",
+    "wardCode": "001",
+    "wardName": "KARAI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "008",
+    "constituencyName": "KIKUYU",
+    "wardCode": "002",
+    "wardName": "KIKUYU"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "008",
+    "constituencyName": "KIKUYU",
+    "wardCode": "003",
+    "wardName": "KINOO"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "008",
+    "constituencyName": "KIKUYU",
+    "wardCode": "004",
+    "wardName": "NACHU"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "008",
+    "constituencyName": "KIKUYU",
+    "wardCode": "005",
+    "wardName": "SIGONA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "009",
+    "constituencyName": "LARI",
+    "wardCode": "001",
+    "wardName": "LARI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "009",
+    "constituencyName": "LARI",
+    "wardCode": "002",
+    "wardName": "KIJABE"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "009",
+    "constituencyName": "LARI",
+    "wardCode": "003",
+    "wardName": "KINALE"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "009",
+    "constituencyName": "LARI",
+    "wardCode": "004",
+    "wardName": "LARI/KIRENGA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "009",
+    "constituencyName": "LARI",
+    "wardCode": "005",
+    "wardName": "NYANDUMA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "010",
+    "constituencyName": "LIMURU",
+    "wardCode": "001",
+    "wardName": "BIBIRIONI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "010",
+    "constituencyName": "LIMURU",
+    "wardCode": "002",
+    "wardName": "LIMURU CENTRAL"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "010",
+    "constituencyName": "LIMURU",
+    "wardCode": "003",
+    "wardName": "LIMURU EAST"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "010",
+    "constituencyName": "LIMURU",
+    "wardCode": "004",
+    "wardName": "NDEIYA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "010",
+    "constituencyName": "LIMURU",
+    "wardCode": "005",
+    "wardName": "NGECHA TIGONI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "011",
+    "constituencyName": "RUIRU",
+    "wardCode": "001",
+    "wardName": "BIASHARA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "011",
+    "constituencyName": "RUIRU",
+    "wardCode": "002",
+    "wardName": "GATONGORA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "011",
+    "constituencyName": "RUIRU",
+    "wardCode": "003",
+    "wardName": "GITOTHUA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "011",
+    "constituencyName": "RUIRU",
+    "wardCode": "004",
+    "wardName": "KAHAWA SUKARI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "011",
+    "constituencyName": "RUIRU",
+    "wardCode": "005",
+    "wardName": "KAHAWA WENDANI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "011",
+    "constituencyName": "RUIRU",
+    "wardCode": "006",
+    "wardName": "KIUU"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "011",
+    "constituencyName": "RUIRU",
+    "wardCode": "007",
+    "wardName": "MWIHOKO"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "011",
+    "constituencyName": "RUIRU",
+    "wardCode": "008",
+    "wardName": "MWIKI"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "012",
+    "constituencyName": "THIKA TOWN",
+    "wardCode": "001",
+    "wardName": "GATUANYAGA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "012",
+    "constituencyName": "THIKA TOWN",
+    "wardCode": "002",
+    "wardName": "THIKA TOWN"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "012",
+    "constituencyName": "THIKA TOWN",
+    "wardCode": "003",
+    "wardName": "KAMENU"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "012",
+    "constituencyName": "THIKA TOWN",
+    "wardCode": "004",
+    "wardName": "NGOLIBA"
+  },
+  {
+    "countyCode": "022",
+    "countyName": "KIAMBU",
+    "constituencyCode": "012",
+    "constituencyName": "THIKA TOWN",
+    "wardCode": "005",
+    "wardName": "TOWNSHIP"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "001",
+    "constituencyName": "KILIFI",
+    "wardCode": "001",
+    "wardName": "BAMBA"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "001",
+    "constituencyName": "KILIFI",
+    "wardCode": "002",
+    "wardName": "GANZE"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "001",
+    "constituencyName": "KILIFI",
+    "wardCode": "003",
+    "wardName": "JARIBUNI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "001",
+    "constituencyName": "KILIFI",
+    "wardCode": "004",
+    "wardName": "SOKOKE"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "002",
+    "constituencyName": "KALOLENI",
+    "wardCode": "001",
+    "wardName": "KALOLENI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "002",
+    "constituencyName": "KALOLENI",
+    "wardCode": "002",
+    "wardName": "KAYAFUNGO"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "002",
+    "constituencyName": "KALOLENI",
+    "wardCode": "003",
+    "wardName": "MARIAKANI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "002",
+    "constituencyName": "KALOLENI",
+    "wardCode": "004",
+    "wardName": "MWANAMWINGA"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "003",
+    "constituencyName": "KILIFI NORTH",
+    "wardCode": "001",
+    "wardName": "DABASO"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "003",
+    "constituencyName": "KILIFI NORTH",
+    "wardCode": "002",
+    "wardName": "KIBARANI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "003",
+    "constituencyName": "KILIFI NORTH",
+    "wardCode": "003",
+    "wardName": "MATSANGONI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "003",
+    "constituencyName": "KILIFI NORTH",
+    "wardCode": "004",
+    "wardName": "MNARANI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "003",
+    "constituencyName": "KILIFI NORTH",
+    "wardCode": "005",
+    "wardName": "SOKONI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "003",
+    "constituencyName": "KILIFI NORTH",
+    "wardCode": "006",
+    "wardName": "TEZO"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "003",
+    "constituencyName": "KILIFI NORTH",
+    "wardCode": "007",
+    "wardName": "WATAMU"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "004",
+    "constituencyName": "KILIFI SOUTH",
+    "wardCode": "001",
+    "wardName": "CHASIMBA"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "004",
+    "constituencyName": "KILIFI SOUTH",
+    "wardCode": "002",
+    "wardName": "JUNJU"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "004",
+    "constituencyName": "KILIFI SOUTH",
+    "wardCode": "003",
+    "wardName": "MTEPENI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "004",
+    "constituencyName": "KILIFI SOUTH",
+    "wardCode": "004",
+    "wardName": "MWARAKAYA"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "004",
+    "constituencyName": "KILIFI SOUTH",
+    "wardCode": "005",
+    "wardName": "SHIMO LA TEWA"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "005",
+    "constituencyName": "MAGARINI",
+    "wardCode": "001",
+    "wardName": "ADU"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "005",
+    "constituencyName": "MAGARINI",
+    "wardCode": "002",
+    "wardName": "GARASHI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "005",
+    "constituencyName": "MAGARINI",
+    "wardCode": "003",
+    "wardName": "GONGONI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "005",
+    "constituencyName": "MAGARINI",
+    "wardCode": "004",
+    "wardName": "MAGARINI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "005",
+    "constituencyName": "MAGARINI",
+    "wardCode": "005",
+    "wardName": "MARAFA"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "005",
+    "constituencyName": "MAGARINI",
+    "wardCode": "006",
+    "wardName": "SABAKI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "006",
+    "constituencyName": "MALINDI",
+    "wardCode": "001",
+    "wardName": "GANDA"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "006",
+    "constituencyName": "MALINDI",
+    "wardCode": "002",
+    "wardName": "JILORE"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "006",
+    "constituencyName": "MALINDI",
+    "wardCode": "003",
+    "wardName": "KAKUYUNI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "006",
+    "constituencyName": "MALINDI",
+    "wardCode": "004",
+    "wardName": "MALINDI TOWN"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "006",
+    "constituencyName": "MALINDI",
+    "wardCode": "005",
+    "wardName": "SHELLA"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "007",
+    "constituencyName": "RABAI",
+    "wardCode": "001",
+    "wardName": "KAMBE/RIBE"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "007",
+    "constituencyName": "RABAI",
+    "wardCode": "002",
+    "wardName": "MWAWESA"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "007",
+    "constituencyName": "RABAI",
+    "wardCode": "003",
+    "wardName": "RABAI/KISURUTINI"
+  },
+  {
+    "countyCode": "003",
+    "countyName": "KILIFI",
+    "constituencyCode": "007",
+    "constituencyName": "RABAI",
+    "wardCode": "004",
+    "wardName": "RURUMA"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "001",
+    "constituencyName": "GICHUGU",
+    "wardCode": "001",
+    "wardName": "BARAGWI"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "001",
+    "constituencyName": "GICHUGU",
+    "wardCode": "002",
+    "wardName": "KABARE"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "001",
+    "constituencyName": "GICHUGU",
+    "wardCode": "003",
+    "wardName": "KARUMANDI"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "001",
+    "constituencyName": "GICHUGU",
+    "wardCode": "004",
+    "wardName": "NGARIAMA"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "001",
+    "constituencyName": "GICHUGU",
+    "wardCode": "005",
+    "wardName": "NJUKIINI"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "002",
+    "constituencyName": "KIRINYAGA CENTRAL",
+    "wardCode": "001",
+    "wardName": "INOI"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "002",
+    "constituencyName": "KIRINYAGA CENTRAL",
+    "wardCode": "002",
+    "wardName": "KANYEKINI"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "002",
+    "constituencyName": "KIRINYAGA CENTRAL",
+    "wardCode": "003",
+    "wardName": "KERUGOYA"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "002",
+    "constituencyName": "KIRINYAGA CENTRAL",
+    "wardCode": "004",
+    "wardName": "MUTIRA"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "003",
+    "constituencyName": "MWEA",
+    "wardCode": "001",
+    "wardName": "GATHIGIRIRI"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "003",
+    "constituencyName": "MWEA",
+    "wardCode": "002",
+    "wardName": "KANGAI"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "003",
+    "constituencyName": "MWEA",
+    "wardCode": "003",
+    "wardName": "MURINDUKO"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "003",
+    "constituencyName": "MWEA",
+    "wardCode": "004",
+    "wardName": "MUTITHI"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "003",
+    "constituencyName": "MWEA",
+    "wardCode": "005",
+    "wardName": "NYANGATI"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "003",
+    "constituencyName": "MWEA",
+    "wardCode": "006",
+    "wardName": "TEBERE"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "003",
+    "constituencyName": "MWEA",
+    "wardCode": "007",
+    "wardName": "THIBA"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "003",
+    "constituencyName": "MWEA",
+    "wardCode": "008",
+    "wardName": "WAMUMU"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "004",
+    "constituencyName": "NDIA",
+    "wardCode": "001",
+    "wardName": "KARITI"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "004",
+    "constituencyName": "NDIA",
+    "wardCode": "002",
+    "wardName": "KIINE"
+  },
+  {
+    "countyCode": "020",
+    "countyName": "KIRINYAGA",
+    "constituencyCode": "004",
+    "constituencyName": "NDIA",
+    "wardCode": "003",
+    "wardName": "MUKURE"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "001",
+    "constituencyName": "BOBASI",
+    "wardCode": "001",
+    "wardName": "BASI BOGETAORIO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "001",
+    "constituencyName": "BOBASI",
+    "wardCode": "002",
+    "wardName": "BASI CENTRAL"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "001",
+    "constituencyName": "BOBASI",
+    "wardCode": "003",
+    "wardName": "BOBASI BOITANGARE"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "001",
+    "constituencyName": "BOBASI",
+    "wardCode": "004",
+    "wardName": "BOBASI CHACHE"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "001",
+    "constituencyName": "BOBASI",
+    "wardCode": "005",
+    "wardName": "MASIGE EAST"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "001",
+    "constituencyName": "BOBASI",
+    "wardCode": "006",
+    "wardName": "MASIGE WEST"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "001",
+    "constituencyName": "BOBASI",
+    "wardCode": "007",
+    "wardName": "NYACHEKI"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "001",
+    "constituencyName": "BOBASI",
+    "wardCode": "008",
+    "wardName": "SAMETA/MOKWERERO"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "002",
+    "constituencyName": "BOMACHOGE BORABU",
+    "wardCode": "001",
+    "wardName": "BOKIMONGE"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "002",
+    "constituencyName": "BOMACHOGE BORABU",
+    "wardCode": "002",
+    "wardName": "BOMBABA BORABU"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "002",
+    "constituencyName": "BOMACHOGE BORABU",
+    "wardCode": "003",
+    "wardName": "BOOCHI BORABU"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "002",
+    "constituencyName": "BOMACHOGE BORABU",
+    "wardCode": "004",
+    "wardName": "MAGENCHE"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "003",
+    "constituencyName": "BOMACHOGE CHACHE",
+    "wardCode": "001",
+    "wardName": "BOOCHI/TENDERE"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "003",
+    "constituencyName": "BOMACHOGE CHACHE",
+    "wardCode": "002",
+    "wardName": "BOSOTI/SENGERA"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "003",
+    "constituencyName": "BOMACHOGE CHACHE",
+    "wardCode": "003",
+    "wardName": "MAJOGE BASI"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "004",
+    "constituencyName": "BONCHARI",
+    "wardCode": "001",
+    "wardName": "BOGIAKUMU"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "004",
+    "constituencyName": "BONCHARI",
+    "wardCode": "002",
+    "wardName": "BOMARIBA"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "004",
+    "constituencyName": "BONCHARI",
+    "wardCode": "003",
+    "wardName": "BOMORENDA"
+  },
+  {
+    "countyCode": "045",
+    "countyName": "KISII",
+    "constituencyCode": "004",
+    "constituencyName": "BONCHARI",
+    "wardCode": "004",
+    "wardName": "RIANA"
+  }
+]

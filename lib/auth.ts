@@ -27,14 +27,10 @@ export const authClient = createAuthClient({
       storage,
     }),
   ],
-  // On web, use cookies (credentials: include) and fallback to bearer token
+  // On web, use cookies (credentials: include)
   ...(Platform.OS === "web" && {
     fetchOptions: {
-      credentials: "include",
-      auth: {
-        type: "Bearer" as const,
-        token: () => localStorage.getItem(BEARER_TOKEN_KEY) || "",
-      },
+      credentials: "include" as RequestCredentials,
     },
   }),
 });

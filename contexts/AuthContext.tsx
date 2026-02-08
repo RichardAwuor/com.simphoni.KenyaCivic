@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { Platform } from "react-native";
 import * as Linking from "expo-linking";
@@ -76,7 +77,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     // Listen for deep links (e.g. from social auth redirects)
     const subscription = Linking.addEventListener("url", (event) => {
-      console.log("Deep link received, refreshing user session");
+      console.log("[Auth] Deep link received, refreshing user session");
       // Allow time for the client to process the token if needed
       setTimeout(() => fetchUser(), 500);
     });
@@ -84,7 +85,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     // POLLING: Refresh session every 5 minutes to keep SecureStore token in sync
     // This prevents 401 errors when the session token rotates
     const intervalId = setInterval(() => {
-      console.log("Auto-refreshing user session to sync token...");
+      console.log("[Auth] Auto-refreshing user session to sync token...");
       fetchUser();
     }, 5 * 60 * 1000); // 5 minutes
 
@@ -97,6 +98,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const fetchUser = async () => {
     try {
       setLoading(true);
+      
+      // Check if auth client is initialized
+      if (!authClient) {
+        console.warn("[Auth] Auth client not initialized. Backend may not be configured.");
+        setUser(null);
+        setLoading(false);
+        return;
+      }
+
       const session = await authClient.getSession();
       if (session?.data?.user) {
         setUser(session.data.user as User);
@@ -109,7 +119,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         await clearAuthTokens();
       }
     } catch (error) {
-      console.error("Failed to fetch user:", error);
+      console.error("[Auth] Failed to fetch user:", error);
       setUser(null);
     } finally {
       setLoading(false);
@@ -117,31 +127,42 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signInWithEmail = async (email: string, password: string) => {
+    if (!authClient) {
+      throw new Error("Authentication service not available. Backend not configured.");
+    }
+    
     try {
       await authClient.signIn.email({ email, password });
       await fetchUser();
     } catch (error) {
-      console.error("Email sign in failed:", error);
+      console.error("[Auth] Email sign in failed:", error);
       throw error;
     }
   };
 
   const signUpWithEmail = async (email: string, password: string, name?: string) => {
+    if (!authClient) {
+      throw new Error("Authentication service not available. Backend not configured.");
+    }
+    
     try {
       await authClient.signUp.email({
         email,
         password,
         name,
-        // Ensure name is passed in header or logic if required, usually passed in body
       });
       await fetchUser();
     } catch (error) {
-      console.error("Email sign up failed:", error);
+      console.error("[Auth] Email sign up failed:", error);
       throw error;
     }
   };
 
   const signInWithSocial = async (provider: "google" | "apple" | "github") => {
+    if (!authClient) {
+      throw new Error("Authentication service not available. Backend not configured.");
+    }
+    
     try {
       if (Platform.OS === "web") {
         const token = await openOAuthPopup(provider);
@@ -154,16 +175,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           provider,
           callbackURL,
         });
-        // Note: The redirect will reload the app or be handled by deep linking.
-        // fetchUser will be called on mount or via event listener if needed.
-        // For simple flow, we might need to listen to URL events.
-        // But better-auth expo client handles the redirect and session storage?
-        // We typically need to wait or rely on fetchUser on next app load.
-        // For now, call fetchUser just in case.
         await fetchUser();
       }
     } catch (error) {
-      console.error(`${provider} sign in failed:`, error);
+      console.error(`[Auth] ${provider} sign in failed:`, error);
       throw error;
     }
   };
@@ -174,9 +189,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = async () => {
     try {
-      await authClient.signOut();
+      if (authClient) {
+        await authClient.signOut();
+      }
     } catch (error) {
-      console.error("Sign out failed (API):", error);
+      console.error("[Auth] Sign out failed (API):", error);
     } finally {
        // Always clear local state
        setUser(null);

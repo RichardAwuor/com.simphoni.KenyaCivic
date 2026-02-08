@@ -6,7 +6,7 @@ import { Stack, useRouter, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { SystemBars } from "react-native-edge-to-edge";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { useColorScheme, View, ActivityIndicator } from "react-native";
+import { useColorScheme, View, ActivityIndicator, Text, StyleSheet } from "react-native";
 import { useNetworkState } from "expo-network";
 import {
   DarkTheme,
@@ -17,6 +17,7 @@ import {
 import { StatusBar } from "expo-status-bar";
 import { WidgetProvider } from "@/contexts/WidgetContext";
 import { AuthProvider, useAuth } from "@/contexts/AuthContext";
+import { isBackendConfigured } from "@/utils/api";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -30,6 +31,7 @@ function RootLayoutNav() {
   const segments = useSegments();
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
+  const backendConfigured = isBackendConfigured();
 
   useEffect(() => {
     if (loading || isNavigating) {
@@ -49,7 +51,19 @@ function RootLayoutNav() {
       inAuthGroup,
       inWelcome,
       inTabs,
+      backendConfigured,
     });
+
+    // If backend is not configured, allow access to welcome and admin-import only
+    if (!backendConfigured) {
+      if (inTabs || inAuthGroup) {
+        console.log("[RootLayout] Backend not configured, redirecting to welcome");
+        setIsNavigating(true);
+        router.replace("/");
+        setTimeout(() => setIsNavigating(false), 500);
+      }
+      return;
+    }
 
     // If user is authenticated
     if (user) {
@@ -71,21 +85,16 @@ function RootLayoutNav() {
         router.replace("/");
         setTimeout(() => setIsNavigating(false), 500);
       }
-      // If user is on admin-import without auth, redirect to welcome
-      else if (inAdminImport) {
-        console.log("[RootLayout] User not authenticated, redirecting from admin-import to welcome");
-        setIsNavigating(true);
-        router.replace("/");
-        setTimeout(() => setIsNavigating(false), 500);
-      }
+      // If user is on admin-import without auth, allow it (admin-import doesn't require auth)
       // Otherwise, let them stay on welcome, auth, or register screens
     }
-  }, [user, loading, segments, router, isNavigating]);
+  }, [user, loading, segments, router, isNavigating, backendConfigured]);
 
   if (loading) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#F2F2F7" }}>
+      <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#007AFF" />
+        <Text style={styles.loadingText}>Loading...</Text>
       </View>
     );
   }
@@ -177,3 +186,17 @@ export default function RootLayout() {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F2F2F7",
+  },
+  loadingText: {
+    marginTop: 16,
+    fontSize: 16,
+    color: "#007AFF",
+  },
+});

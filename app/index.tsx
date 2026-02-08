@@ -8,23 +8,46 @@ import {
   Image,
   Platform,
   ScrollView,
+  Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { colors } from "@/styles/commonStyles";
 import { IconSymbol } from "@/components/IconSymbol";
+import { isBackendConfigured } from "@/utils/api";
 
 export default function WelcomeScreen() {
   const router = useRouter();
   const [logoTapCount, setLogoTapCount] = useState(0);
+  const backendConfigured = isBackendConfigured();
 
   const handleSignIn = () => {
     console.log("User tapped Sign In button");
+    
+    if (!backendConfigured) {
+      Alert.alert(
+        "Backend Not Configured",
+        "The backend service is not available. Please use the Quick Import Data feature to set up the system, or contact your administrator.",
+        [{ text: "OK" }]
+      );
+      return;
+    }
+    
     router.push("/auth");
   };
 
   const handleRegister = () => {
     console.log("User tapped Register button");
+    
+    if (!backendConfigured) {
+      Alert.alert(
+        "Backend Not Configured",
+        "The backend service is not available. Please use the Quick Import Data feature to set up the system, or contact your administrator.",
+        [{ text: "OK" }]
+      );
+      return;
+    }
+    
     router.push("/register");
   };
 
@@ -47,12 +70,26 @@ export default function WelcomeScreen() {
 
   const handleQuickImport = () => {
     console.log("User tapped Quick Import button");
-    router.push("/bulk-import");
+    router.push("/admin-import");
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
+        {!backendConfigured && (
+          <View style={styles.warningBanner}>
+            <IconSymbol
+              ios_icon_name="exclamationmark.triangle.fill"
+              android_material_icon_name="warning"
+              size={20}
+              color="#FF9500"
+            />
+            <Text style={styles.warningText}>
+              Backend service not configured. Use Quick Import to set up.
+            </Text>
+          </View>
+        )}
+
         <View style={styles.header}>
           <TouchableOpacity onPress={handleLogoTap} activeOpacity={0.8}>
             <Image
@@ -108,12 +145,22 @@ export default function WelcomeScreen() {
         </View>
 
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.primaryButton} onPress={handleSignIn}>
+          <TouchableOpacity 
+            style={[styles.primaryButton, !backendConfigured && styles.disabledButton]} 
+            onPress={handleSignIn}
+            disabled={!backendConfigured}
+          >
             <Text style={styles.primaryButtonText}>Sign In</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.secondaryButton} onPress={handleRegister}>
-            <Text style={styles.secondaryButtonText}>Register as Agent</Text>
+          <TouchableOpacity 
+            style={[styles.secondaryButton, !backendConfigured && styles.disabledSecondaryButton]} 
+            onPress={handleRegister}
+            disabled={!backendConfigured}
+          >
+            <Text style={[styles.secondaryButtonText, !backendConfigured && styles.disabledSecondaryButtonText]}>
+              Register as Agent
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.adminButton} onPress={handleQuickImport}>
@@ -146,6 +193,23 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     padding: 24,
     paddingTop: Platform.OS === "android" ? 48 : 24,
+  },
+  warningBanner: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#FFF3CD",
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 16,
+    borderWidth: 1,
+    borderColor: "#FF9500",
+  },
+  warningText: {
+    flex: 1,
+    marginLeft: 8,
+    fontSize: 14,
+    color: "#856404",
+    fontWeight: "500",
   },
   header: {
     alignItems: "center",
@@ -229,6 +293,17 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  disabledButton: {
+    backgroundColor: "#CCCCCC",
+    ...Platform.select({
+      ios: {
+        shadowOpacity: 0.1,
+      },
+      android: {
+        elevation: 1,
+      },
+    }),
+  },
   primaryButtonText: {
     color: "#FFFFFF",
     fontSize: 18,
@@ -243,10 +318,16 @@ const styles = StyleSheet.create({
     borderColor: colors.primary,
     marginBottom: 12,
   },
+  disabledSecondaryButton: {
+    borderColor: "#CCCCCC",
+  },
   secondaryButtonText: {
     color: colors.primary,
     fontSize: 18,
     fontWeight: "600",
+  },
+  disabledSecondaryButtonText: {
+    color: "#CCCCCC",
   },
   adminButton: {
     backgroundColor: colors.card,

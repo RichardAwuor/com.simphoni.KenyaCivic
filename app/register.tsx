@@ -141,7 +141,7 @@ export default function RegisterScreen() {
   const emailValid = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const confirmEmailValid = confirmEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(confirmEmail);
 
-  // Load constituencies when county is selected (directly from JSON data)
+  // Load constituencies when county is selected
   useEffect(() => {
     if (!selectedCounty) {
       setConstituencies([]);
@@ -192,7 +192,7 @@ export default function RegisterScreen() {
     }
   }, [selectedCounty]);
 
-  // Load wards when constituency is selected (directly from JSON data)
+  // Load wards when constituency is selected
   useEffect(() => {
     if (!selectedCounty || !selectedConstituency) {
       setWards([]);
@@ -369,7 +369,7 @@ export default function RegisterScreen() {
 
     setLoading(true);
     try {
-      // Generate a secure password (user won't need to remember it - they'll use biometrics)
+      // Generate a secure password
       const generatedPassword = `${nationalId}-${Date.now()}-${Math.random().toString(36)}`;
       
       const registrationData = {
@@ -398,7 +398,6 @@ export default function RegisterScreen() {
       setAgentId(response.userId);
       setAgentCode(response.agentCode);
       
-      // The backend automatically creates a session after registration
       // Refresh auth context to get the new user session
       await fetchUser();
       
@@ -420,7 +419,6 @@ export default function RegisterScreen() {
   const handleModalClose = () => {
     setShowModal(false);
     if (biometricStep) {
-      // Proceed to biometric setup
       setupBiometrics();
     }
   };

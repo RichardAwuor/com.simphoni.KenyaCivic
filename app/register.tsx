@@ -54,7 +54,6 @@ interface Ward {
   name: string;
 }
 
-// Combine all batch data into a single array
 const batch2 = batch2Data as LocationRecord[];
 const batch3 = batch3Data as LocationRecord[];
 const batch4 = batch4Data as LocationRecord[];
@@ -84,7 +83,6 @@ const ALL_LOCATION_DATA: LocationRecord[] = batch2.concat(
   batch14
 );
 
-// Extract unique counties from the location data
 const COUNTIES = Array.from(
   new Map(
     ALL_LOCATION_DATA.map((record) => [
@@ -99,7 +97,6 @@ export default function RegisterScreen() {
   const { fetchUser } = useAuth();
   const [loading, setLoading] = useState(false);
   
-  // Form state
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -111,23 +108,19 @@ export default function RegisterScreen() {
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [nationalId, setNationalId] = useState("");
   
-  // Picker states
   const [showCountyPicker, setShowCountyPicker] = useState(false);
   const [showConstituencyPicker, setShowConstituencyPicker] = useState(false);
   const [showWardPicker, setShowWardPicker] = useState(false);
   
-  // Data states
   const [constituencies, setConstituencies] = useState<Constituency[]>([]);
   const [wards, setWards] = useState<Ward[]>([]);
   
-  // Modal state
   const [showModal, setShowModal] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
   const [modalType, setModalType] = useState<"success" | "error" | "info">("success");
   const [showImportButton, setShowImportButton] = useState(false);
   
-  // Biometric state
   const [biometricStep, setBiometricStep] = useState(false);
   const [agentId, setAgentId] = useState("");
   const [agentCode, setAgentCode] = useState("");
@@ -136,12 +129,10 @@ export default function RegisterScreen() {
   const selectedConstituencyData = constituencies.find(c => c.code === selectedConstituency);
   const selectedWardData = wards.find(w => w.code === selectedWard);
 
-  // Email validation
   const emailsMatch = email && confirmEmail && email === confirmEmail;
   const emailValid = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const confirmEmailValid = confirmEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(confirmEmail);
 
-  // Load constituencies when county is selected
   useEffect(() => {
     if (!selectedCounty) {
       setConstituencies([]);
@@ -156,12 +147,10 @@ export default function RegisterScreen() {
     setWards([]);
     setSelectedWard("");
 
-    // Filter location data by selected county
     const countyData = ALL_LOCATION_DATA.filter(
       (record) => record.countyCode === selectedCounty
     );
 
-    // Extract unique constituencies
     const constituenciesMap = new Map<string, Constituency>();
     countyData.forEach((record) => {
       if (record.constituencyCode && record.constituencyName) {
@@ -192,7 +181,6 @@ export default function RegisterScreen() {
     }
   }, [selectedCounty]);
 
-  // Load wards when constituency is selected
   useEffect(() => {
     if (!selectedCounty || !selectedConstituency) {
       setWards([]);
@@ -203,14 +191,12 @@ export default function RegisterScreen() {
     console.log("[Register] Loading wards for constituency:", selectedConstituency);
     setSelectedWard("");
 
-    // Filter location data by selected county and constituency
     const constituencyData = ALL_LOCATION_DATA.filter(
       (record) =>
         record.countyCode === selectedCounty &&
         record.constituencyCode === selectedConstituency
     );
 
-    // Extract unique wards
     const wardsMap = new Map<string, Ward>();
     constituencyData.forEach((record) => {
       if (record.wardCode && record.wardName) {
@@ -304,7 +290,6 @@ export default function RegisterScreen() {
     console.log("[Register] Starting biometric setup");
     
     try {
-      // Check if biometrics are available
       const hasHardware = await LocalAuthentication.hasHardwareAsync();
       const isEnrolled = await LocalAuthentication.isEnrolledAsync();
       
@@ -318,7 +303,6 @@ export default function RegisterScreen() {
         return;
       }
       
-      // Prompt for biometric authentication
       const result = await LocalAuthentication.authenticateAsync({
         promptMessage: "Set up biometric authentication for CIVIC",
         cancelLabel: "Cancel",
@@ -332,7 +316,6 @@ export default function RegisterScreen() {
       
       console.log("[Register] Biometric authentication successful, enabling on server");
       
-      // Enable biometrics on the server
       setLoading(true);
       const response = await apiPost("/api/agents/enable-biometric", { agentId });
       
@@ -345,7 +328,6 @@ export default function RegisterScreen() {
           false
         );
         
-        // Navigate to On-Location after a delay
         setTimeout(() => {
           router.replace("/(tabs)/on-location");
         }, 3000);
@@ -369,7 +351,6 @@ export default function RegisterScreen() {
 
     setLoading(true);
     try {
-      // Generate a secure password
       const generatedPassword = `${nationalId}-${Date.now()}-${Math.random().toString(36)}`;
       
       const registrationData = {
@@ -394,14 +375,11 @@ export default function RegisterScreen() {
       
       console.log("[Register] Registration successful:", response);
       
-      // Store agent info for biometric setup
       setAgentId(response.userId);
       setAgentCode(response.agentCode);
       
-      // Refresh auth context to get the new user session
       await fetchUser();
       
-      // Show biometric setup step
       setBiometricStep(true);
       setModalTitle("Registration Successful!");
       setModalMessage(`Your agent code is: ${response.agentCode}\n\nNext step: Set up biometric authentication to complete your registration.`);

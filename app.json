@@ -32,7 +32,7 @@
         "backgroundColor": "#000000"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.simphoni.shilingi",
+      "package": "com.simphoni.kenyacivic",
       "versionCode": 13,
       "permissions": [
         "CAMERA",

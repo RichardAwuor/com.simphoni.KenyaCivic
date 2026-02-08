@@ -64,22 +64,35 @@ export default function AdminImportScreen() {
   const handleQuickImport = async () => {
     console.log("[AdminImport] User tapped Quick Import - importing all batches");
     
-    // Combine all batch data
-    const allData = [
-      ...batch2Data,
-      ...batch3Data,
-      ...batch4Data,
-      ...batch5Data,
-      ...batch6Data,
-      ...batch7Data,
-      ...batch8Data,
-      ...batch9Data,
-      ...batch10Data,
-      ...batch11Data,
-      ...batch12Data,
-      ...batch13Data,
-      ...batch14Data,
-    ];
+    // Combine all batch data using concat instead of spread
+    const batch2 = batch2Data as PollingStation[];
+    const batch3 = batch3Data as PollingStation[];
+    const batch4 = batch4Data as PollingStation[];
+    const batch5 = batch5Data as PollingStation[];
+    const batch6 = batch6Data as PollingStation[];
+    const batch7 = batch7Data as PollingStation[];
+    const batch8 = batch8Data as PollingStation[];
+    const batch9 = batch9Data as PollingStation[];
+    const batch10 = batch10Data as PollingStation[];
+    const batch11 = batch11Data as PollingStation[];
+    const batch12 = batch12Data as PollingStation[];
+    const batch13 = batch13Data as PollingStation[];
+    const batch14 = batch14Data as PollingStation[];
+
+    const allData = batch2.concat(
+      batch3,
+      batch4,
+      batch5,
+      batch6,
+      batch7,
+      batch8,
+      batch9,
+      batch10,
+      batch11,
+      batch12,
+      batch13,
+      batch14
+    );
 
     console.log("[AdminImport] Total records to import:", allData.length);
 

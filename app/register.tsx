@@ -54,6 +54,7 @@ interface Ward {
   name: string;
 }
 
+// Cast JSON imports to typed arrays for Hermes compatibility
 const batch2 = batch2Data as LocationRecord[];
 const batch3 = batch3Data as LocationRecord[];
 const batch4 = batch4Data as LocationRecord[];
@@ -68,6 +69,7 @@ const batch12 = batch12Data as LocationRecord[];
 const batch13 = batch13Data as LocationRecord[];
 const batch14 = batch14Data as LocationRecord[];
 
+// Combine all location data using concat for Hermes compatibility
 const ALL_LOCATION_DATA: LocationRecord[] = batch2.concat(
   batch3,
   batch4,

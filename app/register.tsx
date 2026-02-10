@@ -85,6 +85,8 @@ const ALL_LOCATION_DATA: LocationRecord[] = batch2.concat(
   batch14
 );
 
+console.log("[Register] Location data loaded - total records:", ALL_LOCATION_DATA.length);
+
 const COUNTIES = Array.from(
   new Map(
     ALL_LOCATION_DATA.map((record) => [
